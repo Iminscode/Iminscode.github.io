@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>dark主题显示优化 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">dark主题显示优化</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 23, 2023&nbsp;&nbsp;16:47:55</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Configuration/">Configuration</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="优化Dark主题"><a href="#优化Dark主题" class="headerlink" title="优化Dark主题"></a>优化Dark主题</h2><blockquote>
+<p>在dark主题下，部分标签样式显示不统一，比如在dark主题下，代码块的背景颜色是亮白色，和黑色背景反差较大。为了解决这个问题，有了本次优化。</p>
+</blockquote>
+<h3 id="1-修改代码及代码块的背景色"><a href="#1-修改代码及代码块的背景色" class="headerlink" title="1. 修改代码及代码块的背景色"></a>1. 修改代码及代码块的背景色</h3><ul>
+<li><p>在<code>“\source\css\_page\_post\post_code.styl&quot;</code>文件里，找到第一行的<code>.post-content</code>，其中<code>code</code>表示代码。<code>figure.highlight</code>表示代码块</p>
+</li>
+<li><p>在<a target="_blank" rel="noopener" href="https://github.com/donglex/hexo-theme-Chic">hexo-theme-Chic</a>这个主题下，分为dark-theme主题和默认的白色主图。</p>
+</li>
+<li><p>如何要在电脑端和手机端完美的显示黑色主题，保证代码背景色统一，需要修改成以下代码</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">code</span></span><br><span class="line">    <span class="attribute">line-height</span> <span class="number">1.7em</span></span><br><span class="line">    <span class="attribute">padding</span> <span class="number">3px</span> <span class="number">5px</span></span><br><span class="line">    <span class="attribute">border-radius</span> <span class="number">4px</span>		// 圆角显示</span><br><span class="line">    <span class="attribute">color</span> <span class="variable">$light</span>-code-font-color</span><br><span class="line">    <span class="attribute">background</span> <span class="variable">$light</span>-code-background-color</span><br><span class="line">    <span class="selector-class">.dark-theme</span> &amp;			<span class="comment">// 桌面端黑色背景</span></span><br><span class="line">      <span class="attribute">color</span> <span class="variable">$dark</span>-code-font-color</span><br><span class="line">      <span class="attribute">background</span> <span class="variable">$dark</span>-code-background-color</span><br><span class="line">    <span class="selector-class">.mobile-toggle-theme</span> &amp;	<span class="comment">// 移动端黑色背景</span></span><br><span class="line">      <span class="attribute">color</span> <span class="variable">$dark</span>-code-font-color</span><br><span class="line">      <span class="attribute">background</span> <span class="variable">$dark</span>-code-background-color</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于代码块来说，需要在这个文件下面，修改成以下代码。修改对应的颜色<code>color</code>和背景<code>background</code>两个属性，即可改成自己想要的颜色。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">figure</span><span class="selector-class">.highlight</span>, <span class="selector-tag">figure</span><span class="selector-class">.highlight</span> <span class="selector-tag">code</span>, <span class="selector-tag">figure</span><span class="selector-class">.highlight</span> pre</span><br><span class="line">    <span class="attribute">border-radius</span> <span class="number">8px</span>				// 圆角显示</span><br><span class="line">    <span class="attribute">color</span> <span class="variable">$light</span>-code-font-color</span><br><span class="line">    <span class="attribute">background</span> <span class="variable">$light</span>-code-background-color</span><br><span class="line">    <span class="selector-class">.dark-theme</span> &amp;					<span class="comment">// 桌面端黑色背景</span></span><br><span class="line">      <span class="attribute">color</span> <span class="number">#a9a9b3</span></span><br><span class="line">      <span class="attribute">background</span> <span class="number">#3e3e3e</span></span><br><span class="line">    <span class="selector-class">.mobile-toggle-theme</span> &amp;			<span class="comment">// 移动端黑色背景</span></span><br><span class="line">      <span class="attribute">color</span> <span class="number">#a9a9b3</span></span><br><span class="line">      <span class="attribute">background</span> <span class="number">#3e3e3e</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果需要使用其他额外的代码块样式的话，找到<code>“\source\css\_highlight”</code>中选择对应的代码块样式，复制对应的文件名称。到<code>style.styl</code>文件中，修改以下代码可更换代码块样式风格。如果需要具体修改其中的颜色配置，可以进入文件修改对应的颜色。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// highlight</span></span><br><span class="line"><span class="comment">//@import &quot;_highlight/solarized-dark.styl&quot;</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&quot;_highlight/highlightjs.styl&quot;</span>		<span class="comment">// 默认样式，替换成自己需要的样式</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-修改表格样式"><a href="#2-修改表格样式" class="headerlink" title="2. 修改表格样式"></a>2. 修改表格样式</h4><ul>
+<li><p>在<code>“\source\css\_page\_post\post_content.styl&quot;</code>文件下，找到<code>table</code>，表示表格</p>
+</li>
+<li><p>在电脑端和移动端统一主题颜色，需要修改成以下代码：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span></span><br><span class="line">    <span class="attribute">max-width</span> <span class="number">100%</span></span><br><span class="line">    <span class="attribute">margin</span> <span class="number">10px</span> <span class="number">0</span></span><br><span class="line">    <span class="attribute">border-spacing</span> <span class="number">0</span></span><br><span class="line">    <span class="selector-tag">thead</span></span><br><span class="line">      <span class="attribute">background</span> <span class="variable">$light</span>-post-table-background-color			// 默认主题下，表头背景颜色</span><br><span class="line">      <span class="selector-class">.dark-theme</span> &amp;</span><br><span class="line">        <span class="attribute">background</span> <span class="variable">$dark</span>-post-table-background-color		// 电脑端，黑色主题表头背景色</span><br><span class="line">      <span class="selector-class">.mobile-toggle-theme</span> &amp;</span><br><span class="line">        <span class="attribute">background</span> <span class="variable">$dark</span>-post-table-background-color		// 移动端，黑色主题表头背景色</span><br><span class="line">    <span class="selector-tag">th</span>, <span class="selector-tag">td</span></span><br><span class="line">      <span class="attribute">padding</span> <span class="number">5px</span> <span class="number">15px</span>						</span><br><span class="line">      <span class="attribute">border</span> .<span class="number">5px</span> solid <span class="variable">$light</span>-border-color					// 表格线宽，实线，线的颜色</span><br><span class="line">      <span class="selector-class">.dark-theme</span> &amp;</span><br><span class="line">        <span class="attribute">border</span> .<span class="number">5px</span> solid <span class="variable">$dark</span>-border-color</span><br><span class="line">      <span class="selector-class">.mobile-toggle-theme</span> &amp;</span><br><span class="line">        <span class="attribute">border</span> .<span class="number">5px</span> solid <span class="variable">$dark</span>-border-color</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-修改图片样式"><a href="#3-修改图片样式" class="headerlink" title="3. 修改图片样式"></a>3. 修改图片样式</h4><ul>
+<li><p>在<code>“\source\css\_page\_post\post_content.styl&quot;</code>文件下，找到<code>img</code>，表示图片</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span></span><br><span class="line">    <span class="attribute">display</span> block</span><br><span class="line">    <span class="attribute">max-width</span> <span class="number">100%</span></span><br><span class="line">    <span class="attribute">height</span> auto</span><br><span class="line">    <span class="attribute">margin</span> <span class="number">0</span> auto</span><br><span class="line">    <span class="attribute">overflow</span> hidden</span><br><span class="line">    <span class="attribute">border-radius</span> <span class="number">14px</span>				// 表示圆角</span><br><span class="line">    <span class="selector-class">.dark-theme</span> &amp;</span><br><span class="line">      <span class="attribute">filter</span>  <span class="built_in">brightness</span>(<span class="number">70%</span>)		// 表示在黑色主题下，图片的亮度降低至原来的<span class="number">70%</span></span><br><span class="line">    <span class="selector-class">.mobile-toggle-theme</span> &amp;</span><br><span class="line">      <span class="attribute">filter</span>  <span class="built_in">brightness</span>(<span class="number">50%</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-修改引用样式"><a href="#4-修改引用样式" class="headerlink" title="4. 修改引用样式"></a>4. 修改引用样式</h4><ul>
+<li><p>在<code>“\source\css\_page\_post\post_content.styl&quot;</code>文件下，找到<code>blockquote</code>，表示引用</p>
+</li>
+<li><p>统一白色主题和黑色主题下，引用样式统一，将代码修改成以下</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span></span><br><span class="line">    <span class="attribute">font-size</span> <span class="number">12px</span>					// 引用内的字体</span><br><span class="line">    <span class="attribute">display</span> block</span><br><span class="line">    <span class="attribute">margin</span> <span class="number">1em</span> <span class="number">0</span></span><br><span class="line">    <span class="attribute">padding</span> <span class="number">1em</span> <span class="number">1.2em</span> <span class="number">1em</span> <span class="number">1.2em</span></span><br><span class="line">    <span class="attribute">position</span> relative</span><br><span class="line">    <span class="attribute">border-radius</span> <span class="number">8px</span>				// 表示圆角显示</span><br><span class="line">    <span class="attribute">color</span> <span class="built_in">rgba</span>(<span class="number">#34495e</span>, <span class="number">0.8</span>)		</span><br><span class="line">    <span class="attribute">background-color</span> <span class="variable">$light</span>-post-blockquote-background-color		// 整体背景颜色</span><br><span class="line">    <span class="attribute">border-left</span> <span class="number">2px</span> solid <span class="variable">$light</span>-post-blockquote-border-color		// 引用最左边对应颜色的竖条，宽度</span><br><span class="line">    <span class="selector-tag">p</span></span><br><span class="line">      <span class="attribute">margin</span> <span class="number">0</span></span><br><span class="line">    <span class="selector-tag">footer</span></span><br><span class="line">      <span class="selector-tag">strong</span></span><br><span class="line">        <span class="attribute">margin-right</span> <span class="number">0.5em</span></span><br><span class="line">    <span class="selector-class">.dark-theme</span> &amp;					<span class="comment">// 对应电脑端黑色主题下，颜色显示设置</span></span><br><span class="line">      <span class="attribute">color</span> <span class="variable">$dark</span>-font-color</span><br><span class="line">      <span class="attribute">background-color</span> <span class="variable">$dark</span>-post-blockquote-background-color</span><br><span class="line">      <span class="attribute">border-left</span> <span class="number">2px</span> solid <span class="variable">$dark</span>-post-blockquote-border-color</span><br><span class="line">    <span class="selector-class">.mobile-toggle-theme</span> &amp;			<span class="comment">// 对应移动端黑色主题下，颜色显示设置</span></span><br><span class="line">      <span class="attribute">color</span> <span class="variable">$dark</span>-font-color</span><br><span class="line">      <span class="attribute">background-color</span> <span class="variable">$dark</span>-post-blockquote-background-color</span><br><span class="line">      <span class="attribute">border-left</span> <span class="number">2px</span> solid <span class="variable">$dark</span>-post-blockquote-border-color</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5-修改字体样式"><a href="#5-修改字体样式" class="headerlink" title="5. 修改字体样式"></a>5. 修改字体样式</h4><ul>
+<li><p><code>source/font.styl</code>文件里，找到对应的<code>$font-family</code>，修改后面的字体样式名称。如下表示：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$font</span>-family = <span class="string">&#x27;PingFang SC&#x27;</span>, PingFang SC, Seguo UI, Microsoft Yahei, Arial</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Configs/"># Configs</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/03/24/hello-world/">Hello World</a>
+            
+            
+            <a class="next" rel="next" href="/2023/03/22/Spring/spring%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">spring学习笔记</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
