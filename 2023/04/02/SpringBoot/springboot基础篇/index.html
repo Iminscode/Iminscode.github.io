@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>springboot基础篇 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">springboot基础篇</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 2, 2023&nbsp;&nbsp;10:52:22</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/SpringBoot/">SpringBoot</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h1><h2 id="1-开发环境"><a href="#1-开发环境" class="headerlink" title="1 开发环境"></a>1 开发环境</h2><font color='orange'>环境要求：</font>
+
+<ul>
+<li><p>Java8及以上</p>
+</li>
+<li><p>Maven 3.5及以上：<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started-system-requirements">https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started-system-requirements</a></p>
+</li>
+</ul>
+<font color='orange'>学习资料：</font>
+
+<ul>
+<li><p>Spring Boot官网：<a target="_blank" rel="noopener" href="https://spring.io/projects/spring-boot">https://spring.io/projects/spring-boot</a></p>
+</li>
+<li><p>Spring Boot 官方文档：<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/">https://docs.spring.io/spring-boot/docs/current/reference/html/</a></p>
+</li>
+<li><p>Spring Boot 中文文档：<a target="_blank" rel="noopener" href="http://felord.cn/_doc/_springboot/2.1.5.RELEASE/_book/">http://felord.cn/_doc/_springboot/2.1.5.RELEASE/_book/</a></p>
+</li>
+<li><p>视频地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15b4y1a7yG?p=24&amp;share_source=copy_web">https://www.bilibili.com/video/BV15b4y1a7yG?p=24&amp;share_source=copy_web</a></p>
+</li>
+</ul>
+<h2 id="2-前置内容"><a href="#2-前置内容" class="headerlink" title="2 前置内容"></a>2 前置内容</h2><ul>
+<li>Java基础语法</li>
+<li><strong><font color='orange'>Spring与SpringMVC</font></strong>： 知道Spring是用来管理bean，能够基于Restful实现页面请求交互功能</li>
+<li><strong><font color='orange'>Mybatis与Mybatis-Plus</font></strong>： 基于Mybatis和MybatisPlus能够开发出包含基础CRUD功能的标准Dao模块</li>
+<li><strong><font color='orange'>数据库MySQL</font></strong>： 能够读懂基础CRUD功能的SQL语句</li>
+<li><strong><font color='orange'>服务器</font></strong>： 知道服务器与web工程的关系，熟悉web服务器的基础配置</li>
+<li><strong><font color='orange'>maven</font></strong>： 知道maven的依赖关系，知道什么是依赖范围，依赖传递，排除依赖，可选依赖，继承</li>
+<li><strong><font color='orange'>web技术（含vue，ElementUI)</font></strong>： 知道vue如何发送ajax请求，如何获取响应数据，如何进行数据模型双向绑定</li>
+</ul>
+<h2 id="3-SpringBoot框架搭建"><a href="#3-SpringBoot框架搭建" class="headerlink" title="3 SpringBoot框架搭建"></a>3 SpringBoot框架搭建</h2><h3 id="3-1-SpringBoot入门案例（Idea联网版）"><a href="#3-1-SpringBoot入门案例（Idea联网版）" class="headerlink" title="3.1 SpringBoot入门案例（Idea联网版）"></a>3.1 SpringBoot入门案例（Idea联网版）</h3><p>SpringBoot是由Pivotal团队提供的全新框架，其设计目的是用来简化Spring应用的初始搭建以及开发过程</p>
+<ul>
+<li>创建新模块，选择Spring Initializer，并配置模块相关基础信息</li>
+</ul>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021119052.png" alt="image-20230402111859969" style="zoom: 80%;" /></p>
+<ul>
+<li>点击next， 选择当前模块需要使用的技术集，在这里，我们做一个小的mvc的项目，所以在web下选择，spring web，可以看到和右下角是对应的，勾选一项内容，就会在右下角出现。</li>
+</ul>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021121926.png" alt="image-20230402112131845" style="zoom:80%;" /></p>
+<ul>
+<li>打开设置，修改maven的版本信息</li>
+</ul>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021126182.png" alt="image-20230402112653088" style="zoom:80%;" /></p>
+<ul>
+<li>开发控制器类，在com.itheima.controller目录下创建一个BookController的控制器类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.controller;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 基于Rest模式的mvc的控制器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestController</span> <span class="comment">//满足rest风格开发的注解模式</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/books&quot;)</span> <span class="comment">//发请求路径进行访问，请求映射，通用访问前缀</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span> <span class="comment">//限定当前操作为get请求模式</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getById</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;springboot is running....&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;springboot is running...&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>运行自动生成的Application类，得到如下结果</li>
+</ul>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021225130.png" alt="image-20230402122558032"></p>
+<ul>
+<li>打开浏览器访问url地址为：<code>localhost:8080/books</code></li>
+</ul>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021227553.png" alt="image-20230402122714477"></p>
+<ul>
+<li><p>最简SpringBoot程序所包含的基础文件 (pom.xml文件 和 Application类 )</p>
+</li>
+<li><p>pom.xml文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springboot-01-quickstart<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Application类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Springboot0101QuickstartApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(Springboot0101QuickstartApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<font color='orange'>Spring程序与SpringBoot程序对比</font>
+
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021230309.png" alt="image-20230402123023235"></p>
+<p><strong>注意: 基于idea开发SpringBoot程序需要确保联网且能够加载到程序框架结构</strong></p>
+<blockquote>
+<p>小结：</p>
+<ol>
+<li>开发SpringBoot程序可以根据向导进行<font color='orange'>联网</font>快速制作</li>
+<li>SpringBoot程序需要基于<code>JDK8</code>进行制作</li>
+<li>SpringBoot程序中需要使用何种功能通过<font color='orange'>勾选选择技术</font></li>
+<li>运行SpringBoot程序通过<font color='orange'>运行Application程序入口</font>进行</li>
+</ol>
+</blockquote>
+<h3 id="3-2-SpringBoot入门案例（官网创建版）"><a href="#3-2-SpringBoot入门案例（官网创建版）" class="headerlink" title="3.2 SpringBoot入门案例（官网创建版）"></a>3.2 SpringBoot入门案例（官网创建版）</h3><p>基于SpringBoot官网创建项目，地址：<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io/</a></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021234138.png" alt="img"></p>
+<blockquote>
+<p>小结:  如果Idea不能联网，</p>
+<ol>
+<li>打开SpringBoot官网，选择 Quickstart Your Project</li>
+<li>创建工程，并保存项目</li>
+<li>解压项目，通过IDE导入项目</li>
+</ol>
+</blockquote>
+<h3 id="3-3-SpringBoot入门案例（阿里云版）"><a href="#3-3-SpringBoot入门案例（阿里云版）" class="headerlink" title="3.3 SpringBoot入门案例（阿里云版）"></a>3.3 SpringBoot入门案例（阿里云版）</h3><p>基于阿里云创建项目，地址：<a target="_blank" rel="noopener" href="https://start.aliyun.com/">https://start.aliyun.com</a></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021239475.png" alt="img"></p>
+<p>注意事项:</p>
+<ul>
+<li>阿里云提供的坐标版本较低，如果需要使用高版本，进入工程后手工切换SpringBoot版本</li>
+<li>阿里云提供的工程模板与Spring官网提供的工程模板略有不同</li>
+</ul>
+<blockquote>
+<p>小结:</p>
+<ol>
+<li>选择start来源为自定义URL</li>
+<li>输入阿里云start地址</li>
+<li>创建项目</li>
+</ol>
+</blockquote>
+<h3 id="3-4-SpringBoot入门案例（手工制作版）"><a href="#3-4-SpringBoot入门案例（手工制作版）" class="headerlink" title="3.4 SpringBoot入门案例（手工制作版）"></a>3.4 SpringBoot入门案例（手工制作版）</h3><p>手工创建项目（手工导入坐标）</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021245985.png" alt="img"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span> <span class="comment">&lt;!--继承parent--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springboot_01_04_quickstart<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>手工创建项目（手工制作引导类）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Application</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>小结:</p>
+<ol>
+<li>创建普通Maven工程</li>
+<li>继承spring-boot-starter-parent</li>
+<li>添加依赖spring-boot-starter-web</li>
+<li>制作引导类Application</li>
+</ol>
+</blockquote>
+<h2 id="4-隐藏文件或文件夹"><a href="#4-隐藏文件或文件夹" class="headerlink" title="4 隐藏文件或文件夹"></a>4 <strong>隐藏文件或文件夹</strong></h2><p><code>.mvn;.gitignore;HELP.md;mvnw;mvnw.cmd;*.iml;</code></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021304976.png" alt="image-20230402130417819"></p>
+<blockquote>
+<p>小结:</p>
+<p>Idea中隐藏指定文件或指定类型文件。Setting → File Types → Ignored Files and Folders输入要隐藏的文件名，支持*号通配符，回车确认添加</p>
+</blockquote>
+<h2 id="5-入门案例解析"><a href="#5-入门案例解析" class="headerlink" title="5 入门案例解析"></a>5 <strong>入门案例解析</strong></h2><p>SpringBoot是由Pivotal团队提供的全新框架，其设计目的是用来简化Spring应用的初始搭建以及开发过程</p>
+<p>Spring程序缺点: 依赖设置繁琐、配置繁琐</p>
+<p>SpringBoot程序优点：起步依赖（简化依赖配置）、自动配置（简化常用工程相关配置）、辅助功能（内置服务器，……）</p>
+<h3 id="5-1-parent"><a href="#5-1-parent" class="headerlink" title="5.1 parent"></a>5.1 parent</h3><p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021316696.png" alt="img"></p>
+<p>从上面的<code>spring-boot-starter-dependencies</code>的<code>pom.xml</code>中我们可以发现，一部分坐标的<font color='orange'>版本</font>、<font color='orange'>依赖管理</font>、<font color='orange'>插件管理</font>已经定义好，所以我们的SpringBoot工程继承<code>spring-boot-starter-parent</code>后已经具备版本锁定等配置了。所以起步依赖的作用就是进行<font color='orange'>依赖的</font><font color='orange'>传递</font>。</p>
+<blockquote>
+<p>小结:</p>
+<ul>
+<li>开发SpringBoot程序要继承spring-boot-starter-parent</li>
+<li>spring-boot-starter-parent中定义了若干个依赖管理</li>
+<li>继承parent模块可以避免多个依赖使用相同技术时出现依赖版本冲突</li>
+<li>继承parent的形式也可以采用引入依赖的形式实现效果</li>
+</ul>
+</blockquote>
+<h3 id="5-2-starter"><a href="#5-2-starter" class="headerlink" title="5.2 starter"></a>5.2 <strong>starter</strong></h3><p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021323095.png" alt="image-20230402132302022"></p>
+<p>从上面的<code>spring-boot-starter-web</code>的<code>pom.xml</code>中我们可以发现，<code>spring-boot-starter-web</code>就是将web开发要使用的<code>spring-web</code>、<code>spring-webmvc</code>等坐标进行了“<font color='orange'>打包</font>”，这样我们的工程只要引入<code>spring-boot-starter-web</code>起步依赖的坐标就可以进行web开发了，同样体现了<font color='orange'>依赖传递</font>的作用。</p>
+<ul>
+<li><p><strong>starter</strong></p>
+<p>SpringBoot中常见项目名称，定义了当前项目使用的<font color='orange'>所有依赖坐标</font>，以达到减少依赖配置的目的</p>
+</li>
+<li><p><strong>parent</strong></p>
+<p>所有SpringBoot项目<font color='orange'>要继承的项目</font>，定义了若干个坐标<font color='orange'>版本号</font>（<font color='orange'>依赖管理</font>，而非依赖），以达到减少依赖冲突的目的。spring-boot-starter-parent各版本间存在着诸多坐标版本不同</p>
+</li>
+<li><p><strong>实际开发</strong></p>
+<p>使用任意坐标时，<font color='orange'>仅书写GAV</font>(<code>groupId</code>, <code>artifactId</code>, <code>version</code>)中的G和A，V由SpringBoot提供，除非SpringBoot未提供对应版本V。如发生坐标错误，再指定Version（要小心版本冲突）</p>
+</li>
+</ul>
+<blockquote>
+<p>小结:</p>
+<ol>
+<li>开发SpringBoot程序需要导入坐标时通常导入对应的starter</li>
+<li>每个不同的starter根据功能不同，通常包含多个依赖坐标</li>
+<li>使用starter可以实现快速配置的效果，达到简化配置的目的</li>
+</ol>
+</blockquote>
+<h3 id="5-3-引导类"><a href="#5-3-引导类" class="headerlink" title="5.3 引导类"></a>5.3 引导类</h3><p>启动方式，这个类是一个引导类，是Boot工程的执行入口，运行main方法就可以启动项目。SpringBoot工程运行后初始化Spring容器，扫描引导类所在包加载bean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Springboot0101QuickstartApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">ConfigurableApplicationContext</span> <span class="variable">ctx</span> <span class="operator">=</span> SpringApplication.run(Springboot0101QuickstartApplication.class, args);</span><br><span class="line">        <span class="comment">//获取bean对象</span></span><br><span class="line">        <span class="type">BookController</span> <span class="variable">bean</span> <span class="operator">=</span> ctx.getBean(BookController.class);</span><br><span class="line">        System.out.println(<span class="string">&quot;bean======&gt;&quot;</span> + bean);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>小结:</p>
+<ol>
+<li>SpringBoot工程提供引导类用来启动程序</li>
+<li>SpringBoot工程启动后创建并初始化Spring容器</li>
+</ol>
+</blockquote>
+<h3 id="5-4-辅助功能"><a href="#5-4-辅助功能" class="headerlink" title="5.4 辅助功能"></a>5.4 辅助功能</h3><p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021339949.png" alt="image-20230402133959876"></p>
+<p>使用maven依赖管理变更起步依赖项</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021340210.png" alt="image-20230402134027143"></p>
+<ul>
+<li>Jetty比Tomcat更轻量级，可扩展性更强（相较于Tomcat），谷歌应用引擎（GAE）已经全面切换为Jetty</li>
+<li>内置服务器<ul>
+<li>tomcat(默认) apache出品，粉丝多，应用面广，负载了若干较重的组件</li>
+<li>jetty 更轻量级，负载性能远不及tomcat</li>
+<li>undertow undertow，负载性能勉强跑赢tomcat</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>小结:</p>
+<ol>
+<li>内嵌Tomcat服务器是SpringBoot辅助功能之一</li>
+<li>内嵌Tomcat工作原理是将Tomcat服务器作为对象运行，并将该对象交给Spring容器管理</li>
+<li>变更内嵌服务器思想是去除现有服务器，添加全新的服务器</li>
+</ol>
+</blockquote>
+<h2 id="6-REST风格"><a href="#6-REST风格" class="headerlink" title="6 REST风格"></a>6 <strong>REST风格</strong></h2><h3 id="6-1-REST风格简介"><a href="#6-1-REST风格简介" class="headerlink" title="6.1 REST风格简介"></a>6.1 REST风格简介</h3><p>REST（Representational State Transfer）表现形式状态转换。理解上来说就是：访问网络资源的格式</p>
+<ul>
+<li><p>传统风格资源描述形式</p>
+<ul>
+<li>localhost/user/getById?id=1 (得到id为1的用户)</li>
+<li>localhost/user/saveUser (保存用户)</li>
+</ul>
+</li>
+<li><p>REST风格描述形式</p>
+<ul>
+<li>localhost/user/1(得到id为1的用户)</li>
+<li>localhost/user (保存用户)</li>
+</ul>
+</li>
+<li><p><font color='orange'>REST优点</font>：隐藏资源的访问行为， 无法通过地址得知对资源是何种操作、书写简化</p>
+</li>
+</ul>
+<p>按照REST风格访问资源时使用<strong><font color='orange'>行为动作</font></strong>区分对资源进行了何种操作</p>
+<ul>
+<li><p><strong>GET 用来获取资源，POST 用来新建资源，PUT 用来更新资源，DELETE 用来删除资源</strong></p>
+<ul>
+<li><p>localhost/users 查询全部用户信息 GET (查询)</p>
+</li>
+<li><p>localhost/users/1 查询指定用户信息 GET (查询)</p>
+</li>
+<li><p>localhost/users 添加用户信息 POST (新增/保存)</p>
+</li>
+<li><p>localhost/users 修改用户信息 PUT (修改/更新)</p>
+</li>
+<li><p>localhost/users/1 删除用户信息 DELETE (删除)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意: </strong>上述行为是约定方式，约定不是规范，可以打破，所以称REST风格，而不是REST规范<br>描述模块的名称通常使用复数，也就是加<code>s</code>的格式描述，表示此类资源, 而非单个资源，例如: users、accounts…</p>
+<p>根据REST风格对资源进行访问称为<strong><code>RESTful</code></strong></p>
+<h3 id="6-2-RESTful入门案例"><a href="#6-2-RESTful入门案例" class="headerlink" title="6.2 RESTful入门案例"></a>6.2 <strong>RESTful入门案例</strong></h3><h4 id="6-2-1-步骤"><a href="#6-2-1-步骤" class="headerlink" title="6.2.1 步骤"></a>6.2.1 步骤</h4><ul>
+<li><p>设定http请求动作（动词）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=”/users”,method=RequestMethod.POST)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>使用<code>@RequestMapping</code> 注解的方法属性<font color='orange'>声明请求的方式</font>。使用 <code>@RequestBody</code> 注解<font color='orange'>获取请求体</font>内容。直接使用得到是 key=value&amp;key=value…结构的数据。get 请求方式不适用。使用<code>@ResponseBody</code> 注解实现将 controller 方法返回对象转换为 json 响应给客户端</p>
+<p>方法注解，位置在springmvc控制器方法定义上面。作用是：设置当前控制器方法请求访问路径。其中，方法通常的动作有GET/POST/PUT/DELETE</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021439802.png" alt="image-20220111162324969"></p>
+<ul>
+<li><p>设定请求参数(路径变量)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PathVariable</span> </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>使用<code>@PathVariable</code> 用于绑定<code>url</code>中的占位符。例如：请求<code>url</code>中 <code>/delete/&#123;id&#125;</code>，这个<code>&#123;id&#125;</code>就是<code>url</code>占位符。</p>
+<p>表示形参注解，使用位置在springmvc控制器方法形参定义前面。作用是：绑定路径参数与处理器方法形参间的关系，要求路径参数名与新参名一一对应。</p>
+<p><img src="https://weishao-996.github.io/img/黑马程序员-SpringBoot2/d35b1e484bae94e8f5b5c5804610afbe.png" alt="image-20220111163317065"></p>
+<ul>
+<li><p><code>@RequestBody @RequestParam @PathVariable</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestBody</span> <span class="meta">@RequestParam</span> <span class="meta">@PathVariable</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>区别：</p>
+<ul>
+<li>用于接收url地址传参或者表单传参</li>
+<li>用于接收json数据</li>
+<li>用于接收路径参数，使用{参数名称}描述路径参数</li>
+</ul>
+<p>应用：</p>
+<ul>
+<li>后期开发中，发送请求参数超过一个时，以json格式为主，<code>@RequestBody</code>应用较广</li>
+<li>如果发送非json格式数据，选用<code>@RequestParam</code>接收请求参数</li>
+<li>采用restful进行开发，当参数数量较少时，例如1个，可以采用<code>@PathVariable</code>接收请求路径变量，通常用于传递id值</li>
+</ul>
+<h3 id="6-3-RESTful快速开发"><a href="#6-3-RESTful快速开发" class="headerlink" title="6.3 RESTful快速开发"></a>6.3 <strong>RESTful快速开发</strong></h3><ul>
+<li>使用 <strong>@RestController</strong> 注解开发 RESTful 风格</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br></pre></td></tr></table></figure>
+<p>类型为：类注解。 位置：基于springmvc的restful开发控制器类定义上方。 作用是：设置当前控制器类为restful风格。相当是将<code>@Controller</code>和<code>@ResponseBody</code>两个注解组合的功能。</p>
+<ul>
+<li>使用 <strong>@GetMapping @PostMapping @PutMapping @DeleteMapping</strong> 简化 <strong>@RequestMapping</strong> 注解开发</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span></span><br><span class="line"><span class="meta">@PostMapping</span></span><br><span class="line"><span class="meta">@PutMapping</span></span><br><span class="line"><span class="meta">@DeleteMapping</span></span><br><span class="line"><span class="meta">@RequestMapping</span></span><br></pre></td></tr></table></figure>
+<p>方法注解。设置当前控制器方法请求访问路径与请求动作，每一种对应一个请求动作。</p>
+<h2 id="7-复制模块"><a href="#7-复制模块" class="headerlink" title="7 复制模块"></a>7 <strong>复制模块</strong></h2><ul>
+<li>首先，我们要创建一个基础的模板，找到存储文件的目录下，复制对应的工程，将副本工程修改为一个基础模板，命名为：<code>springboot_0x_xxxxxxxxxxxxx</code>。删除不需要的文件，只留下<code>src</code>文件夹和pom.xml文件</li>
+<li>修改<code>pom.xml</code>文件里面的<code>artifactid</code>标签，修改为和模板名字一致，此外删除<code>name</code>标签和<code>description</code>标签</li>
+</ul>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021513350.png" alt="image-20230402151356274"></p>
+<ul>
+<li><p>快速新建工程时，在该文件目录下，复制基础模板，修改对应的文件名称，和<code>pom.xml</code>里面的<code>artifactid</code>标签名称，保持一致</p>
+</li>
+<li><p>在idea中，在右上角设置，点击项目结构，点击模块管理，导入模块</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021521315.png" alt="image-20230402152103212"></p>
+</li>
+</ul>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021526120.png" alt="image-20230402152655041"></p>
+<h2 id="8-属性配置"><a href="#8-属性配置" class="headerlink" title="8 属性配置"></a>8 属性配置</h2><h3 id="8-1-属性配置方式"><a href="#8-1-属性配置方式" class="headerlink" title="8.1 属性配置方式"></a>8.1 属性配置方式</h3><p>SpringBoot默认配置文件<code>application.properties</code>，通过<font color='orange'>键值对</font>配置对应属性。SpringBoot中导入对应starter后，提供对应配置属性。书写SpringBoot配置采用<font color='orange'>关键字+提示</font>形式书写</p>
+<ul>
+<li><font color='orange'>修改服务器端口</font>
+
+</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务器端口号配置</span></span><br><span class="line"><span class="attr">server.port</span>=<span class="string">80</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>其他基础配置，详细参考：<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#application-properties">官方附录</a></li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改banner，去除显示logo</span></span><br><span class="line"><span class="comment">#spring.main.banner-mode=off</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 日志</span></span><br><span class="line"><span class="attr">logging.level.root</span>=<span class="string">info</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-2-三种配置文件类型"><a href="#8-2-三种配置文件类型" class="headerlink" title="8.2 三种配置文件类型"></a>8.2 三种配置文件类型</h3><font color='orange'>推荐yml格式</font>
+
+<ul>
+<li><strong>application.properties</strong></li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.port</span>=<span class="string">80</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>application.yml</strong></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">81</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>application.yaml</strong></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">82</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-3-配置文件加载优先级"><a href="#8-3-配置文件加载优先级" class="headerlink" title="8.3 配置文件加载优先级"></a>8.3 配置文件加载优先级</h3><p><code>SpringBoot</code>配置文件加载顺序</p>
+<blockquote>
+<p><strong>application.properties &gt; application.yml &gt; application.yaml</strong></p>
+</blockquote>
+<p>不同配置文件中相同配置按照加载优先级相互覆盖 (<strong><font color='orange'>高优先级配置内容会覆盖低优先级配置内容</font></strong>)，<font color='orange'>不同配置文件中不同配置全部保留</font>。</p>
+<h3 id="8-4-配置文件属性提示消失解决方案"><a href="#8-4-配置文件属性提示消失解决方案" class="headerlink" title="8.4 配置文件属性提示消失解决方案"></a>8.4 配置文件属性提示消失解决方案</h3><p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021554695.png" alt="image-20230402155448585"></p>
+<h3 id="8-5-yaml数据格式"><a href="#8-5-yaml数据格式" class="headerlink" title="8.5 yaml数据格式"></a>8.5 yaml数据格式</h3><p>优点：容易阅读、容易与脚本语言交互、以数据为核心，重数据轻格式</p>
+<h4 id="8-5-1-语法规则"><a href="#8-5-1-语法规则" class="headerlink" title="8.5.1 语法规则"></a>8.5.1 语法规则</h4><p>核心规则：<font color='orange'>数据前面要加空格与冒号隔开</font></p>
+<blockquote>
+<p>大小写<strong>敏感</strong></p>
+<p>属性层级关系使用多行描述，每行结尾使用冒号结束</p>
+<p>使用<strong>缩进</strong>表示层级关系，同层级<strong>左侧对齐</strong>，只允许使用<strong>空格</strong>（不允许使用Tab键）</p>
+<p>属性值前面添加空格（属性名与属性值之间使用冒号+空格作为分隔）</p>
+<p>‘’#’’ 表示注释</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span> <span class="comment"># 对于后面的内容来说，这里表示server对象，</span></span><br><span class="line">  <span class="attr">servlet:</span> <span class="comment"># 同一级别属于属性</span></span><br><span class="line">    <span class="attr">context-path:</span> <span class="string">/hello</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">82</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>数据类型：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字面值表示方式</span></span><br><span class="line"></span><br><span class="line"><span class="attr">boolean:</span> <span class="literal">TRUE</span>       <span class="comment">#TRUE,true,True,FALSE,false ， False 均可</span></span><br><span class="line"><span class="attr">float:</span> <span class="number">3.14</span>         <span class="comment">#6.8523015e+5 # 支持科学计数法</span></span><br><span class="line"><span class="attr">int:</span> <span class="number">123</span>            <span class="comment">#0b1010_0111_0100_1010_1110 # 支持二进制、八进制、十六进制</span></span><br><span class="line"><span class="attr">null:</span> <span class="string">~</span>             <span class="comment"># 使用 ~ 表示 null</span></span><br><span class="line"><span class="attr">string:</span> <span class="string">HelloWorld</span>  <span class="comment"># 字符串可以直接书写</span></span><br><span class="line"><span class="attr">string2:</span> <span class="string">&quot;Hello World&quot;</span>  <span class="comment"># 可以使用双引号包裹特殊字符</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2018-02-17</span>        <span class="comment"># 日期必须使用 yyyy-MM-dd 格式</span></span><br><span class="line"><span class="attr">datetime:</span> <span class="number">2018-02-17T15:02:31+08:00</span>   <span class="comment"># 时间和日期之间使用 T 连接，最后使用 + 代表时区</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组表示方式：在属性名书写位置的下方使用<font color='orange'>减号</font>作为数据开始符号，每行书写一个数据，减号与数据间空格分隔</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">subject:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Java</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">前端</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">大数据</span></span><br><span class="line"></span><br><span class="line"><span class="attr">enterprise:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">16</span></span><br><span class="line"></span><br><span class="line"><span class="attr">subject2:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Java</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">前端</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">大数据</span></span><br><span class="line"><span class="attr">likes:</span> [<span class="string">王者荣耀</span>,<span class="string">刺激战场</span>] <span class="comment"># 数组书写缩略格式</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">users:</span> <span class="comment"># 对象数组格式</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Tom</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Jerry</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">users2:</span> <span class="comment"># 对象数组格式二</span></span><br><span class="line">  <span class="bullet">-</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Tom</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">4</span></span><br><span class="line">  <span class="bullet">-</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Jerry</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对象数组缩略格式</span></span><br><span class="line"><span class="attr">users3:</span> [ &#123; <span class="string">name:Tom</span> , <span class="string">age:4</span> &#125; , &#123; <span class="string">name:Jerry</span> , <span class="string">age:5</span> &#125; ]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="8-5-2-读取yaml单一属性数据"><a href="#8-5-2-读取yaml单一属性数据" class="headerlink" title="8.5.2 读取yaml单一属性数据"></a>8.5.2 读取yaml单一属性数据</h4><p>使用<code>@Value</code>读取单个数据，属性名引用方式：${一级属性名.二级属性名……}。遇到数组用中括号加索引</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021615508.png" alt="img"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;$&#123;country&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String country1;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Value(&quot;$&#123;user.age&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String age1;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Value(&quot;$&#123;likes[1]&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String likes1;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Value(&quot;$&#123;users[1].name&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String name1;</span><br><span class="line"></span><br><span class="line"><span class="meta">@GetMapping</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">getById</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;springboot is running2...&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;country1=&gt;&quot;</span> + country1);</span><br><span class="line">    System.out.println(<span class="string">&quot;age1=&gt;&quot;</span> + age1);</span><br><span class="line">    System.out.println(<span class="string">&quot;likes1=&gt;&quot;</span> + likes1);</span><br><span class="line">    System.out.println(<span class="string">&quot;name1=&gt;&quot;</span> + name1);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;springboot is running2...&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="8-5-3-yaml文件中的变量引用"><a href="#8-5-3-yaml文件中的变量引用" class="headerlink" title="8.5.3 yaml文件中的变量引用"></a>8.5.3 yaml文件中的变量引用</h4><p>在配置文件中可以使用属性名引用方式引用属性</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021618072.png" alt="img"></p>
+<p>属性值中如果出现<font color='orange'>转义字符</font>，需要使用<font color='orange'>双引号</font>包裹</p>
+<h4 id="8-5-4-读取yaml全部属性数据"><a href="#8-5-4-读取yaml全部属性数据" class="headerlink" title="8.5.4 读取yaml全部属性数据"></a>8.5.4 读取yaml全部属性数据</h4><ul>
+<li><p>封装全部数据到<code>Environment</code>对象</p>
+</li>
+<li><p>注意 要导这个包 <code>import org.springframework.core.env.Environment</code></p>
+</li>
+</ul>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021624873.png" alt="img"></p>
+<h4 id="8-5-5-读取yaml引用类型属性数据"><a href="#8-5-5-读取yaml引用类型属性数据" class="headerlink" title="8.5.5 读取yaml引用类型属性数据"></a>8.5.5 读取yaml引用类型属性数据</h4><ul>
+<li>自定义对象封装指定数据</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建类，用于封装下面的数据</span></span><br><span class="line"><span class="comment"># 由spring帮我们加载数据到对象中，一定要告诉spring加载这组信息</span></span><br><span class="line"><span class="comment"># 使用时候从spring重直接获取信息使用</span></span><br><span class="line"><span class="attr">datasource:</span></span><br><span class="line">  <span class="attr">driver:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost/springboot_db</span></span><br><span class="line">  <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">  <span class="attr">password:</span> <span class="number">123456</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建一个类，用于封装上面指定的数据，这个类是JavaBean。封装类需要定义为<code>Spring</code>管理的<code>bean</code>，否则无法进行属性注入。使用<code>@ConfigurationProperties</code>注解绑定配置信息到封装类中</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 1 定义数据模型封装yml文件重对应的数据</span></span><br><span class="line"><span class="comment"> * 2 定义为spring管控的bean</span></span><br><span class="line"><span class="comment"> * 3 指定加载的数据</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span><span class="comment">//2 定义为spring管控的bean</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(&quot;datasource&quot;)</span><span class="comment">//3 指定加载的数据，名字要和yml文件里面属性名一致</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyDataSource</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String driver;</span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    <span class="comment">//省略setget方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用自动装配封装指定数据</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> MyDataSource myDataSource;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>输出查看</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(myDataSource);</span><br></pre></td></tr></table></figure>
+<h2 id="9-SpringBoot整合JUnit"><a href="#9-SpringBoot整合JUnit" class="headerlink" title="9 SpringBoot整合JUnit"></a>9 SpringBoot整合JUnit</h2><ul>
+<li>添加Junit的起步依赖 Spring Initializr 创建时自带在pom.xml文件中。如果手工创建工程，需要手动导入下面的坐标</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--测试的起步依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>SpringBoot整合JUnit</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span> <span class="comment">//说明这是一个SpringBoot测试类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Springboot03JunitApplicationTests</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span><span class="comment">//1 注入你要测试的对象</span></span><br><span class="line">    <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">        bookDao.save();<span class="comment">//2 执行要测试的对象对应的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>核心就是通过一个<code>@SpringBootTest</code>说明这个类是一个springboot的测试类，然后向容器中注入要测试的对象，就可以执行相应对象的方法。</p>
+<blockquote>
+<p>如果测试类在<code>SpringBoot启动类</code>的包或子包中，可以省略启动类的设置，也就是省略<code>classes</code>的设定。测试类如果不存在于引导类所在的包或子包中需要通过 <code>classes</code> 属性指定引导类，具体是：对应引导类.class 的方式配置</p>
+</blockquote>
+<h2 id="10-SpringBoot整合MyBatis"><a href="#10-SpringBoot整合MyBatis" class="headerlink" title="10 SpringBoot整合MyBatis"></a>10 SpringBoot整合MyBatis</h2><h3 id="10-1-SpringBoot整合MyBatis流程"><a href="#10-1-SpringBoot整合MyBatis流程" class="headerlink" title="10.1 SpringBoot整合MyBatis流程"></a>10.1 SpringBoot整合MyBatis流程</h3><ul>
+<li>第一步：创建新模块，选择<code>Spring</code>初始化，并配置模块相关基础信息。选择当前模块需要使用的技术集（MyBatis、MySQL）</li>
+</ul>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304021726664.png" alt="image-20230402172611460"></p>
+<ul>
+<li>第二步： 在配置文件重设置数据源参数。数据库连接相关信息转换成配置</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置相关信息</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ssm_db</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建数据库</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-- springboot课程学习</span><br><span class="line">show databases;</span><br><span class="line">create database ssm_db;</span><br><span class="line">use ssm_db;</span><br><span class="line">create table tb_book(</span><br><span class="line">    id int primary key auto_increment,</span><br><span class="line">    type varchar(50),</span><br><span class="line">    name varchar(50),</span><br><span class="line">    description varchar(50)</span><br><span class="line">);</span><br><span class="line">insert into tb_book values (null,&#x27;计算机理论&#x27;,&#x27;spring实战第五版&#x27;,&#x27;spring入门经典教程&#x27;);</span><br><span class="line">insert into tb_book values (null,&#x27;计算机理论&#x27;,&#x27;springmvc设计&#x27;,&#x27;该书描述springmvc设计&#x27;);</span><br><span class="line">insert into tb_book values (null,&#x27;计算机理论&#x27;,&#x27;设计模式&#x27;,&#x27;该书描述设计模式&#x27;);</span><br><span class="line">insert into tb_book values (null,&#x27;计算机理论&#x27;,&#x27;javaweb实战&#x27;,&#x27;该书描述javaweb实战&#x27;);</span><br><span class="line">insert into tb_book values (null,&#x27;计算机理论&#x27;,&#x27;python数据分析&#x27;,&#x27;该书描述python数据分析&#x27;);</span><br><span class="line">insert into tb_book values (null,&#x27;计算机理论&#x27;,&#x27;深入理解虚拟机&#x27;,&#x27;该书描述深入理解虚拟机&#x27;);</span><br><span class="line">insert into tb_book values (null,&#x27;计算机理论&#x27;,&#x27;零基础java&#x27;,&#x27;该书描述零基础java&#x27;);</span><br><span class="line">insert into tb_book values (null,&#x27;市场营销&#x27;,null,null);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建实体Bean</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.domain;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line">    <span class="comment">//省略getset方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三步：编写对应的接口。数据库<code>SQL</code>映射需要添加<code>@Mapper</code>被容器识别到</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.Book;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Select;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Repository;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span><span class="comment">//第三步加上这个注解：定义数据层接口与映射配置</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookDao</span> &#123;</span><br><span class="line">    <span class="meta">@Select(&quot;select * from tb_book where id=#&#123;id&#125;&quot;)</span></span><br><span class="line">    Book <span class="title function_">getById</span><span class="params">(Integer id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>最后，进入测试类，测试</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Springboot04MybatisApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(bookDao.getById(<span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="10-2-SpringBoot整合MyBatis常见问题处理"><a href="#10-2-SpringBoot整合MyBatis常见问题处理" class="headerlink" title="10.2 SpringBoot整合MyBatis常见问题处理"></a>10.2 SpringBoot整合MyBatis常见问题处理</h3><p>SpringBoot版本低于2.4.3(不含)，Mysql驱动版本大于8.0时，需要在url连接串中<font color='orange'>配置时区</font>. 或在MySQL数据库端配置时区解决此问题</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">jdbc:mysql://localhost:3306/springboot_db?serverTimezone=UTC</span></span><br></pre></td></tr></table></figure>
+<font color='orange'>驱动类</font>过时，提醒更换为`com.mysql.cj.jdbc.Driver`
+
+## 11 SpringBoot整合MybatisPlus
+
+- 第一步：创建工程，在这里，由于MybatisPlus是由国人开发的，所以没有收录到spring中，所以在创建项目的时候，勾选不了对应的框架，因此，我们在创建时，点击sql之后，只需要勾选对应的sql驱动即可，直接确认
+
+最后，我们在`pom.xml`文件中导入相关的坐标。（以上的操作还可以通过阿里云的方式来创建，不过建议使用这种方式）可以访问：[https://mvnrepository.com/](https://mvnrepository.com/)进行搜索mybatis plus进行查找对应的版本依赖坐标。
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+- 第二步：配置数据源，同上面一样，只是需要加上一个操作，由于mybatis plus会自动帮我们进行表的转换，所以当我们数据库中的表名如果带有前缀字符的时候，会识别不到，找不到对应的数据，因此，需要我们在application.yml文件中进行配置
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置数据库表的前缀 mp相关设置</span></span><br><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line">    <span class="attr">db-config:</span></span><br><span class="line">      <span class="attr">table-prefix:</span> <span class="string">tb_</span></span><br></pre></td></tr></table></figure>
+
+- 第三步：在接口中继承`BaseMapper`，这个接口里面定义了非常多的方法
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookDao</span> <span class="keyword">extends</span> <span class="title class_">BaseMapper</span>&lt;Book&gt; &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+- 测试类中进行测试
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Springboot05MybatisplusApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(bookDao.selectById(<span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+## 12 SpringBoot整合Druid
+
+- 第一步：创建工程。这和SpringBoot整合MyBatis基本一致，只是在创建完工程之后，需要手动导入druid的坐标。通过访问网址[https://mvnrepository.com/](https://mvnrepository.com/)，查找 [Druid Spring Boot Starter](https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter)对应的坐标，配置到pom文件中
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+- 第二步：配置druid数据源，整合druid的方式
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置相关信息</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">druid:</span></span><br><span class="line">      <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ssm_db</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">password:</span> <span class="number">123456</span></span><br></pre></td></tr></table></figure>
+
+- 其他步骤和SpringBoot整合MyBatis基本一致，编写测试类，测试
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Springboot06DruidApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(bookDao.getById(<span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+> 小结：
+>
+> 1.整合`Druid`需要导入`Druid`对应的`starter`
+>
+> 2.根据`Druid`提供的配置方式进行配置
+>
+> 3.整合第三方技术通用方式
+
+
+
+## 13 SSMP整合案例制作分析
+
+### 13.1 案例实现方案分析与流程解析
+
+<font color='orange'>实体类</font>开发————使用`Lombok`快速制作实体类
+
+<font color='orange'>Dao</font>开发————整合`MybatisPlus`，制作数据层测试类
+
+<font color='orange'>Service</font>开发————基于`MybatisPlus`进行增量开发，制作业务层测试类
+
+<font color='orange'>Controller</font>开发————基于`Restful`开发，使用`PostMan`测试接口功能
+
+<font color='orange'>页面</font>开发————基于`VUE+ElementUI`制作，前后端联调，页面数据处理，页面消息处理。列表、新增、修改、删除、分页、查询
+
+<font color='orange'>项目异常</font>处理
+
+按<font color='orange'>条件查询</font>————页面功能调整、`Controller`修正功能、`Service`修正功能
+
+`SSMP`案例制作流程解析：先开发基础`CRUD`功能，做一层测一层调通页面，确认异步提交成功后，制作所有功能，添加分页功能与查询功能
+
+### 13.2 模块创建
+
+创建模块，操作流程和上面创建模块的操作基本一致，主要区别在勾选坐标上。在这个模块中，需要勾选spring web和sql driver两个坐标即可，其他的通过手动在`pom`文件里导入坐标。
+
+创建完成之后，进行以下简单的设置。首先：在`pom`文件里面删除name标签和description标签，导入`MybatisPlus`和`Druid`的坐标。然后，修改引导类的名字，改的简短一些。最后修改`application`文件的后缀为`.yml`格式，并在里面配置端口号为80，方便访问。
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  <span class="comment">&lt;!--简化实体类代码--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
+
+### 13.3 数据准备
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE IF EXISTS `tb_book`;</span><br><span class="line">CREATE TABLE `tb_book` (</span><br><span class="line">  `id` int(11) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `type` varchar(20) DEFAULT NULL,</span><br><span class="line">  `name` varchar(50) DEFAULT NULL,</span><br><span class="line">  `description` varchar(255) DEFAULT NULL,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">-- ----------------------------</span><br><span class="line">-- Records of tbl_book</span><br><span class="line">-- ----------------------------</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;1&#x27;, &#x27;计算机理论&#x27;, &#x27;Spring实战第5版&#x27;, &#x27;Spring入门经典教程,深入理解Spring原理技术内幕&#x27;);</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;2&#x27;, &#x27;计算机理论&#x27;, &#x27;Spring 5核心原理与30个类手写实战&#x27;, &#x27;十年沉淀之作，写Spring精华思想&#x27;);</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;3&#x27;, &#x27;计算机理论&#x27;, &#x27;Spring 5设计模式&#x27;, &#x27;深入Spring源码剖析Spring源码中蕴含的10大设计模式&#x27;);</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;4&#x27;, &#x27;计算机理论&#x27;, &#x27;Spring MVC+ MyBatis开发从入门到项目实战&#x27;, &#x27;全方位解析面向Web应用的轻量级框架,带你成为Spring MVC开发高手&#x27;);</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;5&#x27;, &#x27;计算机理论&#x27;, &#x27;轻量级Java Web企业应用实战&#x27;, &#x27;源码级剖析Spring框架,适合已掌握Java基础的读者&#x27;);</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;6&#x27;, &#x27;计算机理论&#x27;, &#x27;Java核心技术卷|基础知识(原书第11版)&#x27;, &#x27;Core Java第11版，Jolt大奖获奖作品，针对Java SE9、10、 11全面更新&#x27;);</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;7&#x27;, &#x27;计算机理论&#x27;, &#x27;深入理解Java虚拟机&#x27;, &#x27;5个维度全面剖析JVM,面试知识点全覆盖&#x27;);</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;8&#x27;, &#x27;计算机理论&#x27;, &#x27;Java编程思想(第4版)&#x27;, &#x27;Java学习必读经典殿堂级著作!赢得了全球程序员的广泛赞誉&#x27;);</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;9&#x27;, &#x27;计算机理论&#x27;, &#x27;零基础学Java (全彩版)&#x27;, &#x27;零基础自学编程的入门]图书，由浅入深，详解Java语言的编程思想和核心技术&#x27;);</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;10&#x27;, &#x27;市场营销&#x27;, &#x27;直播就该这么做:主播高效沟通实战指南&#x27;, &#x27;李子柒、李佳琦、薇娅成长为网红的秘密都在书中&#x27;);</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;11&#x27;, &#x27;市场营销&#x27;, &#x27;直播销讲实战一本通&#x27;, &#x27;和秋叶一起学系列网络营销书籍&#x27;);</span><br><span class="line">INSERT INTO `tb_book` VALUES (&#x27;12&#x27;, &#x27;市场营销&#x27;, &#x27;直播带货:淘宝、天猫直播从新手到高手&#x27;, &#x27;一本教你如何玩转直播的书， 10堂课轻松实现带货月入3W+&#x27;);</span><br></pre></td></tr></table></figure>
+
+### 13.4 实体类快速开发（Lombok）
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.domain;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+### 13.5 数据层标准开发（基础CRUD）
+
+- 配置数据源与`MyBatisPlus`对应的基础配置（`id`生成策略使用数据库自增策略）
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="comment"># 数据源信息配置</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ssm_db</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置数据库表的前缀 mp相关设置</span></span><br><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line">    <span class="attr">db-config:</span></span><br><span class="line">      <span class="attr">table-prefix:</span> <span class="string">tb_</span></span><br><span class="line">      <span class="attr">id-type:</span> <span class="string">auto</span></span><br></pre></td></tr></table></figure>
+
+- 继承`BaseMapper`并指定泛型
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.core.mapper.BaseMapper;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.Book;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Mapper;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookDao</span> <span class="keyword">extends</span> <span class="title class_">BaseMapper</span>&lt;Book&gt; &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+- 制作测试类测试结果 .制作测试类测试`Dao`功能是否有效，单独在com.itheima.dao包下创建一个测试类
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.Book;</span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookDaoTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testSelectById</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(bookDao.selectById(<span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testSave</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">        book.setType(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        book.setName(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        book.setDescription(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        bookDao.insert(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testUpdate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">        book.setId(<span class="number">13</span>);</span><br><span class="line">        book.setType(<span class="string">&quot;测试数据asfd&quot;</span>);</span><br><span class="line">        book.setName(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        book.setDescription(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        bookDao.updateById(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testDelete</span><span class="params">()</span> &#123;</span><br><span class="line">        bookDao.deleteById(<span class="number">13</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetAll</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(bookDao.selectList(<span class="literal">null</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetPage</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetBy</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+#### 13.5.1 开启MP运行日志
+
+- 为方便调试可以开启`MyBatisPlus`的日志，需要开启配置
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line">    <span class="attr">db-config:</span></span><br><span class="line">      <span class="attr">table-prefix:</span> <span class="string">tb_</span></span><br><span class="line">      <span class="attr">id-type:</span> <span class="string">auto</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="comment"># 开启MybatisPlus标准日志</span></span><br><span class="line">    <span class="attr">log-impl:</span> <span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br></pre></td></tr></table></figure>
+
+#### 13.5.2 分页
+
+- 分页操作需要设定分页对象`IPage` ， 这个对象中封装了分页操作中的所有数据。比如当前页，总页，每页总数据量，数据总量等等
+
+- 分页操作是在`MyBatisPlus`的常规操作基础上增强得到，内部是动态的拼写`SQL`语句，因此需要增强对应的功能。使用`MyBatisPlus`<font color='orange'>拦截器</font>实现
+
+配置拦截器：创建一个专门放配置的包config包，编写一个MPConfig拦截器类，这个类
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用spring管理第三方bean的方式，把这个bean初始化出来，并且加载到spring环境</span></span><br><span class="line"><span class="meta">@Configuration</span><span class="comment">//写成配置类，方便能被读取到</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MPConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span><span class="comment">//第三方bean</span></span><br><span class="line">    <span class="keyword">public</span> MybatisPlusInterceptor <span class="title function_">mybatisPlusInterceptor</span><span class="params">()</span>&#123; <span class="comment">//拦截器</span></span><br><span class="line">        <span class="comment">//创建一个拦截器</span></span><br><span class="line">        <span class="type">MybatisPlusInterceptor</span> <span class="variable">interceptor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MybatisPlusInterceptor</span>();</span><br><span class="line">        <span class="comment">//添加内部拦截器，这个拦截器用来专门做分页的拦截器</span></span><br><span class="line">        interceptor.addInnerInterceptor(<span class="keyword">new</span> <span class="title class_">PaginationInnerInterceptor</span>());</span><br><span class="line">        <span class="keyword">return</span> interceptor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+测试
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">testGetPage</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">IPage</span> <span class="variable">page</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Page</span>(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line">    bookDao.selectPage(page, <span class="literal">null</span>);</span><br><span class="line">    System.out.println(page.getCurrent());</span><br><span class="line">    System.out.println(page.getSize());</span><br><span class="line">    System.out.println(page.getPages());</span><br><span class="line">    System.out.println(page.getTotal());</span><br><span class="line">    System.out.println(page.getRecords());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+> 小结:
+>
+> 1. 使用`IPage`封装分页数据
+> 2. 分页操作依赖`MyBatisPlus`分页拦截器实现功能
+> 3. 借助`MyBatisPlus`日志查阅执行`SQL`语句
+
+#### 13.5.3 条件查询
+
+这里使用的lambda对应的包装方法，于此同时，当传入的name值(条件)不为空时，按该条件查询。
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">testGetByCondition</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;spring&quot;</span>;</span><br><span class="line">    LambdaQueryWrapper&lt;Book&gt; lqw = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">    lqw.like(name!=<span class="literal">null</span>, Book::getName, name);</span><br><span class="line">    bookDao.selectList(lqw);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+### 13.6 业务层快速开发（基于MyBatisPlus构建）
+
+Service层接口定义与数据层接口定义具有较大区别，不要混用
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数据层命名方式</span></span><br><span class="line">selectByUserNameAndPassword(String username,String password);</span><br><span class="line"><span class="comment">//业务层命名方式</span></span><br><span class="line">login(String username,String password);</span><br></pre></td></tr></table></figure>
+
+#### 13.6.1 <font color='orange'>标准开发方案</font>
+
+<ul>
+<li>定义接口</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookService</span> &#123;</span><br><span class="line"></span><br><span class="line">    Boolean <span class="title function_">save</span><span class="params">(Book book)</span>;</span><br><span class="line"></span><br><span class="line">    Boolean <span class="title function_">update</span><span class="params">(Book book)</span>;</span><br><span class="line"></span><br><span class="line">    Boolean <span class="title function_">delete</span><span class="params">(Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    Book <span class="title function_">getById</span><span class="params">(Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    List&lt;Book&gt; <span class="title function_">getAll</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    IPage&lt;Book&gt; <span class="title function_">getPage</span><span class="params">(<span class="type">int</span> currentPage,<span class="type">int</span> pageSize)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现类定义</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">BookService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Boolean <span class="title function_">save</span><span class="params">(Book book)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.insert(book) &gt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Boolean <span class="title function_">update</span><span class="params">(Book book)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.updateById(book) &gt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Boolean <span class="title function_">delete</span><span class="params">(Integer id)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.deleteById(id) &gt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Book <span class="title function_">getById</span><span class="params">(Integer id)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.selectById(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Book&gt; <span class="title function_">getAll</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.selectList(<span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> IPage&lt;Book&gt; <span class="title function_">getPage</span><span class="params">(<span class="type">int</span> currentPage, <span class="type">int</span> pageSize)</span> &#123;</span><br><span class="line">        <span class="type">IPage</span> <span class="variable">page</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Page</span>(currentPage, pageSize);</span><br><span class="line">        bookDao.selectPage(page, <span class="literal">null</span>);</span><br><span class="line">        <span class="keyword">return</span> page;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试类定义</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookServiceTestCase</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookService bookService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetById</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(bookService.getById(<span class="number">4</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testSave</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">        book.setType(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        book.setName(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        book.setDescription(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        bookService.save(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testUpdate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">        book.setId(<span class="number">14</span>);</span><br><span class="line">        book.setType(<span class="string">&quot;测试数据asfd&quot;</span>);</span><br><span class="line">        book.setName(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        book.setDescription(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        bookService.update(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testDelete</span><span class="params">()</span> &#123;</span><br><span class="line">        bookService.delete(<span class="number">14</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetAll</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(bookService.getAll());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetPage</span><span class="params">()</span> &#123;</span><br><span class="line">        IPage&lt;Book&gt; page = bookService.getPage(<span class="number">2</span>, <span class="number">5</span>);</span><br><span class="line">        System.out.println(page.getCurrent());</span><br><span class="line">        System.out.println(page.getSize());</span><br><span class="line">        System.out.println(page.getPages());</span><br><span class="line">        System.out.println(page.getTotal());</span><br><span class="line">        System.out.println(page.getRecords());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="13-6-2-快速开发方案"><a href="#13-6-2-快速开发方案" class="headerlink" title="13.6.2 快速开发方案"></a>13.6.2 <font color='orange'>快速开发方案</font></h4><p>使用<code>MyBatisPlus</code>提供有业务层通用接口<code>（ISerivce）</code>与业务层通用实现类，这里前面I表示它是一个接口，命名规范，公司习惯要求。</p>
+<p>在通用类基础上做功能重载或功能追加，注意重载时不要覆盖原始操作，避免原始提供的功能丢失</p>
+<ul>
+<li>定义接口</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IBookService</span> <span class="keyword">extends</span> <span class="title class_">IService</span>&lt;Book&gt; &#123;</span><br><span class="line">    <span class="comment">//追加自己定义的方法</span></span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">saveBook</span><span class="params">(Book book)</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">modify</span><span class="params">(Book book)</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">delete</span><span class="params">(Integer id)</span>;</span><br><span class="line">    IPage&lt;Book&gt; <span class="title function_">getPage</span><span class="params">(<span class="type">int</span> currentPage, <span class="type">int</span> pageSize)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现类定义</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;</span><br><span class="line"><span class="keyword">import</span> com.itheima.dao.BookDao;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.Book;</span><br><span class="line"><span class="keyword">import</span> com.itheima.service.IBookService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookServiceImpl</span> <span class="keyword">extends</span> <span class="title class_">ServiceImpl</span>&lt;BookDao, Book&gt; <span class="keyword">implements</span> <span class="title class_">IBookService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">saveBook</span><span class="params">(Book book)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.insert(book) &gt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">modify</span><span class="params">(Book book)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.updateById(book) &gt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">delete</span><span class="params">(Integer id)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.deleteById(id) &gt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> IPage&lt;Book&gt; <span class="title function_">getPage</span><span class="params">(<span class="type">int</span> currentPage, <span class="type">int</span> pageSize)</span> &#123;</span><br><span class="line">        <span class="type">IPage</span> <span class="variable">page</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Page</span>(currentPage, pageSize);</span><br><span class="line">        bookDao.selectPage(page, <span class="literal">null</span>);</span><br><span class="line">        <span class="keyword">return</span> page;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试类定义</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.core.metadata.IPage;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.extension.plugins.pagination.Page;</span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.Book;</span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookServiceTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> IBookService bookService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetById</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(bookService.getById(<span class="number">3</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testSave</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">        book.setDescription(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        book.setType(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        book.setName(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">        bookService.save(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testUpdate</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">        book.setId(<span class="number">9</span>);</span><br><span class="line">        book.setDescription(<span class="string">&quot;测试数据adavfdb&quot;</span>);</span><br><span class="line">        book.setType(<span class="string">&quot;测试数据adva&quot;</span>);</span><br><span class="line">        book.setName(<span class="string">&quot;测试数据adva&quot;</span>);</span><br><span class="line">        bookService.updateById(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testDelete</span><span class="params">()</span>&#123;</span><br><span class="line">        bookService.removeById(<span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetAll</span><span class="params">()</span>&#123;</span><br><span class="line">        bookService.list();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetPage</span><span class="params">()</span>&#123;</span><br><span class="line">        IPage&lt;Book&gt; page = <span class="keyword">new</span> <span class="title class_">Page</span>&lt;&gt;(<span class="number">2</span>, <span class="number">5</span>);</span><br><span class="line">        IPage&lt;Book&gt; page1 = bookService.page(page);</span><br><span class="line">        System.out.println(page1.getCurrent());</span><br><span class="line">        System.out.println(page1.getPages());</span><br><span class="line">        System.out.println(page1.getSize());</span><br><span class="line">        System.out.println(page1.getRecords());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>小结：</p>
+<ol>
+<li>使用通用接口<code>（ISerivce）</code>快速开发<code>Service</code></li>
+<li>使用通用实现类<code>（ServiceImpl&lt;M,T&gt;）</code>快速开发<code>ServiceImpl</code></li>
+<li>可以在通用接口基础上做功能重载或功能追加</li>
+<li>注意重载时不要覆盖原始操作，避免原始提供的功能丢失</li>
+</ol>
+</blockquote>
+<h3 id="14-表现层标准开发"><a href="#14-表现层标准开发" class="headerlink" title="14 表现层标准开发"></a>14 表现层标准开发</h3><h4 id="14-1-表现层开发方案"><a href="#14-1-表现层开发方案" class="headerlink" title="14.1 表现层开发方案"></a>14.1 表现层开发方案</h4><ul>
+<li>基于<code>Restful</code>进行表现层接口开发</li>
+<li>使用<code>Postman</code>测试表现层接口功能</li>
+</ul>
+<p>创建一个controller包，编写一个表现层类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.itheima.controller;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.itheima.domain.Book;</span><br><span class="line"><span class="keyword">import</span> com.itheima.service.IBookService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/books&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">public</span> IBookService bookService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span> <span class="comment">//查所有</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Book&gt; <span class="title function_">getAll</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bookService.list();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;&#123;id&#125;&quot;)</span> <span class="comment">//查一个</span></span><br><span class="line">    <span class="keyword">public</span> Book <span class="title function_">getById</span><span class="params">(<span class="meta">@PathVariable</span> Integer id)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bookService.getById(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span> <span class="comment">//新增 @RequestBody请求体传json数据过来</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">save</span><span class="params">(<span class="meta">@RequestBody</span> Book book)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bookService.save(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PutMapping</span> <span class="comment">//更新</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">update</span><span class="params">(<span class="meta">@RequestBody</span> Book book)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bookService.updateById(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@DeleteMapping</span> (<span class="string">&quot;&#123;id&#125;&quot;</span>)<span class="comment">//删除。路径变量来传参 @PathVariable 路径中获取的变量</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">delete</span><span class="params">(<span class="meta">@PathVariable</span> Integer id)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bookService.delete(id);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@GetMapping(&quot;&#123;currentPage&#125;/&#123;pageSize&#125;&quot;)</span> <span class="comment">//分页查询</span></span><br><span class="line">    <span class="keyword">public</span> IPage&lt;Book&gt; <span class="title function_">getPage</span><span class="params">(<span class="meta">@PathVariable</span> <span class="type">int</span> currentPage, <span class="meta">@PathVariable</span> <span class="type">int</span> pageSize)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bookService.getPage(currentPage, pageSize);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>小结:</p>
+<ol>
+<li>基于<code>Restful</code>制作表现层接口<br>新增：<code>POST</code><br>删除：<code>DELETE</code><br>修改：<code>PUT</code><br>查询：<code>GET</code></li>
+<li>接收参数<br>实体数据：<code>@RequestBody</code><br>路径变量：<code>@PathVariable</code></li>
+</ol>
+</blockquote>
+<h4 id="14-2-表现层数据一致性处理（R对象）"><a href="#14-2-表现层数据一致性处理（R对象）" class="headerlink" title="14.2 表现层数据一致性处理（R对象）"></a>14.2 表现层数据一致性处理（R对象）</h4><p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304022305624.png" alt="img"></p>
+<p>增加一个<code>data</code>属性，把数据全部封装到<code>data</code>里，但是，这样又有问题了，就是当查询不存在的数据，会返回null。这样就会混淆，如果在查询的过程中如果抛出异常，catch中返回null，这时候就不知道null是指的什么意思。</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304022307778.png" alt="img"></p>
+<p>增加一个状态属性。只有当flag为true时，才是查询正常，返回的是数据。</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304022310137.png" alt="img"></p>
+<font color='orange'>设计表现层返回结果的模型类，用于后端与前端进行数据格式统一，也称为前后端数据协议</font>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Skills/"># Skills</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/03/31/MyBatis/mybatis-plus/">mybatis-plus</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
