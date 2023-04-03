@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>springboot运维篇 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">springboot运维篇</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 3, 2023&nbsp;&nbsp;15:24:28</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/SpringBoot/">SpringBoot</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id=""><a href="#" class="headerlink" title=" "></a> </h1><h1 id="运维篇"><a href="#运维篇" class="headerlink" title="运维篇"></a>运维篇</h1><h2 id="1-学习目标"><a href="#1-学习目标" class="headerlink" title="1 学习目标"></a>1 学习目标</h2><ul>
+<li>运维实用篇 Spring Boot 2 运维实用篇学习笔记<ul>
+<li>能够掌握SpringBoot程序多环境开发</li>
+<li>能够基于Linux系统发布SpringBoot工程</li>
+<li>能够解决线上灵活配置SpringBoot工程的需求</li>
+</ul>
+</li>
+<li>开发实用篇<ul>
+<li>能够基于SpringBoot整合任意第三方技术</li>
+</ul>
+</li>
+</ul>
+<p>将程序部署在独立的服务器上</p>
+<h2 id="2-SpringBoot项目快速启动（Windows版）"><a href="#2-SpringBoot项目快速启动（Windows版）" class="headerlink" title="2 SpringBoot项目快速启动（Windows版）"></a>2 SpringBoot项目快速启动（Windows版）</h2><h3 id="2-1-项目打包"><a href="#2-1-项目打包" class="headerlink" title="2.1 项目打包"></a>2.1 项目打包</h3><p>对<code>SpringBoot</code>项目打包（执行<code>Maven</code>构建指令<code>package</code>）执行 <code>package</code>打包命令之前 先执行 <code>mvn clean</code> 删除 <code>target</code> 目录及内容。这一步是为了让打包里面的东西不包括target文件内容，是一个干净的包，去掉我们编写代码时测试时生成的文件。</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304031535000.png" alt="image-20230403153520880" style="zoom:67%;" /></p>
+<p>打包完成 会重新生成一个target文件，里面包含了一个生成对应的 <code>jar 文件</code></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304031536345.png" alt="img" style="zoom:50%;" /></p>
+<font color='orange'>可能出现的问题: </font>`IDEA`<font color='orange'>下执行</font> `Maven` <font color='orange'>命令控制台中文乱码</font>
+
+<p><code>Ctr+Alt+S</code> 打开设置，在<code>Build</code>，<code>Execution</code> ，<code>Deployment</code>找到<code>Build Tools</code>下<code>Maven</code>项下的<code>Runner</code> ，在<code>VM Options</code> 添加 <code>-Dfile.encoding=GB2312</code> ，点击<code>OK</code>。</p>
+<h3 id="2-2-执行项目"><a href="#2-2-执行项目" class="headerlink" title="2.2 执行项目"></a>2.2 执行项目</h3><p>首先，右键打包好的jar文件，找到open，选择在explorer中打开。进入到资源管理器中。</p>
+<p>然后地址栏输入 <code>cmd</code> 回车。执行 <code>java -jar springboot_08_ssmp-0.0.1-SNAPSHOT.jar</code>命令</p>
+<blockquote>
+<p><code>jar</code>支持命令行启动需要依赖<code>maven</code>插件支持，请确认打包时是否具有<code>SpringBoot</code>对应的<code>maven</code>插件</p>
+</blockquote>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304031538310.png" alt="img"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304031538191.png" alt="img"></p>
+<p>在命令行执行完成之后，浏览器访问: <code>localhost/pages/books.html</code></p>
+<h3 id="2-3-打包优化：跳过-test-生命周期"><a href="#2-3-打包优化：跳过-test-生命周期" class="headerlink" title="2.3 打包优化：跳过 test 生命周期"></a>2.3 打包优化：跳过 test 生命周期</h3><p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304031540601.png" alt="image-20230403154032532" style="zoom:80%;" /></p>
+<blockquote>
+<p>小结:</p>
+<ol>
+<li><code>SpringBoot</code>工程可以基于<code>java</code>环境下独立运行<code>jar</code>文件启动服务</li>
+<li><code>SpringBoot</code>工程执行<code>mvn</code>命令<code>package</code>进行打包</li>
+<li>执行<code>jar</code>命令：<code>java –jar 工程名.jar</code></li>
+</ol>
+</blockquote>
+<h3 id="2-4-打包插件"><a href="#2-4-打包插件" class="headerlink" title="2.4 打包插件"></a>2.4 打包插件</h3><p>如果没有配制<code>spring boot</code> 打包插件可能遇到下面的问题，提示运行启动失败</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304031543881.png" alt="img" style="zoom:67%;" /></p>
+<p>这是因为如果没有配置springboot打包插件的话，它的打包方式是另外一种打包方式，而springboot打包之后为了能够让这个包独立运行，会把很多配置的jar包一起打包到项目中，而普通方式打包，则不会。因此，缺少这些配置的jar包，会导致项目独立运行的时候，提示启动失败。其中：可执行jar包目录结构如下显示：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304031552952.png" alt="img" style="zoom:67%;" /></p>
+<p>此外我们查看两种打包方式里面的jar包描述文件<code>MANIFEST.MF</code>时会发现，普通工程和springboot插件打包工程里面所包含的信息差别很大，主要体现在插件打包方式有<font color='orange'>启动类</font>和<font color='orange'>jar启动器</font>，而普通工程没有。</p>
+<ul>
+<li>普通工程</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Manifest-Version: 1.0</span><br><span class="line">Implementation-Title: springboot_08_ssmp</span><br><span class="line">Implementation-Version: 0.0.1-SNAPSHOT</span><br><span class="line">Build-Jdk-Spec: 1.8</span><br><span class="line">Created-By: Maven Jar Plugin 3.2.0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>基于<code>spring-boot-maven-plugin</code>打包的工程</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Manifest-Version: 1.0</span><br><span class="line">Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx</span><br><span class="line">Implementation-Title: springboot_08_ssmp</span><br><span class="line">Implementation-Version: 0.0.1-SNAPSHOT</span><br><span class="line">Spring-Boot-Layers-Index: BOOT-INF/layers.idx</span><br><span class="line">Start-Class: com.example.SSMPApplication 	&lt;------- 启动类</span><br><span class="line">Spring-Boot-Classes: BOOT-INF/classes/</span><br><span class="line">Spring-Boot-Lib: BOOT-INF/lib/</span><br><span class="line">Build-Jdk-Spec: 1.8</span><br><span class="line">Spring-Boot-Version: 2.5.6</span><br><span class="line">Created-By: Maven Jar Plugin 3.2.0</span><br><span class="line">Main-Class: org.springframework.boot.loader.JarLauncher   &lt;------jar启动器</span><br></pre></td></tr></table></figure>
+<h3 id="2-5-命令行启动常见问题及解决方案"><a href="#2-5-命令行启动常见问题及解决方案" class="headerlink" title="2.5 命令行启动常见问题及解决方案"></a>2.5 命令行启动常见问题及解决方案</h3><p>如果说，当我们运行启动程序时，发现端口被占用。我们可以通过关闭进程，停掉这个被占用的端口。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询端口</span></span><br><span class="line">netstat -ano</span><br><span class="line"><span class="comment"># 查询指定端口</span></span><br><span class="line">netstat -ano |findstr <span class="string">&quot;端口号&quot;</span></span><br><span class="line"><span class="comment"># 根据进程PID查询进程名称</span></span><br><span class="line">tasklist |findstr <span class="string">&quot;进程PID号&quot;</span></span><br><span class="line"><span class="comment"># 根据PID强制杀死任务 --&gt; 建议使用</span></span><br><span class="line">taskkill /F /PID <span class="string">&quot;进程PID号&quot;</span></span><br><span class="line"><span class="comment"># 根据进程名称杀死任务</span></span><br><span class="line">taskkill -f -t -im <span class="string">&quot;进程名称&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-SpringBoot工程快速启动（Linux版）"><a href="#3-SpringBoot工程快速启动（Linux版）" class="headerlink" title="3 SpringBoot工程快速启动（Linux版）"></a>3 SpringBoot工程快速启动（Linux版）</h2><p>暂时略过</p>
+<h2 id="4-配置高级"><a href="#4-配置高级" class="headerlink" title="4 配置高级"></a>4 配置高级</h2><h3 id="4-1-临时属性设置"><a href="#4-1-临时属性设置" class="headerlink" title="4.1 临时属性设置"></a>4.1 临时属性设置</h3><h4 id="4-1-1-boot程序在服务器运行"><a href="#4-1-1-boot程序在服务器运行" class="headerlink" title="4.1.1 boot程序在服务器运行"></a>4.1.1 boot程序在服务器运行</h4><p>举例来说，由于我们之前设置的端口号为80，当我们遇到80端口号正在被更重要的程序占用的时候，还不能停掉。那我们就需要启动项目是，设置临时属性，将之前设置好的端口号修改成其他端口号如8080。也就是说：带属性启动springboot。当携带多个属性启动时，属性间使用空格分隔。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar springboot_08_ssmp-0.0.1-SNAPSHOT.jar --server.port=8080</span><br></pre></td></tr></table></figure>
+<p>属性加载优先顺序由低到高：<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config">参看官方文档</a>。如果说你配置的这个属性没有错，却没有生效，可能是优先级被覆盖了</p>
+<h4 id="4-1-2-boot程序在本地运行"><a href="#4-1-2-boot程序在本地运行" class="headerlink" title="4.1.2 boot程序在本地运行"></a>4.1.2 boot程序在本地运行</h4><p>针对本地开发环境来说，如果遇到这种情况，我们可以为程序启动时添加运行属性。</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304031647698.png" alt="image-20230403164755608"></p>
+<p>在<font color='orange'>启动类</font>中<code>main</code>方法可以通过 <code>System.out.println(Arrays.toString(args));</code> 查看配制的属性。这个main方法里面携带的参数<code>args</code>传递给启动函数，本质就是这个临时属性配置的。我们也可以在启动boot长须是断开读取外部临时配置对应的入口，也就是去掉读取外部参数的形参。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	String[] arg = <span class="keyword">new</span> <span class="title class_">String</span>[<span class="number">1</span>];<span class="comment">// 外部参数</span></span><br><span class="line">	arg[<span class="number">0</span>] = <span class="string">&quot;--server.port=8080&quot;</span>;<span class="comment">// 外部参数</span></span><br><span class="line">	SpringApplication.run(SSMPApplication.class, arg);<span class="comment">//去掉形参，断开读取外部参数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-1-3-boot程序在不同环境运行"><a href="#4-1-3-boot程序在不同环境运行" class="headerlink" title="4.1.3 boot程序在不同环境运行"></a>4.1.3 boot程序在不同环境运行</h4><p>开发时，我们自己定义属于我们自己的配置。但是，当项目经理上线项目时，有了另外一套配置，这时就不能全部通过临时属性设置。springboot提供了一套机制，可以基于现有的配置，再做一套配置，新的配置覆盖原来的配置。</p>
+<p>找到配置文件所在的目录，创建一个全新的目录<code>config</code>，然后把新的配置文件粘贴到这个<code>config</code>目录里。这个<code>config</code>级别更高，会覆盖原来<code>application.yml</code>配置文件。但是，这样由于在配置中出现私密信息，所以springboot提供了四个等级的配置文件。第一级最高，第四级最低</p>
+<blockquote>
+<p>第一级(最高)：<code>file:config/application.yml</code></p>
+<p>第二级：<code>file:application.yml</code></p>
+<p>第三级：<code>classpath:config/application.yml</code></p>
+<p>第四级(最低): <code>classpath:application.yml</code></p>
+</blockquote>
+<ol>
+<li>作用：<ol>
+<li>1级与2级留做系统打包后设置通用属性，1级常用于运维经理进行线上整体项目部署方案调控</li>
+<li>3级与4级用于系统开发阶段设置通用属性，3级常用于项目经理进行整体项目属性调控</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-2-自定义配置文件"><a href="#4-2-自定义配置文件" class="headerlink" title="4.2 自定义配置文件"></a>4.2 自定义配置文件</h3><p>通过启动参数加载配置文件（无需书写配置文件扩展名）<code>--spring.config.name=ebank</code>。<code>properties</code>与<code>yml</code>文件格式均支持</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304031716459.png" alt="image-20230403171603369"></p>
+<p>通过启动参数加载指定文件路径下的配置文件 <code>--spring.config.location=classpath:/ebank.yml</code></p>
+<p>通过启动参数加载指定文件路径下的配置文件时可以加载多个配置,<font color='orange'>后面的会覆盖前面的</font>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--spring.config.location=classpath:/ebank.yml,classpath:/ebank-server.yml</span><br></pre></td></tr></table></figure>
+<p>注意：多配置文件常用于将配置进行分类，进行独立管理，或将可选配置单独制作便于上线更新维护</p>
+<blockquote>
+<p>说明：</p>
+<ul>
+<li>单服务器项目：使用自定义配置文件需求较低</li>
+<li>多服务器项目：使用自定义配置文件需求较高，将所有配置放置在一个目录中，统一管理</li>
+<li>基于<code>SpringCloud</code>技术，所有的服务器将不再设置配置文件，而是通过配置中心进行设定，动态加载配置信息</li>
+</ul>
+</blockquote>
+<h2 id="5-多环境开发"><a href="#5-多环境开发" class="headerlink" title="5 多环境开发"></a>5 多环境开发</h2><h3 id="5-1-yaml版"><a href="#5-1-yaml版" class="headerlink" title="5.1 yaml版"></a>5.1 yaml版</h3><p>在yml配置文件中，进行多环境配置，用—-区分环境边界。分为：开发、生产、测试环境。并在开头指定启动环境。指定环境进行公共配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#应用环境</span></span><br><span class="line"><span class="comment">#公共配制</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#设置环境</span></span><br><span class="line"><span class="comment">#开发环境</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">config:</span></span><br><span class="line">    <span class="attr">activate:</span></span><br><span class="line">      <span class="attr">on-profile:</span> <span class="string">dev</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">81</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#生产环境</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">pro</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#测试环境</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">test</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">82</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>小结:</p>
+<ol>
+<li>多环境开发需要设置若干种常用环境，例如开发、生产、测试环境</li>
+<li><code>yaml</code>格式中设置多环境使用—区分环境设置边界</li>
+<li>每种环境的区别在于加载的配置属性不同</li>
+<li>启用某种环境时需要指定启动时使用该环境</li>
+</ol>
+</blockquote>
+<p>多环境会暴露信息，需要把这个文件一分为四，每一份独立出来。</p>
+<ul>
+<li><p>主启动配置文件<code>application.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#应用环境</span></span><br><span class="line"><span class="comment">#公共配制</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">test</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生产环境配置文件<code>application-pro.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">81</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开发分类配置文件<code>application-dev.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">82</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试配置文件<code>application-test.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">83</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<font color='orange'>多环境配置文件书写技巧</font>：主配置文件中设置公共配置（全局）；环境分类配置文件中常用于设置冲突属性（局部）
+
+> 小结:
+>
+> 1. 可以使用独立配置文件定义环境属性
+> 2. 独立配置文件便于线上系统维护更新并保障系统安全性
+
+### 5.2 properties版
+
+- 主启动配置文件`application.properties`
+
+  <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.profiles.active</span>=<span class="string">dev</span></span><br></pre></td></tr></table></figure>
+
+- 环境分类配置文件`application-pro.properties`
+
+  <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.port</span>=<span class="string">9081</span></span><br></pre></td></tr></table></figure>
+
+- 环境分类配置文件`application-dev.properties`
+
+  <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.port</span>=<span class="string">9082</span></span><br></pre></td></tr></table></figure>
+
+- 环境分类配置文件`application-test.properties`
+
+  <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.port</span>=<span class="string">9083</span></span><br></pre></td></tr></table></figure>
+
+
+
+> 多环境开发独立配置文件书写技巧
+>
+> - 根据功能进行拆分，并制作成独立的配置文件，命名规则为：`application-devDB.yml`, `application-devRedis.yml`, `application-devMVC.yml`
+> - 使用`include`属性在激活指定环境的情况下，同时对多个环境进行加载使其生效，多个环境间使用逗号分隔
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">    <span class="attr">include:</span> <span class="string">devDB,devMVC</span></span><br></pre></td></tr></table></figure>
+
+> 当主环境`dev`与其他环境有相同属性时，主环境属性生效；如果跟其他环境，且有相同属性时，最后加载的环境属性生效。
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">The following profiles are active:</span> <span class="string">devDB,devMVC,dev</span></span><br></pre></td></tr></table></figure>
+
+- 从`Spring2.4`版开始使用`group`属性替代`include`属性，降低了配置书写量
+
+- 使用`group`属性定义多种主环境与子环境的包含关系
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">    <span class="attr">group:</span></span><br><span class="line">      <span class="attr">&quot;dev&quot;:</span> <span class="string">devDB,devMVC</span></span><br><span class="line">      <span class="attr">&quot;pro&quot;:</span> <span class="string">proDB,proMVC</span></span><br><span class="line">      <span class="attr">&quot;test&quot;:</span> <span class="string">testDB,testRedis,testMVC</span></span><br></pre></td></tr></table></figure>
+
+> 使用group属性，会覆盖主环境dev(active)的内容，最后加载的环境属性生效
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">The following profiles are active:</span> <span class="string">dev,devDB,devMVC</span></span><br></pre></td></tr></table></figure>
+
+### 5.3 开发控制
+
+当maven与springboot环境发生冲突的时候，我们让boot使用maven配置环境。
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Maven中设置多环境属性--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>dev_env<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profile.active</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">profile.active</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>pro_env<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profile.active</span>&gt;</span>pro<span class="tag">&lt;/<span class="name">profile.active</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>test_env<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profile.active</span>&gt;</span>test<span class="tag">&lt;/<span class="name">profile.active</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+这个配置环境是给boot引用的，通过`@profile.active@`方式引用，它就会读取上面配置的对应的值，加载到boot配置文件中。
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">@profile.active@</span></span><br><span class="line">    <span class="attr">group:</span></span><br><span class="line">      <span class="attr">&quot;dev&quot;:</span> <span class="string">devDB,devMVC</span></span><br><span class="line">      <span class="attr">&quot;pro&quot;:</span> <span class="string">proDB,proMVC</span></span><br></pre></td></tr></table></figure>
+
+执行`Maven`打包指令，并在生成的`boot`打包文件`.jar`文件中查看对应信息
+
+问题：<font color='orange'>修改pom.xml 文件后，启动没有生效 手动 compile 即可</font>
+
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304032048713.png" alt="img" style="zoom:50%;" /></p>
+<p>或者 设置 IDEA进行自动编译</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304032048648.png" alt="img"></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304032122442.png" alt="image-20230403212227251"></p>
+<blockquote>
+<p>小结：</p>
+<ul>
+<li>当<code>Maven</code>与<code>SpringBoot</code>同时对多环境进行控制时，以<code>Maven</code>为主，<code>SpringBoot</code>使用<code>@…@</code>占位符读取<code>Maven</code>对应的配置属性值</li>
+<li>基于<code>SpringBoot</code>读取<code>Maven</code>配置属性的前提下，如果在<code>Idea</code>下测试工程时<code>pom.xml</code>每次更新需要手动<code>compile</code>方可生效</li>
+</ul>
+</blockquote>
+<h2 id="6-日志"><a href="#6-日志" class="headerlink" title="6 日志"></a>6 日志</h2><h3 id="6-1-日志基础操作"><a href="#6-1-日志基础操作" class="headerlink" title="6.1 日志基础操作"></a>6.1 日志基础操作</h3><p>作用：编程期间调试代码；运营期间记录信息（记录日常运营重要信息（峰值流量、平均响应时长……）记录应用报错信息（错误堆栈）记录运维过程数据（扩容、宕机、报警……））</p>
+<p>在代码中使用日志工具记录日志</p>
+<ul>
+<li>先引入<code>Lombok</code>工具类</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--lombok--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加日志记录操作</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/books&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookController</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">log</span> <span class="operator">=</span> LoggerFactory.getLogger(BookController.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getById</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;springboot is running...&quot;</span>);</span><br><span class="line">        log.debug(<span class="string">&quot;debug ...&quot;</span>);</span><br><span class="line">        log.info(<span class="string">&quot;info ...&quot;</span>);</span><br><span class="line">        log.warn(<span class="string">&quot;warn ...&quot;</span>);</span><br><span class="line">        log.error(<span class="string">&quot;error ...&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;springboot is running...&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>日志级别：</p>
+<ul>
+<li>TRACE：运行堆栈信息，使用率低</li>
+<li><code>DEBUG</code>：程序员调试代码使用</li>
+<li><code>INFO</code>：记录运维过程数据</li>
+<li><code>WARN</code>：记录运维过程报警数据</li>
+<li><code>ERROR</code>：记录错误堆栈信息</li>
+<li>FATAL：灾难信息，合并计入ERROR</li>
+</ul>
+<p>设置日志输出级别</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启 debug 模式，输出调试信息，常用于检查系统运行状况</span></span><br><span class="line"><span class="attr">debug:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># 设置日志级别， root 表示根节点，即整体应用日志级别</span></span><br><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">level:</span></span><br><span class="line">    <span class="attr">root:</span> <span class="string">debug</span></span><br></pre></td></tr></table></figure>
+<p>设置日志组，控制指定包对应的日志输出级别，也可以直接控制指定包对应的日志输出级别</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="comment"># 设置分组</span></span><br><span class="line">  <span class="attr">group:</span></span><br><span class="line">    <span class="comment"># 自定义组名，设置当前组中所包含的包</span></span><br><span class="line">    <span class="attr">ebank:</span> <span class="string">com.example.controller,</span> <span class="string">com.example.service,</span> <span class="string">com.example.dao</span></span><br><span class="line">    <span class="attr">iservice:</span> <span class="string">com.alibaba</span></span><br><span class="line">  <span class="attr">level:</span></span><br><span class="line">    <span class="attr">root:</span> <span class="string">info</span></span><br><span class="line">    <span class="comment"># 设置某个包的日志级别</span></span><br><span class="line"><span class="comment">#    com.example.controller: debug</span></span><br><span class="line">    <span class="comment"># 为对应组设置日志级别</span></span><br><span class="line">    <span class="attr">ebank:</span> <span class="string">warn</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>小结：</p>
+<ol>
+<li>日志用于记录开发调试与运维过程消息</li>
+<li>日志的级别共6种，通常使用4种即可，分别是<code>DEBUG，INFO,WARN,ERROR</code></li>
+<li>可以通过日志组或代码包的形式进行日志显示级别的控制</li>
+</ol>
+</blockquote>
+<h3 id="6-2-快速创建日志对象"><a href="#6-2-快速创建日志对象" class="headerlink" title="6.2 快速创建日志对象"></a>6.2 快速创建日志对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">log</span> <span class="operator">=</span> LoggerFactory.getLogger(BookController.class);</span><br></pre></td></tr></table></figure>
+<p>如果要对一个类里创建日志对象，每次都要上面那句话，比较麻烦。</p>
+<p>一种朴素的方式时通过<font color='orange'>继承</font>font&gt;，更方便的方法是使用<code>lombok</code>提供的<font color='orange'>注解</font><code>@Slf4j</code>简化开发，减少日志对象的声明操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="comment">//Rest模式</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/books&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getById</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;springboot is running...2&quot;</span>);</span><br><span class="line"></span><br><span class="line">        log.debug(<span class="string">&quot;debug...&quot;</span>);</span><br><span class="line">        log.info(<span class="string">&quot;info...&quot;</span>);</span><br><span class="line">        log.warn(<span class="string">&quot;warn...&quot;</span>);</span><br><span class="line">        log.error(<span class="string">&quot;error...&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;springboot is running...2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-3-日志输出格式控制"><a href="#6-3-日志输出格式控制" class="headerlink" title="6.3 日志输出格式控制"></a>6.3 日志输出格式控制</h3><p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202304032109183.png" alt="img"></p>
+<ul>
+<li><code>PID</code>：进程ID，用于表明当前操作所处的进程，当多服务同时记录日志时，该值可用于协助程序员调试程序</li>
+<li>所属类/接口名：当前显示信息为SpringBoot重写后的信息，名称过长时，简化包名书写为首字母，甚至直接删除</li>
+</ul>
+<p>设置日志输出格式</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">pattern:</span></span><br><span class="line">    <span class="attr">console:</span> <span class="string">&quot;%d - %m%n&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>%d</code>:指代日期</p>
+<p><code>%p</code>:指代日志level级别 <code>%clr(%5p)</code>：彩色5个占位日志</p>
+<p><code>%16t</code>:指代所属线程占位16</p>
+<h3 id="6-4-文件记录日志"><a href="#6-4-文件记录日志" class="headerlink" title="6.4 文件记录日志"></a>6.4 文件记录日志</h3><ul>
+<li>设置日志文件</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">file:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">server.log</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>日志文件详细配置</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">file:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">server.log</span></span><br><span class="line">  <span class="attr">logback:</span></span><br><span class="line">    <span class="attr">rolling policy:</span></span><br><span class="line">      <span class="attr">max-file-size:</span> <span class="string">4KB</span></span><br><span class="line">      <span class="attr">file-name-pattern:</span> <span class="string">server.%d&#123;yyyy-MM-dd&#125;.%i.log</span> <span class="comment"># 日志文件名字格式</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Skills/"># Skills</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/04/02/SpringBoot/springboot%E5%9F%BA%E7%A1%80%E7%AF%87/">springboot基础篇</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
