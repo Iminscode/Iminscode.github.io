@@ -215,7 +215,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/Spring/">Spring</a>
+                                <a href="/categories/Skills/">Skills</a>
                             
                         </span>
                     
@@ -228,13 +228,13 @@
 <p>注意在本练习中，导入数据库坐标的版本要设置为8.0.19的版本，同时由于mysql数据库版本是8以上的，所以对应的<code>jdbc.driver</code>设置为<code>com.mysql.cj.jdbc.Driver</code>，在jdbc.properties文件中进行如下配置：</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jdbc.driver</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">jdbc.url</span>=<span class="string">jdbc:mysql://127.0.0.1:3306/test?useSSL=false&amp;serverTimezone=UTC</span></span><br><span class="line"><span class="attr">jdbc.username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">jdbc.password</span>=<span class="string">123456</span></span><br></pre></td></tr></table></figure>
 <h3 id="1-1-Spring环境搭建步骤"><a href="#1-1-Spring环境搭建步骤" class="headerlink" title="1.1 Spring环境搭建步骤"></a>1.1 Spring环境搭建步骤</h3><ul>
-<li><font color="orange">创建工程</font>（<code>Project</code>&amp;<code>Module</code>）</li>
-<li><font color="orange">导入静态页面</font>（见资料<code>jsp</code>页面）</li>
-<li><font color="orange">导入需要坐标</font>（见资料中的<code>pom.xml</code>）</li>
-<li><font color="orange">创建包结构</font>（<code>controller</code>、<code>service</code>、<code>dao</code>、<code>domain</code>、<code>utils</code>）</li>
-<li><font color="orange">导入数据库脚本</font>（见资料<code>test.sql</code>）右键test数据库，点SQL Scripts，点run SQL scripts，选择电脑里要执行的文件。</li>
-<li><font color="orange">创建POJO类</font>（见资料<code>User.java</code>和<code>Role.java</code>）对应标准的JavaBean</li>
-<li><font color="orange">创建配置文件</font>（<code>applicationContext.xml</code>、<code>spring-mvc.xml</code>、<code>jdbc.properties</code>、<code>log4j.properties</code>、<code>web.xml</code>)<ul>
+<li><font color='orange'>创建工程</font>（<code>Project</code>&amp;<code>Module</code>）</li>
+<li><font color='orange'>导入静态页面</font>（见资料<code>jsp</code>页面）</li>
+<li><font color='orange'>导入需要坐标</font>（见资料中的<code>pom.xml</code>）</li>
+<li><font color='orange'>创建包结构</font>（<code>controller</code>、<code>service</code>、<code>dao</code>、<code>domain</code>、<code>utils</code>）</li>
+<li><font color='orange'>导入数据库脚本</font>（见资料<code>test.sql</code>）右键test数据库，点SQL Scripts，点run SQL scripts，选择电脑里要执行的文件。</li>
+<li><font color='orange'>创建POJO类</font>（见资料<code>User.java</code>和<code>Role.java</code>）对应标准的JavaBean</li>
+<li><font color='orange'>创建配置文件</font>（<code>applicationContext.xml</code>、<code>spring-mvc.xml</code>、<code>jdbc.properties</code>、<code>log4j.properties</code>、<code>web.xml</code>)<ul>
 <li>在web.xml中，需要配置全局的初始化参数，配置Spring的监听器，配置spring前端控制器</li>
 <li>在spring-mvc中，需要配置mvc注解驱动，配置视图解析器，配置静态资源访问权限</li>
 <li>在application.xml中，需要配置jdbc.properties加载数据源，配置数据源对象，配置jdbc模板JdbcTemplate</li>
@@ -278,7 +278,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/Skills/"># Skills</a>
+                        <a href="/tags/Spring/"># Spring</a>
                     
                         
                 </span>

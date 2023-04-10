@@ -215,7 +215,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/Middleware/">Middleware</a>
+                                <a href="/categories/Skills/">Skills</a>
                             
                         </span>
                     
@@ -312,7 +312,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\redis-cli.exe -h 服务器地址 -p 6379 -a 密码</span><br></pre></td></tr></table></figure>
 <p><img src="/images/redis%E5%85%A5%E9%97%A8/image-20230409133136756.png" alt="image-20230409133136756"></p>
-<h2 id="2-Redis数据类型"><a href="#2-Redis数据类型" class="headerlink" title="2 Redis数据类型"></a>2 Redis数据类型</h2><h3 id="2-1-介绍"><a href="#2-1-介绍" class="headerlink" title="2.1 介绍"></a>2.1 介绍</h3><p>Redis存储的是<code>key-value</code>结构的数据，其中<code>key</code>是<font color="orange">字符串类型</font>，<code>value</code>有5中常用的数据类型</p>
+<h2 id="2-Redis数据类型"><a href="#2-Redis数据类型" class="headerlink" title="2 Redis数据类型"></a>2 Redis数据类型</h2><h3 id="2-1-介绍"><a href="#2-1-介绍" class="headerlink" title="2.1 介绍"></a>2.1 介绍</h3><p>Redis存储的是<code>key-value</code>结构的数据，其中<code>key</code>是<font color='orange'>字符串类型</font>，<code>value</code>有5中常用的数据类型</p>
 <ul>
 <li>字符串：String</li>
 <li>哈希：Hash</li>
@@ -332,19 +332,19 @@
 <tbody>
 <tr>
 <td style="text-align:center">SET key value</td>
-<td style="text-align:center"><font color="orange">设置</font>指定key的值</td>
+<td style="text-align:center"><font color='orange'>设置</font>指定key的值</td>
 </tr>
 <tr>
 <td style="text-align:center">GET key</td>
-<td style="text-align:center"><font color="orange">获取</font>指定key的值</td>
+<td style="text-align:center"><font color='orange'>获取</font>指定key的值</td>
 </tr>
 <tr>
 <td style="text-align:center">SETEX key seconds value</td>
-<td style="text-align:center">设置指定key的值，并将key的<font color="orange">过期时间设</font>为seconds秒(手机验证码)</td>
+<td style="text-align:center">设置指定key的值，并将key的<font color='orange'>过期时间设</font>为seconds秒(手机验证码)</td>
 </tr>
 <tr>
 <td style="text-align:center">SETNX key value</td>
-<td style="text-align:center">只有在key<font color="orange">不存在时设置</font>key的值(分布式锁)</td>
+<td style="text-align:center">只有在key<font color='orange'>不存在时设置</font>key的值(分布式锁)</td>
 </tr>
 </tbody>
 </table>
@@ -365,27 +365,27 @@
 <tbody>
 <tr>
 <td style="text-align:center">HSET key field value</td>
-<td style="text-align:center">将哈希表key 中的字段field的值<font color="orange">设为value</font></td>
+<td style="text-align:center">将哈希表key 中的字段field的值<font color='orange'>设为value</font></td>
 </tr>
 <tr>
 <td style="text-align:center">HGET key field</td>
-<td style="text-align:center">获取存储在哈希表中指定字段的<font color="orange">值</font></td>
+<td style="text-align:center">获取存储在哈希表中指定字段的<font color='orange'>值</font></td>
 </tr>
 <tr>
 <td style="text-align:center">HDEL key field</td>
-<td style="text-align:center"><font color="orange">删除</font>存储在哈希表中的指定字段</td>
+<td style="text-align:center"><font color='orange'>删除</font>存储在哈希表中的指定字段</td>
 </tr>
 <tr>
 <td style="text-align:center">HKEYS key</td>
-<td style="text-align:center">获取哈希表中<font color="orange">所有字段</font></td>
+<td style="text-align:center">获取哈希表中<font color='orange'>所有字段</font></td>
 </tr>
 <tr>
 <td style="text-align:center">HVALS key</td>
-<td style="text-align:center">获取哈希表中<font color="orange">所有值</font></td>
+<td style="text-align:center">获取哈希表中<font color='orange'>所有值</font></td>
 </tr>
 <tr>
 <td style="text-align:center">HGETALL key</td>
-<td style="text-align:center">获取在哈希表中指定key的<font color="orange">所有字段和值</font></td>
+<td style="text-align:center">获取在哈希表中指定key的<font color='orange'>所有字段和值</font></td>
 </tr>
 </tbody>
 </table>
@@ -402,28 +402,28 @@
 <tbody>
 <tr>
 <td style="text-align:center"><code>LPUSH</code> key value1 [value2]</td>
-<td style="text-align:center">将一个或多个值插入到列表<font color="orange">头部</font></td>
+<td style="text-align:center">将一个或多个值插入到列表<font color='orange'>头部</font></td>
 </tr>
 <tr>
 <td style="text-align:center"><code>LRANGE</code> key start stop</td>
-<td style="text-align:center">获取列表指定<font color="orange">范围</font>内的元素</td>
+<td style="text-align:center">获取列表指定<font color='orange'>范围</font>内的元素</td>
 </tr>
 <tr>
 <td style="text-align:center"><code>RPOP</code> key</td>
-<td style="text-align:center"><font color="orange">移除</font>并获取列表最后一个元素</td>
+<td style="text-align:center"><font color='orange'>移除</font>并获取列表最后一个元素</td>
 </tr>
 <tr>
 <td style="text-align:center"><code>LLEN</code> key</td>
-<td style="text-align:center">获取列表<font color="orange">长度</font></td>
+<td style="text-align:center">获取列表<font color='orange'>长度</font></td>
 </tr>
 <tr>
 <td style="text-align:center"><code>BRPOP</code> key1 [key2] timeout</td>
-<td style="text-align:center"><font color="orange">移出</font>并获取列表的<font color="orange">最后</font><font color="orange">一个</font>元素 如果列表没有元素会阻塞列表直到等待<font color="orange">超时</font>或发现可弹出元素为止</td>
+<td style="text-align:center"><font color='orange'>移出</font>并获取列表的<font color='orange'>最后</font><font color='orange'>一个</font>元素 如果列表没有元素会阻塞列表直到等待<font color='orange'>超时</font>或发现可弹出元素为止</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="2-5-集合-Set-常用命令"><a href="#2-5-集合-Set-常用命令" class="headerlink" title="2.5 集合(Set)常用命令"></a>2.5 集合(Set)常用命令</h3><p><code>Redis set</code>是<code>String</code>类型的<font color="orange">无序</font>集合。集合成员是<font color="orange">唯一</font>的，这就意味着集合中不能出现重复的数据</p>
+<h3 id="2-5-集合-Set-常用命令"><a href="#2-5-集合-Set-常用命令" class="headerlink" title="2.5 集合(Set)常用命令"></a>2.5 集合(Set)常用命令</h3><p><code>Redis set</code>是<code>String</code>类型的<font color='orange'>无序</font>集合。集合成员是<font color='orange'>唯一</font>的，这就意味着集合中不能出现重复的数据</p>
 <div class="table-container">
 <table>
 <thead>
@@ -435,36 +435,36 @@
 <tbody>
 <tr>
 <td style="text-align:center">SADD key member1 [member2]</td>
-<td style="text-align:center">向集合<font color="orange">添加</font>一个或多个成员</td>
+<td style="text-align:center">向集合<font color='orange'>添加</font>一个或多个成员</td>
 </tr>
 <tr>
 <td style="text-align:center">SMEMBERS key</td>
-<td style="text-align:center">返回集合中的<font color="orange">所有</font>成员</td>
+<td style="text-align:center">返回集合中的<font color='orange'>所有</font>成员</td>
 </tr>
 <tr>
 <td style="text-align:center">SCARD key</td>
-<td style="text-align:center">获取集合的<font color="orange">成员数</font></td>
+<td style="text-align:center">获取集合的<font color='orange'>成员数</font></td>
 </tr>
 <tr>
 <td style="text-align:center">SINTER key1 [key2]</td>
-<td style="text-align:center">返回给定所有集合的<font color="orange">交集</font></td>
+<td style="text-align:center">返回给定所有集合的<font color='orange'>交集</font></td>
 </tr>
 <tr>
 <td style="text-align:center">SUNION key1 [key2]</td>
-<td style="text-align:center">返回所有给定集合的<font color="orange">并集</font></td>
+<td style="text-align:center">返回所有给定集合的<font color='orange'>并集</font></td>
 </tr>
 <tr>
 <td style="text-align:center">SDIFF key1 [key2]</td>
-<td style="text-align:center">返回给定所有集合的<font color="orange">差集</font>  在key1集合中有的，但是key2集合中没有</td>
+<td style="text-align:center">返回给定所有集合的<font color='orange'>差集</font>  在key1集合中有的，但是key2集合中没有</td>
 </tr>
 <tr>
 <td style="text-align:center">SREM key member1 [member2]</td>
-<td style="text-align:center"><font color="orange">移除</font>集合中一个或多个成员</td>
+<td style="text-align:center"><font color='orange'>移除</font>集合中一个或多个成员</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="2-6-有序集合-Sorted-Set-常用命令"><a href="#2-6-有序集合-Sorted-Set-常用命令" class="headerlink" title="2.6 有序集合(Sorted Set)常用命令"></a>2.6 有序集合(Sorted Set)常用命令</h3><p><code>Redis Sorted Set</code><font color="orange">有序集合</font>是<code>String</code>类型元素的集合，且<font color="orange">不允许重复</font>的成员。每个元素都会关联一个<code>double</code>类型的分数(<code>score</code>) 。<code>Redis</code>正是<font color="orange">通过分数</font>来为集合中的成员进行从小到大<font color="orange">排序</font>。有序集合的<font color="orange">成员是唯一</font>的，但<font color="orange">分数却可以重复</font>。</p>
+<h3 id="2-6-有序集合-Sorted-Set-常用命令"><a href="#2-6-有序集合-Sorted-Set-常用命令" class="headerlink" title="2.6 有序集合(Sorted Set)常用命令"></a>2.6 有序集合(Sorted Set)常用命令</h3><p><code>Redis Sorted Set</code><font color='orange'>有序集合</font>是<code>String</code>类型元素的集合，且<font color='orange'>不允许重复</font>的成员。每个元素都会关联一个<code>double</code>类型的分数(<code>score</code>) 。<code>Redis</code>正是<font color='orange'>通过分数</font>来为集合中的成员进行从小到大<font color='orange'>排序</font>。有序集合的<font color='orange'>成员是唯一</font>的，但<font color='orange'>分数却可以重复</font>。</p>
 <div class="table-container">
 <table>
 <thead>
@@ -476,19 +476,19 @@
 <tbody>
 <tr>
 <td style="text-align:center">ZADD key score1 member1 [score2 member2]</td>
-<td style="text-align:center">向有序集合<font color="orange">添加</font>一个或多个成员，或者<font color="orange">更新</font>已存在成员的分数</td>
+<td style="text-align:center">向有序集合<font color='orange'>添加</font>一个或多个成员，或者<font color='orange'>更新</font>已存在成员的分数</td>
 </tr>
 <tr>
 <td style="text-align:center">ZRANGE key start stop [WITHSCORES]</td>
-<td style="text-align:center">通过<font color="orange">索引区间返回</font>有序集合中指定区间内的成员</td>
+<td style="text-align:center">通过<font color='orange'>索引区间返回</font>有序集合中指定区间内的成员</td>
 </tr>
 <tr>
 <td style="text-align:center">ZINCRBY key increment member</td>
-<td style="text-align:center">有序集合中对指定成员的分数<font color="orange">加上增量</font>increment.可为负增量</td>
+<td style="text-align:center">有序集合中对指定成员的分数<font color='orange'>加上增量</font>increment.可为负增量</td>
 </tr>
 <tr>
 <td style="text-align:center">ZREM key member [member …]</td>
-<td style="text-align:center"><font color="orange">移除</font>有序集合中的一个或多个成员</td>
+<td style="text-align:center"><font color='orange'>移除</font>有序集合中的一个或多个成员</td>
 </tr>
 </tbody>
 </table>
@@ -504,23 +504,23 @@
 <tbody>
 <tr>
 <td style="text-align:center">KEYs pattern</td>
-<td style="text-align:center">查找所有符合给定<font color="orange">模式</font>(pattern)的key  keys * 查看redis中所有的key</td>
+<td style="text-align:center">查找所有符合给定<font color='orange'>模式</font>(pattern)的key  keys * 查看redis中所有的key</td>
 </tr>
 <tr>
 <td style="text-align:center">EXISTs key</td>
-<td style="text-align:center">检查给定key<font color="orange">是否存在</font></td>
+<td style="text-align:center">检查给定key<font color='orange'>是否存在</font></td>
 </tr>
 <tr>
 <td style="text-align:center">TYPE key</td>
-<td style="text-align:center">返回key所储存的值的<font color="orange">类型</font></td>
+<td style="text-align:center">返回key所储存的值的<font color='orange'>类型</font></td>
 </tr>
 <tr>
 <td style="text-align:center">TTL key</td>
-<td style="text-align:center">返回给定key的<font color="orange">剩余生存时间</font>(TTL, time to live)，以秒为单位</td>
+<td style="text-align:center">返回给定key的<font color='orange'>剩余生存时间</font>(TTL, time to live)，以秒为单位</td>
 </tr>
 <tr>
 <td style="text-align:center">DEL key</td>
-<td style="text-align:center">该命令用于在key存在是<font color="orange">删除key</font></td>
+<td style="text-align:center">该命令用于在key存在是<font color='orange'>删除key</font></td>
 </tr>
 </tbody>
 </table>
@@ -541,11 +541,11 @@
 </ul>
 <p>Spring Data Redis中提供了一个高度封装的类：<code>RedisTemplate</code>，针对jedis客户端中大量api进行了归类封装，将同一类型操作封装为operation接口，具体分类如下：</p>
 <ul>
-<li>ValueOperations：<font color="orange">简单K-V</font>操作</li>
-<li>SetOperations：<font color="orange">set</font>类型数据操作</li>
-<li>ZSetOperations：<font color="orange">zset</font>类型数据操作</li>
-<li>HashOperations：针对<font color="orange">map</font>类型的数据操作</li>
-<li>ListOperations：针对<font color="orange">list</font>类型的数据操作</li>
+<li>ValueOperations：<font color='orange'>简单K-V</font>操作</li>
+<li>SetOperations：<font color='orange'>set</font>类型数据操作</li>
+<li>ZSetOperations：<font color='orange'>zset</font>类型数据操作</li>
+<li>HashOperations：针对<font color='orange'>map</font>类型的数据操作</li>
+<li>ListOperations：针对<font color='orange'>list</font>类型的数据操作</li>
 </ul>
 <p>使用SpringDataRedis，我们首先需要导入它的maven坐标</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Spring Boot-redis的依赖包--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -629,7 +629,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/Skills/"># Skills</a>
+                        <a href="/tags/Middleware/"># Middleware</a>
                     
                         
                 </span>
@@ -642,7 +642,7 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2023/04/10/test01/">test01</a>
+                <a class="prev" rel="prev" href="/2023/04/10/Configs/test01/">test01</a>
             
             
             <a class="next" rel="next" href="/2023/04/08/Other/linux01/">linux01</a>

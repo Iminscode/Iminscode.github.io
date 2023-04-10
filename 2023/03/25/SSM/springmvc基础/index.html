@@ -215,7 +215,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/SpringMVC/">SpringMVC</a>
+                                <a href="/categories/Skills/">Skills</a>
                             
                         </span>
                     
@@ -301,8 +301,8 @@
 <li><p><code>@RequestMapping</code> </p>
 <ul>
 <li>作用：将请求的虚拟地址映射到具体某个方法上，用于建立请求 URL 和处理请求方法之间的对应关系</li>
-<li>位置：<font color="orange">类上</font>：请求URL 的第一级访问目录。此处不写的话，就相当于应用的根目录。<font color="orange">方法上</font>：请求 URL 的第二级访问目录，与类上的使用@ReqquestMapping标注的一级目录一起组成访问虚拟路径属性</li>
-<li>方法上的参数：<font color="red">value</font>：用于指定请求的URL。它和path属性的作用是一样的。<font color="red">method</font>：用于指定请求的方式（get/post）。<font color="red">params</font>：用于指定限制请求参数的条件。它支持简单的表达式。要求请求参数的key和value必须和配置的一模一样 例如：<code>params = &#123;&quot;accountName&quot;&#125;</code>，表示请求参数必须有accountName；<code>params = &#123;&quot;moeny!100&quot;&#125;</code>，表示请求参数中money不能是100</li>
+<li>位置：<font color='orange'>类上</font>：请求URL 的第一级访问目录。此处不写的话，就相当于应用的根目录。<font color='orange'>方法上</font>：请求 URL 的第二级访问目录，与类上的使用@ReqquestMapping标注的一级目录一起组成访问虚拟路径属性</li>
+<li>方法上的参数：<font color='red'>value</font>：用于指定请求的URL。它和path属性的作用是一样的。<font color='red'>method</font>：用于指定请求的方式（get/post）。<font color='red'>params</font>：用于指定限制请求参数的条件。它支持简单的表达式。要求请求参数的key和value必须和配置的一模一样 例如：<code>params = &#123;&quot;accountName&quot;&#125;</code>，表示请求参数必须有accountName；<code>params = &#123;&quot;moeny!100&quot;&#125;</code>，表示请求参数中money不能是100</li>
 </ul>
 </li>
 <li><p>mvc命名空间引入。在spring-mvc.xml文件中修改。</p>
@@ -322,8 +322,8 @@
 <p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202303261138638.png" alt="image-20230326113847582"></p>
 <h2 id="二、SpringMVC的请求和响应"><a href="#二、SpringMVC的请求和响应" class="headerlink" title="二、SpringMVC的请求和响应"></a>二、SpringMVC的请求和响应</h2><h3 id="1-SpringMVC的请求和响应"><a href="#1-SpringMVC的请求和响应" class="headerlink" title="1. SpringMVC的请求和响应"></a>1. SpringMVC的请求和响应</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39123467/article/details/124237754">详解宇案例步骤开发参考</a></p>
 <h4 id="1-1-SpringMVC的数据响应方式"><a href="#1-1-SpringMVC的数据响应方式" class="headerlink" title="1.1 SpringMVC的数据响应方式"></a>1.1 SpringMVC的数据响应方式</h4><ul>
-<li><font color="orange">页面跳转</font>：直接返回字符串、通过<code>ModelAndView</code>对象返回</li>
-<li><font color="orange">回写数据</font>：直接返回字符串、返回对象或集合</li>
+<li><font color='orange'>页面跳转</font>：直接返回字符串、通过<code>ModelAndView</code>对象返回</li>
+<li><font color='orange'>回写数据</font>：直接返回字符串、返回对象或集合</li>
 </ul>
 <h4 id="1-2-页面跳转"><a href="#1-2-页面跳转" class="headerlink" title="1.2 页面跳转"></a>1.2 页面跳转</h4><ul>
 <li>返回字符串：此种方式会将返回的字符串与视图解析器的前后缀拼接后跳转。</li>
@@ -331,7 +331,7 @@
 <p><img src="https://gcore.jsdelivr.net/gh/Iminscode/typora-img-store@main/imgs/202303261247280.png" alt="image-20230326124731215"></p>
 <p>要先对配置文件进行配置，然后，在Controller类中返回字符串。</p>
 <ul>
-<li><font color="orange">返回ModelAndView对象一</font>
+<li><font color='orange'>返回ModelAndView对象一</font>
 
 </li>
 </ul>
@@ -341,13 +341,13 @@
 <p>在webapp包下创建一个jsp文件夹，将success.jsp文件放到这个包下，并使用el表达式，从域中获取数据</p>
 <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="string">&quot;java&quot;</span> %&gt;</span><br><span class="line">&lt;%<span class="meta">@page</span> isELIgnored=<span class="string">&quot;false&quot;</span> %&gt; &lt;%--为了识别使用EL表达式，根据传递的数据动态显示--%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;success... $&#123;username&#125;&lt;/h1&gt;&lt;%--显示一段话--%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><font color="orange">返回ModelAndView对象方式二</font>
+<li><font color='orange'>返回ModelAndView对象方式二</font>
 
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/quick3&quot;)</span><span class="comment">//请求地址和方法映射关系用映射，访问地址就是参数</span></span><br><span class="line"><span class="keyword">public</span> ModelAndView <span class="title function_">save3</span><span class="params">(ModelAndView modelAndView)</span>&#123;<span class="comment">//spring对方法参数进行相应注入，解析参数，由springmvc提供这个对象</span></span><br><span class="line">    modelAndView.addObject(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;itheima&quot;</span>);   <span class="comment">//设置模型数据</span></span><br><span class="line">    modelAndView.setViewName(<span class="string">&quot;success&quot;</span>);    <span class="comment">//设置视图名称</span></span><br><span class="line">    <span class="keyword">return</span> modelAndView;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><font color="orange">返回ModelAndView对象方式三</font>
+<li><font color='orange'>返回ModelAndView对象方式三</font>
 
 </li>
 </ul>
@@ -378,12 +378,12 @@
 <li><p>在Controller类中，直接返回对应的user对象，就可以，不需要再编写json相关的代码。后期如果想返回对象或集合，直接return </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/quick10&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> User <span class="title function_">save10</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">    user.setUsername(<span class="string">&quot;lisi&quot;</span>);</span><br><span class="line">    user.setAge(<span class="number">14</span>);</span><br><span class="line">    <span class="keyword">return</span> user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在方法上添加@ResponseBody就可以返回json格式的字符串，但是需要jackson的配置，比较麻烦，配置的代码比较多， 因此，我们可以使用mvc的注解驱动代替上述配置。<font color="orange">注意</font>：这里需要在开头配置mvc的命名空间和约束地址</p>
+<li><p>在方法上添加@ResponseBody就可以返回json格式的字符串，但是需要jackson的配置，比较麻烦，配置的代码比较多， 因此，我们可以使用mvc的注解驱动代替上述配置。<font color='orange'>注意</font>：这里需要在开头配置mvc的命名空间和约束地址</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--mvc的注解驱动--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 <p>该项配置，就可以替代配置处理器映射器的代码。</p>
 </li>
 </ul>
-<p>在SpringMVC的各个组件中，<font color="orange">处理器映射器</font>、<font color="orange">处理器适配器</font>、<font color="orange">视图解析器</font>称为SpringMVC的三大组件。使用<mvc:annotation-driven>（自动加载） <code>RequestMappingHandlerMapping</code>（处理映射器）和 <code>RequestMappingHandlerAdapter</code>（处理适配器），可用在Spring-xml.xml配置文件中使用替代注解处理器和适配器的配置。 同时使用默认底层就会集成jackson进行对象或集合的json格式字符串的转换。</mvc:annotation-driven></p>
+<p>在SpringMVC的各个组件中，<font color='orange'>处理器映射器</font>、<font color='orange'>处理器适配器</font>、<font color='orange'>视图解析器</font>称为SpringMVC的三大组件。使用<mvc:annotation-driven>（自动加载） <code>RequestMappingHandlerMapping</code>（处理映射器）和 <code>RequestMappingHandlerAdapter</code>（处理适配器），可用在Spring-xml.xml配置文件中使用替代注解处理器和适配器的配置。 同时使用默认底层就会集成jackson进行对象或集合的json格式字符串的转换。</p>
 <h3 id="2-SpringMVC获得请求数据"><a href="#2-SpringMVC获得请求数据" class="headerlink" title="2. SpringMVC获得请求数据"></a>2. SpringMVC获得请求数据</h3><h4 id="2-1-获得请求参数"><a href="#2-1-获得请求参数" class="headerlink" title="2.1 获得请求参数"></a>2.1 获得请求参数</h4><p>客户端请求参数的格式是：name=value&amp;name=value… …</p>
 <p>服务器端要获得请求的参数，有时还需要进行数据的封装，SpringMVC可以接收如下类型的参数：</p>
 <ul>
@@ -392,7 +392,7 @@
 <li>数组类型参数</li>
 <li>集合类型参数</li>
 </ul>
-<h4 id="2-2-获得基本类型参数"><a href="#2-2-获得基本类型参数" class="headerlink" title="2.2 获得基本类型参数"></a>2.2 获得基本类型参数</h4><p>Controller中的<font color="orange">业务方法的参数名称要与请求参数的name一致</font>，参数值会自动映射匹配。</p>
+<h4 id="2-2-获得基本类型参数"><a href="#2-2-获得基本类型参数" class="headerlink" title="2.2 获得基本类型参数"></a>2.2 获得基本类型参数</h4><p>Controller中的<font color='orange'>业务方法的参数名称要与请求参数的name一致</font>，参数值会自动映射匹配。</p>
 <ul>
 <li><p>在Controller中编写以下代码，直接返回。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/quick11&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save11</span><span class="params">(String username, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">    System.out.println(username);</span><br><span class="line">    System.out.println(age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -400,13 +400,13 @@
 <li><p>运行后在地址栏，手动传入参数：localhost:8080/itheima_springmvc1/quick9?username=zhangsan&amp;age=12</p>
 </li>
 </ul>
-<h4 id="2-3-获得POJO类型参数"><a href="#2-3-获得POJO类型参数" class="headerlink" title="2.3 获得POJO类型参数"></a>2.3 获得POJO类型参数</h4><p>Controller中的业务方法的<font color="orange">POJO参数的属性名与请求参数的name一致</font>，参数值会自动映射匹配。</p>
+<h4 id="2-3-获得POJO类型参数"><a href="#2-3-获得POJO类型参数" class="headerlink" title="2.3 获得POJO类型参数"></a>2.3 获得POJO类型参数</h4><p>Controller中的业务方法的<font color='orange'>POJO参数的属性名与请求参数的name一致</font>，参数值会自动映射匹配。</p>
 <ul>
 <li><p>只要pojo的参数属性名和请求参数的名一致，那么springmvc自动会把参数封装到pojo的属性当中，直接返回对应的对象。在地址栏请求参数输入刚刚上面那个地址并带上请求参数。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    getter/setter…</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@RequestMapping(&quot;/quick12&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">quickMethod10</span><span class="params">(User user)</span>&#123;<span class="comment">//封装一个实体</span></span><br><span class="line">	System.out.println(user);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="2-4-获得数组类型参数"><a href="#2-4-获得数组类型参数" class="headerlink" title="2.4 获得数组类型参数"></a>2.4 获得数组类型参数</h4><p>Controller中的<font color="orange">业务方法数组名称与请求参数的name一致</font>，参数值会自动映射匹配。</p>
+<h4 id="2-4-获得数组类型参数"><a href="#2-4-获得数组类型参数" class="headerlink" title="2.4 获得数组类型参数"></a>2.4 获得数组类型参数</h4><p>Controller中的<font color='orange'>业务方法数组名称与请求参数的name一致</font>，参数值会自动映射匹配。</p>
 <ul>
 <li><p>由于数组打印默认是打印的地址，需要通过遍历才能访问到内部的值，因此，这里使用Arrays工具类，转换成List，目的是为了方便看到输出结果</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/quick11&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">quickMethod11</span><span class="params">(String[] strs)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">	System.out.println(Arrays.asList(strs));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -572,7 +572,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/Skills/"># Skills</a>
+                        <a href="/tags/SpringMVC/"># SpringMVC</a>
                     
                         
                 </span>
@@ -585,10 +585,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2023/03/26/LeetCode/leetcode%E6%95%B0%E7%BB%84/">leetcode数组</a>
+                <a class="prev" rel="prev" href="/2023/03/26/LeetCode/leetcode%E6%95%B0%E7%BB%8401/">leetcode数组01</a>
             
             
-            <a class="next" rel="next" href="/2023/03/25/test/">test</a>
+            <a class="next" rel="next" href="/2023/03/25/hello-world/">Hello World</a>
             
         </section>
 
