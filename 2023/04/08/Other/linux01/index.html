@@ -228,227 +228,146 @@
 <li>物理机安装：直接将操作系统安装到服务硬件上</li>
 <li>虚拟机安装：通过虚拟机软件安装</li>
 </ul>
-<font color="orange">虚拟机</font>：是指通过软件模拟的具有完整硬件系统功能，运行在完全隔离环境中的完整计算机系统
-
-常用的虚拟机软件：<font color="orange">VMWare</font>, VirtualBox, VMLite WorkStation, Qemu, HopeddotVOS
-
-#### 1.1.1 安装VMWare
-
-![image-20230408124202300](/images/linux01/image-20230408124202300.png)
-
-直接双击运行资料中的VMWare安装程序，根据提示完成安装即可，安装之后，按照提示输入许可密钥：YG5H2-ANZ0H-M8ERY-TXZZZ-YKRV8
-
-![image-20230408125057536](/images/linux01/image-20230408125057536.png)
-
-#### 1.1.2 安装CentOS镜像
-
-直接使用资料中提供的CentOS镜像文件来完成Linux系统安装，首先先打开VMWare软件。按照下面步骤完成操作，注意在指定磁盘容量之后，有一个选项为`自定义硬件`，点击之后到最后一张图，设置内存处理器，重点使用我们下载好的镜像文件。最后确定点击完成。
-
-![image-20230408134852747](/images/linux01/image-20230408134852747.png)
-
-当我们选择计算机之后，开启此虚拟机，发现此主机支持 Intel VT-x，但 Intel VT-x 处于禁用状态。因此，我们需要进入bios里设置开启。
-
-![image-20230408135709936](/images/linux01/image-20230408135709936.png)
-
-找到系统设置，更新安全，恢复，立即重新启动，疑难解答，高级选项，UEFI固件设置，重启，设置BIOS，进入BIOS之后，系统设置，处理器虚拟化技术，回车选择启用，f10保存并退出。设置好后，重新开启此虚拟机，安装centos系统如下操作：
-
-![image-20230408143725058](/images/linux01/image-20230408143725058.png)
-
-### 1.2 安装Linux
-
-#### 1.2.1 网卡设置
-
-由于启动服务器是未加载网卡，导致ip地址初始化失败，查看ip地址命令：`ip addr`
-
-![image-20230408144238290](/images/linux01/image-20230408144238290.png)
-
-修改网络初始化设置，设定网卡在系统启动时初始化，进入编辑界面之后，首先按一下i键，然后移动光标，将onboot选项修改为yes，最后按`esc`键，输入`:wq`，`回车`，完成修改
-
+<ol>
+<li><font color="orange">虚拟机</font>：是指通过软件模拟的具有完整硬件系统功能，运行在完全隔离环境中的完整计算机系统</li>
+</ol>
+<p>常用的虚拟机软件：<font color="orange">VMWare</font>, VirtualBox, VMLite WorkStation, Qemu, HopeddotVOS。</p>
+<h4 id="1-1-1-安装VMWare"><a href="#1-1-1-安装VMWare" class="headerlink" title="1.1.1 安装VMWare"></a>1.1.1 安装VMWare</h4><p><img src="/images/linux01/image-20230408124202300.png" alt="image-20230408124202300"></p>
+<p>直接双击运行资料中的VMWare安装程序，根据提示完成安装即可，安装之后，按照提示输入许可密钥：YG5H2-ANZ0H-M8ERY-TXZZZ-YKRV8</p>
+<p><img src="/images/linux01/image-20230408125057536.png" alt="image-20230408125057536"></p>
+<h4 id="1-1-2-安装CentOS镜像"><a href="#1-1-2-安装CentOS镜像" class="headerlink" title="1.1.2 安装CentOS镜像"></a>1.1.2 安装CentOS镜像</h4><p>直接使用资料中提供的CentOS镜像文件来完成Linux系统安装，首先先打开VMWare软件。按照下面步骤完成操作，注意在指定磁盘容量之后，有一个选项为<code>自定义硬件</code>，点击之后到最后一张图，设置内存处理器，重点使用我们下载好的镜像文件。最后确定点击完成。</p>
+<p><img src="/images/linux01/image-20230408134852747.png" alt="image-20230408134852747"></p>
+<p>当我们选择计算机之后，开启此虚拟机，发现此主机支持 Intel VT-x，但 Intel VT-x 处于禁用状态。因此，我们需要进入bios里设置开启。</p>
+<p><img src="/images/linux01/image-20230408135709936.png" alt="image-20230408135709936" style="zoom:80%;"></p>
+<p>找到系统设置，更新安全，恢复，立即重新启动，疑难解答，高级选项，UEFI固件设置，重启，设置BIOS，进入BIOS之后，系统设置，处理器虚拟化技术，回车选择启用，f10保存并退出。设置好后，重新开启此虚拟机，安装centos系统如下操作：</p>
+<p><img src="/images/linux01/image-20230408143725058.png" alt="image-20230408143725058"></p>
+<h3 id="1-2-安装Linux"><a href="#1-2-安装Linux" class="headerlink" title="1.2 安装Linux"></a>1.2 安装Linux</h3><h4 id="1-2-1-网卡设置"><a href="#1-2-1-网卡设置" class="headerlink" title="1.2.1 网卡设置"></a>1.2.1 网卡设置</h4><p>由于启动服务器是未加载网卡，导致ip地址初始化失败，查看ip地址命令：<code>ip addr</code></p>
+<p><img src="/images/linux01/image-20230408144238290.png" alt="image-20230408144238290" style="zoom: 67%;"></p>
+<p>修改网络初始化设置，设定网卡在系统启动时初始化，进入编辑界面之后，首先按一下i键，然后移动光标，将onboot选项修改为yes，最后按<code>esc</code>键，输入<code>:wq</code>，<code>回车</code>，完成修改</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /				<span class="comment"># 进入根目录</span></span><br><span class="line"><span class="built_in">cd</span> etc				<span class="comment"># 进入etc目录</span></span><br><span class="line"><span class="built_in">cd</span> sysconfig		<span class="comment"># 进入sysconfig目录</span></span><br><span class="line"><span class="built_in">cd</span> network-scripts	<span class="comment"># 进入network-scripts</span></span><br><span class="line">vi ifcfg-ens33		<span class="comment"># 编辑ifcfg-ens33文件</span></span><br></pre></td></tr></table></figure>
-
-修改完成之后，可以在我的计算机处右键，点击重新启动计算机，登录系统之后，再次输入：`ip addr` 查看网卡设置
-
-![image-20230408145739559](/images/linux01/image-20230408145739559.png)
-
-#### 1.2.2 安装SSH连接工具
-
-通过SSH连接工具实现从本地连接道远程的Linux服务器。常用的SSH连接工具：putty, secureCRT, xshell, `finalshell`
-
-安装`finalshell`，直接双击资料中的finalshell安装程序完成安装。
-
-相关快捷键：
-
-- 终端: alt 命令历史  双击ctrl 切换到命令输入框
-- 命令输入框:  alt 命令历史  tab 补全   双击ctrl 切换到终端
-- 列表窗口: backspace 上一级目录  alt/tab/esc 关闭窗口  上下箭头 选择行
-
-#### 1.2.3 使用finalshell连接到linux
-
-上面查看网卡设置要记住ip地址，下面这里要填入对应的ip地址，同时输入自己虚拟机的用户名和密码
-
-![image-20230408151304755](/images/linux01/image-20230408151304755.png)
-
-#### 1.2.4 linux和windows目录结构对比
-
-linux系统中的目录：`/` 是所有目录的顶点，目录结构向一颗倒挂的树
-
-![image-20230408151548475](/images/linux01/image-20230408151548475.png)
-
-![image-20230408151731310](/images/linux01/image-20230408151731310.png)
-
-## 2 Linux常用命令
-
-### 2.1 Linux命令初体验
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  命令		   #      对应英文			#       作用</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span>				<span class="comment"># list					# 产看当前目录下的内容</span></span><br><span class="line"><span class="built_in">pwd</span>				<span class="comment"># print work directory  # 查看当前所在目录</span></span><br><span class="line"><span class="built_in">cd</span> [目录名]	  <span class="comment"># change directory	  # 切换目录</span></span><br><span class="line"><span class="built_in">touch</span>			<span class="comment"># touch					# 如果文件不存咋其，新建文件</span></span><br><span class="line"><span class="built_in">mkdir</span>			<span class="comment"># make directory		# 创建目录</span></span><br><span class="line"><span class="built_in">rm</span>				<span class="comment"># remove				# 删除指定文件</span></span><br></pre></td></tr></table></figure>
-
-在执行Linux命令时，提示信息如果显示为乱码，如图所示。这是由于编码问题导致，只需要修改Linux的编码即可，命令如下
-
-![image-20230408152504038](/images/linux01/image-20230408152504038.png)
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;LANG=&quot;en_US.UTF-8&quot;&#x27;</span> &gt;&gt; /etc/profile <span class="comment"># 把单引号里面的内容追加到右边这个文件</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile	<span class="comment"># 让这个文件生效</span></span><br></pre></td></tr></table></figure>
-
-<font color="orange">使用技巧</font>：相关快捷键：
-
-- <font color="orange">终端</font>: 
-  - alt->命令历史  
-  - 双击ctrl->切换到命令输入框
-- <font color="orange">命令输入框</font>:  
-  - alt->命令历史  
-  - `tab`->自动补全   
-  - 双击ctrl->切换到终端  
-  - 连续两次tab键->给出操作提示 
-  - 使用上下箭头快速调出曾经使用过的命令，
-  - 使用clear命令或者ctrl+l快捷键实现清理屏幕
-- <font color="orange">列表窗口</font>: 
-  - backspace->上一级目录  
-  - alt/tab/esc->关闭窗口  
-  - 上下箭头->选择行
-
-<font color="orange">命令格式</font>：command是指命令；[-options]是指选项，可以用来对命令进行控制，可以省略；[parameter]是指传给命令的参数
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span> [-options] [parameter]</span><br></pre></td></tr></table></figure>
-
-### 2.2 文件目录操作命令
-
-#### 2.2.1 `ls`
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> [-al] [<span class="built_in">dir</span>]	<span class="comment"># 作用：是显示指定目录下的内容</span></span><br></pre></td></tr></table></figure>
-
-- `-a`显示所有文件及目录（.开头的隐藏文件也会列出）
-- `-l`除文件名称外，同时将文件型态(`d`表示目录，`-`表示文件)、权限、拥有者、文件大小等信息详细列出
-
-由于我们使用`ls`命令时经常需要加入`-l`选项，所以Linux为`ls -l`命令提供了一种简写方式，即`ll`
-
-#### 2.2.2 `cd`
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> [dirName]	<span class="comment"># 作用：用于切换当前工作目录，即进入指定目录</span></span><br></pre></td></tr></table></figure>
-
-- `～`表示用户的home目录
-- `.`表示目前所在的目录
-- `..`表示目前目录位置的上级目录
-
-#### 2.2.3 cat
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> [-n] fileName 	<span class="comment"># 作用：用于显示文件内容</span></span><br></pre></td></tr></table></figure>
-
-- `-n`：由1开始对所有输出的行数编号
-
-![image-20230408160458062](/images/linux01/image-20230408160458062.png)
-
-#### 2.2.4 more
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more fileName  <span class="comment"># 作用：以分页的形式显示文件内容</span></span><br></pre></td></tr></table></figure>
-
-- 回车键           向下滚动一行
-- 空格键           向下滚动一屏
-- b               返回上一屏
-- q或者Ctrl+C      退出more
-
-#### 2.2.5 tail
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> [-f] fileName	<span class="comment"># 作用：查看文件末尾的内容</span></span><br></pre></td></tr></table></figure>
-
-- `-f`：动态读取文件末尾内容并显示，通常用于<font color="orange">日志文件</font>的内容输出
-
-#### 2.2.6 mkdir
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [-p] dirName	<span class="comment"># 作用：创建目录</span></span><br></pre></td></tr></table></figure>
-
-- `-p`：确保目录名称存在，不存在的就创建一个。通过此选项，可以实现多层目录同时创建
-
-#### 2.2.7 rmdir
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rmdir</span> [-p] dirName	<span class="comment"># 作用：删除空目录</span></span><br></pre></td></tr></table></figure>
-
-- `-p`：当子目录被删除后使父目录为空目录的话，则一并删除，有点类似于一次删除多层目录
-- 也可以用通配符删除，例如`rmdir itcast*`表示删除已itcast开头的目录，前提是这个目录为空
-
-#### 2.2.8 rm
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> [-rf] name <span class="comment"># 作用：删除文件或者目录</span></span><br></pre></td></tr></table></figure>
-
-- `-r`：将目录及目录中所有文件（目录）逐一删除，即递归删除
-- `-f`：无需确认，直接删除
-
-#### 2.2.9 cp
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> [-r] <span class="built_in">source</span> dest <span class="comment"># 作用：用于复制文件或目录</span></span><br><span class="line"><span class="comment"># source 表示原来要拷贝目录或者文件</span></span><br><span class="line"><span class="comment"># dest 表示要拷贝到哪去</span></span><br></pre></td></tr></table></figure>
-
-- `-r`: 如果复制的是目录的时候，需要使用此选项，此时将复制该目录下所有的子目录和文件
-
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> hello.txt itcast/   <span class="comment"># 将hello.txt复制到itcast目录中</span></span><br><span class="line"><span class="built_in">cp</span> hello.txt ./hi.txt	<span class="comment"># 将hello.txt复制到当前目录，并且改名为hi.txt</span></span><br><span class="line"><span class="built_in">cp</span> -r itcast/ ./itheima/	<span class="comment"># 将itcast目录和目录下所有文件复制到itheima目录下</span></span><br><span class="line"><span class="built_in">cp</span> -r itcast/* ./itheima/	<span class="comment"># 将itcast目录下所有文件复制到itheima目录下</span></span><br></pre></td></tr></table></figure>
-
-#### 2.2.10 mv
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> <span class="built_in">source</span> dest  <span class="comment"># 为文件或目录改名，或将文件或目录移动到其他位置</span></span><br><span class="line"><span class="comment"># source 表示原来要移动目录或者文件</span></span><br><span class="line"><span class="comment"># dest 表示要移动到哪去</span></span><br></pre></td></tr></table></figure>
-
-- ```bash
-  mv hello.txt hi.txt        # 将hello.txt改名为hi.txt
-  mv hi.txt itheima/        # 将hi.txt移动到itheima目录中
-  mv hi.txt itheima/hello.txt    # 将hi.txt移动到itheima目录中，并改名为hello,txt
-  mv itcast/ itheima/        # 如果itheima目录不存在，将itcast目录改名为itheima
-  mv itcast/ itheima/        # 如果itheima目录存在，将itcast目录移动到itheima目录中
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 2.2.11 tar</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">tar [-zcxvf] fileName [files]	# 对文件进行打包、解包、压缩、解压 c和x是互斥的</span><br></pre></td></tr></table></figure>
-
-- 包文件后缀为`.tar`表示只是完成了打包，并没有压缩
-- 包文件后缀为`.tar.gz`表示打包的同时还进行了压缩
-
-![image-20230408165350518](/images/linux01/image-20230408165350518.png)
-
-![image-20230408165950924](/images/linux01/image-20230408165950924.png)
-
-#### 2.2.12 vi/vim
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi fileName  <span class="comment"># vi命令是Linux系统提供的一个文本编辑工具，可以对文件内容进行编辑，类似于Windows中的记事本</span></span><br></pre></td></tr></table></figure>
-
-- `vim`是从vi发展来的一个功能更加强大的文本编辑工具，在编辑文件时可以对文本内容进行看色，方便我们对文件进行编辑处理，所以实际工作中`vim`更加常用
-
-- 要使用`vim`命令，需要我们自己完成安装。可以使用下面的命令来完成安装
-
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install vim</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim fileName <span class="comment"># 对文件内容进行编辑，Vim其实就是一个文本编辑器</span></span><br></pre></td></tr></table></figure>
-
-- 在使用`vim`命令编辑文件时，如果指定的文件存在则直接打开此文件。如果指定的文件不存在则新建文件
-- `vim`在进行文本编辑时共分为三种模式，分别是命令模式（`Command mode`），插入模式（`Insert mode`）和底行模式（`Last line mode`）。这三种模式之间可以相互切换。我们在使用vim时一定要注意我们当前所处的是哪种模式
-
- <font color="orange"> 命令模式：</font>
-
+<p>修改完成之后，可以在我的计算机处右键，点击重新启动计算机，登录系统之后，再次输入：<code>ip addr</code> 查看网卡设置</p>
+<p><img src="/images/linux01/image-20230408145739559.png" alt="image-20230408145739559"></p>
+<h4 id="1-2-2-安装SSH连接工具"><a href="#1-2-2-安装SSH连接工具" class="headerlink" title="1.2.2 安装SSH连接工具"></a>1.2.2 安装SSH连接工具</h4><p>通过SSH连接工具实现从本地连接道远程的Linux服务器。常用的SSH连接工具：putty, secureCRT, xshell, <code>finalshell</code></p>
+<p>安装<code>finalshell</code>，直接双击资料中的finalshell安装程序完成安装。</p>
+<p>相关快捷键：</p>
 <ul>
-<li>可以查看文件内容，</li>
+<li>终端: alt 命令历史  双击ctrl 切换到命令输入框</li>
+<li>命令输入框:  alt 命令历史  tab 补全   双击ctrl 切换到终端</li>
+<li>列表窗口: backspace 上一级目录  alt/tab/esc 关闭窗口  上下箭头 选择行</li>
+</ul>
+<h4 id="1-2-3-使用finalshell连接到linux"><a href="#1-2-3-使用finalshell连接到linux" class="headerlink" title="1.2.3 使用finalshell连接到linux"></a>1.2.3 使用finalshell连接到linux</h4><p>上面查看网卡设置要记住ip地址，下面这里要填入对应的ip地址，同时输入自己虚拟机的用户名和密码</p>
+<p><img src="/images/linux01/image-20230408151304755.png" alt="image-20230408151304755"></p>
+<h4 id="1-2-4-linux和windows目录结构对比"><a href="#1-2-4-linux和windows目录结构对比" class="headerlink" title="1.2.4 linux和windows目录结构对比"></a>1.2.4 linux和windows目录结构对比</h4><p>linux系统中的目录：<code>/</code> 是所有目录的顶点，目录结构向一颗倒挂的树</p>
+<p><img src="/images/linux01/image-20230408151548475.png" alt="image-20230408151548475"></p>
+<p><img src="/images/linux01/image-20230408151731310.png" alt="image-20230408151731310" style="zoom:80%;"></p>
+<h2 id="2-Linux常用命令"><a href="#2-Linux常用命令" class="headerlink" title="2 Linux常用命令"></a>2 Linux常用命令</h2><h3 id="2-1-Linux命令初体验"><a href="#2-1-Linux命令初体验" class="headerlink" title="2.1 Linux命令初体验"></a>2.1 Linux命令初体验</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  命令		   #      对应英文			#       作用</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span>				<span class="comment"># list					# 产看当前目录下的内容</span></span><br><span class="line"><span class="built_in">pwd</span>				<span class="comment"># print work directory  # 查看当前所在目录</span></span><br><span class="line"><span class="built_in">cd</span> [目录名]	  <span class="comment"># change directory	  # 切换目录</span></span><br><span class="line"><span class="built_in">touch</span>			<span class="comment"># touch					# 如果文件不存咋其，新建文件</span></span><br><span class="line"><span class="built_in">mkdir</span>			<span class="comment"># make directory		# 创建目录</span></span><br><span class="line"><span class="built_in">rm</span>				<span class="comment"># remove				# 删除指定文件</span></span><br></pre></td></tr></table></figure>
+<p>在执行Linux命令时，提示信息如果显示为乱码，如图所示。这是由于编码问题导致，只需要修改Linux的编码即可，命令如下</p>
+<p><img src="/images/linux01/image-20230408152504038.png" alt="image-20230408152504038"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;LANG=&quot;en_US.UTF-8&quot;&#x27;</span> &gt;&gt; /etc/profile <span class="comment"># 把单引号里面的内容追加到右边这个文件</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile	<span class="comment"># 让这个文件生效</span></span><br></pre></td></tr></table></figure>
+<p>使用技巧：相关快捷键：</p>
+<ul>
+<li>终端: <ul>
+<li>alt-&gt;命令历史  </li>
+<li>双击ctrl-&gt;切换到命令输入框</li>
+</ul>
+</li>
+<li>命令输入框:  <ul>
+<li>alt-&gt;命令历史  </li>
+<li><code>tab</code>-&gt;自动补全   </li>
+<li>双击ctrl-&gt;切换到终端  </li>
+<li>连续两次tab键-&gt;给出操作提示 </li>
+<li>使用上下箭头快速调出曾经使用过的命令，</li>
+<li>使用clear命令或者ctrl+l快捷键实现清理屏幕</li>
+</ul>
+</li>
+<li>列表窗口: <ul>
+<li>backspace-&gt;上一级目录  </li>
+<li>alt/tab/esc-&gt;关闭窗口  </li>
+<li>上下箭头-&gt;选择行</li>
+</ul>
+</li>
+</ul>
+<p>命令格式：command是指命令；[-options]是指选项，可以用来对命令进行控制，可以省略；[parameter]是指传给命令的参数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span> [-options] [parameter]</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-文件目录操作命令"><a href="#2-2-文件目录操作命令" class="headerlink" title="2.2 文件目录操作命令"></a>2.2 文件目录操作命令</h3><h4 id="2-2-1-ls"><a href="#2-2-1-ls" class="headerlink" title="2.2.1 ls"></a>2.2.1 <code>ls</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> [-al] [<span class="built_in">dir</span>]	<span class="comment"># 作用：是显示指定目录下的内容</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-a</code>显示所有文件及目录（.开头的隐藏文件也会列出）</li>
+<li><code>-l</code>除文件名称外，同时将文件型态(<code>d</code>表示目录，<code>-</code>表示文件)、权限、拥有者、文件大小等信息详细列出</li>
+</ul>
+<p>由于我们使用<code>ls</code>命令时经常需要加入<code>-l</code>选项，所以Linux为<code>ls -l</code>命令提供了一种简写方式，即<code>ll</code></p>
+<h4 id="2-2-2-cd"><a href="#2-2-2-cd" class="headerlink" title="2.2.2 cd"></a>2.2.2 <code>cd</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> [dirName]	<span class="comment"># 作用：用于切换当前工作目录，即进入指定目录</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>～</code>表示用户的home目录</li>
+<li><code>.</code>表示目前所在的目录</li>
+<li><code>..</code>表示目前目录位置的上级目录</li>
+</ul>
+<h4 id="2-2-3-cat"><a href="#2-2-3-cat" class="headerlink" title="2.2.3 cat"></a>2.2.3 cat</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> [-n] fileName 	<span class="comment"># 作用：用于显示文件内容</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-n</code>：由1开始对所有输出的行数编号</li>
+</ul>
+<p><img src="/images/linux01/image-20230408160458062.png" alt="image-20230408160458062" style="zoom:80%;"></p>
+<h4 id="2-2-4-more"><a href="#2-2-4-more" class="headerlink" title="2.2.4 more"></a>2.2.4 more</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more fileName  <span class="comment"># 作用：以分页的形式显示文件内容</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>回车键           向下滚动一行</li>
+<li>空格键           向下滚动一屏</li>
+<li>b               返回上一屏</li>
+<li>q或者Ctrl+C      退出more</li>
+</ul>
+<h4 id="2-2-5-tail"><a href="#2-2-5-tail" class="headerlink" title="2.2.5 tail"></a>2.2.5 tail</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> [-f] fileName	<span class="comment"># 作用：查看文件末尾的内容</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-f</code>：动态读取文件末尾内容并显示，通常用于<font color="orange">日志文件</font>的内容输出</li>
+</ul>
+<h4 id="2-2-6-mkdir"><a href="#2-2-6-mkdir" class="headerlink" title="2.2.6 mkdir"></a>2.2.6 mkdir</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [-p] dirName	<span class="comment"># 作用：创建目录</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-p</code>：确保目录名称存在，不存在的就创建一个。通过此选项，可以实现多层目录同时创建</li>
+</ul>
+<h4 id="2-2-7-rmdir"><a href="#2-2-7-rmdir" class="headerlink" title="2.2.7 rmdir"></a>2.2.7 rmdir</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rmdir</span> [-p] dirName	<span class="comment"># 作用：删除空目录</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-p</code>：当子目录被删除后使父目录为空目录的话，则一并删除，有点类似于一次删除多层目录</li>
+<li>也可以用通配符删除，例如<code>rmdir itcast*</code>表示删除已itcast开头的目录，前提是这个目录为空</li>
+</ul>
+<h4 id="2-2-8-rm"><a href="#2-2-8-rm" class="headerlink" title="2.2.8 rm"></a>2.2.8 rm</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> [-rf] name <span class="comment"># 作用：删除文件或者目录</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-r</code>：将目录及目录中所有文件（目录）逐一删除，即递归删除</li>
+<li><code>-f</code>：无需确认，直接删除</li>
+</ul>
+<h4 id="2-2-9-cp"><a href="#2-2-9-cp" class="headerlink" title="2.2.9 cp"></a>2.2.9 cp</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> [-r] <span class="built_in">source</span> dest <span class="comment"># 作用：用于复制文件或目录</span></span><br><span class="line"><span class="comment"># source 表示原来要拷贝目录或者文件</span></span><br><span class="line"><span class="comment"># dest 表示要拷贝到哪去</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-r</code>: 如果复制的是目录的时候，需要使用此选项，此时将复制该目录下所有的子目录和文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> hello.txt itcast/   <span class="comment"># 将hello.txt复制到itcast目录中</span></span><br><span class="line"><span class="built_in">cp</span> hello.txt ./hi.txt	<span class="comment"># 将hello.txt复制到当前目录，并且改名为hi.txt</span></span><br><span class="line"><span class="built_in">cp</span> -r itcast/ ./itheima/	<span class="comment"># 将itcast目录和目录下所有文件复制到itheima目录下</span></span><br><span class="line"><span class="built_in">cp</span> -r itcast/* ./itheima/	<span class="comment"># 将itcast目录下所有文件复制到itheima目录下</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-2-10-mv"><a href="#2-2-10-mv" class="headerlink" title="2.2.10 mv"></a>2.2.10 mv</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> <span class="built_in">source</span> dest  <span class="comment"># 为文件或目录改名，或将文件或目录移动到其他位置</span></span><br><span class="line"><span class="comment"># source 表示原来要移动目录或者文件</span></span><br><span class="line"><span class="comment"># dest 表示要移动到哪去</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> hello.txt hi.txt		<span class="comment"># 将hello.txt改名为hi.txt</span></span><br><span class="line"><span class="built_in">mv</span> hi.txt itheima/		<span class="comment"># 将hi.txt移动到itheima目录中</span></span><br><span class="line"><span class="built_in">mv</span> hi.txt itheima/hello.txt	<span class="comment"># 将hi.txt移动到itheima目录中，并改名为hello,txt</span></span><br><span class="line"><span class="built_in">mv</span> itcast/ itheima/		<span class="comment"># 如果itheima目录不存在，将itcast目录改名为itheima</span></span><br><span class="line"><span class="built_in">mv</span> itcast/ itheima/		<span class="comment"># 如果itheima目录存在，将itcast目录移动到itheima目录中</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-2-11-tar"><a href="#2-2-11-tar" class="headerlink" title="2.2.11 tar"></a>2.2.11 tar</h4><p>包文件后缀为<code>.tar</code>表示只是完成了打包，并没有压缩。包文件后缀为<code>.tar.gz</code>表示打包的同时还进行了压缩</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar [-zcxvf] fileName [files]	<span class="comment"># 对文件进行打包、解包、压缩、解压 c和x是互斥的</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/linux01/image-20230410184112266.png" alt="image-20230410184112266" style="zoom:80%;"></p>
+<p><img src="/images/linux01/image-20230408165950924.png" alt="image-20230408165950924" style="zoom: 67%;"></p>
+<h4 id="2-2-12-vi-vim"><a href="#2-2-12-vi-vim" class="headerlink" title="2.2.12 vi / vim"></a>2.2.12 vi / vim</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi fileName  <span class="comment"># vi命令是Linux系统提供的一个文本编辑工具，可以对文件内容进行编辑，类似于Windows中的记事本</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>vim</code>是从vi发展来的一个功能更加强大的文本编辑工具，在编辑文件时可以对文本内容进行看色，方便我们对文件进行编辑处理，所以实际工作中<code>vim</code>更加常用</p>
+</li>
+<li><p>要使用<code>vim</code>命令，需要我们自己完成安装。可以使用下面的命令来完成安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install vim</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim fileName <span class="comment"># 对文件内容进行编辑，Vim其实就是一个文本编辑器</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在使用<code>vim</code>命令编辑文件时，如果指定的文件存在则直接打开此文件。如果指定的文件不存在则新建文件</li>
+<li><p><code>vim</code>在进行文本编辑时共分为三种模式，分别是命令模式（<code>Command mode</code>），插入模式（<code>Insert mode</code>）和底行模式（<code>Last line mode</code>）。这三种模式之间可以相互切换。我们在使用vim时一定要注意我们当前所处的是哪种模式</p>
+<p>命令模式：</p>
+</li>
+<li><p>可以查看文件内容，</p>
+</li>
 <li>移动光标：上下左右箭头，gg（快速移动到开头）, G(快速移动到末尾）; </li>
 <li>通过vim命令打开文件后，默认进入命令模式；另外两种模式需要首先进入命令模式，才能进入彼此。</li>
 </ul>
-<font color="orange">插入模式：</font>
-
+<p>插入模式：</p>
 <ul>
 <li>对文件进行编辑</li>
 <li>在命令模式下按[<code>i,a,o</code>]任意一个，可以进入插入模式，进入插入模式后，下方会出现【<code>insert</code>】字样</li>
 <li>在插入模式下按<code>ESC</code>键，回到命令模式</li>
 </ul>
-<font color="orange">底行模式：</font>
-
+<p>底行模式：</p>
 <ul>
 <li>底行模式下可以通过命令对文件内容进行查找、显示行号、退出等操作</li>
 <li>在命令模式下按下[<code>:,/</code>]任意一个，可以进入底行模式</li>
@@ -456,15 +375,22 @@ linux系统中的目录：`/` 是所有目录的顶点，目录结构向一颗�
 <li>通过 <code>:</code> 方式进入底行模式后，可以输入<code>wq</code>（保存并退出）、<code>q!</code>（不保存退出）、<code>set nu</code>（显示行号）</li>
 </ul>
 <h4 id="2-2-13-find"><a href="#2-2-13-find" class="headerlink" title="2.2.13 find"></a>2.2.13 find</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find dirName -option fileName <span class="comment"># 在指定目录名称下查找文件名称，可选是按照比如名称来找</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>```bash<br>find . -name “<em>.java”        # 在当前目录下及其子目录下查找.java结尾文件<br>find /itcast -name “</em>.java” # 在/itcast目录及其子目录下查找.java结尾的文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 2.2.14 grep</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">grep word fileName  # 从指定文件中查找指定的文本内容</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>```bash<br>grep hello helloword.java    # 查找对应文件中出现hello字符串的位置<br>grep hello *.java        # 查找以.java结尾的文件中包含hello字符串的位置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">## 3 软件安装</span><br><span class="line"></span><br><span class="line">### 3.1 软件安装方式</span><br><span class="line"></span><br><span class="line">- &lt;font color=&#x27;orange&#x27;&gt;二进制发布包安装&lt;/font&gt;：软件已经针对具体平台编译打包发布，只要解压，修改配置即可</span><br><span class="line">- &lt;font color=&#x27;orange&#x27;&gt;rpm安装&lt;/font&gt;：软件已经按照`redhat`的包管理规范进行打包，使用`rpm`命令进行安装，不能自行解决库依赖问题</span><br><span class="line">- &lt;font color=&#x27;orange&#x27;&gt;yum安装&lt;/font&gt;：种在线软件安装方式，本质上还是`rpm`安装，自动下载安装包并安装，安装过程中自动解决库依赖问题</span><br><span class="line">- &lt;font color=&#x27;orange&#x27;&gt;源码编译安装&lt;/font&gt;：软件以源码工程的形式发布，需要自己编译打包</span><br><span class="line"></span><br><span class="line">### 3.2 安装jdk</span><br><span class="line"></span><br><span class="line">【1】 使用finalshell自带的上传工具将jdk的二进制发布包上传到linux</span><br><span class="line"></span><br><span class="line">![image-20230408185404931](/images/linux01/image-20230408185404931.png)</span><br><span class="line"></span><br><span class="line">【2】 解压安装包，命令为`tar -zxvf jdk-8u171-linux-x64.tar.gz -C /usr/local`</span><br><span class="line"></span><br><span class="line">![image-20230408185710127](/images/linux01/image-20230408185710127.png)</span><br><span class="line"></span><br><span class="line">【3】 配置环境变量，使用`vim`命令修改`/etc/profile`文件，在文件末尾加入如下配置：</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">JAVA_HOME=/usr/local/jdk1.8.0_171</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
-<p>输入 <code>vim /etc/profile</code>命令之后，按住<code>shift+g</code>快速定位到末尾，然后按<code>i</code>键，切换到插入模式，输入上面个两行命令，然后按<code>esc</code>键，退出插入模式，然后按<code>：</code>进入底行模式，最后输入<code>wq</code>，保存退出<img src="/images/linux01/image-20230408190110191.png" alt="image-20230408190110191"></p>
-</li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find . -name <span class="string">&quot;*.java&quot;</span>		<span class="comment"># 在当前目录下及其子目录下查找.java结尾文件</span></span><br><span class="line">find /itcast -name <span class="string">&quot;*.java&quot;</span> <span class="comment"># 在/itcast目录及其子目录下查找.java结尾的文件</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-2-14-grep"><a href="#2-2-14-grep" class="headerlink" title="2.2.14 grep"></a>2.2.14 grep</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep word fileName  <span class="comment"># 从指定文件中查找指定的文本内容</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep hello helloword.java	<span class="comment"># 查找对应文件中出现hello字符串的位置</span></span><br><span class="line">grep hello *.java		<span class="comment"># 查找以.java结尾的文件中包含hello字符串的位置</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-软件安装"><a href="#3-软件安装" class="headerlink" title="3 软件安装"></a>3 软件安装</h2><h3 id="3-1-软件安装方式"><a href="#3-1-软件安装方式" class="headerlink" title="3.1 软件安装方式"></a>3.1 软件安装方式</h3><ul>
+<li><font color="orange">二进制发布包安装</font>：软件已经针对具体平台编译打包发布，只要解压，修改配置即可</li>
+<li><font color="orange">rpm安装</font>：软件已经按照<code>redhat</code>的包管理规范进行打包，使用<code>rpm</code>命令进行安装，不能自行解决库依赖问题</li>
+<li><font color="orange">yum安装</font>：种在线软件安装方式，本质上还是<code>rpm</code>安装，自动下载安装包并安装，安装过程中自动解决库依赖问题</li>
+<li><font color="orange">源码编译安装</font>：软件以源码工程的形式发布，需要自己编译打包</li>
 </ul>
+<h3 id="3-2-安装jdk"><a href="#3-2-安装jdk" class="headerlink" title="3.2 安装jdk"></a>3.2 安装jdk</h3><p>【1】 使用finalshell自带的上传工具将jdk的二进制发布包上传到linux</p>
+<p><img src="/images/linux01/image-20230408185404931.png" alt="image-20230408185404931"></p>
+<p>【2】 解压安装包，命令为<code>tar -zxvf jdk-8u171-linux-x64.tar.gz -C /usr/local</code>。</p>
+<p><img src="/images/linux01/image-20230408185710127.png" alt="image-20230408185710127"></p>
+<p>【3】 配置环境变量，使用<code>vim</code>命令修改<code>/etc/profile</code>文件，在文件末尾加入如下配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/local/jdk1.8.0_171</span><br><span class="line">PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<p> 输入 <code>vim /etc/profile</code>命令之后，按住<code>shift+g</code>快速定位到末尾，然后按<code>i</code>键，切换到插入模式，输入上面个两行命令，然后按<code>esc</code>键，退出插入模式，然后按<code>：</code>进入底行模式，最后输入<code>wq</code>，保存退出<img src="/images/linux01/image-20230408190110191.png" alt="image-20230408190110191"></p>
 <p>【4】 输入<code>source /etc/profile</code>，让刚才修改的文件生效</p>
 <p>【5】 输入<code>java -version</code>，查看是否安装好了</p>
 <p><img src="/images/linux01/image-20230408190637739.png" alt="image-20230408190637739"></p>
@@ -489,37 +415,23 @@ linux系统中的目录：`/` 是所有目录的顶点，目录结构向一颗�
 </ul>
 <p><img src="/images/linux01/image-20230408192734636.png" alt="image-20230408192734636"></p>
 <p>现在，虽然在linux里面启动了tomcat的，但是我们还是不能直接访问这个tomcat，原因是linux默认开启了防火墙。</p>
-<p><strong><font color="orange">防火墙操作</font></strong>：</p>
+<p>防火墙操作</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看防火墙状态(两种方式)</span></span><br><span class="line">systemctl status firewalld</span><br><span class="line">firewall-cmd --state</span><br><span class="line"></span><br><span class="line"><span class="comment"># 暂时关闭防火墙</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 永久关闭防火墙</span></span><br><span class="line">systemctl <span class="built_in">disable</span> filewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启防火墙</span></span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开放指定端口  [常用做法]</span></span><br><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭指定端口</span></span><br><span class="line">firewall-cmd --zone=public --remove-port=8080/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即生效 [常用做法]</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看开放的端口</span></span><br><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure>
-<font color="orange">注意：</font>
-1 、`systemctl`是管理Linux中服务的命令，可以对服务进行启动、停止、重启、查看状态等操作
-2 、`firewall-cmd`是Linux中专门用于控制防火墙的命令
-3 、为了保证系统安全，服务器的防火墙不建议关闭
-
-![image-20230408193908974](/images/linux01/image-20230408193908974.png)
-
-操作完成之后，要立即生效操作一下，否则是无效操作。
-
-
-
-停止tomcat服务的方式：
-
-- [<font color="orange">建议做法</font>]运行bin目录中提供停止服务的脚本文件`sh shutdown.sh`或者`./shutdown.sh`
-
-- 结束进程：查看进程，获得进程id
-
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep tomcat  <span class="comment"># 得到啊tomcat进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 112963</span><br></pre></td></tr></table></figure>
-
-  kill命令是Linux提供的用于结束进程的命令，-9表示强制结束
-
-![image-20230408194654802](/images/linux01/image-20230408194654802.png)
-
-### 3.4 安装mysql
-
-检测当前系统中是否安装mysql数据库
-
+<p>注意：<br>1 、systemctl是管理Linux中服务的命令，可以对服务进行启动、停止、重启、查看状态等操作<br>2 、firewall-cmd是Linux中专门用于控制防火墙的命令<br>3 、为了保证系统安全，服务器的防火墙不建议关闭</p>
+<p><img src="/images/linux01/image-20230408193908974.png" alt="image-20230408193908974"></p>
+<p>操作完成之后，要立即生效操作一下，否则是无效操作。</p>
+<p>停止tomcat服务的方式：</p>
+<ul>
+<li><p>[建议做法]运行bin目录中提供停止服务的脚本文件sh shutdown.sh或者./shutdown.sh</p>
+</li>
+<li><p>结束进程：查看进程，获得进程id</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep tomcat  <span class="comment"># 得到啊tomcat进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 112963</span><br></pre></td></tr></table></figure>
+<p>kill命令是Linux提供的用于结束进程的命令，-9表示强制结束</p>
+</li>
+</ul>
+<p><img src="/images/linux01/image-20230408194654802.png" alt="image-20230408194654802"></p>
+<h3 id="3-4-安装mysql"><a href="#3-4-安装mysql" class="headerlink" title="3.4 安装mysql"></a>3.4 安装mysql</h3><p>检测当前系统中是否安装mysql数据库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa						<span class="comment"># 查询当前系统中安装的所有软件</span></span><br><span class="line">rpm -qa | grep mysql		<span class="comment"># 查询当前系统中安装的名称带mysqL的软件</span></span><br><span class="line">rpm -qa | grep mariadb		<span class="comment"># 查询当前系统中安装的名称带mariadb的软件</span></span><br></pre></td></tr></table></figure>
-
 <font color="orange">注意</font>：如果当前系统中已经安装有MySQL数据库，安装将失败。CentOs7自带mariadb，与MySQL数据库冲突
 
 <font color="orange">删除mariadb命令</font>
