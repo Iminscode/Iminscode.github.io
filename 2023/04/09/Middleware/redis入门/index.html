@@ -304,14 +304,14 @@
 <li>之后设置防火墙，开启6379端口</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启6379端口</span></span><br><span class="line">firewall-cmd --zone=public --add-port=6379/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置立即生效</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看开放的端口</span></span><br><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure>
-<p><img src="../../images/redis%E5%85%A5%E9%97%A8/634cd4d116f2c2beb19194c9.jpg" alt="img"></p>
+<p><img src="/images/redis%E5%85%A5%E9%97%A8/634cd4d116f2c2beb19194c9.jpg" alt="img"></p>
 <p>云服务器开放端口，需要进入后台手动开启，通过命令行开启的端口无效，查看开放的端口确实有6379，但是实际上是没开放的</p>
-<p><img src="../../images/redis%E5%85%A5%E9%97%A8/634cd56d16f2c2beb1926804.jpg" alt="img"></p>
+<p><img src="/images/redis%E5%85%A5%E9%97%A8/634cd56d16f2c2beb1926804.jpg" alt="img"></p>
 <ul>
 <li>最后在Windows的redis根目录下，按住Shift+右键打开PowerShell窗口，连接Linux的Redis  远程连接时，路径不能有中文</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\redis-cli.exe -h 服务器地址 -p 6379 -a 密码</span><br></pre></td></tr></table></figure>
-<p><img src="../../images/redis%E5%85%A5%E9%97%A8/image-20230409133136756.png" alt="image-20230409133136756"></p>
+<p><img src="/images/redis%E5%85%A5%E9%97%A8/image-20230409133136756.png" alt="image-20230409133136756"></p>
 <h2 id="2-Redis数据类型"><a href="#2-Redis数据类型" class="headerlink" title="2 Redis数据类型"></a>2 Redis数据类型</h2><h3 id="2-1-介绍"><a href="#2-1-介绍" class="headerlink" title="2.1 介绍"></a>2.1 介绍</h3><p>Redis存储的是<code>key-value</code>结构的数据，其中<code>key</code>是<font color="orange">字符串类型</font>，<code>value</code>有5中常用的数据类型</p>
 <ul>
 <li>字符串：String</li>
@@ -320,7 +320,7 @@
 <li>集合：Set</li>
 <li>有序集合：Sorted Set</li>
 </ul>
-<p><img src="../../images/redis%E5%85%A5%E9%97%A8/image-20230409133519317.png" alt="image-20230409133519317"></p>
+<p><img src="/images/redis%E5%85%A5%E9%97%A8/image-20230409133519317.png" alt="image-20230409133519317"></p>
 <h3 id="2-2-字符串-String-常用命令"><a href="#2-2-字符串-String-常用命令" class="headerlink" title="2.2 字符串(String)常用命令"></a>2.2 字符串(String)常用命令</h3><div class="table-container">
 <table>
 <thead>
@@ -641,6 +641,8 @@
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/04/10/Other/testfile01/">testfile01</a>
             
             
             <a class="next" rel="next" href="/2023/04/08/Other/linux01/">linux01</a>
