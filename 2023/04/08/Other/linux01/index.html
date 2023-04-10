@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>linux01 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">linux01</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 8, 2023&nbsp;&nbsp;12:21:50</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Linux/">Linux</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="1-Linux安装"><a href="#1-Linux安装" class="headerlink" title="1 Linux安装"></a>1 Linux安装</h2><h3 id="1-1-安装方式介绍"><a href="#1-1-安装方式介绍" class="headerlink" title="1.1 安装方式介绍"></a>1.1 安装方式介绍</h3><ul>
+<li>物理机安装：直接将操作系统安装到服务硬件上</li>
+<li>虚拟机安装：通过虚拟机软件安装</li>
+</ul>
+<font color="orange">虚拟机</font>：是指通过软件模拟的具有完整硬件系统功能，运行在完全隔离环境中的完整计算机系统
+
+常用的虚拟机软件：<font color="orange">VMWare</font>, VirtualBox, VMLite WorkStation, Qemu, HopeddotVOS
+
+#### 1.1.1 安装VMWare
+
+![image-20230408124202300](../../images/linux01/image-20230408124202300.png)
+
+直接双击运行资料中的VMWare安装程序，根据提示完成安装即可，安装之后，按照提示输入许可密钥：YG5H2-ANZ0H-M8ERY-TXZZZ-YKRV8
+
+![image-20230408125057536](../../images/linux01/image-20230408125057536.png)
+
+#### 1.1.2 安装CentOS镜像
+
+直接使用资料中提供的CentOS镜像文件来完成Linux系统安装，首先先打开VMWare软件。按照下面步骤完成操作，注意在指定磁盘容量之后，有一个选项为`自定义硬件`，点击之后到最后一张图，设置内存处理器，重点使用我们下载好的镜像文件。最后确定点击完成。
+
+![image-20230408134852747](../../images/linux01/image-20230408134852747.png)
+
+当我们选择计算机之后，开启此虚拟机，发现此主机支持 Intel VT-x，但 Intel VT-x 处于禁用状态。因此，我们需要进入bios里设置开启。
+
+![image-20230408135709936](../../images/linux01/image-20230408135709936.png)
+
+找到系统设置，更新安全，恢复，立即重新启动，疑难解答，高级选项，UEFI固件设置，重启，设置BIOS，进入BIOS之后，系统设置，处理器虚拟化技术，回车选择启用，f10保存并退出。设置好后，重新开启此虚拟机，安装centos系统如下操作：
+
+![image-20230408143725058](../../images/linux01/image-20230408143725058.png)
+
+### 1.2 安装Linux
+
+#### 1.2.1 网卡设置
+
+由于启动服务器是未加载网卡，导致ip地址初始化失败，查看ip地址命令：`ip addr`
+
+![image-20230408144238290](../../images/linux01/image-20230408144238290.png)
+
+修改网络初始化设置，设定网卡在系统启动时初始化，进入编辑界面之后，首先按一下i键，然后移动光标，将onboot选项修改为yes，最后按`esc`键，输入`:wq`，`回车`，完成修改
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /				<span class="comment"># 进入根目录</span></span><br><span class="line"><span class="built_in">cd</span> etc				<span class="comment"># 进入etc目录</span></span><br><span class="line"><span class="built_in">cd</span> sysconfig		<span class="comment"># 进入sysconfig目录</span></span><br><span class="line"><span class="built_in">cd</span> network-scripts	<span class="comment"># 进入network-scripts</span></span><br><span class="line">vi ifcfg-ens33		<span class="comment"># 编辑ifcfg-ens33文件</span></span><br></pre></td></tr></table></figure>
+
+修改完成之后，可以在我的计算机处右键，点击重新启动计算机，登录系统之后，再次输入：`ip addr` 查看网卡设置
+
+![image-20230408145739559](../../images/linux01/image-20230408145739559.png)
+
+#### 1.2.2 安装SSH连接工具
+
+通过SSH连接工具实现从本地连接道远程的Linux服务器。常用的SSH连接工具：putty, secureCRT, xshell, `finalshell`
+
+安装`finalshell`，直接双击资料中的finalshell安装程序完成安装。
+
+相关快捷键：
+
+- 终端: alt 命令历史  双击ctrl 切换到命令输入框
+- 命令输入框:  alt 命令历史  tab 补全   双击ctrl 切换到终端
+- 列表窗口: backspace 上一级目录  alt/tab/esc 关闭窗口  上下箭头 选择行
+
+#### 1.2.3 使用finalshell连接到linux
+
+上面查看网卡设置要记住ip地址，下面这里要填入对应的ip地址，同时输入自己虚拟机的用户名和密码
+
+![image-20230408151304755](../../images/linux01/image-20230408151304755.png)
+
+#### 1.2.4 linux和windows目录结构对比
+
+linux系统中的目录：`/` 是所有目录的顶点，目录结构向一颗倒挂的树
+
+<img src="../../images/linux01/image-20230408151548475.png" alt="image-20230408151548475" style="zoom: 67%;">
+
+![image-20230408151731310](../../images/linux01/image-20230408151731310.png)
+
+## 2 Linux常用命令
+
+### 2.1 Linux命令初体验
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  命令		   #      对应英文			#       作用</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span>				<span class="comment"># list					# 产看当前目录下的内容</span></span><br><span class="line"><span class="built_in">pwd</span>				<span class="comment"># print work directory  # 查看当前所在目录</span></span><br><span class="line"><span class="built_in">cd</span> [目录名]	  <span class="comment"># change directory	  # 切换目录</span></span><br><span class="line"><span class="built_in">touch</span>			<span class="comment"># touch					# 如果文件不存咋其，新建文件</span></span><br><span class="line"><span class="built_in">mkdir</span>			<span class="comment"># make directory		# 创建目录</span></span><br><span class="line"><span class="built_in">rm</span>				<span class="comment"># remove				# 删除指定文件</span></span><br></pre></td></tr></table></figure>
+
+在执行Linux命令时，提示信息如果显示为乱码，如图所示。这是由于编码问题导致，只需要修改Linux的编码即可，命令如下
+
+![image-20230408152504038](../../images/linux01/image-20230408152504038.png)
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;LANG=&quot;en_US.UTF-8&quot;&#x27;</span> &gt;&gt; /etc/profile <span class="comment"># 把单引号里面的内容追加到右边这个文件</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile	<span class="comment"># 让这个文件生效</span></span><br></pre></td></tr></table></figure>
+
+<font color="orange">使用技巧</font>：相关快捷键：
+
+- <font color="orange">终端</font>: 
+  - alt->命令历史  
+  - 双击ctrl->切换到命令输入框
+- <font color="orange">命令输入框</font>:  
+  - alt->命令历史  
+  - `tab`->自动补全   
+  - 双击ctrl->切换到终端  
+  - 连续两次tab键->给出操作提示 
+  - 使用上下箭头快速调出曾经使用过的命令，
+  - 使用clear命令或者ctrl+l快捷键实现清理屏幕
+- <font color="orange">列表窗口</font>: 
+  - backspace->上一级目录  
+  - alt/tab/esc->关闭窗口  
+  - 上下箭头->选择行
+
+<font color="orange">命令格式</font>：command是指命令；[-options]是指选项，可以用来对命令进行控制，可以省略；[parameter]是指传给命令的参数
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span> [-options] [parameter]</span><br></pre></td></tr></table></figure>
+
+### 2.2 文件目录操作命令
+
+#### 2.2.1 `ls`
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> [-al] [<span class="built_in">dir</span>]	<span class="comment"># 作用：是显示指定目录下的内容</span></span><br></pre></td></tr></table></figure>
+
+- `-a`显示所有文件及目录（.开头的隐藏文件也会列出）
+- `-l`除文件名称外，同时将文件型态(`d`表示目录，`-`表示文件)、权限、拥有者、文件大小等信息详细列出
+
+由于我们使用`ls`命令时经常需要加入`-l`选项，所以Linux为`ls -l`命令提供了一种简写方式，即`ll`
+
+#### 2.2.2 `cd`
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> [dirName]	<span class="comment"># 作用：用于切换当前工作目录，即进入指定目录</span></span><br></pre></td></tr></table></figure>
+
+- `～`表示用户的home目录
+- `.`表示目前所在的目录
+- `..`表示目前目录位置的上级目录
+
+#### 2.2.3 cat
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> [-n] fileName 	<span class="comment"># 作用：用于显示文件内容</span></span><br></pre></td></tr></table></figure>
+
+- `-n`：由1开始对所有输出的行数编号
+
+![image-20230408160458062](../../images/linux01/image-20230408160458062.png)
+
+#### 2.2.4 more
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more fileName  <span class="comment"># 作用：以分页的形式显示文件内容</span></span><br></pre></td></tr></table></figure>
+
+- 回车键           向下滚动一行
+- 空格键           向下滚动一屏
+- b               返回上一屏
+- q或者Ctrl+C      退出more
+
+#### 2.2.5 tail
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> [-f] fileName	<span class="comment"># 作用：查看文件末尾的内容</span></span><br></pre></td></tr></table></figure>
+
+- `-f`：动态读取文件末尾内容并显示，通常用于<font color="orange">日志文件</font>的内容输出
+
+#### 2.2.6 mkdir
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [-p] dirName	<span class="comment"># 作用：创建目录</span></span><br></pre></td></tr></table></figure>
+
+- `-p`：确保目录名称存在，不存在的就创建一个。通过此选项，可以实现多层目录同时创建
+
+#### 2.2.7 rmdir
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rmdir</span> [-p] dirName	<span class="comment"># 作用：删除空目录</span></span><br></pre></td></tr></table></figure>
+
+- `-p`：当子目录被删除后使父目录为空目录的话，则一并删除，有点类似于一次删除多层目录
+- 也可以用通配符删除，例如`rmdir itcast*`表示删除已itcast开头的目录，前提是这个目录为空
+
+#### 2.2.8 rm
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> [-rf] name <span class="comment"># 作用：删除文件或者目录</span></span><br></pre></td></tr></table></figure>
+
+- `-r`：将目录及目录中所有文件（目录）逐一删除，即递归删除
+- `-f`：无需确认，直接删除
+
+#### 2.2.9 cp
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> [-r] <span class="built_in">source</span> dest <span class="comment"># 作用：用于复制文件或目录</span></span><br><span class="line"><span class="comment"># source 表示原来要拷贝目录或者文件</span></span><br><span class="line"><span class="comment"># dest 表示要拷贝到哪去</span></span><br></pre></td></tr></table></figure>
+
+- `-r`: 如果复制的是目录的时候，需要使用此选项，此时将复制该目录下所有的子目录和文件
+
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> hello.txt itcast/   <span class="comment"># 将hello.txt复制到itcast目录中</span></span><br><span class="line"><span class="built_in">cp</span> hello.txt ./hi.txt	<span class="comment"># 将hello.txt复制到当前目录，并且改名为hi.txt</span></span><br><span class="line"><span class="built_in">cp</span> -r itcast/ ./itheima/	<span class="comment"># 将itcast目录和目录下所有文件复制到itheima目录下</span></span><br><span class="line"><span class="built_in">cp</span> -r itcast/* ./itheima/	<span class="comment"># 将itcast目录下所有文件复制到itheima目录下</span></span><br></pre></td></tr></table></figure>
+
+#### 2.2.10 mv
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> <span class="built_in">source</span> dest  <span class="comment"># 为文件或目录改名，或将文件或目录移动到其他位置</span></span><br><span class="line"><span class="comment"># source 表示原来要移动目录或者文件</span></span><br><span class="line"><span class="comment"># dest 表示要移动到哪去</span></span><br></pre></td></tr></table></figure>
+
+- ```bash
+  mv hello.txt hi.txt        # 将hello.txt改名为hi.txt
+  mv hi.txt itheima/        # 将hi.txt移动到itheima目录中
+  mv hi.txt itheima/hello.txt    # 将hi.txt移动到itheima目录中，并改名为hello,txt
+  mv itcast/ itheima/        # 如果itheima目录不存在，将itcast目录改名为itheima
+  mv itcast/ itheima/        # 如果itheima目录存在，将itcast目录移动到itheima目录中
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 2.2.11 tar</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">tar [-zcxvf] fileName [files]	# 对文件进行打包、解包、压缩、解压 c和x是互斥的</span><br></pre></td></tr></table></figure>
+
+- 包文件后缀为`.tar`表示只是完成了打包，并没有压缩
+- 包文件后缀为`.tar.gz`表示打包的同时还进行了压缩
+
+![image-20230408165350518](../../images/linux01/image-20230408165350518.png)
+
+![image-20230408165950924](../../images/linux01/image-20230408165950924.png)
+
+#### 2.2.12 vi/vim
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi fileName  <span class="comment"># vi命令是Linux系统提供的一个文本编辑工具，可以对文件内容进行编辑，类似于Windows中的记事本</span></span><br></pre></td></tr></table></figure>
+
+- `vim`是从vi发展来的一个功能更加强大的文本编辑工具，在编辑文件时可以对文本内容进行看色，方便我们对文件进行编辑处理，所以实际工作中`vim`更加常用
+
+- 要使用`vim`命令，需要我们自己完成安装。可以使用下面的命令来完成安装
+
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install vim</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim fileName <span class="comment"># 对文件内容进行编辑，Vim其实就是一个文本编辑器</span></span><br></pre></td></tr></table></figure>
+
+- 在使用`vim`命令编辑文件时，如果指定的文件存在则直接打开此文件。如果指定的文件不存在则新建文件
+- `vim`在进行文本编辑时共分为三种模式，分别是命令模式（`Command mode`），插入模式（`Insert mode`）和底行模式（`Last line mode`）。这三种模式之间可以相互切换。我们在使用vim时一定要注意我们当前所处的是哪种模式
+
+ <font color="orange"> 命令模式：</font>
+
+<ul>
+<li>可以查看文件内容，</li>
+<li>移动光标：上下左右箭头，gg（快速移动到开头）, G(快速移动到末尾）; </li>
+<li>通过vim命令打开文件后，默认进入命令模式；另外两种模式需要首先进入命令模式，才能进入彼此。</li>
+</ul>
+<font color="orange">插入模式：</font>
+
+<ul>
+<li>对文件进行编辑</li>
+<li>在命令模式下按[<code>i,a,o</code>]任意一个，可以进入插入模式，进入插入模式后，下方会出现【<code>insert</code>】字样</li>
+<li>在插入模式下按<code>ESC</code>键，回到命令模式</li>
+</ul>
+<font color="orange">底行模式：</font>
+
+<ul>
+<li>底行模式下可以通过命令对文件内容进行查找、显示行号、退出等操作</li>
+<li>在命令模式下按下[<code>:,/</code>]任意一个，可以进入底行模式</li>
+<li>通过 <code>/</code> 方式进入底行模式后，可以对文件内容进行查找</li>
+<li>通过 <code>:</code> 方式进入底行模式后，可以输入<code>wq</code>（保存并退出）、<code>q!</code>（不保存退出）、<code>set nu</code>（显示行号）</li>
+</ul>
+<h4 id="2-2-13-find"><a href="#2-2-13-find" class="headerlink" title="2.2.13 find"></a>2.2.13 find</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find dirName -option fileName <span class="comment"># 在指定目录名称下查找文件名称，可选是按照比如名称来找</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>```bash<br>find . -name “<em>.java”        # 在当前目录下及其子目录下查找.java结尾文件<br>find /itcast -name “</em>.java” # 在/itcast目录及其子目录下查找.java结尾的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 2.2.14 grep</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">grep word fileName  # 从指定文件中查找指定的文本内容</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>```bash<br>grep hello helloword.java    # 查找对应文件中出现hello字符串的位置<br>grep hello *.java        # 查找以.java结尾的文件中包含hello字符串的位置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">## 3 软件安装</span><br><span class="line"></span><br><span class="line">### 3.1 软件安装方式</span><br><span class="line"></span><br><span class="line">- &lt;font color=&#x27;orange&#x27;&gt;二进制发布包安装&lt;/font&gt;：软件已经针对具体平台编译打包发布，只要解压，修改配置即可</span><br><span class="line">- &lt;font color=&#x27;orange&#x27;&gt;rpm安装&lt;/font&gt;：软件已经按照`redhat`的包管理规范进行打包，使用`rpm`命令进行安装，不能自行解决库依赖问题</span><br><span class="line">- &lt;font color=&#x27;orange&#x27;&gt;yum安装&lt;/font&gt;：种在线软件安装方式，本质上还是`rpm`安装，自动下载安装包并安装，安装过程中自动解决库依赖问题</span><br><span class="line">- &lt;font color=&#x27;orange&#x27;&gt;源码编译安装&lt;/font&gt;：软件以源码工程的形式发布，需要自己编译打包</span><br><span class="line"></span><br><span class="line">### 3.2 安装jdk</span><br><span class="line"></span><br><span class="line">【1】 使用finalshell自带的上传工具将jdk的二进制发布包上传到linux</span><br><span class="line"></span><br><span class="line">![image-20230408185404931](../../images/linux01/image-20230408185404931.png)</span><br><span class="line"></span><br><span class="line">【2】 解压安装包，命令为`tar -zxvf jdk-8u171-linux-x64.tar.gz -C /usr/local`</span><br><span class="line"></span><br><span class="line">![image-20230408185710127](../../images/linux01/image-20230408185710127.png)</span><br><span class="line"></span><br><span class="line">【3】 配置环境变量，使用`vim`命令修改`/etc/profile`文件，在文件末尾加入如下配置：</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">JAVA_HOME=/usr/local/jdk1.8.0_171</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>输入 <code>vim /etc/profile</code>命令之后，按住<code>shift+g</code>快速定位到末尾，然后按<code>i</code>键，切换到插入模式，输入上面个两行命令，然后按<code>esc</code>键，退出插入模式，然后按<code>：</code>进入底行模式，最后输入<code>wq</code>，保存退出<img src="../../images/linux01/image-20230408190110191.png" alt="image-20230408190110191"></p>
+</li>
+</ul>
+<p>【4】 输入<code>source /etc/profile</code>，让刚才修改的文件生效</p>
+<p>【5】 输入<code>java -version</code>，查看是否安装好了</p>
+<p><img src="../../images/linux01/image-20230408190637739.png" alt="image-20230408190637739"></p>
+<h3 id="3-3-安装tomcat"><a href="#3-3-安装tomcat" class="headerlink" title="3.3 安装tomcat"></a>3.3 安装tomcat</h3><p>【1】 使用finalshell自带的上传欧冠那句将tomcat的二进制发布包上传到linux</p>
+<p><img src="../../images/linux01/image-20230408191411251.png" alt="image-20230408191411251"></p>
+<p>【2】 解压安装包：执行<code>tar -zxvf apache-tomcat-7.0.57.tar.gz -C /usr/local</code></p>
+<p><img src="../../images/linux01/image-20230408191500397.png" alt="image-20230408191500397"></p>
+<p>【3】 进入tomcat的bin目录启动服务，命令为<code>sh startup.sh</code>或者<code>./startup.sh</code></p>
+<p><img src="../../images/linux01/image-20230408191631325.png" alt="image-20230408191631325"></p>
+<p>【4】 验证tomcat启动是否成功，方式有多种</p>
+<ul>
+<li><p>查看启动日志：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">more /usr/local/apache-tomcat-7.0.57/logs/catalina.out</span><br><span class="line"><span class="built_in">tail</span> -50 /usr/local/apache-tomcat-7.0.57/logs/catalina.out</span><br></pre></td></tr></table></figure>
+<p><img src="../../images/linux01/image-20230408192527131.png" alt="image-20230408192527131"></p>
+</li>
+<li><p>查看进程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep tomcat</span><br></pre></td></tr></table></figure>
+<p><code>ps</code>命令是linuX下非常强大的进程查看命令，通过<code>ps -ef</code>可以查看当前运行的所有进程的详细信息</p>
+<p>“|”在Linux中称为管道符，可以将前一个命令的结果输出给后一个命令作为输入</p>
+<p>使用<code>ps</code>命令查看进程时，经常配合管道符和查找命令grep一起使用，来查看特定进程</p>
+</li>
+</ul>
+<p><img src="../../images/linux01/image-20230408192734636.png" alt="image-20230408192734636"></p>
+<p>现在，虽然在linux里面启动了tomcat的，但是我们还是不能直接访问这个tomcat，原因是linux默认开启了防火墙。</p>
+<p><strong><font color="orange">防火墙操作</font></strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看防火墙状态(两种方式)</span></span><br><span class="line">systemctl status firewalld</span><br><span class="line">firewall-cmd --state</span><br><span class="line"></span><br><span class="line"><span class="comment"># 暂时关闭防火墙</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 永久关闭防火墙</span></span><br><span class="line">systemctl <span class="built_in">disable</span> filewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启防火墙</span></span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开放指定端口  [常用做法]</span></span><br><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭指定端口</span></span><br><span class="line">firewall-cmd --zone=public --remove-port=8080/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即生效 [常用做法]</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看开放的端口</span></span><br><span class="line">firewall-cmd --zone=public --list-ports</span><br></pre></td></tr></table></figure>
+<font color="orange">注意：</font>
+1 、`systemctl`是管理Linux中服务的命令，可以对服务进行启动、停止、重启、查看状态等操作
+2 、`firewall-cmd`是Linux中专门用于控制防火墙的命令
+3 、为了保证系统安全，服务器的防火墙不建议关闭
+
+![image-20230408193908974](../../images/linux01/image-20230408193908974.png)
+
+操作完成之后，要立即生效操作一下，否则是无效操作。
+
+
+
+停止tomcat服务的方式：
+
+- [<font color="orange">建议做法</font>]运行bin目录中提供停止服务的脚本文件`sh shutdown.sh`或者`./shutdown.sh`
+
+- 结束进程：查看进程，获得进程id
+
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep tomcat  <span class="comment"># 得到啊tomcat进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 112963</span><br></pre></td></tr></table></figure>
+
+  kill命令是Linux提供的用于结束进程的命令，-9表示强制结束
+
+![image-20230408194654802](../../images/linux01/image-20230408194654802.png)
+
+### 3.4 安装mysql
+
+检测当前系统中是否安装mysql数据库
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa						<span class="comment"># 查询当前系统中安装的所有软件</span></span><br><span class="line">rpm -qa | grep mysql		<span class="comment"># 查询当前系统中安装的名称带mysqL的软件</span></span><br><span class="line">rpm -qa | grep mariadb		<span class="comment"># 查询当前系统中安装的名称带mariadb的软件</span></span><br></pre></td></tr></table></figure>
+
+<font color="orange">注意</font>：如果当前系统中已经安装有MySQL数据库，安装将失败。CentOs7自带mariadb，与MySQL数据库冲突
+
+<font color="orange">删除mariadb命令</font>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e --nodeps mariadb-libs-5.5.60-1.el7_5.x86_64</span><br></pre></td></tr></table></figure>
+<p><img src="../../images/linux01/image-20230408195405587.png" alt="image-20230408195405587"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_61470350/article/details/128729645">MySQL8.0.32离线安装（适用于Linux-CentOS 7）安装教程</a></p>
+<p>第一步：上传文件到根目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> usr/local <span class="comment"># 进入到将要安装的目录</span></span><br><span class="line"><span class="built_in">mkdir</span> mysql</span><br><span class="line"><span class="built_in">cd</span> /</span><br><span class="line">tar -xvf mysql-8.0.32-1.el7.x86_64.rpm-bundle.tar -C /usr/local/mysql</span><br><span class="line"><span class="built_in">cd</span> usr/local/mysql</span><br><span class="line">ll</span><br><span class="line"><span class="built_in">chmod</span> -R 777 /tmp</span><br><span class="line">yum remove mysql-libs</span><br><span class="line"></span><br><span class="line">rpm -ivh mysql-community-common-8.0.32-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-client-plugins-8.0.32-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-8.0.32-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-client-8.0.32-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-icu-data-files-8.0.32-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-server-8.0.32-1.el7.x86_64.rpm  <span class="comment"># 如下错误</span></span><br></pre></td></tr></table></figure>
+<p>报错：error: Failed dependencies: net-tools is needed by mysql-community-server-8.0.32-1.el7.x86_64。继续执行下面命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yum install net-tools <span class="comment"># 报错解决方法</span></span><br><span class="line">rpm -ivh mysql-community-server-8.0.32-1.el7.x86_64.rpm <span class="comment"># 继续安装</span></span><br><span class="line">mysql --version</span><br><span class="line">mysqld --initialize --user=mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开放防火墙</span></span><br><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl status mysqld <span class="comment"># 查看mysql服务状态</span></span><br><span class="line">systemctl start mysqld <span class="comment"># 启动mysql服务</span></span><br></pre></td></tr></table></figure>
+<p><img src="../../images/linux01/image-20230408205756257.png" alt="image-20230408205756257"></p>
+<p><img src="../../images/linux01/image-20230408205834162.png" alt="image-20230408205834162"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> mysqld <span class="comment"># 设置开机自启</span></span><br><span class="line">netstat -tunlp <span class="comment"># 查看已经启动的服务,如下三种方式</span></span><br><span class="line">netstat -tunlp | grep mysql </span><br><span class="line">ps -ef | grep mysql</span><br></pre></td></tr></table></figure>
+<p><img src="../../images/linux01/image-20230408210037498.png" alt="image-20230408210037498"></p>
+<p><img src="../../images/linux01/image-20230408210159364.png" alt="image-20230408210159364"></p>
+<p>登录mysql数据库，查阅临时密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /</span><br><span class="line"><span class="built_in">cat</span> /var/log/mysqld.log  <span class="comment"># 查看文件内容</span></span><br><span class="line"><span class="built_in">cat</span> /var/log/mysqld.log | grep password  <span class="comment"># 查看文件包含password的行信息</span></span><br></pre></td></tr></table></figure>
+<p><img src="../../images/linux01/image-20230408210736804.png" alt="image-20230408210736804"></p>
+<p>复制这个初始密码<code>lP-4dKWivioo</code>，登录mysql，修改访问权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+<p><img src="../../images/linux01/image-20230408211115238.png" alt="image-20230408211115238"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">-- 查看安全策略信息</span><br><span class="line">SHOW VARIABLES LIKE &#x27;validate_password%&#x27;;</span><br><span class="line"></span><br><span class="line">-- 修改密码等级</span><br><span class="line">set global validate_password_policy=LOW;</span><br><span class="line"></span><br><span class="line">-- 修改密码长度</span><br><span class="line">set global validate_password.length=6;</span><br><span class="line"></span><br><span class="line">-- 创建设置账户密码即可</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;123456&#x27;;</span><br><span class="line"></span><br><span class="line">-- 使用grant all privileges on来更改用户对应某些库的远程权限</span><br><span class="line">GRANT all privileges ON *.* TO &#x27;root&#x27;@&#x27;%&#x27;;</span><br><span class="line">-- 刷新MySQL的系统权限相关表</span><br><span class="line">flush privileges;</span><br><span class="line"></span><br><span class="line">-- 最后退出 quit或者exit</span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line">-- 再次登录</span><br><span class="line">mysql -uroot -p123456</span><br></pre></td></tr></table></figure>
+<p><img src="../../images/linux01/image-20230408214714616.png" alt="image-20230408214714616"></p>
+<p><img src="../../images/linux01/image-20230408214725162.png" alt="image-20230408214725162"></p>
+<p><img src="../../images/linux01/image-20230408214740560.png" alt="image-20230408214740560"></p>
+<p><img src="../../images/linux01/image-20230408215859818.png" alt="image-20230408215859818"></p>
+<p>测试远程连接，打开datagrip，按如下操作，测试</p>
+<p><img src="../../images/linux01/image-20230408220355474.png" alt="image-20230408220355474"></p>
+<h3 id="3-5-安装lrzsz"><a href="#3-5-安装lrzsz" class="headerlink" title="3.5 安装lrzsz"></a>3.5 安装lrzsz</h3><p>【1】 搜索lrzsz安装包，命令为<code>yum list lrzsz</code></p>
+<p><img src="../../images/linux01/image-20230408220853926.png" alt="image-20230408220853926"></p>
+<p>【2】 使用yum命令在线安装，命令为<code>yum install lrzsz.x86_64</code></p>
+<p>【3】 如何使用这个软件上传：命令为<code>rz</code></p>
+<h2 id="4-项目部署"><a href="#4-项目部署" class="headerlink" title="4 项目部署"></a>4 项目部署</h2><h3 id="4-1-手工部署项目"><a href="#4-1-手工部署项目" class="headerlink" title="4.1 手工部署项目"></a>4.1 手工部署项目</h3><p>【1】 在idea中对编写好的项目打包成jar包 </p>
+<p>【2】 上传：将jar包上传到服务器。首先先创建一个目录，将项目的jar包放到这个目录下：创建目录命令为：<code>mkdir /usr/local/app</code></p>
+<p>【3】 执行项目：<code>java -jar xxxxxx.jar</code></p>
+<p>【4】 检查防火墙，确保8080端口对外开放，访问springboot项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开放指定端口  [常用做法]</span></span><br><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭指定端口</span></span><br><span class="line">firewall-cmd --zone=public --remove-port=8080/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即生效 [常用做法]</span></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p>【5】 改为后台运行SpringBoot程序，并将日志输出到日志文件</p>
+<p>目前程序运行的问题</p>
+<ul>
+<li>线上程序不会采用控制台霸屏的形式运行程序，而是将程序在后台运行</li>
+<li>线上程序不会将日志输出到控制台，而是输出到日志文件，方使运维查阅信息</li>
+</ul>
+<p>后台运行：</p>
+<p>nohup命令：用于不挂断啊地运行指令命令，退出终端不会影响程序的运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> Command[Arg..][&amp;]</span><br></pre></td></tr></table></figure>
+<p>Command：要执行的命令</p>
+<p>Arg：一些参数，可以指定输出文件</p>
+<p>&amp;:第上命令在后台运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 后台运行java -jar命令，并将日志输出到hello.log文件</span></span><br><span class="line"><span class="built_in">nohup</span> java -jar boot工程.jar &amp;&gt; hello.log &amp;</span><br></pre></td></tr></table></figure>
+<p>【6】停止springboot程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep <span class="string">&#x27;java -jar‘</span></span><br><span class="line"><span class="string">kill -9 对应线程号</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-2-通过shell脚本自动部署"><a href="#4-2-通过shell脚本自动部署" class="headerlink" title="4.2 通过shell脚本自动部署"></a>4.2 通过shell脚本自动部署</h3><p>先安装git，然后安装maven，编写shell脚本， 为用户授予执行shell脚本的权限，执行shell脚本</p>
+<h4 id="4-2-1-安装git"><a href="#4-2-1-安装git" class="headerlink" title="4.2.1 安装git"></a>4.2.1 安装git</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum list git      <span class="comment"># 列出git安装包</span></span><br><span class="line">yum install git		<span class="comment"># 在线安装git</span></span><br></pre></td></tr></table></figure>
+<p>使用git克隆代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/</span><br><span class="line">git <span class="built_in">clone</span> https://xxxx/xxx/xxx.git   <span class="comment"># 从仓库复制过来的的地址</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-2-2-安装maven"><a href="#4-2-2-安装maven" class="headerlink" title="4.2.2 安装maven"></a>4.2.2 安装maven</h4><p>将资料包中的maven安装包上传到linux，在linux中安装maven</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /</span><br><span class="line">tar -zxvf apache-maven-3.5.4-bin.tar.gz -C /usr/local</span><br></pre></td></tr></table></figure>
+<p>配置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加如下内容,i进入插入模式，esc退出，:wq底行模式保存退出</span></span><br><span class="line"><span class="built_in">export</span> MAVEN_HOME=/usr/local/apache-maven-3.5.4</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$MAVEN_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /etc/profile		<span class="comment"># 内容生效</span></span><br><span class="line">mvn -version <span class="comment"># 产看是否安装成功</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建repo本地仓库</span></span><br><span class="line"><span class="built_in">cd</span> /usr/local</span><br><span class="line"><span class="built_in">mkdir</span> repo</span><br><span class="line"><span class="built_in">cd</span> /usr/local/apache-maven-3.5.4/conf</span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">vim /usr/local/apache-maven-3.5.4/conf/settings.xml	</span><br><span class="line"><span class="comment"># 修改配置文件如下</span></span><br><span class="line">&lt;localRepository&gt;/usr/local/repo&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="4-2-3-复制shell脚本到linux"><a href="#4-2-3-复制shell脚本到linux" class="headerlink" title="4.2.3 复制shell脚本到linux"></a>4.2.3 复制shell脚本到linux</h4><p><img src="../../images/linux01/image-20230409104151341.png" alt="image-20230409104151341"></p>
+<p>shell脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">echo</span> =================================</span><br><span class="line"><span class="built_in">echo</span>  自动化部署脚本启动</span><br><span class="line"><span class="built_in">echo</span> =================================</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 停止原来运行中的工程</span><br><span class="line">APP_NAME=helloworld</span><br><span class="line"></span><br><span class="line">tpid=`ps -ef|grep <span class="variable">$APP_NAME</span>|grep -v grep|grep -v <span class="built_in">kill</span>|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>`</span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$&#123;tpid&#125;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;Stop Process...&#x27;</span></span><br><span class="line">    <span class="built_in">kill</span> -15 <span class="variable">$tpid</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">sleep</span> 2</span><br><span class="line">tpid=`ps -ef|grep <span class="variable">$APP_NAME</span>|grep -v grep|grep -v <span class="built_in">kill</span>|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>`</span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$&#123;tpid&#125;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;Kill Process!&#x27;</span></span><br><span class="line">    <span class="built_in">kill</span> -9 <span class="variable">$tpid</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;Stop Success!&#x27;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 准备从Git仓库拉取最新代码</span><br><span class="line"><span class="built_in">cd</span> /usr/local/helloworld</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 开始从Git仓库拉取最新代码</span><br><span class="line">git pull</span><br><span class="line"><span class="built_in">echo</span> 代码拉取完成</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 开始打包</span><br><span class="line">output=`mvn clean package -Dmaven.test.skip=<span class="literal">true</span>`</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> target</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 启动项目</span><br><span class="line"><span class="built_in">nohup</span> java -jar helloworld-1.0-SNAPSHOT.jar &amp;&gt; helloworld.log &amp;</span><br><span class="line"><span class="built_in">echo</span> 项目启动完成</span><br></pre></td></tr></table></figure>
+<p>linux设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local</span><br><span class="line"><span class="built_in">mkdir</span> sh		<span class="comment"># 创建一个sh目录</span></span><br><span class="line"><span class="built_in">cd</span> sh</span><br><span class="line">vim bootStart.sh	<span class="comment"># 创建一个bootStart.sh文件</span></span><br><span class="line">i</span><br><span class="line"><span class="comment"># 复制对应的shell脚本</span></span><br><span class="line">esc</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
+<h4 id="4-2-4-为用户授权"><a href="#4-2-4-为用户授权" class="headerlink" title="4.2.4 为用户授权"></a>4.2.4 为用户授权</h4><p><img src="../../images/linux01/image-20230409104930471.png" alt="image-20230409104930471"></p>
+<p><img src="../../images/linux01/image-20230409105154711.png" alt="image-20230409105154711"></p>
+<h4 id="4-2-5-设置静态ip"><a href="#4-2-5-设置静态ip" class="headerlink" title="4.2.5 设置静态ip"></a>4.2.5 设置静态ip</h4><p><img src="../../images/linux01/image-20230409105858792.png" alt="image-20230409105858792"></p>
+<p><img src="../../images/linux01/image-20230409105916919.png" alt="image-20230409105916919"></p>
+<p>按照上述要求修改</p>
+<p><img src="../../images/linux01/image-20230409110305639.png" alt="image-20230409110305639"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line"></span><br><span class="line">BOOTPROTO=<span class="string">&quot;static&quot;</span>              <span class="comment">#使用静态IP地址，默认为dhcp</span></span><br><span class="line">IPADDR=<span class="string">&quot;192.168.133.128&quot;</span>        <span class="comment">#设置的静态IP地址</span></span><br><span class="line">NETMASK=<span class="string">&quot;255.255.255.0&quot;</span>         <span class="comment">#子网掩码</span></span><br><span class="line">GATEWAY=<span class="string">&quot;192.168.133.2&quot;</span>         <span class="comment">#网关地址</span></span><br><span class="line">DNS1=<span class="string">&quot;192.168.133.2&quot;</span>            <span class="comment">#DNS服务器</span></span><br><span class="line"></span><br><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Skills/"># Skills</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/04/09/Middleware/redis%E5%85%A5%E9%97%A8/">redis入门</a>
+            
+            
+            <a class="next" rel="next" href="/2023/04/08/Other/git/">git</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
