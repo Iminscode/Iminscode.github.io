@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>mysql基础高级 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">mysql基础高级</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 25, 2023&nbsp;&nbsp;23:18:46</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Skills/">Skills</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="【基础篇】"><a href="#【基础篇】" class="headerlink" title="【基础篇】"></a>【基础篇】</h3><h3 id="一、MySQL的概述"><a href="#一、MySQL的概述" class="headerlink" title="一、MySQL的概述"></a>一、MySQL的概述</h3><h4 id="1-1-数据库相关概念："><a href="#1-1-数据库相关概念：" class="headerlink" title="1.1 数据库相关概念："></a>1.1 数据库相关概念：</h4><ul>
+<li><p>数据库：存储数据的仓库，数据时有组织的进行存储（DataBase）</p>
+</li>
+<li><p>数据库管理系统：操纵和管理数据库的大型软件</p>
+</li>
+<li>SQL：操作关系型数据库的编程语言，定义了一套操作关系型数据库<strong>统一标准</strong></li>
+</ul>
+<h4 id="1-2-MySQL数据库安装"><a href="#1-2-MySQL数据库安装" class="headerlink" title="1.2 MySQL数据库安装"></a>1.2 MySQL数据库安装</h4><ul>
+<li><p>下载社区版本，安装前要先卸载之前的老版本。</p>
+</li>
+<li><p>配置截面默认3306端口，推荐安装，设置密码自定义，服务名字默认自启。</p>
+</li>
+<li><p>启动与停止：</p>
+<p>方法一：<code>win+r</code>输入<code>services.msc</code>里面找到安装时的默认服务名字<code>mysql80</code>；</p>
+<p>方法二：启动：<code>net start mysql80</code>    停止：<code>net stop mysql80</code></p>
+</li>
+<li><p>客户端连接：</p>
+<p>方式一：MySQL提供的客户端命令行工具进行连接，进入终端输入密码；</p>
+<p>方式二：系统自带终端输入<code>mysql [-h 127.0.0.1][-P 3306] -u root -p</code>，需要配置path环境变量，增加一个bin的路径到高级变量设置里面。</p>
+</li>
+</ul>
+<h4 id="1-3-关系型数据库（RDBMS）"><a href="#1-3-关系型数据库（RDBMS）" class="headerlink" title="1.3 关系型数据库（RDBMS）"></a>1.3 关系型数据库（RDBMS）</h4><ul>
+<li>概念：建立在关系模型基础上，多张相互连接的二维表组成的数据库</li>
+<li>特点：用表存储数据，格式统一，便于维护；用SQL语言操作，标准统一</li>
+</ul>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230219143104235.png" alt="image-20230219143104235" style="zoom:67%;" /></p>
+<h3 id="二、SQL"><a href="#二、SQL" class="headerlink" title="二、SQL"></a>二、SQL</h3><h4 id="2-1-SQL通用语法"><a href="#2-1-SQL通用语法" class="headerlink" title="2.1 SQL通用语法"></a>2.1 SQL通用语法</h4><ul>
+<li>语句可以单行或多行，空格缩进增强阅读，分号结尾</li>
+<li>不区分大小写，建议关键字大写</li>
+<li>注释，单行用—或者#  ；多行用  /<em>   </em>/</li>
+</ul>
+<h4 id="2-2-sql分类"><a href="#2-2-sql分类" class="headerlink" title="2.2 sql分类"></a>2.2 sql分类</h4><ul>
+<li>DDL：数据定义语言，用来定义数据库对象（数据库，表，字段）</li>
+<li>DML：数据操作语言，用来对数据进行增删改</li>
+<li>DQL：数据查询语言，用来查询数据记录</li>
+<li>DCL：数据控制语言，用来创建数据库用户、控制数据库的访问权限的</li>
+</ul>
+<h4 id="2-3-DDL数据定义语言"><a href="#2-3-DDL数据定义语言" class="headerlink" title="2.3 DDL数据定义语言"></a>2.3 DDL数据定义语言</h4><h5 id="2-3-1-DDL操作数据库"><a href="#2-3-1-DDL操作数据库" class="headerlink" title="2.3.1 DDL操作数据库"></a>2.3.1 DDL操作数据库</h5><h6 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show databases;		-- 当前数据库服务器中的所有的数据库</span><br><span class="line"></span><br><span class="line">select database();	-- 查询当前数据库</span><br></pre></td></tr></table></figure>
+<h6 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h6><p>如果存在就创建，如果不存在就不创建；字符集<code>utf8mb4</code>支持四个字节</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database [if not exists] 数据库名 [default charset 字符集][collate 排序规则];</span><br></pre></td></tr></table></figure>
+<h6 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database [if exists] 数据库名;</span><br></pre></td></tr></table></figure>
+<h6 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use 数据库名;</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-2-DDL对表结构的操作"><a href="#2-3-2-DDL对表结构的操作" class="headerlink" title="2.3.2 DDL对表结构的操作"></a>2.3.2 DDL对表结构的操作</h5><h6 id="查询表结构"><a href="#查询表结构" class="headerlink" title="查询表结构"></a>查询表结构</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">show tabels;	-- 查询当前数据库所有表，前提先进入到该数据库</span><br><span class="line"></span><br><span class="line">desc 表名;	-- 查询表结构，指定表名</span><br><span class="line"></span><br><span class="line">show create table 表名;	-- 查询指定表的建表语句</span><br></pre></td></tr></table></figure>
+<h6 id="创建表结构"><a href="#创建表结构" class="headerlink" title="创建表结构"></a>创建表结构</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create tabel 表名(</span><br><span class="line">	字段1 字段1类型 [comment 字段1注释],</span><br><span class="line">    字段2 字段2类型 [comment 字段2注释],</span><br><span class="line">    字段3 字段3类型 [comment 字段3注释],</span><br><span class="line">    ...</span><br><span class="line">)[comment 表注释];</span><br></pre></td></tr></table></figure>
+<h6 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h6><p><code>char(10)</code>固定字符长度为10，<code>char</code>是一个定长字符串；<code>varchar(10)</code>是一个变长字符串，如果输入一个字符，只占用一个字符空间，性能高一些。</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230219150616206.png" alt="image-20230219150616206"  /></p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230219150830350.png" alt="image-20230219150830350" style="zoom: 50%;" /></p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230219151219544.png" alt="image-20230219151219544" style="zoom: 50%;" /></p>
+<h6 id="修改表结构"><a href="#修改表结构" class="headerlink" title="修改表结构"></a>修改表结构</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 add 字段名 类型(长度) [comment 注释][约束];	-- 添加字段</span><br><span class="line"></span><br><span class="line">alter table 表名 modify 字段名 新数据类型(长度);	-- 修改数据类型</span><br><span class="line"></span><br><span class="line">alter table 表名 change 旧字段名 新字段名 类型(长度) [comment 注释][约束];	-- 修改字段名和字段类型</span><br><span class="line"></span><br><span class="line">alter table 表名 drop 字段名;	-- 删除字段</span><br><span class="line"></span><br><span class="line">alter table 表名 rename to 新表名;	-- 修改表名</span><br></pre></td></tr></table></figure>
+<h6 id="删除表结构"><a href="#删除表结构" class="headerlink" title="删除表结构"></a>删除表结构</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">drop table [if exists] 表名;	-- 删除表</span><br><span class="line"></span><br><span class="line">truncate table 表名;	-- 删除指定表，并重新创建该表，相当于格式化了，数据都没了</span><br></pre></td></tr></table></figure>
+<h4 id="2-4-MySQL图像化软件DataGrip"><a href="#2-4-MySQL图像化软件DataGrip" class="headerlink" title="2.4 MySQL图像化软件DataGrip"></a>2.4 MySQL图像化软件DataGrip</h4><ul>
+<li>安装DataGrip，创建工程，连接MySQL，窗口新建添加数据源，选择MySQL。配置连接信息，host，port和user，password，下载驱动，点击连接</li>
+<li>创建数据库：：右键+new+schema，输入表名。</li>
+<li>创建表结构：：右键表+new+table，指定表名，注释信息，插入字段，生成表</li>
+</ul>
+<h4 id="2-5-DML数据操作语言"><a href="#2-5-DML数据操作语言" class="headerlink" title="2.5 DML数据操作语言"></a>2.5 DML数据操作语言</h4><h6 id="1、添加数据"><a href="#1、添加数据" class="headerlink" title="1、添加数据"></a>1、添加数据</h6><p>1、给指定字段添加数据  输入数据要满足表中字段的约束要求</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名(字段名1,字段名2,...) values(值1,值2,...);	</span><br></pre></td></tr></table></figure>
+<p>2、给全部字段添加数据，顺序对应起来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名 values(值1,值2,...);	</span><br></pre></td></tr></table></figure>
+<p>3、批量添加数据（多条数据之间用逗号分隔）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名(字段名1,字段名2,...) values(值1,值2,...),(值1,值2,...),(值1,值2,...);</span><br><span class="line">insert into 表名 values(值1,值2,...),(值1,值2,...),(值1,值2,...);</span><br></pre></td></tr></table></figure>
+<h6 id="2、修改数据"><a href="#2、修改数据" class="headerlink" title="2、修改数据"></a>2、修改数据</h6><p>（修改语句的条件可以有，也可以没有，如果没有，就会修改整张表）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update 表名 set 字段名1=值1, 字段名2=值2,...[where 条件];</span><br></pre></td></tr></table></figure>
+<h6 id="3、删除数据"><a href="#3、删除数据" class="headerlink" title="3、删除数据"></a>3、删除数据</h6><p>条件没有的话，删除整张表里面的数据；不能删除某一个字段，如果要删除某一个字段可以用<code>update</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from 表名 [where 条件];</span><br></pre></td></tr></table></figure>
+<h4 id="2-6-DQL数据查询语言"><a href="#2-6-DQL数据查询语言" class="headerlink" title="2.6 DQL数据查询语言"></a>2.6 DQL数据查询语言</h4><h6 id="1、DQL语法"><a href="#1、DQL语法" class="headerlink" title="1、DQL语法"></a>1、DQL语法</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select 字段		-- 查询那些字段</span><br><span class="line">from 表名			-- 从那个表进行查询</span><br><span class="line">where 条件		-- 查询的条件是怎么样的</span><br><span class="line">group by 分组字段	-- 对查询的结果进行分组</span><br><span class="line">having 分组后条件	-- 分组所需要的条件</span><br><span class="line">order by 排序字段	-- 查询出来的数据按照那种排序要求</span><br><span class="line">limit 分页参数		-- 一页展示多少条数据</span><br></pre></td></tr></table></figure>
+<h6 id="2、基本查询"><a href="#2、基本查询" class="headerlink" title="2、基本查询"></a>2、基本查询</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 查询多个字段</span><br><span class="line">select 字段1,字段2,字段3,... from 表名;</span><br><span class="line">select * from 表名;		-- 查询所有字段，实际开发中尽量不要使用*，效率低</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 设置别名，其中as可以省略</span><br><span class="line">select 字段1 as 别名 from 表名;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 去除重复记录</span><br><span class="line">select distinct 字段列表 from 表名;</span><br></pre></td></tr></table></figure>
+<h6 id="3、条件查询"><a href="#3、条件查询" class="headerlink" title="3、条件查询"></a>3、条件查询</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段列表 from 表名 where 条件;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230219164852602.png" alt="image-20230219164852602" style="zoom: 50%;" /></p>
+<h6 id="4、聚合函数"><a href="#4、聚合函数" class="headerlink" title="4、聚合函数"></a>4、聚合函数</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 聚合函数(字段) from 表名;	-- 将一列数据作为一个整体，进行纵向计算，作用与某一列，null不参与计算</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230219165713766.png" alt="image-20230219165713766" style="zoom: 50%;" /></p>
+<h6 id="5、分组查询"><a href="#5、分组查询" class="headerlink" title="5、分组查询"></a>5、分组查询</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段 from 表名 [where 条件] group by 分组字段名 [分组后过滤条件];</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>where与having区别</p>
+<p>执行时机不同：where是分组之前进行过滤，不满足where条件，不参与分组；having是分组后对结果进行过滤</p>
+<p>判断条件不同：where不能对聚合函数进行判断；having可以</p>
+</li>
+<li><p>注意</p>
+<p>执行顺序：先where，然后聚合函数，最后having</p>
+<p>分组之后，查询的字段一般为聚合函数和分组字段，查询其他字段无任何意义</p>
+</li>
+</ul>
+<h6 id="6、排序查询"><a href="#6、排序查询" class="headerlink" title="6、排序查询"></a>6、排序查询</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段 from 表名 order by 字段1 排序方式1, 字段2 排序方式2;</span><br></pre></td></tr></table></figure>
+<p>排序方式：<code>asc</code>：升序（默认值，可以不写）<code>desc</code>：降序   如果多个字段排序，第一个字段相同时，才会按第二个字段进行排序。</p>
+<h6 id="7、分页查询"><a href="#7、分页查询" class="headerlink" title="7、分页查询"></a>7、分页查询</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段 from 表名 limit 起始索引, 查询记录数;</span><br></pre></td></tr></table></figure>
+<p>起始索引从0开始，起始索引=(查询页码-1)*每页显示记录数；如果查询的是第一页数据，起始索引可以省略不写</p>
+<h6 id="8、DQL执行顺序"><a href="#8、DQL执行顺序" class="headerlink" title="8、DQL执行顺序"></a>8、DQL执行顺序</h6><p>先执行from；再指定where来决定查询条件；通过group by和having来指定分组和分组之后的条件；查询返回哪些字段；最后才是排序字段和分页</p>
+<h4 id="2-7-DCL数据控制语言"><a href="#2-7-DCL数据控制语言" class="headerlink" title="2.7 DCL数据控制语言"></a>2.7 DCL数据控制语言</h4><h6 id="1、管理用户"><a href="#1、管理用户" class="headerlink" title="1、管理用户"></a>1、管理用户</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 查询用户</span><br><span class="line">use mysql;</span><br><span class="line">select * from user;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 创建用户，没有分配权限，主机名如果是%的通配符就表示任意主机可以访问该数据库</span><br><span class="line">create user &#x27;用户名&#x27;@&#x27;主机名&#x27; identified by &#x27;密码&#x27;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 修改用户密码</span><br><span class="line">alter user &#x27;用户名&#x27;@&#x27;主机名&#x27; identified with mysql_native_password by &#x27;新密码&#x27;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 删除用户</span><br><span class="line">drop user &#x27;用户名&#x27;@&#x27;主机名&#x27;;</span><br></pre></td></tr></table></figure>
+<h6 id="2、权限控制"><a href="#2、权限控制" class="headerlink" title="2、权限控制"></a>2、权限控制</h6><p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230219195921921.png" alt="image-20230219195921921" style="zoom:50%;" /></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询权限</span><br><span class="line">show grants for &#x27;用户名&#x27;@&#x27;主机名&#x27;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 授予权限  多个权限之间，使用逗号分隔，数据库名和表名可以使用*进行通配，表示所有(类似于超级管理员)</span><br><span class="line">grants 权限列表 on 数据库名.表名 to &#x27;用户名&#x27;@&#x27;主机名&#x27;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 撤销权限</span><br><span class="line">revoke 权限列表 on 数据库名.表名 from &#x27;用户名&#x27;@&#x27;主机名&#x27;;</span><br></pre></td></tr></table></figure>
+<h3 id="三、函数"><a href="#三、函数" class="headerlink" title="三、函数"></a>三、函数</h3><h4 id="3-1-字符串函数"><a href="#3-1-字符串函数" class="headerlink" title="3.1 字符串函数"></a>3.1 字符串函数</h4><p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230219200642998.png" alt="image-20230219200642998" style="zoom: 80%;" /></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select concat(&#x27;hello&#x27;, &#x27;mysql&#x27;);			-- hello mysql</span><br><span class="line">select lower(&#x27;Hello&#x27;);						-- hello</span><br><span class="line">select upper(&#x27;Hello&#x27;);						-- HELLO</span><br><span class="line">select lpad(&#x27;01&#x27;,5,&#x27;-&#x27;);					-- ---01</span><br><span class="line">select rpad(&#x27;01&#x27;,5, &#x27;-&#x27;);					-- 01---</span><br><span class="line">select trim(&#x27; hello  mysql &#x27;);				-- hello  mysql  去除了前后的空格，中间的空格不会去掉</span><br><span class="line">select substring(&#x27;hello mysql&#x27;,1,5);		-- hello	索引从1开始的</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-数值函数"><a href="#3-2-数值函数" class="headerlink" title="3.2 数值函数"></a>3.2 数值函数</h4><p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230219201801287.png" alt="image-20230219201801287" style="zoom:80%;" /></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select ceil(1.5);					-- 2</span><br><span class="line">select floor(1.5);					-- 1</span><br><span class="line">select mod(7,4);					-- 3 余数为3</span><br><span class="line">select rand();						-- 返回0-1内的随机数</span><br><span class="line">select round(1.56,1)				-- 1.6</span><br></pre></td></tr></table></figure>
+<h4 id="3-3-日期函数"><a href="#3-3-日期函数" class="headerlink" title="3.3 日期函数"></a>3.3 日期函数</h4><p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230219202239264.png" alt="image-20230219202239264" style="zoom:80%;" /></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select curdate();</span><br><span class="line">select curtime();</span><br><span class="line">select now();</span><br><span class="line">select date_add(now(),interval 70 day);		-- 当前时间往后推70天，其中interval是固定的写法</span><br><span class="line">select datediff(&#x27;2021-12-01&#x27;,&#x27;2021-11-01&#x27;);		-- 两个日期相差30天，用第一个时间减去第二个时间</span><br></pre></td></tr></table></figure>
+<h4 id="3-4-流程控制函数"><a href="#3-4-流程控制函数" class="headerlink" title="3.4 流程控制函数"></a>3.4 流程控制函数</h4><p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230219203002692.png" alt="image-20230219203002692" style="zoom:80%;" /></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">select if(true, &#x27;ok&#x27;, &#x27;error&#x27;);			-- ok</span><br><span class="line">select ifnull(&#x27;ok&#x27;,&#x27;default&#x27;);			-- 第一个值为空字符，也不是null，只有null才会返回第二个参数</span><br><span class="line"></span><br><span class="line">-- 从score表中查询学生数学成绩等级判定</span><br><span class="line">select </span><br><span class="line">	id,</span><br><span class="line">	name,</span><br><span class="line">	(case when math&gt;=85 then &#x27;优秀&#x27; when math&gt;=60 then &#x27;及格&#x27; else &#x27;不及格&#x27; end) as &#x27;数学&#x27;，  -- as是改别名</span><br><span class="line">from score;</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+<h3 id="四、约束"><a href="#四、约束" class="headerlink" title="四、约束"></a>四、约束</h3><h6 id="4-1-约束概述"><a href="#4-1-约束概述" class="headerlink" title="4.1 约束概述"></a>4.1 约束概述</h6><ul>
+<li><p>作用域表中字段上的规则来限制表结构中存储的数据，在建表或者修改表的时候添加约束</p>
+</li>
+<li><p>目的： 保证数据库中的正确，有效性和完整性</p>
+</li>
+<li><p>分类：</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230222151707868.png" alt="image-20230222151707868" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h6 id="4-2-约束演示"><a href="#4-2-约束演示" class="headerlink" title="4.2 约束演示"></a>4.2 约束演示</h6><p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230222152137289.png" alt="image-20230222152137289" style="zoom:80%;" /></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create table user(</span><br><span class="line">	id int primary key auto_increment comment &#x27;主键&#x27;,</span><br><span class="line">    name varchar(10) not null unique comment &#x27;姓名&#x27;,</span><br><span class="line">    age int check (age&gt;0 and age&lt;=120) comment &#x27;年龄&#x27;,</span><br><span class="line">    status char(1) default &#x27;1&#x27; comment &#x27;状态&#x27;,</span><br><span class="line">    gender char(1) comment &#x27;性别&#x27;</span><br><span class="line">) comment &#x27;用户表&#x27;;</span><br><span class="line"></span><br><span class="line">insert into user(name,age,status gender) values (&#x27;Tom&#x27;,19,&#x27;1&#x27;,&#x27;男&#x27;);</span><br></pre></td></tr></table></figure>
+<h6 id="4-3-外键约束"><a href="#4-3-外键约束" class="headerlink" title="4.3 外键约束"></a>4.3 外键约束</h6><ul>
+<li><p>外键用来让两张表的数据之间建立连接，保证数据的一致性和完整性，比如在员工表里面的一列数据为部门表id号，关联到部门表</p>
+</li>
+<li><p>创建表的时候直接添加外键；表结构创建好了之后再额外修改表结构加入一个外键字段</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- 创建方式一：在创建表的时候直接添加外键</span><br><span class="line">create table 表名(</span><br><span class="line">	字段名 数据类型,</span><br><span class="line">	[constraint] [外键名称] foreign key(外键字段名) references 主表(主表列名的主键)</span><br><span class="line">);</span><br><span class="line">-- 创建方式二：表创建好了之后通过修改的方式添加外键</span><br><span class="line">alter table 表名 add constraint 外键名称 foreign key (外键字段名) references 主表(主表列名);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 删除外键约束</span><br><span class="line">alter table 表名 drop foreign key 外键名称;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>删除、更新数据行为</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230222154543888.png" alt="image-20230222154543888" style="zoom:80%;" /></p>
+</li>
+</ul>
+<p><code>no action</code>和<code>restrict</code>是默认行为；<code>cascade</code>表示级联，一同做修改或者删除；<code>set null</code>删除之后外键关联对应的数据设置为null，但是子表的该字段需要允许是null值；</p>
+<h3 id="五、多表查询"><a href="#五、多表查询" class="headerlink" title="五、多表查询"></a>五、多表查询</h3><h6 id="5-1-多表关系"><a href="#5-1-多表关系" class="headerlink" title="5.1 多表关系"></a>5.1 多表关系</h6><ul>
+<li><p>在项目开发过程中，要分析数据库表结构中各个业务和模块之间的关系，分析并设计表结构，这些表结构的关系分为一对多、多对多、一对一</p>
+</li>
+<li><p>一对多（多对一）关系</p>
+<p>例如部门和员工的关系，一个部门对应多个员工，一个员工对应一个部门。在多的一方（员工）建立外键，指向一的一方（部门）的主键</p>
+</li>
+<li><p>多对多关系</p>
+<p>例如学生与课程的关系，一个学生对应多门课，一门课供多个学生选择。建立一个中间表，中间表至少包含两个外键（学生id，课程id），分别关联两方（学生，课程）的主键</p>
+</li>
+<li><p>一对一的关系</p>
+<p>例如用户与用户详情的关系，也就是一张表很大，需要按照业务需求进行拆分，提高操作效率。在拆分后的任意一方加入外键，关联另外一方的主键，并且设置外键为唯一的 <code>unique</code></p>
+</li>
+</ul>
+<h6 id="5-2-多表查询"><a href="#5-2-多表查询" class="headerlink" title="5.2 多表查询"></a>5.2 多表查询</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询两个表，直接加逗号，得到的结果是两个表的所有组合情况，即笛卡尔积，所以需要消除无效的笛卡尔积，加上where条件消除</span><br><span class="line">select * from emp, dept where emp.dept_id = dept.id;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>连接查询</p>
+<p>内连接：相当于查询A、B交集部分的数据</p>
+<p>外连接：左外连接：查询左表的所有数据，以及两张表交集部分数据；右外连接：查询右表的所有数据，以及两张表交集部分数据</p>
+<p>自连接：当前表与自身的连接查询，自联结必须使用表的别名</p>
+</li>
+<li><p>子查询</p>
+</li>
+</ul>
+<h6 id="5-3-内连接"><a href="#5-3-内连接" class="headerlink" title="5.3 内连接"></a>5.3 内连接</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 隐式内连接</span><br><span class="line">select 字段列表 from 表1, 表2 where 条件;</span><br><span class="line"></span><br><span class="line">-- 显示内连接</span><br><span class="line">select 字段列表 from 表1 inner join 表2 on 连接条件;</span><br></pre></td></tr></table></figure>
+<h6 id="5-4-外连接"><a href="#5-4-外连接" class="headerlink" title="5.4 外连接"></a>5.4 外连接</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 左外连接</span><br><span class="line">select 字段列表 from 表1 left [outer] join 表2 on 条件;</span><br><span class="line"></span><br><span class="line">-- 右外连接</span><br><span class="line">select 字段列表 from 表1 right [outer] join 表2 on 条件;</span><br></pre></td></tr></table></figure>
+<h6 id="5-5-自连接"><a href="#5-5-自连接" class="headerlink" title="5.5 自连接"></a>5.5 自连接</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select 字段列表 from 表1 别名A join 表1 别名B on 条件;</span><br><span class="line"></span><br><span class="line">-- 如果要查询所有的数据，则需要用到外连接来查询</span><br><span class="line">select 字段列表 from 表1 别名A left join 表1 别名B on 条件;</span><br></pre></td></tr></table></figure>
+<h6 id="5-6-联合查询"><a href="#5-6-联合查询" class="headerlink" title="5.6 联合查询"></a>5.6 联合查询</h6><ul>
+<li><p>对于联合查询中的<code>union</code>查询，就是把多次查询的结果合并起来，形成一个新的查询结果集，使用<code>all</code>结果会有重复的，也就是说第一个查询的条件满足会返回查询结果，第二个条件满足也返回结果，造成重复，不会去重。不适用<code>all</code>则不会重复，有一个去重处理。多张查询的表的列数必须一致，字段类型保持一致，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select 字段列表 from 表A ...</span><br><span class="line">union [all]</span><br><span class="line">select 字段列表 from 表B ...;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="5-7-子查询"><a href="#5-7-子查询" class="headerlink" title="5.7 子查询"></a>5.7 子查询</h6><ul>
+<li><p>查询中嵌套select语句，又称为嵌套查询，又称为子查询。子查询外部的语句可以是<code>insert</code>、<code>update</code>、<code>delete</code>、<code>select</code>的任何一个。</p>
+</li>
+<li><p>根据子查询结果的不同分为标量子查询（结果为一个值），列子查询（返回结果为一行），行子查询，表子查询</p>
+</li>
+<li><p>根据子查询的位置，分为：where之后，from之后，select之后</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表1 where column1 = (select column1 from 表2);	-- 注意加上括号</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>标量子查询</p>
+<p>常用的操作符：=,&lt;&gt;,&gt;,&gt;=,&lt;,&lt;=</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 按照销售部门id查询对应部门的员工信息，</span><br><span class="line">select * from emp where dept_id = (select id from dept where name=&#x27;销售部&#x27;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>列子查询</p>
+<p>常用的操作符：in, not in, any, some, all. (any和some表示一样，符合里面的一个即可，all必须所有的返回结果都满足)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 查询销售部或者市场部对应的员工的信息，子查询先查询到符合条件的对应的员工id，外部根据id继续查询对应id的员工信息</span><br><span class="line">select * from emp where dept_id in (</span><br><span class="line">	select id from dept where name=&#x27;销售部&#x27; or name=&#x27;市场部&#x27;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>行子查询</p>
+<p>常用的操作符：=, &lt;&gt;, in, not in.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 查询与‘张无忌’的薪资及直属领导相同的员工信息。</span><br><span class="line">select * from emp where (salary, managerid) = (</span><br><span class="line">	select salary, managerid from emp where name = &#x27;张无忌&#x27;</span><br><span class="line">);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>表子查询</p>
+<p>常用的操作符：in  满足子查询返回结果表中的一行即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 查询与鹿仗客和宋远桥的职位和薪资相同的员工信息</span><br><span class="line">select * from emp where (job, salary) in (</span><br><span class="line">	select job, salary from emp where name = &#x27;鹿仗客&#x27; or name = &#x27;宋远桥&#x27;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="六、事务"><a href="#六、事务" class="headerlink" title="六、事务"></a>六、事务</h3><h6 id="6-1-概述"><a href="#6-1-概述" class="headerlink" title="6.1 概述"></a>6.1 概述</h6><p>事务是一组操作的集合，是不可分割的工作单位。事务会把所有的操作作为一个整体一起向系统提交或撤销操作请求，这些操作要么同时成功，要么同时失败，类似于银行转账的例子。</p>
+<p>流程为：先开启一个事务，然后执行相关的操作，当所有操作都执行完成之后，最后在提交事务。如果在操作执行的过程中出现异常，需要进行回滚事务的操作，撤销异常之前执行的操作。</p>
+<h6 id="6-2-事务的操作"><a href="#6-2-事务的操作" class="headerlink" title="6.2 事务的操作"></a>6.2 事务的操作</h6><ul>
+<li><p>查看、设置事务提交方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select @@autocommit;</span><br><span class="line">set @@autocommit=0;		-- 0表示手动提交事务，1表示自动提交</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启事务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start transaction;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交事务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">commit;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回滚事务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rollback;		-- 一旦事务出现异常出错，需要回滚事务，撤销之前的操作，保证数据库数据的正常</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="6-3-事务的四大特性"><a href="#6-3-事务的四大特性" class="headerlink" title="6.3 事务的四大特性"></a>6.3 事务的四大特性</h6><ul>
+<li>原子性：事务是不可分割的最小操作单元，要么全部成功，要么全部失败</li>
+<li>一致性：事务完成时，必须使得所有的数据保持一致状态</li>
+<li>隔离性：数据库系统提供的隔离机制，保证事务在不受外部并发操作影响的独立环境下运行</li>
+<li>持久性：事务一旦提交成功或者回滚，对于数据库中的数据的改变是永久的</li>
+</ul>
+<h6 id="6-4-并发事务的问题"><a href="#6-4-并发事务的问题" class="headerlink" title="6.4 并发事务的问题"></a>6.4 并发事务的问题</h6><ul>
+<li><p><strong>脏读</strong>：一个事务读到了另外一个事务还没有提交的数据。</p>
+<p>比如事务a对数据进行了更新操作，但是该事务还没有提交到数据库中，此时事务b对该数据进行查询，所查询到的数据是更新之后的数据，然而这个数据是没有提交到数据库中的数据，称为是脏读。</p>
+</li>
+<li><p><strong>不可重复读</strong>：一个事务先后读取了同一条记录，但是两次读取的数据是不同的。</p>
+<p>比如事务a首先对一个数据进行查询，之后事务b，对该数据进行更新操作，并且事务b将更新操作提交到数据库了，此时数据修改了，这时当事务a再次进行对该数据查询的时候，返回的结果和之前查询的结果不一致，称之为不可重复读</p>
+</li>
+<li><p><strong>幻读</strong>：一个事务按照条件查询数据时，没有对应数据行，但是插入数据时，又发现这行数据已经存在。</p>
+<p>比如当事务a查询数据时，发现系统中没有对应数据行，此时事务b对数据库进行插入数据的操作，并且提交到数据库，此时事务a在发现没有数据行之后进行插入操作时出现已经存在该数据行了，不能进行插入操作，再一次查询依然查不到对应的数据行，但是插入数据又显示重复，造成一种幻想幻读的情况。</p>
+</li>
+</ul>
+<h6 id="6-5-事务的隔离级别"><a href="#6-5-事务的隔离级别" class="headerlink" title="6.5 事务的隔离级别"></a>6.5 事务的隔离级别</h6><p>事务的隔离级别越高，数据越安全，但是性能越低，实际过程中要权衡安全和性能</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230222194027246.png" alt="image-20230222194027246" style="zoom:80%;" /></p>
+<ul>
+<li><p>查看事务隔离级别  并  设置隔离级别</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@transaction isolation;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置事务隔离级别  session表示当前会话窗口有效，global表示全部窗口有效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set [session | global] transaction isolation level &#123;</span><br><span class="line">	read uncommitted | read committed | repeatable read | serializable</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="【进阶篇】"><a href="#【进阶篇】" class="headerlink" title="【进阶篇】"></a>【进阶篇】</h3><h3 id="一、存储引擎"><a href="#一、存储引擎" class="headerlink" title="一、存储引擎"></a>一、存储引擎</h3><h4 id="1-1-MySQL的体系结构"><a href="#1-1-MySQL的体系结构" class="headerlink" title="1.1 MySQL的体系结构"></a>1.1 MySQL的体系结构</h4><ul>
+<li><p>连接层：主要接受来自客户端的连接，完成一些连接的处理，认证授权的相关操作，校验客户端的权限等</p>
+</li>
+<li><p>服务层：绝大部分的功能基本都是在服务层完成的，所有跨存储引擎的实现也是在该层实现，完成大部分核心服务功能，如SQL接口等</p>
+</li>
+<li><p>引擎层：index索引实在存储引擎层实现的，</p>
+</li>
+<li><p>存储层：最终的数据的存储，包括基本的数据，日志，索引等等</p>
+</li>
+</ul>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230222200744181.png" alt="image-20230222200744181" style="zoom:80%;" /></p>
+<h4 id="1-2-存储引擎"><a href="#1-2-存储引擎" class="headerlink" title="1.2 存储引擎"></a>1.2 存储引擎</h4><p>存储引擎就是存储数据、建立索引、更新查询数据等技术的实现方式。它是基于表的，不是基于库的，索引存储引擎称为表类型</p>
+<ul>
+<li><p>在创建表时，指定存储引擎</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create table 表名(</span><br><span class="line">	字段1 字段1类型 [comment 字段1注释],</span><br><span class="line">	...</span><br><span class="line">)engine=InnoDB [comment 表注释];		-- 默认的存储引擎就是innodb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前数据库支持的存储引擎</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show engines;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="1-3-存储引擎的特点"><a href="#1-3-存储引擎的特点" class="headerlink" title="1.3 存储引擎的特点"></a>1.3 存储引擎的特点</h4><ul>
+<li><p>InnoDB存储引擎</p>
+<p>特点：：DML数据操作语言操作遵循ACID模型，支持事务；行级锁，提高并发访问性能；支持外键约束，保证数据的完整性和正确性</p>
+<p>文件：：xxx.idb：xxx表示表名，InnoDB引擎的每张表都会对应这样一个表空间文件，存储该表的表结构，数据和索引</p>
+<p>逻辑存储结构</p>
+</li>
+</ul>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230222203139488.png" alt="image-20230222203139488" style="zoom:80%;" /></p>
+<ul>
+<li><p>MyISAM存储引擎</p>
+<p>特点：：不支持事务和外键；支持表锁，不支持行锁，访问速度快</p>
+<p>文件：：xxx.sdi:存储表结构信息；xxx.MYD:存储数据；xxx.MYI:存储索引</p>
+</li>
+<li><p>Memory存储引擎</p>
+<p>特点：：内存存放，使用hash索引。如果收到硬件或者断电问题只能将这些表作为临时表或缓存使用</p>
+<p>文件：：xxx.sdi:存储表结构信息</p>
+</li>
+<li><p>三个存储引擎的区别</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230222203904806.png" alt="image-20230222203904806" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="1-4-存储引擎的选择"><a href="#1-4-存储引擎的选择" class="headerlink" title="1.4 存储引擎的选择"></a>1.4 存储引擎的选择</h4><p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230222204017535.png" alt="image-20230222204017535"></p>
+<h3 id="二、索引"><a href="#二、索引" class="headerlink" title="二、索引"></a>二、索引</h3><p>安装Linux版本的MySQL，利用虚拟机或者使用docker安装</p>
+<h4 id="2-1-索引概述"><a href="#2-1-索引概述" class="headerlink" title="2.1 索引概述"></a>2.1 索引概述</h4><ul>
+<li>介绍：它是帮助MySQL高效获取数据的有序的数据结构。此外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用指向数据，这样在数据结构上可以实现高级查找算法。</li>
+<li>优点：提高数据检索的效率，降低数据库的IO成本；通过索引列对数据进行排序，降低数据排序的成本，降低CPU的消耗</li>
+<li>缺点：索引列占用了空间；提高查询效率但是降低了更新表的速度，因为需要维护索引</li>
+</ul>
+<h4 id="2-2-索引结构"><a href="#2-2-索引结构" class="headerlink" title="2.2 索引结构"></a>2.2 索引结构</h4><ul>
+<li>B+Tree索引：最为常见的索引</li>
+<li>Hash索引：底层数据结构是用哈希表实现的，只有精确匹配索引列的查询才有效，不支持范围查询</li>
+<li>R-tree索引：空间索引是MyISAM引擎的一个特殊索引类型，主要用于地理空间数据类型</li>
+<li>Full-text索引：是一种通过建立倒排索引，快速匹配文档的方式</li>
+</ul>
+<h6 id="2-2-1-B树"><a href="#2-2-1-B树" class="headerlink" title="2.2.1 B树"></a>2.2.1 B树</h6><ul>
+<li>二叉树：顺序插入时，会形成一个链表，查询性能大大降低。大数据量情况下，层级较深，检索速度慢。红黑树解决第一个问题，但是本质还是二叉树，没有解决第二个问题。</li>
+<li>B树：称为多路平衡查找树</li>
+</ul>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230223093840312.png" alt="image-20230223093840312" style="zoom:80%;" /></p>
+<h6 id="2-2-2-B-树"><a href="#2-2-2-B-树" class="headerlink" title="2.2.2 B+树"></a>2.2.2 B+树</h6><p>所有的元素都会出现在叶子结点，上面非叶子节点主要起到索引的作用。叶子结点形成一个单向链表，每个结点通过指针指向下一个元素</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230223094409539.png" alt="image-20230223094409539" style="zoom:80%;" /></p>
+<p>MySQL索引数据结构对经典的B+树进行优化，增加了一个指向相邻叶子节点的链表指针，就形成了带有顺序指针的B+树，提高区间访问的性能。</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230223095016447.png" alt="image-20230223095016447" style="zoom:80%;" /></p>
+<h6 id="2-2-3-hash索引"><a href="#2-2-3-hash索引" class="headerlink" title="2.2.3 hash索引"></a>2.2.3 hash索引</h6><ul>
+<li>概述：采用一定的hash算法，将键值换算成新的hash值，映射到对应的槽位上，然后存储在hash表中。</li>
+<li>当多个键值映射的hash值是一样的情况下，出现了哈希碰撞或者说是哈希冲突。解决方法是在后面增加链表结构</li>
+<li>特点：只能用于对等比较，不支持范围查询；无法利用索引完成排序操作；查询效率高，通常只需要一次检索就可以了，效率高于B+树</li>
+</ul>
+<p>为什么InnoDB存储索引选择B+树索引结构</p>
+<ul>
+<li>相对于二叉树来说，当顺序插入节点是会形成链表，而且二叉树只能有两个子节点，大数据量的情况下，层级较深，效率慢。而B+树是属于多路平衡查找树，层级更少，搜索效率更高</li>
+<li>对于B树来说，B树无论叶子节点还是非叶子结点，都会保存数据，导致一页中存放的键值减少，相应的指针也减少了，所以这会增加树的高度，导致性能降低。而B+树把所有的元素存放在叶子节点上。</li>
+<li>相对于Hash索引来说，hash索引虽然效率高，但是它只支持等值比较，不支持范围查询。而B+树支持范围查询和排序排序操作</li>
+</ul>
+<h6 id="2-2-3-索引分类"><a href="#2-2-3-索引分类" class="headerlink" title="2.2.3 索引分类"></a>2.2.3 索引分类</h6><p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230223101556802.png" alt="image-20230223101556802" style="zoom:80%;" /></p>
+<ul>
+<li><p>按照索引的存储形式，分为两种</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230223101647253.png" alt="image-20230223101647253" style="zoom:80%;" /></p>
+</li>
+<li><p>聚集索引选取规则：</p>
+<p>1、如果存在主键，主键索引就是聚集索引；</p>
+<p>2、如果不存在主键，将使用第一个唯一unique索引作为聚集索引；</p>
+<p>3、如果表没有主键，也没有合适的唯一索引，则InnoDB会自动生成一个<code>rowid</code>作为隐藏的聚集索引。</p>
+</li>
+</ul>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230223102058660.png" alt="image-20230223102058660" style="zoom:80%;" /></p>
+<p>上图就是具体按照索引查找对于数据。它首先更具name字段查找二级索引，找到对应的id，然后回到聚集索引里面查找对应的行数据。这个过程称为回表查询。  直接通过聚集索引查找数据效率更高</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230223103020583.png" alt="image-20230223103020583" style="zoom:80%;" /></p>
+<h4 id="2-3-索引语法"><a href="#2-3-索引语法" class="headerlink" title="2.3 索引语法"></a>2.3 索引语法</h4><ul>
+<li><p>创建索引，联合索引中的字段顺序是有讲究的，最左前缀原则</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create [unique|fulltext] index index_name on table_name(index_col_name,...);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show index from table_name;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop index index_name on table_name;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-4-SQL性能分析"><a href="#2-4-SQL性能分析" class="headerlink" title="2.4 SQL性能分析"></a>2.4 SQL性能分析</h4><h6 id="2-4-1-sql的执行频率，"><a href="#2-4-1-sql的执行频率，" class="headerlink" title="2.4.1 sql的执行频率，"></a>2.4.1 sql的执行频率，</h6><ul>
+<li><p>判断该表主要是以插入为主还是查询为主等等，查看比例。通过以下指令查看当前数据库的增删改查的访问频次</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show global status like &#x27;Com_______&#x27;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="2-4-2-慢查询日志"><a href="#2-4-2-慢查询日志" class="headerlink" title="2.4.2 慢查询日志"></a>2.4.2 慢查询日志</h6><ul>
+<li><p>记录了所有执行时间超过指定参数（<code>long_query_time</code>)的所有sql语句的日志，默认不开启，需要在MySQL的配置文件（<code>/etc/my.cnf</code>)中配置如下信息：   （在Linux系统中使用<code>vi</code>编辑器，添加下面代码）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 开启慢查询日志开关</span><br><span class="line">slow_query_log = 1</span><br><span class="line"></span><br><span class="line">-- 设置慢查询日志的时间为2秒，超过2秒，则记录到日志</span><br><span class="line">long_query_time = 2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置完毕之后，通过以下指令重新启动MySQL服务器测试（Linux系统使用<code>systemctl restart mysql</code>重启），查看日志文件中记录的信息<code>/var/lib/mysql/localhost-slow.log</code></p>
+</li>
+</ul>
+<h6 id="2-4-3-profile详情"><a href="#2-4-3-profile详情" class="headerlink" title="2.4.3 profile详情"></a>2.4.3 profile详情</h6><ul>
+<li><p>show profile可以帮助我们了解时间都耗费到哪里了，通过have_profiling参数，能够看到当前MySQL是否支持profile操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select @@have_profiling;	-- 默认是关闭的，需要手动开启</span><br><span class="line">set profiling=1;	-- 在session/global级别开启profiling</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启profile之后，执行一系列SQL操作，通过以下指令查看执行耗时</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 查看每一条SQL的耗时情况</span><br><span class="line">show profiles;</span><br><span class="line"></span><br><span class="line">-- 查看指定query_id的SQL语句各个阶段的耗时情况</span><br><span class="line">show profile for query query_id;</span><br><span class="line"></span><br><span class="line">-- 查看指定query_id的SQL语句CPU的使用情况</span><br><span class="line">show profile cpu for query query_id;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="2-4-4-explain执行计划"><a href="#2-4-4-explain执行计划" class="headerlink" title="2.4.4 explain执行计划"></a>2.4.4 explain执行计划</h6><ul>
+<li><p><code>explain</code>或者<code>desc</code>命令获取MySQL如何执行<code>select</code>语句的信息，包括在<code>select</code>语句执行过程中表如何连接和连接的顺序的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain select 字段列表 from 表名 where 条件;		-- 直接在select前面加上关键字explain或者desc即可</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230223120702808.png" alt="image-20230223120702808"  /></p>
+<p>其中返回结果各个字段的含义：</p>
+<p>1、<code>id</code>：select查询的序列号，表示查询中执行select子句或者是操作表的顺序（id相同，执行顺序从上到下；id不同，值越大，越先执行）</p>
+<p>2、<code>select_type</code>: 表示当前语句的查询类型</p>
+<p>3、<code>type</code>：表示连接类型，性能由好到差的连接类型为<code>null</code>, <code>system</code>, <code>const</code>, <code>eq_ref</code>, <code>ref</code>, <code>range</code>, <code>index</code>, <code>all</code></p>
+<p>4、<code>possible_key</code>： 表示可能应用在这张表上的索引，一个或者多个</p>
+<p>5、<code>key</code>：实际使用的索引，如果为null表示没有用</p>
+<p>6、<code>key_len</code>: 表示索引中使用的字节数，该值为所有字段最大的可能长度，不损失精度的前提下，越短越好</p>
+<p>7、<code>rows</code>： MySQL认为必须要执行查询的次数，是一个估计值，不准确的</p>
+<p>8、<code>filtered</code>： 表示返回结果的行数占读取行数的百分比，越大越好</p>
+<h4 id="2-5-索引使用"><a href="#2-5-索引使用" class="headerlink" title="2.5 索引使用"></a>2.5 索引使用</h4><ul>
+<li><p>最左前缀法则</p>
+<p>​    如果是联合索引，即索引了多列，要遵守最左前缀法则。是指查询从索引的最左列开始，并且不跳过索引中的列。如果跳跃了某一列，索引将部分失效（后面的字段索引会失效），如果最左边的列没有，索引全部失效，走全表扫描。只要存在最左边的列，就符合，跟放在where里面的顺序无关。</p>
+</li>
+<li><p>索引列运算————不要在索引列上进行运算操作，否则索引将失效</p>
+</li>
+<li><p>字符串不加引号————字符串类型字段使用时，不加引号，索引将失效</p>
+</li>
+<li><p>模糊查询————如果仅仅是尾部模糊匹配，索引不会失效。如果是头部模糊匹配，索引失效</p>
+</li>
+<li><p>or连接的条件————用or分割开的条件，如果or前的条件中的列有索引，而后面的列中没有索引，那么涉及的索引都不会被用到。要想使得查询效率高，对于用到or连接的条件时，所使用的字段都需要有索引，不然效率低</p>
+</li>
+<li><p>数据分布影响————如果MySQL评估使用索引查询比使用全表查询还慢，那么它就不会选择索引</p>
+</li>
+<li><p>SQL提示————在SQL语句中加入一些认为的提示来达到优化操作的目的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- use index: 告诉数据库建议使用哪个索引，只是建议，实际不一定使用</span><br><span class="line">explain select * from tb_user use index(idx_user_pro) where profession = &#x27;软件工程&#x27;;</span><br><span class="line"></span><br><span class="line">-- ignore index: 告诉数据库不使用这个索引</span><br><span class="line">explain select * from tb_user ignore index(idx_user_pro) where profession = &#x27;软件工程&#x27;;</span><br><span class="line"></span><br><span class="line">-- force index: 告诉数据库必须使用该索引</span><br><span class="line">explain select * from tb_user force index(idx_user_pro) where profession = &#x27;软件工程&#x27;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>覆盖索引</p>
+<p>​    尽量使用覆盖所有（查询使用了索引，并且需要返回的列，在该索引中已经全部能够找到），减少select * 。如果返回结果的<code>extra</code>出现<code>using index condition</code>表示查找使用了索引，但是需要回表查询数据；如果出现<code>using where;using index</code>表示查找使用了索引，但是需要的数据都在索引列中能找到，所以不需要回表查询数据</p>
+</li>
+<li><p>前缀索引</p>
+<p>​    当字段类型为字符串（<code>varchar</code>，<code>text</code>等）时，有时候需要索引很长的字符串，这会让索引变得很大，查询时，浪费大量的IO，影响查询效率。此时可以只将字符串的一部分前缀，建立索引，这样可以大大节约索引空间，从而提高索引效率</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create index idx_xxx on table_name(column(n));</span><br></pre></td></tr></table></figure>
+<p>​    前缀长度：根据索引的选择性来改变，而选择性是指不重复的索引值和数据表的记录总数的比值，索引选择性越高则查询效率越高，唯一索引的选择性是1，这是最好的索引选择性，性能也是最好的。截取前x个字符，返回的结果越大越好，同时也要使得x越小越好。平衡最优选择时间和空间</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select count(distinct email)/count(*) from tb_user;</span><br><span class="line">select count(distinct substring(email,1,x))/count(*) from tb_user;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单列索引与联合索引</p>
+<p>​    在业务场景中，如果存在多个查询条件，考虑针对查询字段建立索引时，建议建立联合索引。使用得到是会用到覆盖所有，避免回表查询</p>
+</li>
+</ul>
+<h4 id="2-6-索引设计原则"><a href="#2-6-索引设计原则" class="headerlink" title="2.6 索引设计原则"></a>2.6 索引设计原则</h4><p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230223140852087.png" alt="image-20230223140852087"></p>
+<h3 id="三、SQL优化"><a href="#三、SQL优化" class="headerlink" title="三、SQL优化"></a>三、SQL优化</h3><h4 id="3-1-插入数据"><a href="#3-1-插入数据" class="headerlink" title="3.1 插入数据"></a>3.1 插入数据</h4><h5 id="3-1-1-insert优化"><a href="#3-1-1-insert优化" class="headerlink" title="3.1.1 insert优化"></a>3.1.1 insert优化</h5><ul>
+<li><p>批量插入：一次性插入多条数据</p>
+</li>
+<li><p>手动事务提交：首先先开启事务，执行多条批量插入语句，最后在提交事务</p>
+</li>
+<li>主键顺序插入：建议主键顺序插入，效率高</li>
+</ul>
+<h5 id="3-1-2-大批量插入数据"><a href="#3-1-2-大批量插入数据" class="headerlink" title="3.1.2 大批量插入数据"></a>3.1.2 大批量插入数据</h5><ul>
+<li><p>如果一次性需要插入大批量数据，使用<code>insert</code>语句插入性能较低，此时可以使用MySQL数据库提供的<code>load</code>指令插入，<font color='orange'>加载本地文件</font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- 客服端链接服务端时，加上参数，加载本地文件</span><br><span class="line">mysql --local-infile -u root -p</span><br><span class="line"></span><br><span class="line">-- 设置全局参数local_infile为1，开启本地加载文件导入数据的开关</span><br><span class="line">set global local_infile = 1;</span><br><span class="line"></span><br><span class="line">-- 执行load指令准备好的数据，加载到表结构中</span><br><span class="line">load data local infile &#x27;/root/sql1.log&#x27; into table &#x27;tb_user&#x27; </span><br><span class="line">		fileds termiated by &#x27;,&#x27; lines termiated by &#x27;\n&#x27;  -- 文件中的每一个字段之间用，分隔，每一行用\n分隔</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3-2-主键优化"><a href="#3-2-主键优化" class="headerlink" title="3.2 主键优化"></a>3.2 主键优化</h4><h5 id="3-2-1-数据组织方式"><a href="#3-2-1-数据组织方式" class="headerlink" title="3.2.1 数据组织方式"></a>3.2.1 数据组织方式</h5><p>在InnoDB存储引擎中，<font color='red'>表数据都是根据主键顺序组织存放的</font>。该方式存储的表称为索引组织表(<code>IOT</code>)，因为主键的索引是聚集索引，其中叶子结点存放的是行数据。</p>
+<h5 id="3-2-2-页分裂"><a href="#3-2-2-页分裂" class="headerlink" title="3.2.2 页分裂"></a>3.2.2 页分裂</h5><p>页可以为空，也可以填充一半、满。煤业包含2~N行数据，根据主键排列。页与页之间有一个双向指针维护</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230225135826886.png" alt="image-20230225135826886" style="zoom:80%;" /></p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230225140354063.png" alt="image-20230225140354063" style="zoom:80%;" /></p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230225140234480.png" alt="image-20230225140234480" style="zoom:80%;" /></p>
+<h5 id="3-2-3-页合并"><a href="#3-2-3-页合并" class="headerlink" title="3.2.3 页合并"></a>3.2.3 页合并</h5><p>当删除一行记录时，实际上记录并没有被物理删除，只是记录被标记（<code>flaged</code>）为删除，并且它的空间变得允许被其他记录声明使用。</p>
+<p>当页中删除的记录达到<code>MERGE_THRESHOLD</code>（默认为页的50%），InnoDB会开始寻找最靠近的页（前或后）看看是否可以将两个页合并以优<br>化空间使用。</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230225140701456.png" alt="image-20230225140701456" style="zoom:80%;" /></p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230225140713522.png" alt="image-20230225140713522" style="zoom:80%;" /></p>
+<h5 id="3-2-4-主键设计原则"><a href="#3-2-4-主键设计原则" class="headerlink" title="3.2.4 主键设计原则."></a>3.2.4 <font color='yellow'>主键设计原则</font>.</h5><ul>
+<li>满足业务需求的情况下，尽量降低主键长度，因为二级索引比较多，叶子节点挂的主键要短，减少磁盘容量 </li>
+<li>插入数据时，尽量选择顺序插入，使用<code>auto_increment</code>自增主键</li>
+<li>尽量不要使用uuid做主键，或者是其他自然主键</li>
+<li>业务操作中，避免对主键的修改</li>
+</ul>
+<h4 id="3-3-order-by-优化"><a href="#3-3-order-by-优化" class="headerlink" title="3.3 order by 优化"></a>3.3 order by 优化</h4><ul>
+<li><p><code>Using filesort</code>:通过表的索引或全表扫描，读取满足条件的数据行，然后在<font color='orange'>排序缓冲区</font><code>sort buffer</code>中完成排序操作，所有不是通过索引直<br>接返回排序结果的排序都叫<code>FileSort</code>排序。</p>
+</li>
+<li><p><code>Using index</code>：通过<font color='orange'>有序索引顺序</font>扫描直接返回有序数据，这种情况即为<code>using index</code>，不需要额外排序，操作效率高</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">-- 没有创建索引时，根据age，phone进行排序</span><br><span class="line">explain select id,age,phone from tb_user order by age,phone;</span><br><span class="line"></span><br><span class="line">-- 创建索引</span><br><span class="line">create index idx_user_age_phone_aa on tb_user(age,phone);</span><br><span class="line"></span><br><span class="line">-- 创建索引后，根据age，phone进行升序排列    -- using index</span><br><span class="line">explain select id,age,phone from tb_user order by age,phone;</span><br><span class="line"></span><br><span class="line">-- 创建索引后，根据age，phone进行降序排列  -- using index and backward sort</span><br><span class="line">explain select id,age,phone form tb_user order by age desc, phone desc;</span><br><span class="line"></span><br><span class="line">-- 根据age,phone进行排序，一个升序，一个降序  -- 存在using filesort and using index</span><br><span class="line">explain select id,age,phone from tb_user order by age asc, phone desc;</span><br><span class="line"></span><br><span class="line">-- 创建索引   优化该查询操作建一个索引解决</span><br><span class="line">create index idx_age_phone_ad on tb_user(age,phone);</span><br><span class="line"></span><br><span class="line">-- 根据age,phone进行排序，一个升序，一个降序  -- 只有using index</span><br><span class="line">explain select id,age,phone from tb_user order by age asc, phone desc;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根据排序字段建立合适的索引，多字段排序时，也遵循<font color='orange'>最左前缀法则</font>。</p>
+</li>
+<li><p>尽量使用<font color='orange'>覆盖索引</font>.</p>
+</li>
+<li><p>多字段排序,一个升序一个降序，此时需要注意联合索引在创建时的规则（<code>ASC/DESC</code>）。</p>
+</li>
+<li><p>如果不可避免的出现<code>filesort</code>，大数据量排序时，可以适当增大<font color='orange'>排序缓冲区</font>大小<code>sort buffer_size</code>(默认<code>256k</code>)</p>
+</li>
+</ul>
+<h4 id="3-4-group-by-优化"><a href="#3-4-group-by-优化" class="headerlink" title="3.4 group by 优化"></a>3.4 group by 优化</h4><ul>
+<li><p>和order by的优化过程类似，建立适当的索引，提高效率</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 执行分组操作，根据profession字段分组</span><br><span class="line">explain select profession,count(*) from tb_user group by profession;		-- using temporay</span><br><span class="line"></span><br><span class="line">-- 创建索引</span><br><span class="line">create index idx_user_pro_age_sta on tb_user(profession,age,status);</span><br><span class="line"></span><br><span class="line">-- 执行分组操作，根据profession字段分组</span><br><span class="line">explain select profession,count(*) from tb_user group by profession;		-- using index</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3-5-limit优化"><a href="#3-5-limit优化" class="headerlink" title="3.5 limit优化"></a>3.5 limit优化</h4><h5 id="3-5-1-问题"><a href="#3-5-1-问题" class="headerlink" title="3.5.1 问题"></a>3.5.1 问题</h5><p>越往后，性能越低。一个常见又非常头疼的问题就是Limit 2000000,10，此时需要MySQL先排序前2000010记录，但是仅仅返回200000- 2000010的记录，其他记录丢弃，查询排序的代价非常大。</p>
+<h5 id="3-5-2-解决办法"><a href="#3-5-2-解决办法" class="headerlink" title="3.5.2 解决办法"></a>3.5.2 解决办法</h5><ul>
+<li><p>通过<font color='orange'>覆盖索引</font>+<font color='orange'>子查询</font>的方法优化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain select t.* from tb_sku t,(select id from tb_sku order by id limit 20000,10) a where t.id=a.id;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3-6-count-优化"><a href="#3-6-count-优化" class="headerlink" title="3.6 count 优化"></a>3.6 count 优化</h4><ul>
+<li>count()是一个聚合函数，对于返回的结果集，一行行地判断，如果count 函数的参数不是NULL，累计值就加1，否则不加，最后返回累计值</li>
+</ul>
+<p>count(主键)</p>
+<ul>
+<li>InnoDB引擎会遍历整张表，把每一行的主键id值都取出来，返回给服务层。服务器拿到主键后，直接按行进行累加(主键不可能为null)</li>
+</ul>
+<p>count(字段)</p>
+<ul>
+<li>没有not null约束;InnoDB引擎会遍历整张表把每一行的字段值都取出来，返回给服务层，服务层判断是否为null，不为null，计数累加</li>
+<li>有not null[约束：InnoDB引擎会遍历整张表把每一行的字段值都取出来，返回给服务层，直接按行进行累加</li>
+</ul>
+<p><strong>count(1)</strong></p>
+<ul>
+<li>InnoDB引擎遍历整张表，但<font color='orange'>不取值</font>。服务层对于返回的每一行，放一个数字”1”进去，直接按行进行累加。效率高</li>
+</ul>
+<p><strong>count(*)</strong></p>
+<ul>
+<li>InnoDB引擎并不会把全部字段取出来，而是专门做了优化，<font color='orange'>不取值</font>，服务层直接按行进行累加。效率高</li>
+</ul>
+<h4 id="3-7-update优化"><a href="#3-7-update优化" class="headerlink" title="3.7 update优化"></a>3.7 update优化</h4><ul>
+<li><p>InnoDB的<font color='red'>行锁是针对索引加的锁</font>，不是针对记录加的锁,并且该索引不能失效，否则会从行锁升级为表锁。如果更新判断条件没有索引，那么引擎就会把行锁升级为表锁，不利于并发处理</p>
+</li>
+<li><p>更新要根据索引字段进行更新</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update student set no=&#x27;001&#x27; where id = 1;		-- 此时为行级锁，id是有索引的</span><br><span class="line"></span><br><span class="line">update student set no=&#x27;001&#x27; where name = &#x27;张三&#x27;;		-- 保证name字段有索引，否则升级为表锁，不利于并发处理</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="四、视图-存储过程-触发器"><a href="#四、视图-存储过程-触发器" class="headerlink" title="四、视图/存储过程/触发器"></a>四、视图/存储过程/触发器</h3><h4 id="4-1-视图"><a href="#4-1-视图" class="headerlink" title="4.1 视图"></a>4.1 视图</h4><h5 id="4-1-1-视图概述"><a href="#4-1-1-视图概述" class="headerlink" title="4.1.1 视图概述"></a>4.1.1 视图概述</h5><ul>
+<li><p>视图（View）是一种虚拟存在的表。视图中的数据并不在数据库中实际存在，行和列数据来自定义视图的查询中使用的表，并且是在使用视图时动态生成的。</p>
+</li>
+<li><p>通俗的讲，视图只保存了查询的SQL逻辑，不保存查询结果。所以我们在创建视图的时候，主要的工作就在创建这条SQL查询语句上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 创建视图语法</span><br><span class="line">create [or replace] view 视图名[列名列表] as select 语句 [with[cascade|local] check option];</span><br><span class="line">-- 创建或者替换一个视图，as后面就是要封装的数据，即查询返回的数据</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 查看创建视图</span><br><span class="line">show create view 视图名称;</span><br><span class="line"></span><br><span class="line">-- 查看视图数据</span><br><span class="line">select * from 视图名称...;		-- 虚拟存在的表，可以向操作表一样操作视图</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-- 修改视图语法</span><br><span class="line">create [or replace] view 视图名[列名列表] as select语句 [with[cascade|local] check option];</span><br><span class="line">alter view 视图名[列名列表] as select语句 [with[cascade|local] check option];</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 删除视图</span><br><span class="line">drop view if exists 视图名;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="4-1-2-检查选项"><a href="#4-1-2-检查选项" class="headerlink" title="4.1.2 检查选项"></a>4.1.2 检查选项</h5><p><code>[with[cascade|local] check option]</code></p>
+<ul>
+<li>当使用<code>WITH CHECK OPTION</code>子句创建视图时，MySQL会通过<font color='yellow'>视图检查where条件</font>，检查正在更改的每个行，例如插入，更新，删除，以使其符合视图的定义。</li>
+<li><p>MySQL允许基于另一个视图创建视图，它还会检查依赖视图中的规则以保持<font color='orange'>一致性</font>。为了确定检查的范围，MySQL(提供了两个选项CASCADED和LOCAL，默认值为CASCADED。</p>
+</li>
+<li></li>
+<li><code>cascade</code>：当使用该关键字（在一个没有使用关键字的视图基础上）创建视图时，它不仅会检查自己的where条件，还<font color='orange'>会检查它上一级的视图去检查where条件</font>，这些条件都满足是，才会进行更新视图，否则报错。</li>
+<li><code>local</code>：与cascade相反，会检查本视图的条件，还检查上一级视图的where条件（如果上一级视图带有检查选项），满足更新，不满足就报错</li>
+</ul>
+<h5 id="4-1-3-视图的更新"><a href="#4-1-3-视图的更新" class="headerlink" title="4.1.3 视图的更新"></a>4.1.3 视图的更新</h5><p>要使视图可更新，视图中的行与基础表中的行之间必须存在一对一的关系。如果视图包含以下任何一项，则该视图不可更新</p>
+<ul>
+<li>聚合函数或窗口函数</li>
+<li>distinct</li>
+<li>group by</li>
+<li>having</li>
+<li>union / union all</li>
+</ul>
+<p>视图的作用</p>
+<ul>
+<li>操作简单。视图不仅可以简化用户对数据的理解，也可以简化他们的操作。那些被经常使用的查询可以被定义为视图，从而使得用户不必为以后的操作每次指定全部的条件。</li>
+<li>数据安全。数据库可以授权，但不能授权到数据库特定行和特定的列上。通过视图，用户只能查询和修改他们所能见到的数据</li>
+<li>数据独立。视图可以帮助用户屏蔽真实表结构变化带来的影响。</li>
+</ul>
+<h4 id="4-2-存储"><a href="#4-2-存储" class="headerlink" title="4.2 存储"></a>4.2 存储</h4><h6 id="4-2-1-存储过程"><a href="#4-2-1-存储过程" class="headerlink" title="4.2.1 存储过程"></a>4.2.1 存储过程</h6><ul>
+<li><p>介绍：</p>
+<p>存储过程是实现经过编译并存储在数据库中的一段SQL语句的集合。  调用存储过程可以简化应用开发人员的很多工作，减少数据在数据库中应用服务器之间的传输，对于提高数据处理的效率是有好处的。   </p>
+</li>
+<li><p>思想： 就是数据库SQL语言层面的代码封装与重用</p>
+</li>
+<li><p>特点：</p>
+<p>封装、复用     可以接收参数，也可以返回参数      减少网络交互，提升效率</p>
+</li>
+</ul>
+<h6 id="4-2-2-存储过程"><a href="#4-2-2-存储过程" class="headerlink" title="4.2.2 存储过程"></a>4.2.2 存储过程</h6><ul>
+<li><font color='red'>创建存储过程</font>
+
+<p>如果在命令行中，允许创建存储过程中，在begin和end之间有sql语句，有分号，出现报错，需要通过关键字<code>delimiter</code>来指定sql语句的结束符。例如 <code>delimiter $$</code> 表示将结束符改为 $$$$ ，当程序看到这个符号，表示该语句执行结束</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create procedure 存储过程名称([参数列表])</span><br><span class="line">begin</span><br><span class="line">	-- sql 语句;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用存储过程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call 存储过程名称();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看存储过程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from information_schema.routines where routines_schema=&#x27;xxx&#x27;;   -- 查询指定数据库的存储过程及状态信息，所有信息</span><br><span class="line">show create procedure 存储过程名称;  -- 查询某个存储过程的定义，创建时的语句</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除存储过程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop procedure if exists 存储过程名称;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><font color='red'>变量</font>
+
+<p><font color='yellow'>系统变量</font>：由系统提供，属于服务器层面，有全局变量<code>global</code>和会话变量<code>session</code>， 默认是会话级别</p>
+<ul>
+<li><p>查看系统变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show [session|global] variables;  -- 查看所有系统变量</span><br><span class="line">show [session|global] variables like &#x27;...&#x27;;  -- 可以通过模糊匹配来查找变量</span><br><span class="line">select @@[session|global] 系统变量名;	-- 查看指定变量的值</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置系统变量</p>
+<p>重启服务器之后，这些修改后的变量会重置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set [session|global] 系统变量名 = 值;</span><br><span class="line">set @@[session|global] 系统变量名 = 值;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><font color='yellow'>用户自定义变量</font>：根据需要用户自己定义，不需要提前声明，用的时候直接 <code>@变量名</code> 使用即可</p>
+<ul>
+<li><p>赋值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set @var_name := expr [, @var_name := expr] ...;	-- 一次性可以为多个变量赋值</span><br><span class="line">select @var_name := expr [, @var_name := expr] ...;  -- 也可以通过select进行赋值</span><br><span class="line">select 字段名 into @var_name from 表名;	-- 指定sql查询的结果赋值给这个变量</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @var_name;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><font color='yellow'>局部变量</font>：根据需要在局部生效的变量，访问之前需要用关键字<code>declare</code>声明，可用作存储过程内的局部变量和输入参数，局部变量的范围是在其声明的内部begin…end块中的</p>
+<ul>
+<li><p>声明</p>
+<p>变量类型：就是数据库字段类型，如 <code>int</code>,<code>begin</code>,<code>char</code>,<code>varchar</code>,<code>date</code>,<code>time</code>等</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">declear 变量名 变量类型 [default ...];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>赋值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set 变量名 := 值;</span><br><span class="line">select 字段名 into 变量名 from 表名;		-- 指定查询语句返回的结果赋值给这个变量</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><font color='red'>if判断</font>
+
+<ul>
+<li><p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if 条件1 then</span><br><span class="line">	...</span><br><span class="line">elseif 条件2 then</span><br><span class="line">	...</span><br><span class="line">else</span><br><span class="line">	...</span><br><span class="line">end if;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><font color='red'>参数</font>
+
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230304132450905.png" alt="image-20230304132450905" style="zoom:50%;" /></p>
+<ul>
+<li><p>用法语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create procedure 存储过程名称([in|out|inout 参数名 参数类型])</span><br><span class="line">begin</span><br><span class="line">	-- sql 语句;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><font color='red'>case</font>
+
+<ul>
+<li><p>语法一</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">case case_value</span><br><span class="line">	when case_value1 then 语句1</span><br><span class="line">	[when case_value2 then 语句2]</span><br><span class="line">	[else 语句3]</span><br><span class="line">end case;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>语法二</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">case</span><br><span class="line">	when 条件1 then 语句1</span><br><span class="line">	[when 条件2 then 语句2]</span><br><span class="line">	[else 语句3]</span><br><span class="line">end case;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><font color='red'>循环</font>
+
+<p><font color='yellow'>while循环</font>，先判断条件，当满足条件<font color='orange'>进入</font>循环</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while 条件 do</span><br><span class="line">	-- sql逻辑</span><br><span class="line">end while;</span><br></pre></td></tr></table></figure>
+<p><font color='yellow'>repeat循环</font>，先进入循环，当满足条件<font color='orange'>退出</font>循环</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">repeat</span><br><span class="line">	-- sql逻辑</span><br><span class="line">	until 条件	-- 循环退出条件</span><br><span class="line">end repeat;</span><br></pre></td></tr></table></figure>
+<p>loop循环，如果不在sql逻辑中增加退出循环的条件，可以用loop实现死循环。   配合<code>leave</code>：退出循环； <code>iterate</code>：跳出当前循环剩下的语句，直接进入下一循环</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[begin_label:] loop</span><br><span class="line">	-- sql逻辑</span><br><span class="line">end loop [end_label];</span><br><span class="line"></span><br><span class="line">-- 本省是没有循环退出条件的，只能借用循环结束的标记label来配合leave和iterate使用</span><br><span class="line">leave label;</span><br><span class="line">iterate label;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>游标</p>
+<p>用来存储查询结果集的数据类型，也就是说，它可以存储查询之后返回的多个数据的结果集，在存储过程和函数中可以使用游标对这个结果集进行循环的处理。</p>
+<ul>
+<li><p>声明游标</p>
+<p>要声明普通变量，再声明游标，否则会报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">declare 游标名称 cursor for 查询语句;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开游标open</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open 游标名称;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取游标记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fetch 游标名称 into 变量 [,变量];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关闭游标</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">close 游标名称;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>条件处理程序：：可以用来定义再流程控制结构执行过程中遇到问题时相应的处理步骤</p>
+<ul>
+<li><p>声明条件处理程序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">declare handler_action handler for condition_value [,condition_calue]... statement;</span><br><span class="line">-- 满足什么样的condition_value的条件，执行handler_action动作，执行这个动作之后，还可以执行后面sql逻辑语句statement</span><br><span class="line"></span><br><span class="line">handler_action</span><br><span class="line">	continue: 继续执行当前程序</span><br><span class="line">	exit： 终止执行当前程序</span><br><span class="line"></span><br><span class="line">condition_value</span><br><span class="line">	sqlstate sqlstate_value: 状态码，如02000</span><br><span class="line">	sqlwarning: 所有以01开头的状态码简写</span><br><span class="line">	not found: 所有以02开头的状态码简写</span><br><span class="line">	sqlexception: 所有没有被上面捕获的状态嘛简写</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4-3-存储函数"><a href="#4-3-存储函数" class="headerlink" title="4.3 存储函数"></a>4.3 存储函数</h4><ul>
+<li><p>存储函数就是有返回值的存储过程，存储函数的参数只能是in类型的，<font color='green'>能够使用存储函数的场景一定能够通过存储过程来实现</font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">create function 存储函数名称([参数列表])</span><br><span class="line">returns type [characteristic ...]</span><br><span class="line">begin</span><br><span class="line">	-- sql语句</span><br><span class="line">	return ...;</span><br><span class="line">end;</span><br><span class="line"></span><br><span class="line">characteristic说明</span><br><span class="line">	deterministic: 相同的输入参数总是能偶产生i相同的结果</span><br><span class="line">	no sql： 不包含sql语句</span><br><span class="line">	reads sql data： 包含读取数据的语句，但是不包含写入数据的语句</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4-4-触发器"><a href="#4-4-触发器" class="headerlink" title="4.4 触发器"></a>4.4 触发器</h4><h6 id="4-4-1-介绍"><a href="#4-4-1-介绍" class="headerlink" title="4.4.1 介绍"></a>4.4.1 介绍</h6><ul>
+<li><p>是与表有关的数据库对象，指再insert、update、delete之前或之后，触发并执行触发器中定义的sql语句集合。</p>
+</li>
+<li><p>可以协助应用在数据库端，确保数据的完整性，日志记录，数据校验等操作</p>
+</li>
+<li><p>使用别名old和new来引用触发器中发生变化的记录内容</p>
+</li>
+<li><p>现在的触发器只能支持行级触发器，不支持语句级触发</p>
+</li>
+</ul>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230304143404820.png" alt="image-20230304143404820" style="zoom:50%;" /></p>
+<h6 id="4-4-2-语法"><a href="#4-4-2-语法" class="headerlink" title="4.4.2 语法"></a>4.4.2 语法</h6><ul>
+<li><p>创建触发器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create trigger trigger_name </span><br><span class="line">	before / after insert / update / delete </span><br><span class="line">	on tbl_name for each row -- 行级触发器</span><br><span class="line">begin</span><br><span class="line">	trigger_stmt;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看触发器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show trigger;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除触发器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop trigger [schema_name.]trigger_name;	-- 如果没有指定schema_name，默认当前数据库</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="五-锁"><a href="#五-锁" class="headerlink" title="五 锁"></a>五 锁</h3><h4 id="5-1-锁的概述"><a href="#5-1-锁的概述" class="headerlink" title="5.1 锁的概述"></a>5.1 锁的概述</h4><h5 id="5-1-1-介绍"><a href="#5-1-1-介绍" class="headerlink" title="5.1.1 介绍"></a>5.1.1 介绍</h5><p>是计算机协调多个线程或进程并发访问某一资源的机制。保证数据并发访问的一致性、有效性  </p>
+<ul>
+<li><p>分类</p>
+<p>全局锁：锁定数据库中所有的表，粒度最大</p>
+<p>表级锁：每次操作锁住整个表</p>
+<p>行级锁：每次操作锁住对应的行数据，粒度最小</p>
+</li>
+</ul>
+<h5 id="5-1-2-全局锁"><a href="#5-1-2-全局锁" class="headerlink" title="5.1.2 全局锁"></a>5.1.2 全局锁</h5><p>加锁后，整个实例处于只读状态，不能写，其他操作的事务提交语句都将会被阻塞。典型的应用场景就是：逻辑备份，保证数据的一致性和完整性</p>
+<ul>
+<li><p>加锁语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush tables with read lock;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行备份</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -uroot -p1234 itcast&gt;itcast.sql;		-- 指定用户名和密码，写入对应的备份文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>释放锁</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unlock tables;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>存在的问题，如果在主库上备份，那么在这期间都不能执行更新操作，业务基本停摆。如果在从库上备份，那么在备份期间不能执行主库同步过来的二进制日志，会导致主从延迟</p>
+<p>在InnoDB引擎中，可以在备份时加上参数<code>--single-transaction</code>参数来完成不加锁的一致性数据备份</p>
+<h5 id="5-1-3-表级锁"><a href="#5-1-3-表级锁" class="headerlink" title="5.1.3 表级锁"></a>5.1.3 表级锁</h5><p>每次锁住整张表。锁定粒度答，发生锁冲突的概率最高，并发度最低</p>
+<p>表级锁分为三类：表锁、元数据锁、意向锁</p>
+<ul>
+<li><p>表锁</p>
+<p>表锁又分为两类：表共享读锁<code>read lock</code>、表独占写锁<code>write lock</code></p>
+<p>加锁：lock tables 表名 read\write;</p>
+<p>释放锁：unlock tables</p>
+<p>当客户端对一张表进行加表共享读锁后， 可以对该表进行读操作，但是不能写操作，其他客户端也能够对该表进行读操作，但是同样不能进行写操作。</p>
+<p>当客户端对一张表进行加表独占写锁后，可以对该表进行读和写操作，但是其他客户端不能对该表进行读和写的操作</p>
+</li>
+<li><p>元数据锁</p>
+<p>是系统自动控制的，在访问每一张表是会自动加上。它是维护表元数据的数据一致性，保证读写的正确性。</p>
+<p>当对一张表进行增删改查的时候，加元数据锁(共享)；当对表结果进行变更操作的时候，加元数据锁(排他)，共享和排他互斥</p>
+<p>避免执行DML和DDL语句冲突问题的</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230304162404259.png" alt="image-20230304162404259" style="zoom:50%;" /></p>
+<p>查看元数据锁命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select object_schema,object_name,index_name,lock_type,lock_duration from performance_schema.metadata_locks;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>意向锁</p>
+<p>为了避免数据操作语言在执行的时候，加的行锁与表锁的冲突，在InnoDB中引入意向锁，使得表锁不用检查每一行数据是否有加锁，这可以减少表锁的检查，提高效率</p>
+<p>意向锁分为两种：意向共享锁IS、意向排他锁IX</p>
+<ul>
+<li><p>意向共享锁IS：由语句select … lock in share mode 添加</p>
+<p>​    与表锁共享锁read兼容，与表锁排他锁write互斥</p>
+</li>
+<li><p>意向排他锁IX：由insert, update, delete, select…for update 添加</p>
+<p>​    与表锁共享锁read和排他锁write都互斥，意向锁之间不会互斥</p>
+</li>
+</ul>
+<p>可以通过以下命令，查看意向锁和行锁的加锁情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select object_schema,object_name,index_name,lock_type,lock_mode,lock_data from performance_schema.data_locks;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>行级锁</p>
+<p>每次操作锁住对应的行数据。锁定粒度最小，发生锁冲突的概率最低，并发度最高</p>
+<p>InnoDB的数据是基于索引组织的，行锁是通过对索引上的索引项加锁来实现的，而不是对记录加的锁。</p>
+<p>分为三类：</p>
+<ul>
+<li>行锁：锁定单行记录的锁。防止其他事务对此进行更新和删除操作</li>
+<li>间隙锁：锁定索引记录的间隙(不含记录，只有间隙)。确保间隙不变，防止其他事务在这个间隙进行插入操作，产生幻读</li>
+<li>临键锁<code>next-key</code>：行锁和间隙锁组合，同时锁住数据，并锁住数据前面的间隙。</li>
+</ul>
+</li>
+</ul>
+<p>​    </p>
+<ul>
+<li><p>行锁：又分为两种——-共享锁和排他锁</p>
+<ul>
+<li><p>共享锁S：允许一个事务去读取一行，阻止其他事务获得相同数据集的排他锁</p>
+</li>
+<li><p>排他锁X：允许获取排他锁的事务更新数据，阻止其他事务获得相同数据集的共享锁和排他锁。</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230304171031270.png" alt="image-20230304171031270" style="zoom:50%;" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>​    在增删改查的过程中，在什么时候会加锁</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230304181217106.png" alt="image-20230304181217106" style="zoom:50%;" /></p>
+<ul>
+<li><p>行锁演示</p>
+<ul>
+<li>默认情况下，InnoDB在repeatable read可重复读事务隔离级别运行，InnoDB使用临键锁<code>next-key</code>锁进行搜索和索引扫描，以防止幻读<ul>
+<li>针对唯一索引进行检索时，对已存在的记录进行等值匹配时，将会自动优化为行锁</li>
+<li>InnoDB的行锁是针对与索引加的锁，不通过索引条件检索数据，也就是说如果对通过没有索引的字段进行操作时，那么InnoDB将对表中的所有记录加锁，此时将会升级为表锁</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>间隙锁演示</p>
+<ul>
+<li>默认情况下，InnoDB在repeatable read事务隔离级别运行，InnoDB使用next-key锁临键锁进行搜索和索引扫描，以防止幻读。<ul>
+<li>索引上的等值查询（唯一索引），给不存在的记录加锁时，优化为间隙锁</li>
+<li>索引上的等值查询（普通索引），向右遍历时最后一个值不满足查询需求时，next-key锁临键锁退化为间隙锁</li>
+<li>索引上的范围查询（唯一索引），会访问到不满足条件的第一个值为止</li>
+</ul>
+</li>
+<li>注意：间隙锁唯一目的是防止其他事务插入间隙。间隙锁可以共存，一个事务采用的间隙锁不会组织另外一个事务在同一间隙上采用间隙锁</li>
+</ul>
+</li>
+</ul>
+<h3 id="六、-InnoDB引擎"><a href="#六、-InnoDB引擎" class="headerlink" title="六、 InnoDB引擎"></a>六、 InnoDB引擎</h3><h4 id="6-1-逻辑存储结构"><a href="#6-1-逻辑存储结构" class="headerlink" title="6.1 逻辑存储结构"></a>6.1 逻辑存储结构</h4><p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230304194119049.png" alt="image-20230304194119049" style="zoom: 67%;" /></p>
+<h4 id="6-2-架构"><a href="#6-2-架构" class="headerlink" title="6.2 架构"></a>6.2 架构</h4><p>MySQL5.5版本开始，默认使用InnoDB存储引擎，它擅长事务处理，具有崩溃恢复特性。下面是InnoDB架构图，左侧为内存结构，右侧为磁盘结构</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230304194626617.png" alt="image-20230304194626617" style="zoom:50%;" /></p>
+<h5 id="6-2-1-内存架构"><a href="#6-2-1-内存架构" class="headerlink" title="6.2.1 内存架构"></a>6.2.1 <strong>内存架构</strong></h5><ul>
+<li><font color='red'>buffer pool</font>：<font color='orange'>缓冲池</font>是主内存中的一个区域，里面可以缓存磁盘上经常操作的真实数据，在执行增删改查操作时，先操作缓冲池中的数据（若缓冲池没有数据，则从磁盘加载并缓存），然后再以一定频率刷新到磁盘，从而减少磁盘IO，加快处理速度。<ul>
+<li>缓冲池以Page页为单位，底层采用链表数据结构管理Page。根据状态，将Page分为三种类型<ul>
+<li>free page：空闲page，未被使用。</li>
+<li>clean page：被使用page，数据没有被修改过。</li>
+<li>dirty page：脏页，被使用page，数据被修改过，也中数据与磁盘的数据产生了不一致。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><font color='red'>Change Buffer</font>：<font color='orange'>更改缓冲区</font>（针对于非唯一二级索引页），在执行DML语句时，如果这些数据Page没有在Buffer Pool中，不会直接操作磁盘，而会将数据变更存在更改缓冲区 Change Buffer 中，在未来数据被读取时，再将数据合并恢复到Buffer Pool中，再将合并后的数据刷新到磁盘中。<ul>
+<li>Change Buffer的意义是什么？<br>与聚集索引不同，二级索引通常是非唯一的，并且以相对随机的顺序插入二级索引。同样，删除和更新可能会影响索引树中不相邻的二级索引页，如果每一次都操作磁盘，会造成大量的磁盘IO。有了Change Buffer之后，我们可以在缓冲池中进行合并处理，减少磁盘IO</li>
+</ul>
+</li>
+<li><font color='red'>Adaptive Hash Index</font>：<font color='orange'>自适应hash索引</font>，用于优化对Buffer Pool数据的查询。InnoDB存储引擎会监控对表上各案引页的查询，如果观察到hash索引可以提升速度，则建立hash索引，称之为自适应hash索引。 是系统根据情况自动完成的</li>
+<li><font color='red'>Log Buffer</font>：<font color='orange'>日志缓冲区</font>，用来保存要写入到磁盘中的log日志数据（redo log、undo log），默认大小为16MB，日志缓冲区的日志会定期刷新到磁盘中。如果需要更新、插入或删除许多行的事务，增力日志缓冲区的大小可以节省磁盘I/O。</li>
+</ul>
+<h5 id="6-2-2-磁盘结构"><a href="#6-2-2-磁盘结构" class="headerlink" title="6.2.2 磁盘结构"></a>6.2.2 <strong>磁盘结构</strong></h5><ul>
+<li><font color='red'>System Tablespace</font>：<font color='orange'>系统表空间</font>是更改缓冲区的存储区域。如果表是在系统表空间而不是每个表文件或通用表空间中创建的，它也可能包含表和索引数据。(在MySQL5.x版本中还包含InnoDB数据字典、undo log等</li>
+<li><font color='red'>File-Per-Table Tablespaces</font>：<font color='orange'>每个表的文件表空间</font>包含单个InnoDB表的数据和索引，并存储在文件系统上的单个数据文件中</li>
+<li><font color='red'>General Tablespaces</font>：<font color='orange'>通用表空间</font>，需要通过<code>CREATE TABLESPACE</code>语法创建通用表空间，在创建表时，可以指定该表空间</li>
+<li><font color='red'>Undo Tablespaces</font>：<font color='orange'>撤销表空间</font>，MySQL实例在初始化时会自动创建两个默认的undo表空间（初始大小16M），用于存储undo log日志。</li>
+<li><font color='red'>Temporary Tablespaces</font>: InnoDB使用会话<font color='orange'>临时表空间</font>和<font color='orange'>全局临时表空间</font>。存储用户创建的临时表等数据 </li>
+<li><font color='red'>Doublewrite Buffer Files</font>：<font color='orange'>双写缓冲区</font>，InnoDB引擎将数据页从Buffer Pool刷新到磁盘前，先将数据页写入双与缓冲区文件中，使于系统异常时恢复数据</li>
+<li><font color='red'>Redo Log</font>：<font color='orange'>重做日志</font>，是用来实现事务的持久性。该日志文件由两部分组成：重做日志缓冲redo log buffer）以及重做日志文件（redo log）,前者是在内存中，后者在磁盘中。当事务提交之后会把所有修改信息都会存到该日志中，用于在刷新脏页到磁盘时,发生错误时，进行数据恢复使用。</li>
+</ul>
+<h5 id="6-2-3-后台线程"><a href="#6-2-3-后台线程" class="headerlink" title="6.2.3 后台线程"></a>6.2.3 后台线程</h5><ul>
+<li><p>作用：将缓冲区的数据在合适的时机刷新到磁盘文件中</p>
+</li>
+<li><p><font color='red'>Master Thread</font>：<font color='orange'>核心后台线程</font>，负责调度其他线程，还负责将缓冲池中的数据异步刷新到磁盘中，保持数据的一致性还包括脏页的刷新、合并插入缓存、undo页的回收。</p>
+</li>
+<li><p><font color='red'>IO Thread</font>：在InnoDB存储引擎中大量使用了AIO异步io来处理IO请求，这样可以极大地提高数据库的性能，而IO Thread主要负责这些IO请求的回调。可以通过命令<code>show engine innodb status</code>查看这些信息</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230304204021518.png" alt="image-20230304204021518" style="zoom:67%;" /></p>
+</li>
+<li><p><font color='red'>Purge Thread</font>：主要用于回收事务已经提交了的undo log，在事务提交之后，undo log可能不用了，就用它来回收哈</p>
+</li>
+<li><p><font color='red'>Page Cleaner Thread</font>：协助 Master Thread刷新脏页到磁盘的线程，它可以减轻Master Thread的工作压力，减少阻塞</p>
+</li>
+</ul>
+<h4 id="6-3-事务原理"><a href="#6-3-事务原理" class="headerlink" title="6.3 事务原理"></a>6.3 事务原理</h4><ul>
+<li>事务的<font color='yellow'>一致性</font>是通过<font color='orange'>redo log</font>和<font color='orange'>undo log</font>两个日志文件来保证的；</li>
+<li>事务的<font color='yellow'>原子性</font>是通过<font color='orange'>undo log</font>来保证的</li>
+<li><p>事务的<font color='yellow'>持久性</font>是通过<font color='orange'>redo log</font>来保证的</p>
+</li>
+<li><p>事务的<font color='yellow'>隔离性</font>是通过<font color='orange'>锁机制</font>和<font color='orange'>多版本并发控制</font><code>MVCC</code>来保证的</p>
+</li>
+</ul>
+<h5 id="6-3-1-redo-log重做日志"><a href="#6-3-1-redo-log重做日志" class="headerlink" title="6.3.1 redo log重做日志"></a>6.3.1 redo log重做日志</h5><ul>
+<li><p>记录的是事务提交时数据页的物理修改，是用来实现事务的持久性</p>
+</li>
+<li><p>该日志文件由两部分组成：<font color='orange'>重做日志缓冲（redo log buffer）</font>以及<font color='orange'>重做日志文件（redo log file）</font>,前者是在内存中，后者在磁盘中。当事务是交之后会把所有修改信息都存到该日志文件中，用于在刷新脏页到磁盘,发生错误时，进行数据恢复使用</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230304210201559.png" alt="image-20230304210201559" style="zoom:50%;" /></p>
+</li>
+</ul>
+<h5 id="6-3-2-undo-log回滚日志"><a href="#6-3-2-undo-log回滚日志" class="headerlink" title="6.3.2 undo log回滚日志"></a>6.3.2 undo log回滚日志</h5><ul>
+<li>用于记录数据被修改前的信息，作用包含两个：提供回滚和MVCC(多版本并发控制）。</li>
+<li>undo log和redo log记录物理日志不一样，它是逻辑日志。可以认为当delete一条记录时，undo log中会记录一条对应的insert记录，反之亦然，当update一条记录时，它记录一条对应相反的update记录。当执行rollback时，就可以从undo log中的逻辑记录读取到相应的内容并进行回滚。</li>
+<li>Undo log销毁：undo log在事务执行时产生，事务提交时，并不会立即删除undo Log，因为这些日志可能还用于MVCC</li>
+<li>Undo log存储：undo Log采用段的方式进行管理和记录，存放在前面介绍的rollback segment 回滚段中，内部包含1024个undo Log segment</li>
+</ul>
+<h4 id="6-4-MVCC多版本并发控制"><a href="#6-4-MVCC多版本并发控制" class="headerlink" title="6.4 MVCC多版本并发控制"></a>6.4 MVCC多版本并发控制</h4><h5 id="6-4-1-基本概念"><a href="#6-4-1-基本概念" class="headerlink" title="6.4.1 基本概念"></a>6.4.1 基本概念</h5><ul>
+<li><p><font color='red'>当前读</font>;</p>
+<p>读取的是记录的最新版本，读取时还要保证其他并发事务不能修改当前记录，会对读取的记录进行加锁。对于我们日常的操作，如:select … lock in share mode(共享锁)，select … for update、update、insert、delete(排他锁)都是一种当前读</p>
+</li>
+<li><p><font color='red'>快照读;</font>;</p>
+<p>简单的select（不加锁）就是快照读。快照读，读取的是记录数据的可见版本，有可能是历史数据，不加锁，是非阻塞读</p>
+<ul>
+<li>Read Committed：每次select，都生成一个快照读。</li>
+<li>Repeatable Read：开启事务后第一个select语句才是快照读的地方。</li>
+<li>Serializable：快照读会退化为当前读</li>
+</ul>
+</li>
+<li><p><font color='red'>MVCC</font>;</p>
+<p>全称Multi-Version Concurrency Control，多版本并发控制。指维护一个数据的多个版本，使得读写操作没有冲突，快照读为MySQL实现MVCC提供了一个非阻塞读功能。MVCC的具体实现，还需要依赖于数据库记录中的三个隐式字段、undo log日志、readView</p>
+</li>
+</ul>
+<h5 id="6-4-2-实现原理"><a href="#6-4-2-实现原理" class="headerlink" title="6.4.2 实现原理"></a>6.4.2 实现原理</h5><ul>
+<li><p><font color='yellow'>记录中的隐藏字段</font>，主要是两个字段，最近修改事务id和回滚指针</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305093816217.png" alt="image-20230305093816217" style="zoom: 50%;" /></p>
+</li>
+<li><p>undo log回滚日志</p>
+<ul>
+<li>回滚日志，在insert、update、delete的时候产生的便于数据回滚的日志</li>
+<li>当insert的时候，产生的undo Log日志只在回滚时需要，在事务提交后，可被立即删除</li>
+<li>而update、delete的时候，产生的undo log日志不仅在回滚时需要，在快照读时也需要，不会立即被删除</li>
+</ul>
+</li>
+<li><p><font color='yellow'>undo log版本链</font>;</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305095044759.png" alt="image-20230305095044759" style="zoom:50%;" /></p>
+<p>不同事务或相同事务对同一条记录进行修改，会导致该记录的undo log生成一条记录版本链表，链表的头部是最新的旧记录，链表尾部是最早的旧记录</p>
+</li>
+<li><p><font color='yellow'>readView</font>;</p>
+<ul>
+<li><p>读视图，是快照读SQL执行时MVCC提取数据的依据。快照读读取的数据不一定时最新的记录，有可能读取的是历史版本，而undo log版本链记录了历史版本，在读取哪一个版本的记录时是由readView决定的。 记录并维护系统当前最活跃的事务（未提交的）id</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305100036380.png" alt="image-20230305100036380" style="zoom:50%;" /></p>
+</li>
+<li><p>版本链数据访问规则</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305100306459.png" alt="image-20230305100306459" style="zoom:50%;" /></p>
+</li>
+<li><p>不同的隔离级别，生成ReadView的时机不同</p>
+<ul>
+<li><p>READ COMMITTED：在事务中每一次执行快照读时生成ReadView</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305101347337.png" alt="image-20230305101347337" style="zoom:50%;" /></p>
+</li>
+<li><p>REPEATABLE READ：仅在事务中第一次执行快照读时生成ReadView，后续复用该ReadView</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305101545416.png" alt="image-20230305101545416" style="zoom:50%;" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="七、MySQL管理"><a href="#七、MySQL管理" class="headerlink" title="七、MySQL管理"></a>七、MySQL管理</h3><h4 id="7-1-系统数据库"><a href="#7-1-系统数据库" class="headerlink" title="7.1 系统数据库"></a>7.1 系统数据库</h4><ul>
+<li><p>Mysql数据库安装完成后，自带了一下四个数据库，具体作用如下:</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305103607331.png" alt="image-20230305103607331" style="zoom:50%;" /></p>
+</li>
+</ul>
+<h4 id="7-2-常用工具"><a href="#7-2-常用工具" class="headerlink" title="7.2 常用工具"></a>7.2 常用工具</h4><ul>
+<li><p><font color='orange'>mysql</font>客户端工具</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305103855636.png" alt="image-20230305103855636" style="zoom:50%;" /></p>
+</li>
+<li><p><font color='orange'>mysqladmin</font>，执行管理操作的客户端程序，可以用来检查服务器的配置和当前状态、创建并删除数据库</p>
+<p>通过帮助文档查看选项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin --help</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><font color='orange'>mysqlbinlog</font>,由于服务器生成的二进制日志文件以二进制格式保存，所以如果想要检查这些文本的文本格式，就会使用到mysqlbinlog日志管理工具</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305104605607.png" alt="image-20230305104605607" style="zoom:50%;" /></p>
+</li>
+<li><p><font color='orange'>mysqlshow</font>客户端对象查找工具。用来查找存在哪些数据库、数据库中的表、表中的列或者索引</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305105408482.png" alt="image-20230305105408482" style="zoom:50%;" /></p>
+</li>
+<li><p><font color='orange'>mysqldump</font>备份数据库或者在不同数据库之间数据迁移的客户端工具。备份内容包含创建表，插入表的SQL语句</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305105627199.png" alt="image-20230305105627199" style="zoom:50%;" /></p>
+</li>
+<li><p><font color='orange'>mysqlimport/source</font>是数据导入的客户端工具，用来导入mysqldump加-T参数后导出的文本文件</p>
+<p><img src="/images/mysql%E5%9F%BA%E7%A1%80%E9%AB%98%E7%BA%A7/image-20230305110410702.png" alt="image-20230305110410702" style="zoom:50%;" /></p>
+</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/MySQL/"># MySQL</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/04/25/%E5%A4%A7%E8%AE%BA%E6%96%87/biyelunwen/">biyelunwen</a>
+            
+            
+            <a class="next" rel="next" href="/2023/04/25/Middleware&Microservice/redis%E5%AE%9E%E6%88%98/">redis实战</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

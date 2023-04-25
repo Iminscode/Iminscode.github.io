@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>springcloud高级篇01 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">springcloud高级篇01</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 22, 2023&nbsp;&nbsp;15:17:53</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Skills/">Skills</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>雪崩问题</p>
+<p>概念：微服务调用链路中的某个服务故障，引起整个链路中的所有微服务都不可用</p>
+<p>解决方案有四种</p>
+<ul>
+<li><p><font color='orange'>超时处理</font>：设定超时时间，请求超过一定时间没有相应就返回错误信息，不会无休止等待 。这种方法只是起到缓解作用，并没有起到根本性的解决，因为超时时间可能是大于请求时间的，到达某个时间点，还是会耗尽服务资源。</p>
+</li>
+<li><p><font color='orange'>舱壁模式</font>：限定每个业务能使用的线程数，避免耗尽整个tomcat资源，也成为线程隔离，类似于轮船里面的隔离板。这种方法，比较耗费资源，命名服务宕机，还是会占用一定线程数。</p>
+</li>
+<li><p><font color='orange'>熔断降级</font>：由<font color='yellow'>断路器</font>统计业务执行的异常比例，如果超出阈值会熔断该业务，拦截访问该业务的一切请求。如果熔断后，快速释放请求整个服务的资源，比较好的方案</p>
+</li>
+<li><p><font color='orange'>流量控制</font>：限制业务访问的QPS（每秒钟处理请求的数量），避免服务因流量的突增而故障。预防的解决方案。是可以<font color='orange'>避免瞬间高并发流量而导致的服务故障</font>。</p>
+<p><img src="/images/springcloud%E9%AB%98%E7%BA%A7%E7%AF%8701/image-20230422153943642.png" alt="image-20230422153943642" style="zoom:50%;" /></p>
+</li>
+</ul>
+<p>实现服务保护技术的技术框架 &amp; 差别</p>
+<p><img src="/images/springcloud%E9%AB%98%E7%BA%A7%E7%AF%8701/image-20230422154217544.png" alt="image-20230422154217544" style="zoom:50%;" /></p>
+<ul>
+<li>线程池隔离：一个业务请求进入tomcat，它会给每个业务创建创建独立的线程池，也就会有独立的线程，比tomcat直接处理的方式，多出比较多的线程。隔离性好，但是cpu消耗大，性能损失</li>
+<li>信号量隔离：当业务请求进入tomcat，统计当前业务用了多少个线程，限制只能使用多少个线程，超过这个数，就会阻止。隔离性差于线程池隔离</li>
+<li>慢调用：一个业务耗时比较久，认为这个业务是有问题的，是一种慢调用的请求业务</li>
+<li>流量整形：把突发的流量变成稳定的流量</li>
+</ul>
+<p>认识sentinel</p>
+<p>是阿里巴巴开源的微服务流量控制组件，官网地址：<a target="_blank" rel="noopener" href="https://sentinelguard.io/zh-cn/index.html">https://sentinelguard.io/zh-cn/index.html</a></p>
+<p>sentinel具有的特征</p>
+<ul>
+<li>丰富的应用场景：秒杀（突发流量控制在系统容量可以承受的范围）、消息削峰填谷、、集群流量控制、试试熔断下游不可用应用等</li>
+<li>完备的实时监控：实时监控功能。在控制台看到接入应用的单台机器秒级数据，或者集群汇总运行情况</li>
+<li>广泛的开源生态：提供开箱即用多的与其他开源框架、库的整合模块。只需要引入相应的依赖进行简单配置即可</li>
+<li>完善的SPI扩展点：提供简单易用，完善的SPI扩展接口。如：定制规则管理，适配动态数据源等</li>
+</ul>
+<p>安装sentinel控制台</p>
+<p>可以在<a target="_blank" rel="noopener" href="https://github.com/alibaba/Sentinel/releases">GitHub</a>下载，课前资料包提供下载好的jar包，拷贝到能记住的非中文目录，运行命令：然后，访问：<code>localhost:8080</code> 即可看到控制台页面，默认账户和密码都是sentinel</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar sentinel-dashboard-1.8.1.jar  <span class="comment"># 执行这个jar包</span></span><br></pre></td></tr></table></figure>
+<p>如果要修改默认端口、账户密码，通过以下配置，修改方式为，在运行jar包是，在后面补上命令，其他配置参考官方文档</p>
+<p><img src="/images/springcloud%E9%AB%98%E7%BA%A7%E7%AF%8701/image-20230422160028610.png" alt="image-20230422160028610" style="zoom:50%;" /></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar sentinel-dashboard-1.8.1.jar -Dserver.port=8090</span><br></pre></td></tr></table></figure>
+<p>引入cloud-demo项目</p>
+<p>项目结构如下：</p>
+<p><img src="/images/springcloud%E9%AB%98%E7%BA%A7%E7%AF%8701/image-20230422160254311.png" alt="image-20230422160254311" style="zoom:50%;" /></p>
+<p>微服务整合sentinel，并且连接控制台，三个步骤：</p>
+<ul>
+<li><p>引入sentinel依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--sentinel--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-sentinel<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置控制台。修改<code>application.yaml</code>文件，添加下面内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8088</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span> </span><br><span class="line">    <span class="attr">sentinel:</span></span><br><span class="line">      <span class="attr">transport:</span></span><br><span class="line">        <span class="attr">dashboard:</span> <span class="string">localhost:8080</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问order-service的任意端点，打开浏览器，访问<a target="_blank" rel="noopener" href="http://localhost:8088/order/101，这样才能触发sentinel监控，然后在访问控制台，查看效果">http://localhost:8088/order/101，这样才能触发sentinel监控，然后在访问控制台，查看效果</a></p>
+<p><img src="/images/springcloud%E9%AB%98%E7%BA%A7%E7%AF%8701/image-20230422160954689.png" alt="image-20230422160954689" style="zoom:50%;" /></p>
+</li>
+</ul>
+<p>限流规则</p>
+<p>雪崩问题虽然有四种方案，但是限流是避免服务因突发的流量而发生故障，是对微服务雪崩问题的预防</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Microservice/"># Microservice</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/04/25/Middleware&Microservice/redis%E5%AE%9E%E6%88%98/">redis实战</a>
+            
+            
+            <a class="next" rel="next" href="/2023/04/21/Middleware&Microservice/elasticsearch%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2/">elasticsearch分布式搜索</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
