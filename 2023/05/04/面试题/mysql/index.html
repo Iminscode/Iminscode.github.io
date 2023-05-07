@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>mysql | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">mysql</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 4, 2023&nbsp;&nbsp;14:22:51</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Offers/">Offers</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="MySQL-索引使用有哪些注意事项呢"><a href="#MySQL-索引使用有哪些注意事项呢" class="headerlink" title="MySQL 索引使用有哪些注意事项呢"></a>MySQL 索引使用有哪些注意事项呢</h2><p>哪些情况下索引会失效</p>
+<ol>
+<li>没有使用索引列作为where子句的查询条件</li>
+<li>对索引列进行函数操作，如字符串操作，日期操作</li>
+<li>对索引列进行类型转换，如果索引列是数字类型，传入的值是字符串，索引失效 </li>
+<li>like查询的查询字符以通配符开头，无法最左匹配</li>
+<li>or条件查询，当条件中包含or条件，每个条件都不涉及索引列，无法使用索引</li>
+<li>当查询条件涉及大量数据时，加入返回表中大部分数据时，mysql会认为使用全表扫描会更好</li>
+<li>联合索引，查询时的条件列不是联合索引中的第一个列，索引失效</li>
+</ol>
+<p>索引不适合哪些场景</p>
+<ol>
+<li>数据量少的</li>
+<li>更新比较频繁的</li>
+<li>区分度低的字段</li>
+</ol>
+<h2 id="日常工作中怎么优化SQL"><a href="#日常工作中怎么优化SQL" class="headerlink" title="日常工作中怎么优化SQL"></a>日常工作中怎么优化SQL</h2><ol>
+<li>使用索引。在经常查询的列上创建索引，提高查询速度</li>
+<li>避免在sql中使用星号，减少不必要返回的数据列</li>
+<li>根据查询分析器适当优化sql结构，如全表扫描，避免子查询</li>
+<li>分库分表。当数据量很大时，可以将数据分散到多个数据库或多个表中</li>
+<li>读写分离。保证写操作数据库承受更小的压力</li>
+</ol>
+<h2 id="InnoDB与MyISAM的区别"><a href="#InnoDB与MyISAM的区别" class="headerlink" title="InnoDB与MyISAM的区别"></a>InnoDB与MyISAM的区别</h2><ol>
+<li>事务支持不同。InnoDB支持事务处理，MyISAM不支持</li>
+<li>外键支持不同。InnoDB支持外键约束，MyISAM不支持</li>
+<li>数据安全不同。InnoDB支持崩溃恢复和数据恢复，MyISAM不支持</li>
+<li>并发处理不同。InnoDB支持行级锁，MyISAM支持表级锁 </li>
+<li>性能上存在差异。在高并发环境下，InnoDB性能更好。其他环境下，MyISAM比InnoDB快</li>
+</ol>
+<p>InnoDB适合于需要事务支持、并发高、有外键约束的应用场景，而MyISAM适合于读写分离明显、查询频繁的应用场景。</p>
+<h2 id="数据库索引的原理，为什么要用-B-树"><a href="#数据库索引的原理，为什么要用-B-树" class="headerlink" title="数据库索引的原理，为什么要用 B+树"></a>数据库索引的原理，为什么要用 B+树</h2><p>在InnoDB引擎下，mysql数据库的索引在底层是通过b+树来实现的。相较于一般二叉树更加稳定，比平衡二叉树查询效率更快</p>
+<p>b+树非叶子节点上是不存储数据的，只存储键值，而b树不仅存储键值，而且会存储数据。所以，在同样的情况下，b+树的高度就会更低，它能存储更多的键值，所以进行磁盘io次数更少，查询效率更快；</p>
+<p>b+树的所有数据存储在叶子节点，并且叶子结点的数据，使用双向链表的方式进行关联，这样做范围查询，排序查询会比b树简单，b+树的全局扫描能力更强</p>
+<p>b+树如果采用自增的整型数据作为主键，更好的避免数据增加的时候，带来的叶子节点分裂导致大量运算问题</p>
+<h2 id="聚集索引与非聚集索引的区别"><a href="#聚集索引与非聚集索引的区别" class="headerlink" title="聚集索引与非聚集索引的区别"></a>聚集索引与非聚集索引的区别</h2><p>聚集索引：基于主键创建的索引。非聚集索引：除了主键索引意外的其他索引</p>
+<ol>
+<li>一个表中只能拥有一个聚集索引，而非聚集索引一个表可以存在多个。</li>
+<li>聚集索引，索引中键值的逻辑顺序决定了表中相应行的物理顺序；非聚集索引，索引中索引的逻辑顺序与磁盘上行的物理存储顺序不同。</li>
+<li>聚簇索引：索引的叶节点就是数据节点。而非聚簇索引的叶节点仍然是索引节点，只不过有一个指针指向对应的数据块。</li>
+<li>聚集索引：物理存储按照索引排序；非聚集索引：物理存储不按照索引排序；</li>
+</ol>
+<h2 id="limit-1000000-10-加载很慢该怎么优化"><a href="#limit-1000000-10-加载很慢该怎么优化" class="headerlink" title="limit 1000000,10 加载很慢该怎么优化"></a>limit 1000000,10 加载很慢该怎么优化</h2><p>如果id是连续的，可以先对数据做过滤，然后再limit，可以有效提高查询效率</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id，name from employee where id&gt;1000000 limit 10</span><br></pre></td></tr></table></figure>
+<p>通过order by加索引来解决（id为索引）通过索引列排序后，再limit，减少计算次数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id，name from employee order by id  limit 1000000，10</span><br></pre></td></tr></table></figure>
+<p>在业务允许的情况下限制页数，没有必要查询到这么后的分页。像百度搜索结果只显示76页</p>
+<h2 id="如何选择合适的分布式主键方案呢"><a href="#如何选择合适的分布式主键方案呢" class="headerlink" title="如何选择合适的分布式主键方案呢"></a>如何选择合适的分布式主键方案呢</h2><p>数据库自增长，UUID，雪花算法</p>
+<p>使用UUID算法生成唯一标识符作为主键，比较占用空间，不利于索引和查询</p>
+<p>雪花算法生成id，64个比特位，第一个为符号位，41bit的时间戳位，10bit工作进程位，12bit序列号位</p>
+<h2 id="事务的隔离级别有哪些？MySQL的默认隔离级别是什么？"><a href="#事务的隔离级别有哪些？MySQL的默认隔离级别是什么？" class="headerlink" title="事务的隔离级别有哪些？MySQL的默认隔离级别是什么？"></a>事务的隔离级别有哪些？MySQL的默认隔离级别是什么？</h2><ul>
+<li>读未提交</li>
+<li>读已提交</li>
+<li>可重复读（MySQL默认）</li>
+<li>串行化</li>
+</ul>
+<h2 id="什么是脏读，不可重复读，幻读呢"><a href="#什么是脏读，不可重复读，幻读呢" class="headerlink" title="什么是脏读，不可重复读，幻读呢"></a>什么是脏读，不可重复读，幻读呢</h2><ul>
+<li><p><strong>脏读</strong>：一个事务读到了另外一个事务还没有提交的数据。</p>
+<p>比如事务a对数据进行了更新操作，但是该事务还没有提交到数据库中，此时事务b对该数据进行查询，所查询到的数据是更新之后的数据，然而这个数据是没有提交到数据库中的数据，称为是脏读。</p>
+</li>
+<li><p><strong>不可重复读</strong>：一个事务先后读取了同一条记录，但是两次读取的数据是不同的。</p>
+<p>比如事务a首先对一个数据进行查询，之后事务b，对该数据进行更新操作，并且事务b将更新操作提交到数据库了，此时数据修改了，这时当事务a再次进行对该数据查询的时候，返回的结果和之前查询的结果不一致，称之为不可重复读</p>
+</li>
+<li><p><strong>幻读</strong>：一个事务按照条件查询数据时，没有对应数据行，但是插入数据时，又发现这行数据已经存在。</p>
+<p>比如当事务a查询数据时，发现系统中没有对应数据行，此时事务b对数据库进行插入数据的操作，并且提交到数据库，此时事务a在发现没有数据行之后进行插入操作时出现已经存在该数据行了，不能进行插入操作，再一次查询依然查不到对应的数据行，但是插入数据又显示重复，造成一种幻想幻读的情况。</p>
+</li>
+</ul>
+<h2 id="在高并发情况下，如何做到安全的修改同一行数据"><a href="#在高并发情况下，如何做到安全的修改同一行数据" class="headerlink" title="在高并发情况下，如何做到安全的修改同一行数据"></a>在高并发情况下，如何做到安全的修改同一行数据</h2><p>要安全的修改同一行数据，就要保证一个线程在修改时其它线程无法更新这行记录。一般有悲观锁和乐观锁两种方案</p>
+<ul>
+<li>悲观锁：当前线程要进来修改数据时，别的线程无法修改。可以使用select…for update </li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from User where name=‘lisi’ for update</span><br><span class="line">-- 锁定了User表中所有符合检索条件（name=‘lisi’）的记录。本次事务提交之前，别的线程都无法修改这些记录。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>乐观锁：有线程过来，先放过去修改，如果看到别的线程没修改过，就可以修改成功。 如果别的线程修改过，就修改失败或者重试。实现方式：乐观锁一般会使用版本号机制或CAS算法实现。</li>
+</ul>
+<h2 id="MySQL事务得四大特性以及实现原理"><a href="#MySQL事务得四大特性以及实现原理" class="headerlink" title="MySQL事务得四大特性以及实现原理"></a>MySQL事务得四大特性以及实现原理</h2><p><strong>四大特性</strong></p>
+<ul>
+<li>原子性： 事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。</li>
+<li>一致性： 指在事务开始之前和事务结束以后，数据不会被破坏，假如A账户给B账户转10块钱，不管成功与否，A和B的总金额是不变的。</li>
+<li>隔离性： 多个事务并发访问时，事务之间是相互隔离的，即一个事务不影响其它事务运行效果。简言之，就是事务之间是进水不犯河水的。</li>
+<li>持久性： 表示事务完成以后，该事务对数据库所作的操作更改，将持久地保存在数据库之中。</li>
+</ul>
+<p><strong>事务ACID特性的实现思想</strong></p>
+<ul>
+<li>原子性：是使用 undo log来实现的，如果事务执行过程中出错或者用户执行了rollback，系统通过undo log日志返回事务开始的状态。</li>
+<li>持久性：使用 redo log来实现，只要redo log日志持久化了，当系统崩溃，即可通过redo log把数据恢复。</li>
+<li>隔离性：通过锁以及MVCC,使事务相互隔离开。</li>
+<li>一致性：通过回滚、恢复，以及并发情况下的隔离性，从而实现一致性。</li>
+</ul>
+<h2 id="MVCC熟悉吗，它的底层原理"><a href="#MVCC熟悉吗，它的底层原理" class="headerlink" title="MVCC熟悉吗，它的底层原理"></a>MVCC熟悉吗，它的底层原理</h2><p>MVCC,多版本并发控制,它是通过读取历史版本的数据，来降低并发事务冲突，从而提高并发性能的一种机制</p>
+<p>底层原理主要依赖记录中的：<code>隐式字段</code>，<code>undo日志</code>，<code>read View</code>来实现</p>
+<p>一条数据在修改时，会根据列中存在的<code>隐式字段</code>与 <code>undo 日志</code>生成一条记录的版本线性表（<code>版本链</code>），在查询时会生成 <code>Read View</code>，根据 Read View 中的内容，依次从版本链中找到对于当前查询可见的记录。</p>
+<h2 id="主从复制原理"><a href="#主从复制原理" class="headerlink" title="主从复制原理"></a>主从复制原理</h2><ol>
+<li>主库的更新事件(update、insert、delete)被写到<code>binlog</code></li>
+<li>从库发起连接，连接到主库。</li>
+<li>此时主库创建一个<code>binlog</code> dump thread，把<code>binlog</code>的内容发送到从库。</li>
+<li>从库启动之后，创建一个I/O线程，读取主库传过来的<code>binlog</code>内容并写入到<code>relay log</code></li>
+<li>还会创建一个SQL线程，从<code>relay log</code>里面读取内容，执行读取到的更新事件，将更新内容写入到slave的db</li>
+</ol>
+<h2 id="主从延迟（主从不一致）"><a href="#主从延迟（主从不一致）" class="headerlink" title="主从延迟（主从不一致）"></a>主从延迟（主从不一致）</h2><p>主从数据同步涉及到网络数据的传输，由于网络通信的延迟，以及从库数据处理的效率问题，导致主从数据同步延迟的情况</p>
+<p>解决方法：</p>
+<ol>
+<li>设计一主多从的方式来分担从库的压力，减少主从同步延迟</li>
+<li>如果对数据一次性要求较高，可以强制走主库查询数据</li>
+<li>把一台从服务器当度作为备份使用， 而不提供查询</li>
+</ol>
+<h2 id="什么是数据库连接池-为什么需要数据库连接池呢"><a href="#什么是数据库连接池-为什么需要数据库连接池呢" class="headerlink" title="什么是数据库连接池?为什么需要数据库连接池呢"></a>什么是数据库连接池?为什么需要数据库连接池呢</h2><p>数据库连接池是一种池化技术，实现资源的复用，避免资源的重复创建和销毁带来的开销。在数据库的应用场景里面，每一次向数据库发起CRUD操作时，都需要创建链接，特别是在访问数量大的情况下，造成特别大的开销。</p>
+<p><strong>连接池的核心思想</strong>：应用程序启动的时，提前初始化一部分连接，保存在连接池里，需要的时候从池子里拿。避免了每次建立和释放带来的开销</p>
+<p><strong>参数</strong>：</p>
+<ol>
+<li>初始化连接数量，表示初始化时初始多少个连接</li>
+<li>最大连接数量：表示同时最多支持多少连接，</li>
+<li>最大空闲连接数：表示没有请求的时候，池中保留的最大空闲连接</li>
+<li>最小空闲连接：当连接小于这个值的时，会创建新的连接补充到池里</li>
+</ol>
+<h2 id="InnoDB引擎中的索引策略"><a href="#InnoDB引擎中的索引策略" class="headerlink" title="InnoDB引擎中的索引策略"></a>InnoDB引擎中的索引策略</h2><p><strong>覆盖索引</strong>：是指在普通索引树中可以得到查询的结果，不需要在回到主键索引树中再次搜索。</p>
+<p><strong>最左前缀原则</strong>：建立在联合索引之上的，如果我们建立了联合索引，我们不需要使用索引的全部定义，只要用到了索引中的最左边的那个字段就可以使用这个索引。如果跳跃了某一列，索引将部分失效（后面的字段索引会失效），如果最左边的列没有，索引全部失效，走全表扫描。</p>
+<h2 id="Mysql的binlog有几种录入格式？分别有什么区别"><a href="#Mysql的binlog有几种录入格式？分别有什么区别" class="headerlink" title="Mysql的binlog有几种录入格式？分别有什么区别"></a>Mysql的binlog有几种录入格式？分别有什么区别</h2><p><code>statement</code>：每一条会修改数据的sql都会记录在binlog中。不需要记录每一行的变化，减少了binlog日志量，节约了IO，提高性能。由于sql的执行是有上下文的，因此在保存的时候需要保存相关的信息，同时还有一些使用了函数之类的语句无法被记录复制。</p>
+<p><code>row</code>，不记录sql语句上下文相关信息，仅保存哪条记录被修改。记录单元为每一行的改动，基本是可以全部记下来但是由于很多操作，会导致大量行的改动(比如alter table)，因此这种模式的文件保存的信息太多，日志量太大。</p>
+<p><code>mixed</code>，一种折中的方案，普通操作使用statement记录，当无法使用statement的时候使用row。</p>
+<h2 id="binlog和redolog有什么区别"><a href="#binlog和redolog有什么区别" class="headerlink" title="binlog和redolog有什么区别"></a>binlog和redolog有什么区别</h2><p>都是用来记录数据库数据变更操作的日志。其中</p>
+<p><code>binlog</code>：主要用来做数据备份、数据恢复和数据同步。master结点数据变更会写入binlog中，然后把binlog中的数据通过网络的方式复制到从库中，实现数据同步。记录数据库的逻辑变化，记录格式有三种，statement、row和mixed</p>
+<p><code>redolog</code>：主要是在mysql数据库事务的ACID特性里，保证数据持久化特性。当数据库崩溃时，可以通过redolog恢复未完成的数据，保证数据完整性。还可以通过合理的配置，优化mysql性能。记录数据库的物理变化，数据页的变化结果</p>
+<h2 id="视图的特点、使用场景、优缺点"><a href="#视图的特点、使用场景、优缺点" class="headerlink" title="视图的特点、使用场景、优缺点"></a>视图的特点、使用场景、优缺点</h2><p>概念：是一张虚拟的表，表中数据经过某种筛选后的显示方式</p>
+<p>特点：</p>
+<ol>
+<li>视图的列可以来自不同的表</li>
+<li>视图是由基本表产生的一个虚表</li>
+<li>视图的建立和删除不影响基本表</li>
+<li>对视图内容的更新直接影响基本表</li>
+<li>当视图来自多个基本表时，不允许添加和删除数据</li>
+</ol>
+<p>使用场景：</p>
+<ol>
+<li>重用SQL语句</li>
+<li>简化复杂SQL操作</li>
+<li>使用表的组成部分，而不是整个表</li>
+<li>保护数据</li>
+</ol>
+<p>优缺点：</p>
+<ol>
+<li>视图能够简化用户操作</li>
+<li>数据更加安全，能够对机密数据提供保护</li>
+<li>使用户在多个角度看待同一数据</li>
+</ol>
+<h2 id="SQL的生命周期"><a href="#SQL的生命周期" class="headerlink" title="SQL的生命周期"></a>SQL的生命周期</h2><ul>
+<li>服务器与数据库建立连接</li>
+<li>数据库进程拿到请求sql</li>
+<li>解析并生成执行计划，执行</li>
+<li>读取数据到内存，并进行逻辑处理</li>
+<li>通过步骤一的连接，发送结果到客户端</li>
+<li>关掉连接，释放资源</li>
+</ul>
+<h2 id="MySQL数据库cpu飙升，如何处理"><a href="#MySQL数据库cpu飙升，如何处理" class="headerlink" title="MySQL数据库cpu飙升，如何处理"></a>MySQL数据库cpu飙升，如何处理</h2><p>排查问题：</p>
+<ul>
+<li>使用top命令，找到cpu占用过高的进程，是否是mysql</li>
+<li>在mysql中，通过show processlist查询当前的会话情况，确定是否有消耗资源的sql正在运行</li>
+<li>找到消耗过高的sql，通过执行计划进行具体分析，针对性做优化 </li>
+</ul>
+<p>处理方式：</p>
+<ul>
+<li>如果是sql问题，可以通过sql优化手段进行调整 </li>
+<li>如果不是sql问题，分析cpu飙高的时间段，mysql整个并发连接数量，如果有大量的连接请求，需要分析该时间段业务情况 </li>
+<li>可以调整mysql参数进行调整</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Offers/"># Offers</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/05/04/%E9%9D%A2%E8%AF%95%E9%A2%98/spring/">spring</a>
+            
+            
+            <a class="next" rel="next" href="/2023/05/04/%E9%9D%A2%E8%AF%95%E9%A2%98/java%E8%99%9A%E6%8B%9F%E6%9C%BA/">java虚拟机</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

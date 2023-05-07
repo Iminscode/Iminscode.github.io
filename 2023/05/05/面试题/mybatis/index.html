@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>mybatis | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">mybatis</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 5, 2023&nbsp;&nbsp;13:21:23</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Offers/">Offers</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="什么是Mybatis"><a href="#什么是Mybatis" class="headerlink" title="什么是Mybatis"></a>什么是Mybatis</h2><p>内部封装了JDBC，只需要我们关注sql语句，不需要着重关注其他的驱动连接等过程。</p>
+<p>可以使用xml或者注解的方式来配置或者映射原生信息。避免手动设置参数获取结果集</p>
+<p>映射生成最终sql语句，最后由框架执行sql，并将结果映射java对象返回。</p>
+<h2 id="Mybatis优缺点"><a href="#Mybatis优缺点" class="headerlink" title="Mybatis优缺点"></a>Mybatis优缺点</h2><p>优点：</p>
+<ul>
+<li>sql写在xml文件里，解除sql语句和程序代码之间的耦合</li>
+<li>代码量比JDBC要少，不需要手动开关连接</li>
+<li>支持对象与数据库字段关系的映射</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>涉及字段多，关联表多时，对开发人员要求较高</li>
+</ul>
+<h2 id="和-的区别是什么"><a href="#和-的区别是什么" class="headerlink" title="#{}和${}的区别是什么"></a>#{}和${}的区别是什么</h2><p><code>#&#123;&#125;</code>是预编译处理，<code>$&#123;&#125;</code>是字符串替换</p>
+<ol>
+<li><code>#&#123;&#125;</code>对应的变量会自动加单引号，<code>$&#123;&#125;</code>对应的变量不会加上单引号</li>
+<li><code>#&#123;&#125;</code>能够防止sql注入，<code>$&#123;&#125;</code>不能防止sql注入</li>
+<li>Mybatis在<code>#&#123;&#125;</code>预编译解析时将整个模块替换成占位符 <code>？</code>问号，再加上引号控制，有类型控制住了，值就是值，不会出现sql命令拼接</li>
+</ol>
+<h2 id="当实体类的属性名和表种字段名不一致怎么办"><a href="#当实体类的属性名和表种字段名不一致怎么办" class="headerlink" title="当实体类的属性名和表种字段名不一致怎么办"></a>当实体类的属性名和表种字段名不一致怎么办</h2><p>可以给sql语句给字段名取别名，别名与实体类属性名同名</p>
+<p>可以使用<code>resultMap</code>来映射字段名和实体类属性名一一对应</p>
+<h2 id="Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复"><a href="#Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复" class="headerlink" title="Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复"></a>Mybatis的Xml映射文件中，不同的Xml映射文件，id是否可以重复</h2><p>不同的xml映射文件，如果配置了namespace命名空间，id是可以重复的</p>
+<p>如果没有配置命名空间，id不能重复</p>
+<h2 id="说一下resultMap和resultType"><a href="#说一下resultMap和resultType" class="headerlink" title="说一下resultMap和resultType"></a>说一下resultMap和resultType</h2><p>使用resultTapye进行输出映射时，只有查询出来的列名和pojo中的属性名一致时，才能映射成功</p>
+<p>使用resultMap可以实现将查询结果映射为复杂类型的pojo，功能比resultType更强大</p>
+<h2 id="Mybtis的缓存原理"><a href="#Mybtis的缓存原理" class="headerlink" title="Mybtis的缓存原理"></a>Mybtis的缓存原理</h2><p>mybtis内部提供了二级缓存机制用来提升数据的检索效率，避免每次访问都去查询数据库。</p>
+<p>一级缓存是SqlSession级别的缓存，也叫本地缓存，mybatis把查询出来的数据保存到本地缓存中，后续的sql如果命中缓存，就可以直接从本地缓存读取</p>
+<p>二级缓存实现跨级别的sqlSession访问，多个用户查询数据时，只要有任何一次sqlSession拿到数据，就会放到二级缓存中，其他sql就可以从这个二级缓存中获取</p>
+<h2 id="Mybatis是如何进行分页的"><a href="#Mybatis是如何进行分页的" class="headerlink" title="Mybatis是如何进行分页的"></a>Mybatis是如何进行分页的</h2><p>直接在select语句上增加数据库提供的分页关键字，然后在应用程序里面传递当前页，以及每页展示条数</p>
+<p>使用Mybatis提供的RowBounds对象，实现内存级别分页</p>
+<p>基于Mybatis里面的Interceptor拦截器，在select语句执行之前动态拼接分页关键字</p>
+<h2 id="Redis的缓存淘汰策略"><a href="#Redis的缓存淘汰策略" class="headerlink" title="Redis的缓存淘汰策略"></a>Redis的缓存淘汰策略</h2><p>当redis使用内存达到maxMemory时，redis会根据配置的缓存淘汰策略，把访问频率不高的key，从内存中移除掉</p>
+<ul>
+<li>采用LRU策略。把不常用的key淘汰掉</li>
+<li>采用LFU策略。对LRU进行优化，增加数据访问频次，确保淘汰的数据是非热点的 </li>
+<li>随机策略。随机删除key</li>
+<li>ttl策略。从设置了过期时间key里面，挑选过期时间最近的key进行淘汰</li>
+<li>直接报错。当内存不够时直接抛出yi’hcang</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Offers/"># Offers</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/05/07/%E9%9D%A2%E8%AF%95%E9%A2%98/springboot/">springboot</a>
+            
+            
+            <a class="next" rel="next" href="/2023/05/04/%E9%9D%A2%E8%AF%95%E9%A2%98/spring/">spring</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>spring | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">spring</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 4, 2023&nbsp;&nbsp;21:13:22</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Offers/">Offers</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="Spring怎么解决循环依赖"><a href="#Spring怎么解决循环依赖" class="headerlink" title="Spring怎么解决循环依赖"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/wujun2412/article/details/123392678#3Spring_29">Spring怎么解决循环依赖</a></h2><p>循环依赖：就是循环引用，两个或者两个以上的bean互相持有对方，最终形成闭环。第一种情况是，自己依赖自己；第二种情况是，两个对象之间的直接依赖，第三种情况是，多个对象之间的间接依赖。循环依赖会导致注入的时候出现死循环，</p>
+<p>比如a依赖于b，b依赖a的情况下。当我们通过getBean()实例化a的时候，spring会从堆中开辟一个对象内存空间，此时a就变成了半成品a，继续初始化a，由于a依赖于b，所以需要去spring容器中查找b对象，如果有，就赋值返回，如果没有，就去实例化b，同样从堆中开辟一个内存空间，形成半成品b，继续初始化b，由于b依赖于a，所以会从容器中查找a对象，如果有，就赋值返回，如果没有，就实例化a。这样就造成了死循环。</p>
+<p><img src="/images/spring/image-20230504215121117.png" alt="image-20230504215121117" style="zoom:50%;" /></p>
+<p>spring设计了三级缓存，提前暴露对象来解决循环依赖的问题</p>
+<p>一级缓存里面存放的是成品对象，实例化和初始化都完成了。二级缓存里放的是半成品，用来解决对象创建过程中的循环依赖问题。三级缓存中存放的是Bean的实例工厂，用于创建Bean的代理对象</p>
+<h2 id="Spring手动装配有哪几种方式"><a href="#Spring手动装配有哪几种方式" class="headerlink" title="Spring手动装配有哪几种方式"></a>Spring手动装配有哪几种方式</h2><p>参考文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45014721/article/details/120427685">https://blog.csdn.net/weixin_45014721/article/details/120427685</a></p>
+<ol>
+<li>使用模式注解：<code>@Component</code> / <code>@Controller</code> / <code>@Service</code> / <code>@Repository</code> 等</li>
+<li>使用配置类：<code>@Configuration</code> 和 <code>@Bean</code>。写一个类上面加上@Configuration注解，表示这个类就是一个配置类，给容器添加组件时，以方法名作为组件的id，返回类型位组件类型，在方法上加上@Bean注解</li>
+<li>使用模块装配：<code>@EnableXXX</code> 与 <code>@Import</code> 配合使用。用来开启某项功能的注解，比如开启spring的事务管理功能</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span></span><br><span class="line"><span class="meta">@Import(MyDataSourceConfig.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyAppConfig</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的 <code>@EnableTransactionManagement</code> 开启了 Spring 的事务管理功能，而 <code>@Import</code> 导入了一个名为 <code>MyDataSourceConfig</code> 的配置类，这个类定义了一个名为 <code>dataSource</code> 的 Bean。</p>
+<h2 id="有哪些不同类型的IOC-依赖注入"><a href="#有哪些不同类型的IOC-依赖注入" class="headerlink" title="有哪些不同类型的IOC(依赖注入)"></a>有哪些不同类型的IOC(依赖注入)</h2><ol>
+<li>构造器依赖注入：构造器依赖注入在容器触发构造器的时候完成，该构造器有一系列的参数，每个参数代表注入的对象。</li>
+<li>Setter方法依赖注入：首先容器会触发一个无参构造函数或无参静态工厂方法实例化对象，之后容器调用bean中的setter方法完成Setter方法依赖注入。</li>
+</ol>
+<h2 id="Spring中有哪些方式可以把Bean注入到IOC容器"><a href="#Spring中有哪些方式可以把Bean注入到IOC容器" class="headerlink" title="Spring中有哪些方式可以把Bean注入到IOC容器"></a>Spring中有哪些方式可以把Bean注入到IOC容器</h2><ol>
+<li>使用xml的方式来声明Bean的定义，spring容器在启动的时候会加载解析xml，把bean注入到ioc容器中</li>
+<li>使用<code>@CompontScan</code>注解来扫描声明了<code>@Component</code> / <code>@Controller</code> / <code>@Service</code> / <code>@Repository</code> 注解的类</li>
+<li>使用<code>@Configuration</code>注解声明配置类，并使用<code>@Bean</code>注解实现bean的定义</li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yT4y1a7sz/?spm_id_from=333.999.0.0&amp;vd_source=612c428b632d619c5bc04739c822a3df">更多方式参考</a></li>
+</ol>
+<h2 id="Spring-IoC的工作流程"><a href="#Spring-IoC的工作流程" class="headerlink" title="Spring IoC的工作流程"></a>Spring IoC的工作流程</h2><p>IoC表示控制反转，核心思想是把对象的管理权限交给容器，并由容器完成对象的注入，可以很大程度上简化应用的开发，可以把应用从复杂的依赖关系中解放出来。IOC容器就像是一个工厂一样，当我们需要创建一个对象的时候，只需要配置好配置文件/注解即可，完全不用考虑对象是如何被创建出来的。</p>
+<ol>
+<li>准备上下文环境，即ApplicationContext</li>
+<li>开始扫描xml文件和注解，扫描bean定义，得到BeanDefinition对象，</li>
+<li>根据这些bean的定义生成相应的bean</li>
+<li>将这些生成的bean放到spring容器中（IoC容器实际上就是一个Map(key, value)，Map中存放的是各种对象。）</li>
+</ol>
+<h2 id="谈谈自己对于Spring-AOP的理解"><a href="#谈谈自己对于Spring-AOP的理解" class="headerlink" title="谈谈自己对于Spring AOP的理解"></a>谈谈自己对于Spring AOP的理解</h2><p>AOP（面向切面编程）能够将那些与业务无关，却为业务模块所共同调用的逻辑（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可扩展性和可维护性。</p>
+<h2 id="Spring中的bean的作用域有哪些"><a href="#Spring中的bean的作用域有哪些" class="headerlink" title="Spring中的bean的作用域有哪些"></a>Spring中的bean的作用域有哪些</h2><p><code>singleton</code>：唯一bean实例，（默认配置）。该配置下，bean的实例化时机在spring配置文件被加载的时候进行实例化的，且只实例化一次</p>
+<p><code>prototype</code>：每次请求都会创建一个新的bean实例。该配置下，每次从IoC容器中获取指定bean时，都会返回一个新的实例对象</p>
+<p><code>request</code>：每一次http请求都会产生一个新的bean，该bean仅在当前http request内有效</p>
+<p><code>session</code>：每次http请求都会产生一个新的bean，该bean仅在当前http session内有效，同一个session共享一个bean</p>
+<p><code>globalSession</code>：针对全局session共享一个bean实例</p>
+<h2 id="Spring中的bean生命周期"><a href="#Spring中的bean生命周期" class="headerlink" title="Spring中的bean生命周期"></a>Spring中的bean生命周期</h2><ol>
+<li>创建前准备，比如调用工厂的后置处理器</li>
+<li>对象实例化，根据bean定义，找到类信息，使用反射创建对象</li>
+<li>对象属性装填，装填成员变量，如果成员变量有其他bean，则加载其他bean</li>
+<li>执行初始化，某些对象可能有初始化方法，在此时调用</li>
+<li>销毁</li>
+</ol>
+<h2 id="Spring-MVC的工作原理"><a href="#Spring-MVC的工作原理" class="headerlink" title="Spring MVC的工作原理"></a>Spring MVC的工作原理</h2><p>1.客户端（浏览器）发送请求，直接请求到DispatcherServlet。 </p>
+<p>2.DispatcherServlet根据请求信息调用HandlerMapping，解析请求对应的Handler。 </p>
+<p>3.解析到对应的Handler（也就是我们平常说的Controller控制器）。 </p>
+<p>4.HandlerAdapter会根据Handler来调用真正的处理器来处理请求和执行相对应的业务逻辑。 </p>
+<p>5.处理器处理完业务后，会返回一个ModelAndView对象，Model是返回的数据对象，View是逻辑上的View。 </p>
+<p>6.ViewResolver会根据逻辑View去查找实际的View。 </p>
+<p>7.DispatcherServlet把返回的Model传给View（视图渲染）。 </p>
+<p>8.把View返回给请求者（浏览器）</p>
+<h2 id="Spring框架中用到了哪些设计模式"><a href="#Spring框架中用到了哪些设计模式" class="headerlink" title="Spring框架中用到了哪些设计模式"></a>Spring框架中用到了哪些设计模式</h2><ol>
+<li>工厂设计模式：Spring使用工厂模式通过BeanFactory和ApplicationContext创建bean对象</li>
+<li>代理设计模式：Spring AOP功能的实现</li>
+<li>单例设计模式：Spring中的bean默认都是单例的</li>
+<li>模板方法模式：Spring中的jdbcTemplate、hibernateTemplate等以Template结尾的对数据库操作的类</li>
+<li>适配器模式：Spring MVC中也是用到了适配器模式适配Controller</li>
+</ol>
+<h2 id="Component和-Bean的区别是什么"><a href="#Component和-Bean的区别是什么" class="headerlink" title="@Component和@Bean的区别是什么"></a>@Component和@Bean的区别是什么</h2><p>相同点：都是为spring注册bean对象</p>
+<p>不同点：</p>
+<ul>
+<li>作用对象不同。<code>@Component</code>注解作用于类，<code>@Bean</code>作用于方法</li>
+<li>使用方法不同。<code>@Component</code>注解直接标注在类声明上，配合<code>@ComponentScan</code>注解实现注册功能；<code>@Bean</code>需要在配置类中使用，然后在配置类中使用一个方法定义bean是如何创建的</li>
+<li>实现不同。<code>@Component</code>通常通过类路径扫描及装配到容器中。<code>@Bean</code>通常是在标有<code>@Configuration</code>注解的方法中定义产生的这个bean</li>
+<li>灵活性不同。<code>@Bean</code>比<code>@Component</code>更加灵活</li>
+</ul>
+<h2 id="BeanFactory和ApplicationContext有什么区别"><a href="#BeanFactory和ApplicationContext有什么区别" class="headerlink" title="BeanFactory和ApplicationContext有什么区别"></a>BeanFactory和ApplicationContext有什么区别</h2><p>相同点：都是通过xml配置文件加载bean，但是ApplicationContext是BeanFactory的子类，所以提供更多的拓展功能</p>
+<p>不同点：BeanFactory是延迟加载，如果Bean的某一个属性没有注入，BeanFacotry加载后，直至第一次使用调用getBean方法才会抛出异常；而ApplicationContext则在初始化自身是检验，这样有利于检查所依赖属性是否注入</p>
+<h2 id="Spring中-Resource和-Autowired有什么区别"><a href="#Spring中-Resource和-Autowired有什么区别" class="headerlink" title="Spring中@Resource和@Autowired有什么区别"></a>Spring中@Resource和@Autowired有什么区别</h2><p>参考文档：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/522095455">https://zhuanlan.zhihu.com/p/522095455</a></p>
+<ul>
+<li>@Autowired注解是由Spring提供的，它可以用来对构造方法、成员变量以及方法参数上进行标注，能够根据对象类型完成自动注入。</li>
+<li>@Resource注解由JDK提供的，可以适用于所有的Java框架。支持对象类型注入，也能够支持对象名称注入</li>
+</ul>
+<p>不同点：</p>
+<ol>
+<li>内部参数不同。@Autowired只包含一个required参数，默认为true，表示开启自动注入。@Resource 包含多个个参数，其中最重要的两个是name和type。</li>
+<li>装配方式的默认值不同。@Autowired默认按type自动装配，而@Resource默认按name自动装配。</li>
+<li>注解应用范围不同。@Autowired能够用在构造方法、成员变量、方法参数以及注解上，而@Resource能用在类、成员变量和方法参数上</li>
+</ol>
+<h2 id="Spring-的不同事务传播行为有哪些"><a href="#Spring-的不同事务传播行为有哪些" class="headerlink" title="Spring 的不同事务传播行为有哪些"></a>Spring 的不同事务传播行为有哪些</h2>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Offers/"># Offers</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/05/05/%E9%9D%A2%E8%AF%95%E9%A2%98/mybatis/">mybatis</a>
+            
+            
+            <a class="next" rel="next" href="/2023/05/04/%E9%9D%A2%E8%AF%95%E9%A2%98/mysql/">mysql</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
