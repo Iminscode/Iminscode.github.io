@@ -286,7 +286,7 @@
 <li><font color='orange'>基本数据类型</font>：数值型、字符型char、布尔型Boolean。其中整数类型(byte,short,int,long)，浮点类型(float,double)</li>
 <li><font color='orange'>引用数据类型</font>：类class、接口interface、数组</li>
 </ul>
-<h2 id="6、String-str-“i”-和String-str-new-String-“1”-一样吗？"><a href="#6、String-str-“i”-和String-str-new-String-“1”-一样吗？" class="headerlink" title="6、String str = “i” 和String str = new String(“1”)一样吗？"></a>6、String str = “i” 和String str = new String(“1”)一样吗？</h2><p>不一样，因为内存的分配方式不一样。String str = “i”的方式JVM会将其分配到<font color='orange'>常量池</font>中，而String str = new String(“i”)JVM会将其分配到<font color='orange'>堆内存</font>中。String是final修饰的，所以是将值放到了常量池中，而new String()是放到了堆内存中。</p>
+<h2 id="6、String-str-“i”-和String-str-new-String-“i”-一样吗？"><a href="#6、String-str-“i”-和String-str-new-String-“i”-一样吗？" class="headerlink" title="6、String str = “i” 和String str = new String(“i”)一样吗？"></a>6、String str = “i” 和String str = new String(“i”)一样吗？</h2><p>不一样，因为内存的分配方式不一样。String str = “i”的方式JVM会将其分配到<font color='orange'>常量池</font>中，而String str = new String(“i”)JVM会将其分配到<font color='orange'>堆内存</font>中。String是final修饰的，所以是将值放到了常量池中，而new String()是放到了堆内存中。</p>
 <h2 id="7、Java-中操作字符串都有哪些类？它们之间有什么区别？"><a href="#7、Java-中操作字符串都有哪些类？它们之间有什么区别？" class="headerlink" title="7、Java 中操作字符串都有哪些类？它们之间有什么区别？"></a>7、Java 中操作字符串都有哪些类？它们之间有什么区别？</h2><ul>
 <li><p>操作字符串的类有：String、StringBuffer、StringBuilder。</p>
 </li>
@@ -306,8 +306,8 @@
 </li>
 </ul>
 <h2 id="8、深克隆和浅克隆？"><a href="#8、深克隆和浅克隆？" class="headerlink" title="8、深克隆和浅克隆？"></a>8、深克隆和浅克隆？</h2><ul>
-<li><font color='orange'>深克隆</font>：创建一个新对象，属性中引用的其他对象也会被克隆，不再指向原有对象地址。也就是说，复制对象本身的同时，也会复制对象包含的引用指向的对象，即修改被克隆对象的任何属性都不会影响到克隆出来的对象。</li>
-<li><font color='orange'>浅克隆</font>：创建一个新对象，新对象的属性和原来对象完全相同，但是对于非基本类型属性，仍指向原有属性所指向的对象的内存地址。也就是说，复制对象时仅仅复制对象本身，包括基本属性，但该对象的属性引用其他对象时，该引用对象不会被复制，即拷贝出来的对象与被拷贝出来的对象中的属性引用的对象是同一个。</li>
+<li><font color='orange'>深克隆</font>：在深克隆中，无论源对象的成员变量是值类型还是引用类型，都将复制一份给目标对象，深克隆将源对象的所有引用对象也复制一份给目标对象。简言之，深克隆，除了对象本身被复制外，对象所包含的所有成员变量也将复制。</li>
+<li><font color='orange'>浅克隆</font>：在浅克隆中，如果源对象的成员变量是值类型，将复制一份给克隆对象；如果源对象的成员变量是引用类型，则将引用对象的地址复制一份给目标对象，也就是说源对象和目标对象的成员变量指向相同的内存地址。简言之，浅克隆，当对象被复制时只复制它本身和其中包含的值类型的成员变量，而引用类型的成员对象并没有复制。</li>
 </ul>
 <ul>
 <li><font color='yellow'>拓展</font>：<strong>浅拷贝只会克隆基本数据属性，而不会克隆引用其他对象的属性，但String对象又不属于基本属性，这又是为什么呢？</strong><ul>
@@ -319,7 +319,7 @@
 <li><font color='orange'>new </font>操作符的本意是分配内存。程序执行到 new 操作符时，首先去看 new 操作符后面的类型，因为知道了类型，才能知道要分配多大的内存空间。分配完内存之后，再调用构造函数，填充对象的各个域，这一步叫做对象的初始化，构造方法返回后，一个对象创建完毕，可以把他的引用（地址）发布到外部，在外部就可以使用这个引用操纵这个对象。</li>
 <li><font color='orange'>clone</font> 在第一步是和 new 相似的，都是分配内存，调用 clone 方法时，分配的内存和原对象（即调用 clone 方法的对象）相同，然后再使用原对象中对应的各个域，填充新对象的域，填充完成之后，clone方法返回，一个新的相同的对象被创建，同样可以把这个新对象的引用发布到外部。</li>
 </ul>
-<h2 id="10、两个对象值相同-x-equals-y-true-，但却可有不同的hash-code，这句话对不对？"><a href="#10、两个对象值相同-x-equals-y-true-，但却可有不同的hash-code，这句话对不对？" class="headerlink" title="10、两个对象值相同(x.equals(y)==true)，但却可有不同的hash code，这句话对不对？"></a>10、两个对象值相同(x.equals(y)==true)，但却可有不同的hash code，这句话对不对？</h2><p>如果此对象重写了equals方法，那么可能出现这两个对象的equals相同，而hashcode不同。因此可以说它是对的。 但是，如果此对象继承Object，没有重写equals方法，那么就使用Object的equals方法，Object对象的equals方法默认是用==实现的，那么如果equals相同，hashcode一定相同</p>
+<h2 id="10、什么是伪共享，如何解决？"><a href="#10、什么是伪共享，如何解决？" class="headerlink" title="10、什么是伪共享，如何解决？"></a>10、什么是伪共享，如何解决？</h2><p>如果此对象重写了equals方法，那么可能出现这两个对象的equals相同，而hashcode不同。因此可以说它是对的。 但是，如果此对象继承Object，没有重写equals方法，那么就使用Object的equals方法，Object对象的equals方法默认是用==实现的，那么如果equals相同，hashcode一定相同</p>
 <h2 id="11、this关键字的用法"><a href="#11、this关键字的用法" class="headerlink" title="11、this关键字的用法"></a>11、this关键字的用法</h2><p>可以理解为：指向对象本身的一个指针。</p>
 <p>用法一般分为三种：</p>
 <ul>
@@ -335,17 +335,19 @@
 <li>可以在子类的构造方法中显式地调用父类的构造方法</li>
 </ul>
 <h2 id="13、static存在的主要意义"><a href="#13、static存在的主要意义" class="headerlink" title="13、static存在的主要意义"></a>13、static存在的主要意义</h2><p>static可以用来声明静态便变量和静态方法，可以被所有同一类的对象所共享，在类加载的时候会被初始化，且只被加载一次，所以当创建多个对象的时候，这些静态变量和静态方法也只有一个，被所有共享</p>
-<p>正由于它们是共享的，所以它们会存储在方法区当中，而不是在堆内存中，这样可以节省内存空间</p>
+<p> 正由于它们是<code>共享</code>的，所以它们会存储在方法区当中，而不是在堆内存中，这样可以节省内存空间</p>
 <p>但需要注意的是，非静态方法不能访问静态变量，静态方法不能访问非静态变量，总之就是，静态只能访问静态</p>
-<h2 id="final关键字的用法"><a href="#final关键字的用法" class="headerlink" title="final关键字的用法"></a>final关键字的用法</h2><p>被final关键字修饰的变量、方法或者类，表示对象的一个最终形态，是不能够改变的，可以保证程序的安全性和可靠性，优化程序性能。</p>
+<h2 id="final关键字的用法"><a href="#final关键字的用法" class="headerlink" title="final关键字的用法"></a>final关键字的用法</h2><p>被final关键字修饰的变量、方法或者类，表示对象的一个最终形态，是不能够改变的，可以保证程序的<code>安全性</code>和<code>可靠性</code>，优化程序性能。</p>
 <p>作用在变量前：表示这个变量是常量，一旦被初始化，其值就不能再被修改；</p>
 <p>作用在方法前：表示这个方法不可以被重写，因为final修饰的方法已经是一个最终的实现</p>
 <p>作用在类前：表示这个类不能有子类，也就是说这个类不可以被继承</p>
-<h2 id="14、java中无参数构造方法有何作用？"><a href="#14、java中无参数构造方法有何作用？" class="headerlink" title="14、java中无参数构造方法有何作用？"></a>14、java中无参数构造方法有何作用？</h2><p>创建子类的对象实例的时候，必先调用父类的无参数的构造函数（默认构造函数），假如父类有带参数的构造函数，那么系统将不会给它创建无参数的构造函数，这时，子类在实例化的时候，因为找不到父类的默认构造函数，编译器将会报错，但如果在子类的构造函数中指定用父类的带参数的构造函数的时候，或者在父类中加一个无参数的构造函数，就不会报错。</p>
+<h2 id="14、java中无参数构造方法有何作用？"><a href="#14、java中无参数构造方法有何作用？" class="headerlink" title="14、java中无参数构造方法有何作用？"></a>14、java中无参数构造方法有何作用？</h2><p>创建子类的对象实例的时候，必先调用父类的无参数的构造函数（默认构造函数），【创建子类，必先调用父类无参构造】</p>
+<p>假如父类有带参数的构造函数，那么系统将不会给它创建无参数的构造函数，这时，子类在实例化的时候，因为找不到父类的默认构造函数，编译器将会报错，</p>
+<p>但如果在子类的构造函数中指定用父类的带参数的构造函数的时候，或者在父类中加一个无参数的构造函数，就不会报错。</p>
 <h2 id="15、静态变量和实例变量区别"><a href="#15、静态变量和实例变量区别" class="headerlink" title="15、静态变量和实例变量区别"></a>15、静态变量和实例变量区别</h2><ul>
-<li><p><font color='orange'>静态变量</font>： 静态变量由于不属于任何实例对象，属于类的，所以在内存中只会有一份，在类的加载过程中，JVM只为静态变量分配一次内存空间。</p>
+<li><p><font color='orange'>静态变量</font>： 静态变量由于不属于任何实例对象，属于类的，所以在内存中只会有一份，在类的加载过程中，JVM只为静态变量<code>分配一次</code>内存空间。</p>
 </li>
-<li><p><font color='orange'>实例变量</font>： 每次创建对象，都会为每个对象分配成员变量内存空间，实例变量是属于实例对象的，在内存中，创建几次对象，就有几份成员变量。</p>
+<li><p><font color='orange'>实例变量</font>： 每次创建对象，都会为每个对象分配成员变量内存空间，实例变量是属于实例对象的，在内存中，<code>创建几次对象，就有几份</code>成员变量。</p>
 </li>
 </ul>
 <h2 id="16、静态方法和实例方法有何不同？"><a href="#16、静态方法和实例方法有何不同？" class="headerlink" title="16、静态方法和实例方法有何不同？"></a>16、静态方法和实例方法有何不同？</h2><ol>
@@ -365,12 +367,21 @@
 <li><p>第二种：当前方法不知道如何处理，则在定义该方法时声明抛出该异常。</p>
 </li>
 </ul>
-<p>运行时异常只有当代码在运行时才发现的异常，编译的时候不需要try…catch。Runtime如除数是0和数组下标越界等，其产生频繁，处理麻烦，若显示申明或者捕获将会对程序的可读性和运行效率影响很大。所以由系统自动检测并将它们交给缺省的异常处理程序。当然如果你有处理要求也可以显示捕获它们。</p>
-<h2 id="19、为什么重写equals时必须重写hashCode方法？"><a href="#19、为什么重写equals时必须重写hashCode方法？" class="headerlink" title="19、为什么重写equals时必须重写hashCode方法？"></a>19、为什么重写equals时必须重写hashCode方法？</h2><ol>
-<li>如果两个对象通过equals方法比较是相等的，那么它们的hashCode方法结果值也是相等的。</li>
-<li>如果两个对象通过equals方法比较是不相等的，那么不要求它们的hashCode方法结果值是相等的。</li>
-<li>当在一个应用程序执行过程中， 如果equals方法比较中没有修改任何信息，那么在同一个对象上重复调用hashCode方法时，它必须始终返回相同的值。但如果从一个应用程序到了另一个应用程序，两个应用程序汇中调用hashCode方法的返回值可以是不一致的。</li>
-</ol>
+<p><code>运行时异常</code>只有当代码在运行时才发现的异常，编译的时候不需要try…catch。Runtime如除数是0和数组下标越界等，其产生频繁，处理麻烦，若显示申明或者捕获将会对程序的可读性和运行效率影响很大。所以由系统自动检测并将它们交给缺省的异常处理程序。当然如果你有处理要求也可以显示捕获它们。</p>
+<h2 id="受检查异常和非受检查异常的区别"><a href="#受检查异常和非受检查异常的区别" class="headerlink" title="受检查异常和非受检查异常的区别"></a>受检查异常和非受检查异常的区别</h2><p>受检异常是指必须要捕获的异常，否则无法通过编译。</p>
+<p>非受检异常可以捕获也可以不捕获</p>
+<h2 id="19、为什么重写equals时必须重写hashCode方法？"><a href="#19、为什么重写equals时必须重写hashCode方法？" class="headerlink" title="19、为什么重写equals时必须重写hashCode方法？"></a>19、为什么重写equals时必须重写hashCode方法？</h2><blockquote>
+<p>总结：</p>
+<ul>
+<li>使用hashcode方法可以提前校验，减少equals方法调用，提高效率</li>
+<li>如果重写了equals方法，可能存在squals相等，但是hashcode不等，所以为了避免这种情况，必须重写。</li>
+</ul>
+</blockquote>
+<p>备注:为什么可以提高效率.</p>
+<p>这是因为:在java中有一个set集合,是无序且元素唯一的. 如果每次添加元素都依靠equals判断,效率太慢,所以通过hash表,查看对应hashcode位置是否有值,这样效率就会更高.</p>
+<p>如果两个对象通过equals方法比较是相等的，那么它们的hashCode方法结果值也是相等的。</p>
+<p>如果两个对象通过equals方法比较是不相等的，那么不要求它们的hashCode方法结果值是相等的。</p>
+<p>当在一个应用程序执行过程中， 如果equals方法比较中没有修改任何信息，那么在同一个对象上重复调用hashCode方法时，它必须始终返回相同的值。但如果从一个应用程序到了另一个应用程序，两个应用程序汇中调用hashCode方法的返回值可以是不一致的。</p>
 <p><strong>所以必须保证重写后的equals方法认定相同的两个对象拥有相同的哈希值</strong></p>
 <h2 id="20、抽象类和接口（Java7）的区别"><a href="#20、抽象类和接口（Java7）的区别" class="headerlink" title="20、抽象类和接口（Java7）的区别"></a>20、抽象类和接口（Java7）的区别</h2><ul>
 <li>抽象类：一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。对事物的整体进行抽象</li>
@@ -384,11 +395,11 @@
 </ol>
 <p>如果一个类中带有abstract的抽象方法，那么这个类就是一个抽象类，同时也必须在类前用abstract关键字修饰</p>
 <p>如果一个非抽象类实现了某个接口，就必须实现该接口中的所有方法；如果实现了某个接口的抽象类，可以不实现该接口中的抽象方法。</p>
-<h2 id="21、重写和重载的区别"><a href="#21、重写和重载的区别" class="headerlink" title="21、重写和重载的区别"></a>21、重写和重载的区别</h2><p><font color='yellow'>重写</font>：是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。重写的好处在于子类可以根据需要，定义特定于自己的行为。 发生在子类和父类之间。</p>
-<p><font color='yellow'>重载</font>：发生在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。 每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。</p>
+<h2 id="21、重写和重载的区别"><a href="#21、重写和重载的区别" class="headerlink" title="21、重写和重载的区别"></a>21、重写和重载的区别</h2><p><font color='yellow'>重写</font>：是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。重写的好处在于子类可以根据需要，定义特定于自己的行为。发生在子类和父类之间。[<font color='orange'>根据需要重新编写父类中的方法</font>]</p>
+<p><font color='yellow'>重载</font>：发生在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。 每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。[<font color='orange'>方法名相同,但参数不同,返回值也可以不相同</font>]</p>
 <h2 id="amp-和-amp-amp-的区别"><a href="#amp-和-amp-amp-的区别" class="headerlink" title="&amp;和&amp;&amp;的区别"></a>&amp;和&amp;&amp;的区别</h2><p>两者都可以用作逻辑与的运算符，表示逻辑与and的意思，当两边的表达式结构都为true是，整个结果才为true，否则，只要有一个为false，结果为false</p>
 <p>&amp;&amp;具有短路的功能，当第一个表达式为false时，不会计算第二个表达式</p>
-<p>&amp;可以用作位运算符，当操作符两边的表达式不是boolean类型的时候，表示按位与操作</p>
+<p>&amp;可以用作位运算符，当操作符两边的表达式不是boolean类型的时候，表示<code>按位与</code>操作</p>
 <h2 id="switch语句能否作用在byte上，能否作用在long上，能否作用在String上"><a href="#switch语句能否作用在byte上，能否作用在long上，能否作用在String上" class="headerlink" title="switch语句能否作用在byte上，能否作用在long上，能否作用在String上?"></a>switch语句能否作用在byte上，能否作用在long上，能否作用在String上?</h2><p>switch语句中表达式只能是一个整数表达式或者枚举常量。一些byte，short，char类型可以隐含转为int类型，是可以支持的。</p>
 <p>switch不支持long类型</p>
 <p>在java1.7之后开始支持string</p>
@@ -398,7 +409,9 @@
 <li>默认情况下，equals方法比较的是两个对象的内存地址是否相同，即与”==”作用相同。</li>
 <li>但是，我们可以通过在类中重写equals方法来改变它的比较方式，使其比较对象的内容是否相等。</li>
 </ul>
-<p>总的来说，”==”用于比较两个对象的内存地址是否相同，而equals方法用于比较两个对象的内容是否相同。</p>
+<blockquote>
+<p>“==”用于比较两个对象的内存地址是否相同，而equals方法用于比较两个对象的内容是否相同。</p>
+</blockquote>
 <h2 id="Integer与int的区别"><a href="#Integer与int的区别" class="headerlink" title="Integer与int的区别"></a>Integer与int的区别</h2><ul>
 <li>作为成员变量：integer的初始值是null，int的初始值是0</li>
 <li>存储方式：integer实际存储的是对象的引用，存储在堆内存的；int类型存储的是数据值，存储在栈空间</li>
@@ -409,13 +422,13 @@
 <h2 id="String、StringBuffer、StringBuilder区别"><a href="#String、StringBuffer、StringBuilder区别" class="headerlink" title="String、StringBuffer、StringBuilder区别"></a>String、StringBuffer、StringBuilder区别</h2><p>可变性：string内部的value值是final修饰的，是不可变类，每次修改值时，都会产生一个新的对象。StringBuffer和StringBuilder是一个可变类，字符串的变更不会产生一个新的对象</p>
 <p>线程安全性：string是不可变类，所以线程安全；StringBuffer也是线程安全的，因为操作方法里面有synchronized关键字修饰；而StringBuilder线程不安全的</p>
 <p>性能上：string性能最低，因为每次操作都会产生一个新的对象，要分配心得内存空间；StringBuffer性能高于string，多次修改字符串不会产生新的对象，但是由于它加了同步锁保证线程安全，所以性能要低于StringBuilder</p>
-<p>存储方面：string存储在字符串常量池中，StringBuffer和StringBuilder存储在堆内存中</p>
+<p>存储方面：<code>string</code>存储在<font color='orange'>字符串常量池</font>中，<code>StringBuffer</code>和<code>StringBuilder</code>存储在<font color='orange'>堆内存</font>中</p>
 <h2 id="Java中的异常处理机制的简单原理和应用"><a href="#Java中的异常处理机制的简单原理和应用" class="headerlink" title="Java中的异常处理机制的简单原理和应用"></a>Java中的异常处理机制的简单原理和应用</h2><p>当程序发生异常时，可以通过异常处理机制来保证程序的健壮和稳定，有两个子类实现：error和exception，error是指程序无法处理的错误，exception指的是程序在运行时需要处理的异常。受检异常和非受检异常都是派生自exception这个类</p>
 <ul>
 <li>受检异常：是指程序在编译阶段必须要主动捕获的异常，处理方式有try…catch捕获或者throw抛出去</li>
 <li>非受检异常：不需要进行捕获， 一般发生在程序运行期间</li>
 </ul>
-<h2 id="字节流与字符流的区别"><a href="#字节流与字符流的区别" class="headerlink" title="字节流与字符流的区别"></a>字节流与字符流的区别</h2><p>相同点：都可以完成对数据的读取和写入操作，本质上都是以字节为单位的读取</p>
+<h2 id="字节流与字符流的区别"><a href="#字节流与字符流的区别" class="headerlink" title="字节流与字符流的区别"></a>字节流与字符流的区别</h2><p>相同点：都可以完成对数据的<font color='orange'>读取</font>和<font color='orange'>写入</font>操作，本质上都是以<code>字节</code>为单位的读取</p>
 <p>不同点：</p>
 <ul>
 <li><p>组成不同：字节流是由字节组成；字符流是由字符组成的</p>
@@ -427,15 +440,15 @@
 <li><p>处理方式不同：字节流采用ASCII编码，处理二进制数据；字符流采用Unicode编码，进行字符集转化</p>
 </li>
 </ul>
-<h2 id="什么是java序列化，如何实现java序列化？或者请解释Serializable接口的作用"><a href="#什么是java序列化，如何实现java序列化？或者请解释Serializable接口的作用" class="headerlink" title="什么是java序列化，如何实现java序列化？或者请解释Serializable接口的作用"></a>什么是java序列化，如何实现java序列化？或者请解释Serializable接口的作用</h2><p>java序列化时至java对象转化为字节序列的过程。要实现java序列化使用java提供的serializable接口，表示这个java类是可以被序列化的，并且传输到其他地方。实现的步骤如下：</p>
+<h2 id="什么是java序列化，如何实现java序列化？或者请解释Serializable接口的作用"><a href="#什么是java序列化，如何实现java序列化？或者请解释Serializable接口的作用" class="headerlink" title="什么是java序列化，如何实现java序列化？或者请解释Serializable接口的作用"></a>什么是java序列化，如何实现java序列化？或者请解释Serializable接口的作用</h2><p>java序列化时至java对象转化为字节序列的过程。要实现java序列化使用java提供的<code>serializable</code>接口，表示这个java类是可以被序列化的，并且传输到其他地方。实现的步骤如下：</p>
 <ul>
 <li>实现serializable接口</li>
 <li>创建一个ObjectOutputStream对象，通过它将Java对象转换为字节流。</li>
 <li>创建一个ObjectInputStream对象，通过它将字节流转换为Java对象。</li>
 </ul>
-<h2 id="GC是什么，垃圾回收的优点和原理"><a href="#GC是什么，垃圾回收的优点和原理" class="headerlink" title="GC是什么，垃圾回收的优点和原理"></a>GC是什么，垃圾回收的优点和原理</h2><p>GC：gc是自动回收内存的机制，可以自动检测对象是否不在被程序所使用，从而达到自动回收内存的目的</p>
+<h2 id="GC是什么，垃圾回收的优点和原理"><a href="#GC是什么，垃圾回收的优点和原理" class="headerlink" title="GC是什么，垃圾回收的优点和原理"></a>GC是什么，垃圾回收的优点和原理</h2><p>GC：gc是<font color='orange'>自动回收内存</font>的机制，可以自动检测对象是否不再被程序所使用，从而达到自动回收内存的目的</p>
 <p>优点：垃圾回收可以有效防止内存泄漏，有效地使用那些可以使用的内存</p>
-<p>原理：垃圾回收器有一个低级别的线程处理，对堆内存中已经死亡的或者长时间没有使用的对象进行清理和回收</p>
+<p>原理：垃圾回收器有一个低级别的线程处理，对<font color='orange'>堆内存</font>中已经死亡的或者长时间没有使用的对象进行清理和回收</p>
 <p>如果一个对象长时间没有使用，但是这个对象被其他对象所引用，那么无法被垃圾回收器回收，可能会出现内存泄漏的情况</p>
 
         </div>

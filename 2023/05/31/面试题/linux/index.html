@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>linux | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">linux</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 31, 2023&nbsp;&nbsp;22:01:23</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Offers/">Offers</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="——-命令——"><a href="#——-命令——" class="headerlink" title="——-命令——-"></a>——-命令——-</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://github.com/JavaInterviewHub/JavaInterview/blob/main/Linux.md">linux</a></p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://github.com/whx123/JavaHome/blob/master/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86%E7%BB%93%E5%8F%B7/linux%E5%91%BD/linux%E5%91%BD%E4%BB%A4%E9%9D%A2%E8%AF%95%E9%A2%98.md">常用Linux命令</a></p>
+<h2 id="修改目录-文件权限的命令"><a href="#修改目录-文件权限的命令" class="headerlink" title="修改目录 文件权限的命令"></a>修改目录 文件权限的命令</h2><p>博客链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40918067/article/details/117376207?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168554201716800215047561%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168554201716800215047561&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-117376207-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=%E4%BF%AE%E6%94%B9%E7%9B%AE%E5%BD%95%EF%BC%8C%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%9A%84%E5%91%BD%E4%BB%A4&amp;spm=1018.2226.3001.4187">Linux命令:修改文件权限命令chmod、chgrp、chown详解</a></p>
+<p>有三种不同的用户可以对文件或目录进行访问：文件所有者、同组用户、其他用户</p>
+<p>每个文件或目录的访问权限都有三组，每组用三位表示：读、写、执行权限</p>
+<p>额外第一个位置字符，如果是”-“表示这是个文件，如果是”d”表示这是个目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 例如：</span></span><br><span class="line"><span class="built_in">ls</span> -l sobsrc.tgz</span><br><span class="line"><span class="comment"># 显示结果</span></span><br><span class="line">-rw-r--r-- 1 root root 483997 Ju1 l5 17:3l sobsrc.tgz</span><br><span class="line"><span class="comment"># 这个文件对于所有者有读写权限，同组用户和其他用户只有读权限</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>用户可以使用<code>chmod</code>命令设定不同的访问权限<ul>
+<li><font color='orange'>数字设定法</font>：<code>chmod 744 wch.txt</code>表示对<code>wch</code>文件执行<code>744</code>的权限设置。我们将<font color='orange'>rwx</font>看成二进制数，如果有则用1表示，没有则有0表示，那么<font color='orange'>rwx</font>则可以表示成为111，而二进制的111就是7，因此<font color='orange'>rwx</font>可以用数字<font color='orange'>7</font>表示。例如：r—可以用数组4表示；”<code>rwxr–r–</code>“，对应的数字为744</li>
+<li><font color='orange'>文字设定法</font>：<code>chmod a+x sort</code>表示所有用户<code>all</code>对文件<code>sort</code>添加<code>+</code>一个执行<code>x</code>权限</li>
+</ul>
+</li>
+<li>利用<code>chown</code>改变文件或目录的所有者<ul>
+<li><code>chown［选项］用户或组 文件</code>表示把文件按照选项要求改变所有者</li>
+</ul>
+</li>
+<li>利用<code>chgrp</code>命令更改文件或目录的用户组<ul>
+<li><code>chgrp［选项］group filename</code>表示将文件名按照选项要求改变用户组group。例如：<code>chgrp -R book /opt/local/book</code>表示递归式地改变/opt/local/book/及其子目录下的所有文件的属组为book</li>
+</ul>
+</li>
+</ol>
+<h2 id="把当前目录下所有后缀名为-txt-的文件的权限修改为-777"><a href="#把当前目录下所有后缀名为-txt-的文件的权限修改为-777" class="headerlink" title="把当前目录下所有后缀名为 .txt 的文件的权限修改为 777"></a>把当前目录下所有后缀名为 .txt 的文件的权限修改为 777</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find ./ -<span class="built_in">type</span> f -name <span class="string">&quot;.txt&quot;</span> | xargs <span class="built_in">chmod</span> 777 	<span class="comment">#使用xargs命令</span></span><br><span class="line">find ./ -<span class="built_in">type</span> f -name <span class="string">&quot;.txt&quot;</span> -<span class="built_in">exec</span> <span class="built_in">chmod</span> 777 &#123;&#125;	<span class="comment">#使用exec命令</span></span><br></pre></td></tr></table></figure>
+<h2 id="获取本地服务器上可用的端口"><a href="#获取本地服务器上可用的端口" class="headerlink" title="获取本地服务器上可用的端口"></a>获取本地服务器上可用的端口</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xuezhangjun0121/article/details/125950940?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168559487716800185880479%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168559487716800185880479&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-125950940-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=linux%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%AF%E7%94%A8%E7%AB%AF%E5%8F%A3&amp;spm=1018.2226.3001.4187">linux怎么查看开放了哪些端口</a></p>
+<ul>
+<li>使用nmap工具。查看本机开放的端口，会扫描所有端口</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap 127.0.0.1 <span class="comment"># 后面跟ip地址，也可以是其他服务器的地址</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用netstat工具。查看哪些端口被开放了</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp <span class="comment">#查看哪些端口被打开</span></span><br><span class="line">lsof -i:3306 <span class="comment">#检测指定的端口是否开放</span></span><br><span class="line">telnet 127.0.0.1 3306 <span class="comment">#连接到指定端口</span></span><br></pre></td></tr></table></figure>
+<h2 id="linux查看内存的命令"><a href="#linux查看内存的命令" class="headerlink" title="linux查看内存的命令"></a>linux查看内存的命令</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/renfufei/article/details/105851728?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=linux%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98%E7%9A%84%E5%91%BD%E4%BB%A4%E6%98%AF%E4%BB%80%E4%B9%88&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-105851728.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;spm=1018.2226.3001.4187">Linux系统命令 - 查看内存使用情况</a></p>
+<ul>
+<li><code>free -m</code> 或者 <code>free -h</code>  前者使用MB单位来展示信息，后者以人可读的单位展示</li>
+<li><code>cat /proc/meminfo</code> 查看meminfo文件</li>
+<li><code>vmstat -s</code> 展示内存使用情况</li>
+<li><code>top</code> 查看进程的CPU和内存使用情况</li>
+<li><code>htop</code> </li>
+</ul>
+<h2 id="查看系统磁盘空间剩余情况的命令"><a href="#查看系统磁盘空间剩余情况的命令" class="headerlink" title="查看系统磁盘空间剩余情况的命令"></a>查看系统磁盘空间剩余情况的命令</h2><p>排查磁盘占满：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h	<span class="comment">#查看磁盘剩余空间</span></span><br><span class="line"><span class="built_in">du</span> -bs /usr <span class="comment">#查看usr目录大小</span></span><br><span class="line">find . -size +100M <span class="comment">#找到usr目录下文件大于100M的文件</span></span><br></pre></td></tr></table></figure>
+<h2 id="获取java进程的pid"><a href="#获取java进程的pid" class="headerlink" title="获取java进程的pid"></a>获取java进程的pid</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep 要查找的进程名 <span class="comment">#aux表示以BSD风格显示进程，根据对于的进程名进行查找</span></span><br></pre></td></tr></table></figure>
+<h2 id="获取某个进程的网络端口号"><a href="#获取某个进程的网络端口号" class="headerlink" title="获取某个进程的网络端口号"></a>获取某个进程的网络端口号</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -na | grep pid</span><br></pre></td></tr></table></figure>
+<h2 id="实时打印日志"><a href="#实时打印日志" class="headerlink" title="实时打印日志"></a>实时打印日志</h2><p>参考连接：<a target="_blank" rel="noopener" href="https://www.dbs724.com/134619.html">Linux下打印日志的正确姿势（linux打印日志）</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#实时打印日志</span></span><br><span class="line"><span class="built_in">tail</span> -f /var/log/syslog	</span><br><span class="line"><span class="comment">#打印指定数量行</span></span><br><span class="line"><span class="built_in">tail</span> -f -n 20 /var/log/syslog </span><br><span class="line"><span class="comment">#以相反的方式更新日志条目，显示在文件的开头</span></span><br><span class="line"><span class="built_in">head</span> -n 20 /var/log/syslog </span><br><span class="line"><span class="comment">#依靠使用grep过滤特定关键字</span></span><br><span class="line">grep --color=always <span class="string">&#x27;error&#x27;</span> /var/log/syslog </span><br></pre></td></tr></table></figure>
+<h2 id="统计某个字符串行数"><a href="#统计某个字符串行数" class="headerlink" title="统计某个字符串行数"></a>统计某个字符串行数</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/cnds123321/article/details/125150383?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E5%A6%82%E4%BD%95%E7%BB%9F%E8%AE%A1%E6%9F%90%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%8C%E6%95%B0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-125150383.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;spm=1018.2226.3001.4187">Linux命令之统计文件字数、字符数、字节数及行数信息wc</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">wc</span> log.txt	<span class="comment">#统计log文件中的行数、字数、字节数</span></span><br><span class="line"><span class="built_in">wc</span> -l log.txt	<span class="comment">#统计log文件的行数</span></span><br><span class="line"><span class="built_in">wc</span> -w log.txt	<span class="comment">#统计log文件的字数</span></span><br><span class="line"><span class="built_in">wc</span> -c log.txt	<span class="comment">#统计字节数</span></span><br><span class="line"><span class="built_in">wc</span> -m log.txt	<span class="comment">#统计字符数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#与管道符结合使用 </span></span><br><span class="line"><span class="built_in">echo</span> -n <span class="string">&quot;hello world&quot;</span> | <span class="built_in">wc</span> -m	<span class="comment">#统计字符串长度</span></span><br><span class="line"><span class="comment">#之所以要加上 -n 选项是因为使用 echo 命令输出会自带一个换行符，所以去除掉才会不影响真实统计结果</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ls</span> /root/ | <span class="built_in">wc</span> -l	<span class="comment">#统计 /root/目录下的文件个数 </span></span><br></pre></td></tr></table></figure>
+<h2 id="绝对路径-相对路径-目录切换"><a href="#绝对路径-相对路径-目录切换" class="headerlink" title="绝对路径 相对路径 目录切换"></a>绝对路径 相对路径 目录切换</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Redamancy06/article/details/125317329?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%8C%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E3%80%81%E4%B8%8A%E5%B1%82%E7%9B%AE%E5%BD%95%EF%BC%8C%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95%E5%88%86%E5%88%AB%E7%94%A8%E4%BB%80%E4%B9%88%E5%91%BD%E4%BB%A4&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-4-125317329.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;spm=1018.2226.3001.4187">Linux常用命令(上)</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..		<span class="comment">#切回上一级目录</span></span><br><span class="line"><span class="built_in">cd</span> -		<span class="comment">#上一次工作目录</span></span><br><span class="line"><span class="built_in">cd</span> /bin/	<span class="comment">#使用绝对路径切换目录</span></span><br><span class="line"><span class="built_in">cd</span> bin/		<span class="comment">#相对路径切换</span></span><br><span class="line"><span class="built_in">cd</span> ~		<span class="comment">#切换到home目录</span></span><br><span class="line"><span class="built_in">pwd</span>			<span class="comment">#显示当前工作目录的绝对路径</span></span><br></pre></td></tr></table></figure>
+<h2 id="清屏-退出当前命令"><a href="#清屏-退出当前命令" class="headerlink" title="清屏 退出当前命令"></a>清屏 退出当前命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clear	<span class="comment">#清屏</span></span><br><span class="line">ctrl+c	<span class="comment">#退出当前命令</span></span><br></pre></td></tr></table></figure>
+<h2 id="目录创建，创建文件，复制文件"><a href="#目录创建，创建文件，复制文件" class="headerlink" title="目录创建，创建文件，复制文件"></a>目录创建，创建文件，复制文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /home/dog		<span class="comment">#在home目录下创建一个dog目录</span></span><br><span class="line"><span class="built_in">rmdir</span> /home/dog		<span class="comment">#删除home目录下的空目录dog</span></span><br><span class="line">torch a.txt			<span class="comment">#创建a.txt文件</span></span><br><span class="line"><span class="built_in">cp</span> a.txt b.txt		<span class="comment">#将a复制到b中去</span></span><br></pre></td></tr></table></figure>
+<h2 id="查看文件内容命令"><a href="#查看文件内容命令" class="headerlink" title="查看文件内容命令"></a>查看文件内容命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">head</span>	<span class="comment">#显示文件头部分内容</span></span><br><span class="line">tial	<span class="comment">#显示文件尾部分内容</span></span><br><span class="line"><span class="built_in">cat</span> -n	<span class="comment">#查看文件内容，从第一行开始显示 -n表示显示行号</span></span><br><span class="line">less	<span class="comment">#分屏查看文件内容，它的功能与more指令类似，但是比more指令更加强大，支持各种显示终端</span></span><br><span class="line">more	<span class="comment">#基于vi编辑器的文本过滤器，它以全屏幕的方式按页显示文本文件的内容</span></span><br></pre></td></tr></table></figure>
+<h2 id="使一个命令在后台运行"><a href="#使一个命令在后台运行" class="headerlink" title="使一个命令在后台运行"></a>使一个命令在后台运行</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> java -jar test.jar &amp;	<span class="comment">#在允许命令后加上&amp;</span></span><br><span class="line"><span class="comment">#加上nohup可以在关闭终端后不停止命令，不加的话当关闭终端会停止运行</span></span><br></pre></td></tr></table></figure>
+<h2 id="终止进程命令-kill-9-pid-有什么风险"><a href="#终止进程命令-kill-9-pid-有什么风险" class="headerlink" title="终止进程命令 kill -9 pid 有什么风险"></a>终止进程命令 <code>kill -9 pid</code> 有什么风险</h2><p>在一些项目中，比如对于MyISAM引擎，当使用暴力结束进程，会导致数据不一致问题。因此，在项目中避免使用暴力结束进程方式，使用java提供的结束项目的功能。如：tomcat可以使用<code>shutdown.sh</code>结束。这个过程包括了四步：</p>
+<ol>
+<li>停止接收请求和内部线程</li>
+<li>判断是否有线程正在执行</li>
+<li>等待线程执行完毕</li>
+<li>停止容器</li>
+</ol>
+<p>在linux下，使用<code>kill -15 pid</code>也能优雅结束进程，大部分程序接收<code>SIGTERM</code>信号后，会先释放自己的资源，然后停止</p>
+<h2 id="搜索文件命令"><a href="#搜索文件命令" class="headerlink" title="搜索文件命令"></a>搜索文件命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find [搜索目录] [-name|-iname] [搜索字符]	<span class="comment">#name区分大小写，iname不区分大小写</span></span><br><span class="line">find /etc -name init   		<span class="comment">#精准搜索，名字必须为 init 才能搜索的到</span></span><br><span class="line">find /etc -iname init   	<span class="comment">#精准搜索，名字必须为 init或者有字母大写也能搜索的到</span></span><br><span class="line">find /etc -name *init  		<span class="comment">#模糊搜索，以 init 结尾的文件或目录名)</span></span><br><span class="line">find /etc -name init??? 	<span class="comment">#模糊搜索，？表示单个字符，即搜索到 init___</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> <span class="built_in">ls</span> 	<span class="comment">#搜索命令所在目录、别名信息</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whereis <span class="built_in">ls</span>	<span class="comment">#搜索命令所在目录、帮助文档路径</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep -iv 【指定字符串】【文件】	<span class="comment">#i不区分大小写，v排除指定字符串</span></span><br><span class="line">grep mysql /root/install.log	<span class="comment">#查找文件中包含mysql字符串的行，并输出</span></span><br></pre></td></tr></table></figure>
+<h2 id="查看网络是否连通命令"><a href="#查看网络是否连通命令" class="headerlink" title="查看网络是否连通命令"></a>查看网络是否连通命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com	<span class="comment">#测试是否连接到百度 ，不会自动终止，需要ctrl+c终止</span></span><br><span class="line">ping -c 4 www.baidu.com		<span class="comment">#指定发送次数</span></span><br></pre></td></tr></table></figure>
+<h2 id="查看ip地址及接口信息"><a href="#查看ip地址及接口信息" class="headerlink" title="查看ip地址及接口信息"></a>查看ip地址及接口信息</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ifconfig	<span class="comment">#查看网络接口的地址配置信息</span></span><br><span class="line">ip addr		</span><br><span class="line">netstat 	<span class="comment">#命令主要是用来查看网络连接、路由表、接口状态、端口信息</span></span><br></pre></td></tr></table></figure>
+<h2 id="vim有几种工作模式"><a href="#vim有几种工作模式" class="headerlink" title="vim有几种工作模式"></a>vim有几种工作模式</h2><p>命令模式，行末模式，编辑模式</p>
+<p>输入<code>vim filename</code>进入命令模式，退出输入<code>:wq</code></p>
+<p>在命令模式下，输入<code>i</code>进入输入模式，退出按<code>ESC</code>键</p>
+<p>在命令模式下，输入<code>:</code>进入底行模式，退出输入<code>命令</code>回车</p>
+<blockquote>
+<p>底行模式常用命令：</p>
+<ul>
+<li>w保存文件， q退出， q!强制退出， wq保存后退出</li>
+</ul>
+<p>进入输入模式命令：</p>
+<ul>
+<li>i/a/o/I/A/O</li>
+</ul>
+</blockquote>
+<h2 id="——-常用环境搭建——"><a href="#——-常用环境搭建——" class="headerlink" title="——-常用环境搭建——"></a>——-常用环境搭建——</h2><h2 id="——-Shell-脚本编程——"><a href="#——-Shell-脚本编程——" class="headerlink" title="——-Shell 脚本编程——-"></a>——-Shell 脚本编程——-</h2><h2 id="——-VIM-的使用——"><a href="#——-VIM-的使用——" class="headerlink" title="——-VIM 的使用——-"></a>——-VIM 的使用——-</h2>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Offers/"># Offers</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/06/03/Test/postman%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">postman接口测试</a>
+            
+            
+            <a class="next" rel="next" href="/2023/05/26/%E5%85%AC%E5%8A%A1%E5%91%98/%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90/">资料分析</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

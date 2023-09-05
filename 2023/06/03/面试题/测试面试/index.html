@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>测试面试 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">测试面试</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 3, 2023&nbsp;&nbsp;19:33:04</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Offers/">Offers</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="测试题"><a href="#测试题" class="headerlink" title="测试题"></a>测试题</h2><h3 id="对某个模块是如何使用postman进行测试的"><a href="#对某个模块是如何使用postman进行测试的" class="headerlink" title="对某个模块是如何使用postman进行测试的"></a>对某个模块是如何使用postman进行测试的</h3><ul>
+<li>第一步，在postman里面创建一个工程目录，并在工程目录下创建一个集合，在集合下创建接口请求</li>
+<li>根据对应的请求，选择请求方式，填写请求地址，填写请求参数，</li>
+<li>发送请求，查看响应结果</li>
+</ul>
+<p>使用postman做接口测试，主要是获取一些请求参数，获取的方法可以通过接口文档，也可以通过浏览器f12或者抓包工具查看请求的具体信息。这些信息包括了请求方式、请求头信息、请求体信息等等</p>
+<p>然后就是设计测试用例，可以用一些给定的用例模板，根据接口的一些参数。采用等价类、边界值、参数组合的方法来作为请求数据。然后，整理预期的响应结果，形成测试用例。</p>
+<p>根据设计好的测试用例，把这些信息填入到postman里面的接口请求中，并发送请求，最后在查看对应的响应结果。</p>
+<p>判断响应结果，可以通过断言的方式来自动进行判断，一般对响应状态码、响应的正文进行判断，是否和对应状态码相等，或者正文中包含预期的字符串等</p>
+<h3 id="你是如何使用fiddler进行抓包的"><a href="#你是如何使用fiddler进行抓包的" class="headerlink" title="你是如何使用fiddler进行抓包的"></a>你是如何使用fiddler进行抓包的</h3><ul>
+<li></li>
+</ul>
+<p>参考文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43750377/article/details/114066222?ops_request_misc=&amp;request_id=05ffd8ac7c4447c69fce4c9a4c437371&amp;biz_id=&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~koosearch~default-1-114066222-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=%5B%E5%B0%8F%E7%A8%8B%E5%BA%8F%5D%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%20%2B%20%E9%9D%A2%E8%AF%95%E7%90%86%E8%AE%BA%EF%BC%88%E8%B6%85%E8%AF%A6%E7%BB%86%EF%BC%89&amp;spm=1018.2226.3001.4187">软件测试基础知识 + 面试理论（超详细）</a></p>
+<h2 id="软件测试-目的"><a href="#软件测试-目的" class="headerlink" title="软件测试 目的"></a><strong>软件测试 目的</strong></h2><p>定义：在规定的条件下对程序操作发现程序错误，对软件质量是否满足设计要求进行评估的过程</p>
+<p>目的：检测系统软件是否符合预期要求，找出错误</p>
+<h2 id="软件测试工程师工作内容"><a href="#软件测试工程师工作内容" class="headerlink" title="软件测试工程师工作内容"></a>软件测试工程师工作内容</h2><ol>
+<li>找到软件中的bug，并且越早发现越好</li>
+<li>确认bug的可重复性以及bug产生的步骤</li>
+<li>确认bug是否被解决</li>
+<li>测试方法，测试计划，测试平台，测试代码，测试用例，测试文档，测试报告的确定、编写和执行。</li>
+</ol>
+<h2 id="软件测试流程"><a href="#软件测试流程" class="headerlink" title="软件测试流程"></a>软件测试流程</h2><p>需求调查：全面了解系统概况、应用领域、软件开发周期、软件开发环境、开发组织、时间安排、功能需求、性能需求、质量需求及测试要求等。根据系统概况进行项目所需的人员、时间和工作量估计以及项目报价。</p>
+<p>制定初步的项目计划。</p>
+<p>测试准备：组织测试团队、培训、建立测试和管理环境等。</p>
+<p>测试设计：按照测试要求进行每个测试项的测试设计，包括测试用例的设计和测试脚本的开发等。</p>
+<p>测试实施：按照测试计划实施测试。</p>
+<p>测试评估：根据测试的结果，出具测试评估报告。</p>
+<h2 id="软件测试-阶段-类型"><a href="#软件测试-阶段-类型" class="headerlink" title="软件测试 阶段|类型"></a>软件测试 阶段|类型</h2><p><font color='orange'>单元测试</font>：</p>
+<ul>
+<li>正确：保证函数和类实现的功能正确</li>
+<li>清晰：让其他开发理解函数或类的实现</li>
+<li>完成：保证单元测试的覆盖率</li>
+<li>健壮：不跟随内部实现的修改，或功能的添加而发生明显的改变</li>
+</ul>
+<p><font color='orange'>集成测试</font>：</p>
+<ul>
+<li>将已经测试的单元组合成一个组件，并且测试他们之间的接口。直到最后对所有的模块一起测试</li>
+</ul>
+<p><font color='orange'>系统测试</font>：</p>
+<ul>
+<li><p>将经过测试的子系统装配成一个完整系统来测试，确保最终软件系统满足产品需求而遵循系统设计</p>
+</li>
+<li><p>测试功能性、可靠性、易用性、效率、维护、可移植</p>
+</li>
+</ul>
+<p><font color='orange'>验收测试</font>：</p>
+<ul>
+<li>部署软件之前的最后一个测试操作。保证软件的功能和性能如同用户所合理期待的那样</li>
+</ul>
+<h2 id="软件测试有哪些方法"><a href="#软件测试有哪些方法" class="headerlink" title="软件测试有哪些方法"></a>软件测试有哪些方法</h2><p><font color='orange'>黑盒测试</font>：关注软件的功能和行为，不考虑内部实现细节。测试人员只关注输入输出。不可能覆盖所有的代码，覆盖率较低</p>
+<p><font color='orange'>白盒测试</font>：会详细检查软件内部结构和代码，了解软件的实现</p>
+<p><font color='orange'>灰盒测试</font>：是介于白盒和黑盒之间的测试方法。测试人员对软件的内部结构有一定了解，但并不完全揭示所有实现细节。</p>
+<p><font color='orange'>功能测试</font>：验证软件是否按照规定功能需求正常工作。根据功能规格说明书或需求文档，设计测试用例进行测试</p>
+<p><font color='orange'>性能测试</font>：测试软件在不同负载和压力条件下的性能表现。如：响应时间、吞吐量、并发用户数，以及在弱网条件下能否满足要求等</p>
+<p><font color='orange'>安全测试</font>：评估软件的安全性。如：安全漏洞，存不存在sql注入的问题等</p>
+<p><font color='orange'>兼容性测试</font>：测试软件在不同系统，平台环境下的兼容性</p>
+<p><font color='orange'>用户界面测试</font>：评估界面是否符合设计要求，验证界面可用性和用户体验</p>
+<p><font color='orange'>回归测试</font>：对软件进行更改或修复后执行，确保修改后的部分不会影响其他功能</p>
+<p><font color='orange'>自动化测试</font>：利用自动化工具和脚本来执行测试，提高测试效率</p>
+<h2 id="白盒测试和黑盒测试的优缺点"><a href="#白盒测试和黑盒测试的优缺点" class="headerlink" title="白盒测试和黑盒测试的优缺点"></a>白盒测试和黑盒测试的优缺点</h2><p>黑盒测试：</p>
+<ul>
+<li>优点：不需要了解软件实现细节，软件内部实现机制更改时，不必修改测试用例，相对简单</li>
+<li>缺点：无法保证软件代码内各主要路径是否被覆盖到，</li>
+</ul>
+<p>白盒测试：</p>
+<ul>
+<li>优点：针对软件代码和路径进行测试，易于调试，容易发现产生bug的原因</li>
+<li>缺点：对测试人员的编程能力要求高，软件代码的改变，测试用例需要改变</li>
+</ul>
+<h2 id="做好测试用例设计工作的关键"><a href="#做好测试用例设计工作的关键" class="headerlink" title="做好测试用例设计工作的关键"></a>做好测试用例设计工作的关键</h2><p>对于白盒测试：</p>
+<ul>
+<li>用较少的测试用例覆盖尽可能多的内部程序逻辑结构。</li>
+<li>把测试对象看作是一个打开的盒子，允许测试人员利用程序内部的逻辑结构，设计测试用例并进行测试<ul>
+<li>对程序模块所有独立的执行路径进行测试</li>
+<li>对所有逻辑进行判定，真假至少判断一遍</li>
+<li>在循环的边界、内部执行循环体</li>
+<li>测试数据结构有效性</li>
+</ul>
+</li>
+</ul>
+<p>对于黑盒测试：</p>
+<ul>
+<li>以较少测试用例覆盖尽可能多的模块输入输出接口</li>
+<li>把测试对象看作是一个黑盒子，测试人员完全不考虑程序内部的逻辑结构和特性，只检查它是否符合预期需求<ul>
+<li>是否有不正确的，遗漏的功能</li>
+<li>输入能否正常接收，输出能否输出正确结果</li>
+<li>性能上能否满足要求，负载和压力，响应时间</li>
+<li>是否有初始化，或终止性错误</li>
+</ul>
+</li>
+</ul>
+<h2 id="—xxx—"><a href="#—xxx—" class="headerlink" title="—xxx—"></a>—xxx—</h2><h2 id="接口协议"><a href="#接口协议" class="headerlink" title="接口协议"></a>接口协议</h2><p>协议类型：</p>
+<p><code>http</code>: 超文本传输协议。<code>https</code>：安全超文本传输协议。<code>ftp</code>：文件传输协议。<code>tcp</code>：传输控制协议。<code>ip</code>：互联网协议。<code>udp</code>：用户数据协议。</p>
+<p>http和https的区别：</p>
+<ul>
+<li>http是明文传输，数据都是未加密的，安全性较差。https加入了ssl层，它的数据传输时加密的，安全性更好</li>
+<li>http的响应速度更快，因为使用的时tcp三次握手建立连接。而https除此之外，还要加上ssl握手需要交换的9个包</li>
+<li>http和https使用不同的连接方式，用的端口也不一样。前者使用80，后者使用443</li>
+</ul>
+<h2 id="http协议的内容是什么"><a href="#http协议的内容是什么" class="headerlink" title="http协议的内容是什么?"></a>http协议的内容是什么?</h2><p>http超文本传输协议，定义一种客户端和服务端之间交换数据的过程以及数据本身的格式。http协议简单讲就是客户端和服务端之间沟通的语言以及在交互过程中遵循的规则。</p>
+<p>主要特点：</p>
+<ul>
+<li>简单快速。通讯速度很快</li>
+<li>无状态。服务端对于事务处理没有记忆能力，一次交互之后，相同的请求需要再次发起请求才可以</li>
+</ul>
+<h2 id="请求头的内容有哪些"><a href="#请求头的内容有哪些" class="headerlink" title="请求头的内容有哪些"></a>请求头的内容有哪些</h2><p>请求头是用来说明服务器要的附加信息</p>
+<ul>
+<li>user-agent用户代理：用于表示客户端的操作系统和浏览器信息</li>
+<li>cookie: 浏览器保存重要信息，比如用户登录之后的身份信息</li>
+<li>host主机：请求网址的域名信息（包含端口号）</li>
+<li>以及accept相关的一些信息</li>
+</ul>
+<h2 id="http和https的区别有哪些"><a href="#http和https的区别有哪些" class="headerlink" title="http和https的区别有哪些"></a>http和https的区别有哪些</h2><p>http是指超文本数据传输协议。信息是明文传输，如果攻击者截取了客户端和服务端之间的传输报文，就能够直接读取其中的信息</p>
+<p>https是指具有安全性的ssl加密传输协议。能够确保数据在传输过程中的安全</p>
+<p>区别：</p>
+<ul>
+<li>传输安全性不同。http以明文方式发送信息，https是具有安全性的ssl加密传输</li>
+<li>连接方式不同。http是无状态的简单连接；https是由ssl+http协议构建的可进行加密、身份认证的网络协议</li>
+<li>端口号不同。http的端口是80；https的端口是443</li>
+</ul>
+<h2 id="tcp和udp的区别"><a href="#tcp和udp的区别" class="headerlink" title="tcp和udp的区别"></a>tcp和udp的区别</h2><ul>
+<li>是否连接。tcp是面向连接的，是一种很可靠的协议；udp是无连接的，不保证信息的可靠交互</li>
+<li>效率不同。udp由于是无连接的，所以时效性较好，效率比tcp高</li>
+<li>应用场合。tcp适合传输大量数据；udp适合传输少量数据</li>
+<li>字节头不同。tcp20个字节头；udp8个字节头</li>
+</ul>
+<h2 id="网关的作用"><a href="#网关的作用" class="headerlink" title="网关的作用"></a>网关的作用</h2><p>网关是连接两个或多个不同网络的设备</p>
+<p>功能：</p>
+<ul>
+<li><p>转发数据包。根据不同网络的地址和路由信息，转发数据包到目的网络</p>
+</li>
+<li><p>过滤流量。可以过滤限制一些流量通过，实现网络控制访问和安全保护</p>
+</li>
+<li><p>协议转换。将一个协议的数据包转换成另一个协议的数据包</p>
+</li>
+</ul>
+<h2 id="tcp的三次握手四次挥手的过程"><a href="#tcp的三次握手四次挥手的过程" class="headerlink" title="tcp的三次握手四次挥手的过程"></a>tcp的三次握手四次挥手的过程</h2><p><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost4/%E7%BD%91%E7%BB%9C/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.drawio.png" alt="TCP 三次握手" style="zoom: 33%;" /></p>
+<p>三次握手</p>
+<ol>
+<li>一开始客户端和服务端都处于close状态，先是服务端监听某个端口，处于<font color='red'>listen</font>状态</li>
+<li>客户端初始化自己的序列号放到报文序号中，同时把<code>syn</code>的标记为1，表示<code>syn</code>报文，把<code>syn</code>报文发送给服务端，此时客户端处于<font color='red'>syn-sent</font>状态</li>
+<li>服务端收到<code>syn</code>报文之后，处于<font color='red'>syn-rcvd</font>状态，服务端初始化自己的序列号放入报文序号中，并且将<code>tcp</code>首部的确认应答号填入<font color='orange'>客户端序列号+1</font>，再把<code>syn</code>和<code>ack</code>标记为1，最后把该报文发送给客户端</li>
+<li>客户端收到服务端报文后，还要发送一个应答报文，在应答报文里设置<code>ack</code>为1，再把确认应答号填入<font color='orange'>服务端序列号+1</font>，最后发送该报文</li>
+<li>服务端收到应答报文后，双方都处于建立连接<font color='red'>established</font>状态</li>
+</ol>
+<p><img src="https://cdn.xiaolincoding.com//mysql/other/format,png-20230309230614791.png" alt="客户端主动关闭连接 —— TCP 四次挥手" style="zoom:50%;" /></p>
+<p>四次挥手</p>
+<ol>
+<li>客户端打算关闭连接，此时它会<u>发送一个<code>fin</code>标记为1的报文</u>，之后进入<font color='red'>fin-wait-1</font>状态</li>
+<li>服务端收到<code>fin</code>报文后，向客户端<u>发送<code>ack</code>应答报文</u>，接着服务端进入<font color='red'>closed-wait</font>状态</li>
+<li>客户端收到<code>ack</code>应答报文后，进入<font color='red'>fin-wait-2</font>状态</li>
+<li>等待服务端处理完成数据之后，向客户端<u>发送<code>fin</code>报文</u>，之后服务端进入<font color='red'>last-ack</font>状态</li>
+<li>客户端收到<code>fin</code>报文后，<u>回复<code>ack</code>应答报文</u>，进入<font color='red'>time-wait</font>状态</li>
+<li>服务端收到<code>ack</code>应答报文后，进入close状态，服务端连接关闭</li>
+<li>客户端在经过一段时间之后，自动进入close状态，连接关闭</li>
+</ol>
+<h2 id="—xxx—-1"><a href="#—xxx—-1" class="headerlink" title="—xxx—"></a>—xxx—</h2><h2 id="你发现bug，开发不承认是bug"><a href="#你发现bug，开发不承认是bug" class="headerlink" title="你发现bug，开发不承认是bug"></a>你发现bug，开发不承认是bug</h2><p>根据需求文档，反复确认这是一个bug，对bug进行重新测试，做好记录截图，收集复现步骤、影响程度、日志信息</p>
+<p>如果有需求说明书，就确认实际结果是否符合预期来确认这是否是一个bug。</p>
+<p>如果说没有需求说明书，我们可以参考同行业同类产品在这个地方的特性问题，是否一致的；</p>
+<p>然后，做好出现bug的截图，以及出现bug的步骤，影响程度等。</p>
+<p>告知开发bug的判断依据，同时明确开发说不是bug的理由</p>
+<p>如果是需求变更，就与产品经理沟通确认</p>
+<p>如果是开发说是测试环境问题，就验证开发所说的测试环境</p>
+<p>如果还是不行，那我可以把这个问题提出来，跟开发经理和测试经理进行确认，如果要修改就改，如果不要修改就不改</p>
+<h2 id="测试用例-要素"><a href="#测试用例-要素" class="headerlink" title="测试用例 要素"></a>测试用例 要素</h2><p>测试用例是一组测试输入、执行条件以及预期结果，用于核实是否满足某个特定软件需求</p>
+<p>用例名称、用例描述、执行步骤、预期结果、优先级</p>
+<ol>
+<li>标题：描述测试用例，要求清楚表达</li>
+<li>操作步骤：明确指向测试需要的操作步骤，根据步骤完成用例的执行</li>
+<li>重要性优先级：<ul>
+<li>高级别：保证系统的基本功能、核心业务、使用率较高的用例</li>
+<li>中级别：介于高级别和低级别的用例</li>
+<li>低级别：实际使用频率不高，对系统业务功能影响不大的模块的用例</li>
+</ul>
+</li>
+<li>预期结果：测试用例预期的输出结果，和实际比较，如果相同则测试通过，否则失败</li>
+</ol>
+<h2 id="编写测试用例的方法有哪些"><a href="#编写测试用例的方法有哪些" class="headerlink" title="编写测试用例的方法有哪些"></a><strong>编写测试用例的方法有哪些</strong></h2><p>等价类</p>
+<ul>
+<li>将输入或参数划分为等效类别，并为每个等效类别设计测试用例。只要这类的一个数据通过测试，那么这一类的都通过。有效等价类：检查程序实现了需求规定的功能。无效等价类：不满足需求。</li>
+</ul>
+<p>边界值分析：</p>
+<ul>
+<li>对输入数据的各种边界情况设计测试用例。选取正好等于、刚刚大于或刚刚小于边界的值作为测试数据(上点、离点、内点)</li>
+</ul>
+<p>场景法：</p>
+<ul>
+<li>模拟用户使用软件的操作情形。先关注主要功能是否正确实现，再去关注空间的等价类、边界值细节。场景划分为：基本流(模拟用户正确的业务操作)；备选流(模拟用户错误操作的流程)</li>
+</ul>
+<p>因果图法：</p>
+<ul>
+<li>利用图解法分析输入的各种组合情况，适合检查程序输入条件的各种组合情况。有四种因果关系(恒等、非、与、或)</li>
+</ul>
+<p>判定表法：</p>
+<ul>
+<li>分析和表达多逻辑条件下执行不同操作的情况的工具。优点：能将各种可能情况列举出来，根据判定表设计完成测试用例集合。缺点：不能表达重复执行的动作，如循环结构。</li>
+<li>它由四部分组成：<ul>
+<li>条件桩：列出问题的所有条件、次序无关紧要</li>
+<li>动作桩：列出问题可能采取的动作、顺序没有约束</li>
+<li>条件项：列出针对它左列条件的取值，所有可能情况下的真假值</li>
+<li>动作项：条件项下各种取值情况下应该采取的动作</li>
+</ul>
+</li>
+<li>判定表应用步骤：<ul>
+<li>理解需求：去欸的那个条件桩、动作桩</li>
+<li>设计和优化判定表</li>
+<li>填写动作项</li>
+<li>根据判定表中输出结果的表现，进行判定表的合并</li>
+<li>抽取测试用例</li>
+</ul>
+</li>
+</ul>
+<h2 id="详细描述一个完整的测试流程"><a href="#详细描述一个完整的测试流程" class="headerlink" title="详细描述一个完整的测试流程"></a>详细描述一个完整的测试流程</h2><ol>
+<li>项目经理和客户沟通，完成需求文档。开发人员和测试人员共同完成需求文档的评审。评审内容包括：<ul>
+<li>需求描述不清楚的、功能无法实现的</li>
+</ul>
+</li>
+<li>项目经理综合各方意见，完成项目计划。软件质量保证进入项目，进行统计跟踪</li>
+<li>测试人员编写测试用例，开发人员编写概要设计文档、详细设计文档、编写代码</li>
+<li>测试用例完成后，测试和开发需要进行评审</li>
+<li>测试人员搭建测试环境，对开发人员提交的版本项目进行测试，并对结果进行分析，编写测试报告</li>
+<li>对bug修改和增加的功能进行测试，并对结果进行分析。重复这几步操作，减少bug</li>
+<li>如果客户反馈的问题，需要测试人员协助以及回归测试</li>
+</ol>
+<h2 id="研发管理流程-测试流程"><a href="#研发管理流程-测试流程" class="headerlink" title="研发管理流程/测试流程"></a>研发管理流程/测试流程</h2><ol>
+<li>产品经历整理文档需求、绘制产品原型、组织产品|测试|开发相关人员召开需求评审会议</li>
+<li>会议后，开发人员编写代码，进行单元测试；测试人员同步开始编写测试用例、评审测试用例</li>
+<li>开发完成后提测，部署到测试环境，测试人员开始测试。测试完成后，对测试结果进行分析，编写测试报告<ul>
+<li>集成测试、系统测试等</li>
+</ul>
+</li>
+<li>产品发布上线，并持续关注是否正常运行</li>
+</ol>
+<h2 id="如何保证被测产品质量-用例覆盖度"><a href="#如何保证被测产品质量-用例覆盖度" class="headerlink" title="如何保证被测产品质量/用例覆盖度"></a>如何保证被测产品质量/用例覆盖度</h2><ol>
+<li>编写测试用例前，检查相关需求、设计文档是否有问题（功能描述不清，设计逻辑缺陷），如有问题和产品开发沟通</li>
+<li><p>整理功能列表</p>
+<ol>
+<li>整理出测试用例需要覆盖的功能列表：功能列表包含新增和修改功能点；</li>
+<li>整理性能需求；</li>
+<li>对既有功能进行一个梳理，检查是否会与其他功能有交互。</li>
+</ol>
+</li>
+<li><p>对功能列表进行会议评审，主要对功能等进行查漏补缺。</p>
+</li>
+<li>最后才行进测试用例编写，注意编写规范。</li>
+<li>编写完毕后，把测试用例发给组员，开会进行评审，主要对检查点、用例规范进行查漏补缺。</li>
+<li>执行测试用例过程中，发现用例不完善或者错误，需对测试用例进行及时的修改与调优</li>
+<li>测试完毕后对漏测的bug进行测试用例补充。</li>
+</ol>
+<h2 id="产品测试和项目测试的区别"><a href="#产品测试和项目测试的区别" class="headerlink" title="产品测试和项目测试的区别"></a>产品测试和项目测试的区别</h2><p>习惯上把开发完成后进行商业化、几乎不做修改就可以发售给用户的称之为软件产品。通常把针对特定用户，或按照用户需求而开发的软件称之为软件项目。它们有以下区别：</p>
+<ol>
+<li>质量要求不同。产品的质量要求高一些，测试产品发布后，出现缺陷导致的成本更高。测试项目一般来说需要满足用户要求即可</li>
+<li>测试资源投入不同。</li>
+<li>项目最后要和用户共同验收测试，而产品测试不用</li>
+<li>软件产品的维护时间可能更长一些</li>
+</ol>
+<h2 id="如何定位问题-判断BUG是前端还是后端"><a href="#如何定位问题-判断BUG是前端还是后端" class="headerlink" title="如何定位问题/判断BUG是前端还是后端"></a>如何定位问题/判断BUG是前端还是后端</h2><ol>
+<li>使用抓包工具(fiddler|浏览器F12)，查看点击时有没有触发请求，如果没有请求，那就是前端的bug</li>
+<li>如果请求没问题，就看后端返回数据，根据接口文档，返回数据是否有误。如果是前端传参不正确导致，就是前端问题，如果是传参正确，后端处理不正确，就是后端的问题</li>
+<li>如果后端响应了数据，且和接口文档一致，就是前端展示的问题</li>
+<li>查看日志。如果日志没有输出，基本认为该功能没有和后端交互</li>
+<li>查看数据库，有些bug出现在接口的相互调用场景中，比如a模块添加数据，但是b模块没有展示。查看确认是a没有插入数据，还是b没有查到数据。</li>
+</ol>
+<h2 id="对登录注册界面进行测试"><a href="#对登录注册界面进行测试" class="headerlink" title="对登录注册界面进行测试"></a>对登录注册界面进行测试</h2><p><font color='orange'>功能测试</font>：</p>
+<ul>
+<li>根据需求文档，将界面划分问几个小模块，比如注册、登录、忘记密码等，然后对每个小模块进行测试</li>
+<li>比如：登陆时考虑正常登陆、异常登录，使用边界值、等价类划分设计用例；忘记密码时考虑找回密码方式</li>
+<li>登录成功后是否正常跳转、能否选择不同登录方式、验证码的辨别和刷新按钮、输入密码大写键盘开启提示等等</li>
+<li>在验证登录失败时，要有相应的错误提示信息</li>
+</ul>
+<p><font color='orange'>性能测试</font>：</p>
+<ul>
+<li>打开登录页面，需要的时间是否在需求要求的时间内；</li>
+<li>输入正确的用户名和密码后，检查登录成功跳转到新页面的时间是否在需求要求的时间内；</li>
+<li>模拟大量用户同时登录，检查一定压力下能否正常登录跳转；</li>
+</ul>
+<p><font color='orange'>安全性测试</font>：</p>
+<ul>
+<li>密码在前端是否加密，在网络传输过程中是否加密</li>
+<li>用户名和密码的输入框是否能够防止sql注入攻击，能否防止XSS攻击</li>
+<li>错误登录次数的限制（为了防止暴力破解）</li>
+<li>能否支持一个用户在不同终端上的登录</li>
+</ul>
+<p><font color='orange'>界面测试</font>：</p>
+<ul>
+<li>检查界面是否有错别字，界面配色和布局、相关控件设计是否和UI设计一致</li>
+</ul>
+<p><font color='orange'>用户体验测试</font>：</p>
+<ul>
+<li>页面布局是否合理，输入框和按钮是否对齐</li>
+<li>输入框的大小和按钮的长度，高度是否合理</li>
+<li>是否可以全用键盘操作，是否有快捷键</li>
+<li>输入用户名，密码后按回车，是否可以登陆</li>
+<li>牵扯到验证码的，还要考虑文字是否扭曲过度导致辨认难度大，考虑颜色（色盲使用者），刷新或换一个按钮是否好用</li>
+</ul>
+<p><font color='orange'>兼容性测试</font>：</p>
+<ul>
+<li>如果是web端登录，考虑浏览器、分辨率的兼容性；如果是移动端，考虑不同手机设备、不同屏幕大小、系统版本</li>
+</ul>
+<p>稳定性：</p>
+<ul>
+<li>是否有闪退、崩溃、无响应等情况，网络不好时能否正常登录，异常提示是否正确</li>
+</ul>
+<h2 id="如何进行接口测试"><a href="#如何进行接口测试" class="headerlink" title="如何进行接口测试"></a><strong>如何进行接口测试</strong></h2><ul>
+<li>首先获取接口规范、接口文档、需求文档、设计接口测试用例。用例设计要考虑单接口和多接口业务流程</li>
+<li>单接口主要进行接口的正确性和健壮性验证，考虑各种入参验证(正常情况、异常情况、参数个数、参数类型、必选可选等)，接口返回值各种验证</li>
+<li>多接口主要关注业务流和数据流，是否满足需求文档里的需求</li>
+<li>使用postman进行接口测试，根据接口文档，先选择请求方式，输入url，发送请求，查看返回数据</li>
+</ul>
+<h2 id="系统测试"><a href="#系统测试" class="headerlink" title="系统测试"></a>系统测试</h2><p>参考文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yiwaChen/article/details/52141797?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168584815016800192242847%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168584815016800192242847&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-52141797-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E5%93%AA%E4%BA%9B%E6%96%B9%E9%9D%A2%EF%BC%9F&amp;spm=1018.2226.3001.4187">系统测试的基本认识</a></p>
+<ul>
+<li>系统测试是将已经确认好的软、硬件、网络等其他元素结合在一起，进行信息系统的各种组装测试。通过和系统的需求比较，发现和用户需求不符的地方，提出更加完善的方案</li>
+<li>尽可能地检查程序中地错误，提高软件系统的可靠性</li>
+<li>测试发现问题之后要经过调试找出错误原因和位置，然后进行改正</li>
+<li>验证系统是否满足了需求规格的定义，找出与需求规格不相符合或与之矛盾的地方</li>
+</ul>
+<h2 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h2><p>性能测试主要包括负载测试、强度测试、容量测试等</p>
+<ul>
+<li>负载测试：数据在一种负荷环境下运行，程序能否承担</li>
+<li>强度测试：测试在系统资源较低的情况下，系统运行情况</li>
+<li>容量测试：确定系统可以同时处理在线的最大用户数</li>
+</ul>
+<p>测试系统在大量终端情况下，在响应时间，cpu/磁盘/内存等参数是否满足要求</p>
+<h2 id="压力测试"><a href="#压力测试" class="headerlink" title="压力测试"></a>压力测试</h2><p>1、首先对要测试的系统进行分析，明确需要对哪一部分做压力测试，比如秒杀，支付。</p>
+<p>2、如何对这些测试点进行施压。</p>
+<ul>
+<li>第一种方式可以通过写脚本产生压力机器人对服务器进行发包收包操作。</li>
+<li>第二点借助一些压力测试工具比如<code>Jmeter</code>,<code>LoadRunner</code>。</li>
+</ul>
+<p>3、如何对这些测试点进行正确的施压。需要用压力测试工具或者其他方法录制脚本，模拟用户的操作。</p>
+<p>4、对测试点设计多大的压力比较合适。需要明确压力测试限制的数量，即用户并发量</p>
+<p>5、测试结束后如何通过这些数据来定位性能问题。</p>
+<p>通过测试可以得到吞吐量，平均响应时间等数据，这个数据的背后是整个后台处理逻辑综合作用的结果，这时候就可以先关注系统的CPU，内存，然后对比吞吐量，平均响应时间达到瓶颈时这些数据的情况，然后就能确认性能问题是系统的哪一块造成的。</p>
+<h2 id="回归测试相关"><a href="#回归测试相关" class="headerlink" title="回归测试相关"></a>回归测试相关</h2><p>什么是回归测试：</p>
+<ul>
+<li>软件系统被修改或者扩充新功能升级等，需重新进行的测试。它是为了保证对软件所做的修改没有引入新的错误</li>
+</ul>
+<p>为什么要进行回归测试：</p>
+<ul>
+<li>验证缺陷得到了正确的修复，同时对系统的变更没有影响之前的功能</li>
+</ul>
+<p>回归测试的流程是怎样的：</p>
+<ol>
+<li>指定回归测试策略</li>
+<li>确定需要回归测试的版本</li>
+<li>测试版本发布后，按照回归测试策略来执行回归测试</li>
+<li>如果测试没有通过，将缺陷跟踪单返回给开发人员，等他们修改完成后，再提交给测试人员进行测试</li>
+</ol>
+<p>回归测试的策略有哪些：</p>
+<ul>
+<li>全面回归测试：测试时，对前期设计的所有用例进行测试。比较保险的一种方式，但是成本高</li>
+<li>选择性回归测试：测试时，只对出现问题的这些功能进行测试，没有出现问题的功能不进行测试。但这样并不保险，因为功能的修改可能会设计到其他功能的代码。</li>
+<li>指标法回归测试：先确定一个达成的指标, 基于这种要求选择一个最小的测试用例集合</li>
+<li>自动化工具回归测试：测试时，使用自动化测试工具进行回归测试。</li>
+</ul>
+<h2 id="文档测试"><a href="#文档测试" class="headerlink" title="文档测试"></a>文档测试</h2><p>文档的完整性：主要测试文档内容的完整性和全面性。总体把握文档的质量，比如用户手册应该包含所有的功能模块</p>
+<p>描述和实际一致：用户手册与实际功能是否是一致的</p>
+<p>易理解性：检查对关键的操作说明是不是易于理解，图文表示，清楚直观</p>
+<h2 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h2><p>要尽量覆盖到测试点这一基本要求。</p>
+<p>测试对象在进度、成本方面的要求</p>
+<h2 id="配置和兼容性测试的区别是什么"><a href="#配置和兼容性测试的区别是什么" class="headerlink" title="配置和兼容性测试的区别是什么"></a>配置和兼容性测试的区别是什么</h2><p>配置测试：—&gt; 保证软件在其相关的硬件上能够正常运行</p>
+<ol>
+<li>软件在不同主机上的运行情况</li>
+<li>在不同的组件上的运行情况</li>
+<li>不同接口、外设、可选项如内存大小</li>
+</ol>
+<p>兼容性测试：—&gt; 测试廉能否与不同的软件正确协作</p>
+<ol>
+<li>在不同操作系统平台上</li>
+<li>在同一操作系统平台的不同版本</li>
+<li>与其他软件的兼容</li>
+<li>数据兼容，能否共享数据</li>
+</ol>
+<h2 id="—"><a href="#—" class="headerlink" title="—-"></a>—-</h2><h2 id="说一说主流软件工程思想"><a href="#说一说主流软件工程思想" class="headerlink" title="说一说主流软件工程思想"></a>说一说主流软件工程思想</h2><p>CMM：</p>
+<ul>
+<li>软件能力成熟度模型，他作用是软件过程的改进，评估和软件能力的评估</li>
+</ul>
+<p>CMMI：</p>
+<ul>
+<li>能力成熟度模型集成，融入了大部分最新的软件管理实践</li>
+</ul>
+<h2 id="常见的软件生命周期模型"><a href="#常见的软件生命周期模型" class="headerlink" title="常见的软件生命周期模型"></a>常见的软件生命周期模型</h2><p>1.大爆炸模型：优点:简单，不用学习就会。缺点：产品质量无法保障，尽量避免使用</p>
+<p>2.边做边改模型：优点：快速得到可运行的版本。缺点：计划有些缺乏，导致版本前后变化较大</p>
+<p>3.瀑布模型:优点：计划周密，专业，按部就班实现。缺点：相对难于做到快速开发，以抢占市场，可选择的模型之一</p>
+<p>4.螺旋模型:优点：计划变化同事考虑。</p>
+<h2 id="做好测试计划工作的关键"><a href="#做好测试计划工作的关键" class="headerlink" title="做好测试计划工作的关键"></a>做好测试计划工作的关键</h2><ol>
+<li>明确测试的目标，测试范围覆盖功能需求，方法切实可行，生成的测试结果直观</li>
+<li>明确内容和过程。测试的范围、测试的目的、测试时间节点、测试方法工具、测试结果及测试文档</li>
+<li>严格评审机制。测试计划完成后，需要评审</li>
+<li>编写测试用例</li>
+</ol>
+<h2 id=""><a href="#" class="headerlink" title="============="></a>=============</h2><h2 id="用例内容"><a href="#用例内容" class="headerlink" title="用例内容"></a>用例内容</h2><p>依据需求规格说明书和原型图整理测试用例，用excel整理，</p>
+<p>用例编号，标题，优先级，预期结果，实际结果，输入的数据和步骤</p>
+<h2 id="需求文档不详细如何设计用例"><a href="#需求文档不详细如何设计用例" class="headerlink" title="需求文档不详细如何设计用例"></a>需求文档不详细如何设计用例</h2><p><del>参考同行业、和产品经理进行沟通</del></p>
+<p>基于需求文档看，如果没有明确的，看同行业，</p>
+<p>整理测试点时，遇到不好把握的点，整理出来，把所有疑问的地方和产品经理沟通</p>
+<p>沟通完之后，进行用例的细化。</p>
+<h2 id="测web端有bug如何定位"><a href="#测web端有bug如何定位" class="headerlink" title="测web端有bug如何定位"></a>测web端有bug如何定位</h2><p><del>通过抓包工具抓取它的请求和响应信息，查看信息和状态码</del></p>
+<p>首先确认这个问题，排除自己操作或环境问题等，排除这个问题之后，确认是bug</p>
+<p>抓包看前端请求后端响应，查看请求数据参数是否正确，再看后端反馈状态码，响应体内容</p>
+<p>如果是400看参数路径是否正确，如果是500就有可能是后端服务的问题，可能服务器没有跑起来等</p>
+<p>如果是200，但是响应结果是错的，那就是后端问题。如果是响应结果是正确的，但是前端依然能看到bug，那就是前端的问题。前端拿到正确的响应后，没有正确的展示出来，就是前端的问题</p>
+<h2 id="Fiddler除了抓包，还能用来做什么"><a href="#Fiddler除了抓包，还能用来做什么" class="headerlink" title="Fiddler除了抓包，还能用来做什么"></a>Fiddler除了抓包，还能用来做什么</h2><p><del>做数据的篡改，在请求前做断点，在响应前做断点</del></p>
+<p>弱网的测试（手机端）考虑的在一个弱网的环境下。</p>
+<ul>
+<li>代理，手机连接代理，按照设置的网络延迟和丢包，给手机端模拟出来一个弱网的环境</li>
+</ul>
+<h2 id="项目发布流程"><a href="#项目发布流程" class="headerlink" title="项目发布流程"></a>项目发布流程</h2><p><del>测试完成之后，通知相关人员进行发布，发布前进行测试，如果测试通过后，再重新开发修复，测试重新测试，循环，通知相关人员发布。运营发布上线</del></p>
+<p>测试工作结束之后，测试出测试报告，描述当前项目的质量情况等，通知各方人员，测试工作结束。</p>
+<p>开发打包，做成上线的包，给到相关的人，部署到生产环境，测试测试基本功能有没有问题</p>
+<p>测试如果有问题，需要紧急做一个版本的回滚</p>
+<h2 id="接口测试jmeter流程"><a href="#接口测试jmeter流程" class="headerlink" title="接口测试jmeter流程"></a>接口测试jmeter流程</h2><p><del>根据</del></p>
+<p>在测试计划下添加线程组，线程组添加http请求，请求方式，传参，添加结果树，点击运行，查看结果树返回信息，查看是否和预期结果是否一致，如果有问题就查看数据库和日志</p>
+<h2 id="接口测试相关"><a href="#接口测试相关" class="headerlink" title="接口测试相关"></a>接口测试相关</h2><p>接口的复杂程度、需求文档是不是明确，抓包，需要时间</p>
+<h2 id="app测试和web测试的区别"><a href="#app测试和web测试的区别" class="headerlink" title="app测试和web测试的区别"></a>app测试和web测试的区别</h2><p>弱网测试一般测试什么：用工具测试</p>
+<p>主要关注重要数据的提交，比如支付，点击支付，会不会支付多个订单出来。不能在弱网环境下进行多次提交</p>
+<p>在弱网状态下，有没有给用户的提示信息</p>
+<p>如果弱网环境下，存在消息的阻塞，会不会导致app崩溃的问题</p>
+<p>app根据工具手机日志</p>
+<ul>
+<li>adb logcat</li>
+</ul>
+<p><strong>app端兼容性如何测试</strong></p>
+<ul>
+<li></li>
+</ul>
+<h2 id="如何测试第三方接口"><a href="#如何测试第三方接口" class="headerlink" title="如何测试第三方接口"></a>如何测试第三方接口</h2><h2 id="测试报告z’m’xie"><a href="#测试报告z’m’xie" class="headerlink" title="测试报告z’m’xie"></a>测试报告z’m’xie</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>应用场景在什么时候使用</p>
+<ul>
+<li>制造测试数据，如电商测试的数据，用户信息，商品信息，在数据库里插入数据。</li>
+<li>页面信息是否显示完整，同步查询数据库里的数据</li>
+</ul>
+<p>查询的数据是单表查询还是多表查询</p>
+<p>一个表，里面有一个字段性别，怎么查询多少个男的多少个女的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select gender, count(*) as count </span><br><span class="line">from tb_user </span><br><span class="line">group by gender;</span><br></pre></td></tr></table></figure>
+<p>左连接和右连接</p>
+<p><strong>如何批量添加数据到数据库</strong></p>
+<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>用途：用来搭建测试环境</p>
+<p>环境搭建</p>
+<p>把mysql部署到tomcat容器里，把jdk安装好</p>
+<p>把开发提供的war放到tomcat下的webapp目录下；配置文件放到tomcat下的conf目录下，修改配置好用到的ip，数据库连接的信息；启动tomcat，在浏览器输入地址，</p>
+<p>环境更新：</p>
+<ul>
+<li>把webapps下的war包替换，把缓存的文件替换删除，</li>
+</ul>
+<p>如何搭建测试环境</p>
+<ul>
+<li>会在linux安装应用服务器tomcat jdk 数据库</li>
+<li>开发给项目部署包，在数据库里执行脚本，</li>
+</ul>
+<p>项目使用tomcat来做的，需要安装tomcat，依赖于java的，所以安装jdk。项目有数据库的，所以需要安装数据库，开发会给到数据库的脚本，运行表结构。开发给的war包，把包放到tomcat里面app目录下面，</p>
+<p>命令：</p>
+<p>ll,ls,ps,vi,find,tail</p>
+<p><code>tail</code>查看文件末尾信息，搭建环境要进行编辑文档需要用到<code>vi</code>命令；定位问题查看进程使用<code>ps -ef</code>查看进程；查看端口<code>netstat</code></p>
+<p><code>find</code>查找日志文件，<code>grep</code>在文档里面搜索内容</p>
+<h2 id="fiddler哪些功能，抓包的目的是什么"><a href="#fiddler哪些功能，抓包的目的是什么" class="headerlink" title="fiddler哪些功能，抓包的目的是什么"></a>fiddler哪些功能，抓包的目的是什么</h2><h2 id="JMeter如何完成jdbc请求"><a href="#JMeter如何完成jdbc请求" class="headerlink" title="JMeter如何完成jdbc请求"></a>JMeter如何完成jdbc请求</h2><h2 id="测试报告"><a href="#测试报告" class="headerlink" title="测试报告"></a>测试报告</h2><p>JMeter参数化的集中方式</p>
+<p>动态参数接口怎么处理</p>
+<h2 id="接口鉴权的处理方式"><a href="#接口鉴权的处理方式" class="headerlink" title="接口鉴权的处理方式"></a>接口鉴权的处理方式</h2><p>鉴权：就是指鉴别用户有没有访问某一个系统的权限。</p>
+<p>传统的方法是通过密码的方式进行验证，但是这类方法比较繁琐。</p>
+<p>现在主要分为两种：</p>
+<ul>
+<li>一种是网络对用户的鉴定，防止非法用户占用资源</li>
+<li>一种是用户对网络的鉴定，防止接入非法网络，被盗取信息</li>
+</ul>
+<p>常见的四种鉴权方式：</p>
+<ol>
+<li><font color='orange'>HTTP Basic Authentication</font>：这种方式是基于http协议来实现的，这个协议定义了基本认证，允许服务器对客户端进行验证。具体来说就是：客户端向服务器发送请求，客户端在验证和没有验证的情况下，发送的请求是不一样的。如果客户端没有验证，此时服务器会返回一个401未授权代码。如果进过验证了，会把账号密码加密发送，服务器拿到请求解密，再把资源给客户端。</li>
+<li>session-cookie：cookie是请求到达服务器端时被创建，返回时会在response中设置cookie，等到下一次客户端发送请求时，会携带这个cookie。session是指浏览器第一次访问服务器时，服务器就会创建一个session，里面保存表示浏览器的信息。使用这种方式做登录认证时，登录会存储session，退出登录时会删除session。其他需要登录之后才能操作的接口需要提前验证是否存在session，如果存在就跳转，如果不存在就返回登录界面</li>
+<li>Token：浏览器第一次访问服务器时所签发的token。它一般由用户信息、时间戳、hash算法加密的签名构成。token认证流程为：1）浏览器通过账号密码请求登录；2）服务器接收请求，并验证账号密码，验证成功之后会生成一个token，并把这个token发送给浏览器；3）浏览器存储这个token，后续的请求都会带着这个token；4）服务器后续接收到请求，会先验证里面的token，成功就返回对于数据，否则返回401未授权</li>
+<li>OAuth：是一个开放标准，它可以允许用户授权第三方网站访问他们存储在另外的服务提供者上的信息，而不需要提供给他们信息，为了保护数据的安全和隐私，第三方网站访问时会显示的向用户征求授权。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status">http状态响应码参考连接</a></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Offers/"># Offers</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/06/04/Test/JMeter%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">JMeter测试工具</a>
+            
+            
+            <a class="next" rel="next" href="/2023/06/03/Test/postman%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">postman接口测试</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

@@ -227,39 +227,67 @@
             <p>面试参考文档：<a target="_blank" rel="noopener" href="https://github.com/whx123/JavaHome/blob/master/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86%E7%BB%93%E5%8F%B7/%E7%BC%93%E5%AD%98%2CRedis/Redis%E7%BC%93%E5%AD%98%E9%9D%A2%E8%AF%95%E9%A2%98.md">redis缓存面试题</a></p>
 <h2 id="什么是Redis？简述它的优缺点"><a href="#什么是Redis？简述它的优缺点" class="headerlink" title="什么是Redis？简述它的优缺点"></a>什么是Redis？简述它的优缺点</h2><p>redis本质上是一个key-value类型的内存数据库，把数据加载到内存，操作在内存中进行</p>
 <p>优点：操作在内存进行，所以处理速度非常快，而且支持保存多种数据结构</p>
-<p>缺点：容易收到内存限制，不能用于海量数据的高性能读写</p>
-<h2 id="Redis有哪些数据结构-类型"><a href="#Redis有哪些数据结构-类型" class="headerlink" title="Redis有哪些数据结构(类型)"></a>Redis有哪些数据结构(类型)</h2><p>redis有五种基础数据结构</p>
+<p>缺点：容易受到内存限制，不能用于海量数据的高性能读写</p>
+<h2 id="Redis有哪些数据结构-类型"><a href="#Redis有哪些数据结构-类型" class="headerlink" title="Redis有哪些数据结构(类型)"></a>Redis有哪些数据结构(类型)</h2><p>博客链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/swimming_in_IT_/article/details/129508384?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168553673316800211524634%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168553673316800211524634&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-129508384-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=Redis%E6%9C%89%E5%93%AA%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;spm=1018.2226.3001.4187">redis的五种数据结构</a></p>
+<p>redis有五种基础数据结构</p>
 <ul>
-<li>string 普通字符串，常用</li>
-<li>list 按照插入顺序排序，可以有重复元素 适合任务队列</li>
-<li>hash 适合存储对象</li>
-<li>set 无序集合，没有重复元素</li>
-<li>zset 有序结合，没有重复元素，适合排行榜</li>
+<li><code>string</code> ：普通字符串，常用做<font color='orange'>缓存</font></li>
+<li><code>list</code> ：双端链表 实现最新消息排队功能。根据命令方法可以实现栈，队列，有限集合，<font color='orange'>消息队列</font></li>
+<li><code>hash</code>： string类型的字段和属性的映射表，适合<font color='orange'>存储对象</font></li>
+<li><code>set</code>： string类型的无序集合，没有重复元素，集合通过hash表实现，常用作<font color='orange'>点赞点踩</font>等功能</li>
+<li><code>zset</code> ：每个元素都会关联一个double类型的权重参数，按照这个权重来进行排序的。有序集合，没有重复元素，适合<font color='orange'>排行榜</font></li>
 </ul>
-<h2 id="redis是单线程还是多线程，为什么这么快"><a href="#redis是单线程还是多线程，为什么这么快" class="headerlink" title="redis是单线程还是多线程，为什么这么快"></a>redis是单线程还是多线程，为什么这么快</h2><p>redis在6.0版本之前是单线程，在这之后是多线程。在单线程下省去了线程切换，和锁竞争的开销，比较快</p>
+<h2 id="redis是单线程还是多线程，为什么这么快"><a href="#redis是单线程还是多线程，为什么这么快" class="headerlink" title="redis是单线程还是多线程，为什么这么快"></a>redis是单线程还是多线程，为什么这么快</h2><ol>
+<li>完全基于内存操作。它的数据存储在内存中，这样能够获得非常快的读写速度</li>
+<li>降低CPU的消耗，单线程减少不必要的上下文切换，不用考虑各种锁的问题</li>
+<li><p>Redis提供了多种高效的数据结构，如字符串、哈希表、列表、集合、有序集合等。对实现经过了高度优化</p>
+<ul>
+<li>整数编码：会根据整数的大小选择最节省内存的编码方式来存储数据</li>
+<li>压缩列表：针对列表类型数据，可以最小化存储空间，快速访问数据</li>
+<li>哈希表：针对哈希表数据类型，实现高效插入、删除和查找操作</li>
+<li>跳跃表：针对有序集合数据类型，采用跳跃表，实现高效地插入、删除和查找操作</li>
+</ul>
+</li>
+<li><p>采用更高效的非阻塞异步IO，采用epoll作为io多路复用技术的实现。</p>
+</li>
+</ol>
+<p>redis在6.0版本之前是单线程，在这之后是多线程。在单线程下省去了线程切换，和锁竞争的开销，比较快</p>
 <p>更重要的是它基于内存操作</p>
-<h2 id="redis如何实现分布式锁"><a href="#redis如何实现分布式锁" class="headerlink" title="redis如何实现分布式锁"></a>redis如何实现分布式锁</h2><h2 id="为什么redis要将所有数据放到内存中"><a href="#为什么redis要将所有数据放到内存中" class="headerlink" title="为什么redis要将所有数据放到内存中"></a>为什么redis要将所有数据放到内存中</h2><p>是为了达到最快的读写速度而放在内存中，并且通过异步的方式写入到磁盘中</p>
+<h2 id="redis如何实现分布式锁"><a href="#redis如何实现分布式锁" class="headerlink" title="redis如何实现分布式锁"></a>redis如何实现分布式锁</h2><h2 id="为什么redis要将所有数据放到内存中"><a href="#为什么redis要将所有数据放到内存中" class="headerlink" title="为什么redis要将所有数据放到内存中"></a>为什么redis要将所有数据放到内存中</h2><p>是为了达到<font color='orange'>最快的读写速度</font>而放在内存中，并且通过<font color='orange'>异步</font>的方式写入到磁盘中</p>
 <p>如果不放在内存中，磁盘io速度会影响redis性能</p>
-<h2 id="缓存失效、缓存穿透、缓存雪崩、缓存并发"><a href="#缓存失效、缓存穿透、缓存雪崩、缓存并发" class="headerlink" title="缓存失效、缓存穿透、缓存雪崩、缓存并发"></a>缓存失效、缓存穿透、缓存雪崩、缓存并发</h2><p><code>缓存雪崩</code></p>
+<h2 id="缓存失效、缓存穿透、缓存雪崩、缓存并发"><a href="#缓存失效、缓存穿透、缓存雪崩、缓存并发" class="headerlink" title="缓存失效、缓存穿透、缓存雪崩、缓存并发"></a>缓存失效、缓存穿透、缓存雪崩、缓存并发</h2><p>博客链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45637260/article/details/125866738?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168553909216800227480083%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168553909216800227480083&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-125866738-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9&amp;spm=1018.2226.3001.4187">详解缓存穿透、缓存雪崩、缓存击穿</a></p>
+<p><code>【**缓存雪崩**】</code></p>
+<p><img src="/images/redis/image-20230531212444340.png" alt="image-20230531212444340" style="zoom:80%;" /></p>
 <ul>
-<li>定义：大量的key设置相同的过期时间，导致缓存在同一时间全部失效，导致瞬时数据库请求量大</li>
-<li>解决办法：给缓存的过期时间加上一个随机值时间，将过期时间分散开</li>
-</ul>
-<p><code>缓存穿透</code></p>
-<ul>
-<li>定义：查询一个数据库不存在的数据，由于缓存的机制，每次查询都会从数据库找数据，然而数据库没有，这样的访问会失去缓存的意义</li>
-<li>解决办法<ul>
-<li>可以在封装get和set时增加一个步骤，如果查询的key不存在，就以这个key为前缀设定一个表示key，等下一次查询该key时，先查询标识key，如果该key存在，就返回协定好的非false或者null值</li>
-<li>当返回结果是空时，仍然把这个空结果进行缓存里面</li>
-<li>采用布隆过滤器</li>
-<li>接口层增加校验，加强用户权限校验</li>
+<li>定义：<font color='orange'>大量热点key</font>设置相同的过期时间，导致缓存在同一时间全部失效，导致瞬时数据库请求量大</li>
+<li>解决办法：<ul>
+<li>给缓存的过期时间加上一个<font color='orange'>随机值时间</font>，将过期时间分散开</li>
+<li>热点数据考虑不失效，后台异步更新缓存，适用于不严格要求缓存一致性的场景</li>
+<li>考虑队列或者锁的方式，可能影响并发量</li>
 </ul>
 </li>
 </ul>
-<p><code>缓存击穿</code></p>
+<p><code>【**缓存穿透**】</code></p>
+<p><img src="/images/redis/image-20230531212504355.png" alt="image-20230531212504355" style="zoom:80%;" /></p>
 <ul>
-<li>定义：一个存在的key，在缓存过期的一刻，大量请求会打入数据库，造成压力</li>
-<li>解决办法：在访问key之前，采用setnx来设置另一个短期key来锁住当前key的访问，访问结束就删除当前短期的key</li>
+<li>定义：查询一个数据库<font color='orange'>不存在</font>的数据，由于缓存的机制，每次查询都会从数据库找数据，然而数据库没有，此时大量的请求就直接打到数据库</li>
+<li>解决办法<ul>
+<li>可以在封装get和set时增加一个步骤，如果查询的key不存在，就以这个key为前缀设定一个表示key，等下一次查询该key时，先查询标识key，如果该key存在，就返回协定好的非false或者null值</li>
+<li>当返回结果是空时，仍然把这个空结果进行缓存里面</li>
+<li>采用布隆过滤器请求白名单。过滤器先判断是否再白名单内，不在就直接返回空，或失败</li>
+<li>接口层增加校验，加强用户权限校验，提前阻断非法请求</li>
+</ul>
+</li>
+</ul>
+<p><code>【**缓存击穿**】</code></p>
+<p><img src="/images/redis/image-20230531213520412.png" alt="image-20230531213520412" style="zoom:80%;" /></p>
+<ul>
+<li>定义：<font color='orange'>单个热点key</font>，在缓存过期的一刻，大量请求会打入数据库，造成压力</li>
+<li>解决办法：<ul>
+<li>使用互斥锁，只让一个线程创建缓存，其他线程等待缓存创建完毕之后，再从缓存中获取数据。保证一致性，但是性能受影响，有死锁风险</li>
+<li>热点数据不设置过期时间，后台异步更新缓存。不保证一致性，有内存消耗</li>
+</ul>
+</li>
 </ul>
 <p><code>缓存失效</code></p>
 <ul>
@@ -271,9 +299,27 @@
 <li>定义：高并发下，如果一个缓存失效，需要同时设置缓存，如果并发量过高，也能导致数据库压力过大</li>
 <li>解决办法：对缓存加锁，如果不存在，就加锁，然后查询数据库加入缓存，然后解锁。其他进程如果发现有锁时，就等待其解锁</li>
 </ul>
-<h2 id="Redis中的热key怎么处理"><a href="#Redis中的热key怎么处理" class="headerlink" title="Redis中的热key怎么处理"></a>Redis中的热key怎么处理</h2><p>缓存中的某些key对应的value存储在集群中的一台机器上，使得所有流量涌向同一台机器，限制性能</p>
-<p>将热点key对应的value存储在客户端本地，并设置一个失效时间</p>
-<p>将热点key分散为多个子key，存储在不同机器上。当通过热点key去查询数据时，通过某种hash算法随机选择一个子key，然后在访问对应缓存机器</p>
+<h2 id="Redis中的热key怎么处理"><a href="#Redis中的热key怎么处理" class="headerlink" title="Redis中的热key怎么处理"></a>Redis中的热key怎么处理</h2><p>博客链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Weixiaohuai/article/details/125310401?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168553559616800182754100%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168553559616800182754100&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-125310401-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=Redis%E4%B8%AD%E7%9A%84%E7%83%ADkey%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86&amp;spm=1018.2226.3001.4187">redis中热点key问题</a></p>
+<p>缓存中的某些key对应的value存储在集群中的一台机器上，使得所有流量涌向同一台机器，限制性能</p>
+<ul>
+<li><p><font color='orange'>使用二级缓存</font>。将热点key对应的value存储在客户端本地，并设置一个失效时间</p>
+</li>
+<li><p><font color='orange'>将热点key分散为多个子key，存储在不同机器上</font>。当通过热点key去查询数据时，通过某种hash算法随机选择一个子key，然后再访问对应缓存机器</p>
+</li>
+</ul>
+<h2 id="Redis的缓存淘汰策略"><a href="#Redis的缓存淘汰策略" class="headerlink" title="Redis的缓存淘汰策略"></a>Redis的缓存淘汰策略</h2><p>当redis使用内存达到maxMemory时，redis会根据配置的缓存淘汰策略，把访问频率不高的key，从内存中移除掉</p>
+<ul>
+<li>采用LRU<font color='orange'>淘汰算法</font>策略。把不常用的key淘汰掉</li>
+<li>采用LFU策略。对LRU进行优化，增加数据访问频次，确保淘汰的数据是非热点的，最小访问频率的</li>
+<li>随机策略。随机删除key</li>
+<li>ttl策略。从设置了过期时间key里面，挑选过期时间最近的key进行淘汰</li>
+<li>直接报错。当内存不够时直接抛出异常</li>
+</ul>
+<p>直接报错，内存不够直接抛出异常</p>
+<p>使用淘汰算法，淘汰掉不常用的key</p>
+<p>使用LFU策略，是淘汰算法的优化，增加了一个数据访问频次，当内存满了时，优先淘汰掉数据频次小的</p>
+<p>随机策略，随机删除key</p>
+<p>使用ttl策略，从设置的过期时间的key，使用对应的LRU或者LFU策略进行删除淘汰key</p>
 
         </div>
 

@@ -303,6 +303,16 @@
 <li>装配方式的默认值不同。@Autowired默认按type自动装配，而@Resource默认按name自动装配。</li>
 <li>注解应用范围不同。@Autowired能够用在构造方法、成员变量、方法参数以及注解上，而@Resource能用在类、成员变量和方法参数上</li>
 </ol>
+<h2 id="过滤器Filter和拦截器Interceptor有什么区别"><a href="#过滤器Filter和拦截器Interceptor有什么区别" class="headerlink" title="过滤器Filter和拦截器Interceptor有什么区别"></a>过滤器<strong><code>Filter</code></strong>和拦截器<strong><code>Interceptor</code></strong>有什么区别</h2><p>参考文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/xinzhifu1/article/details/106356958/">https://blog.csdn.net/xinzhifu1/article/details/106356958/</a></p>
+<p>过滤器是通过实现filter接口，里面有三个方法，一个时初始化方法init()，整个生命周期内只加载一次，必须执行成功，否则过滤器不起作用。一个是销毁方法，同样只加载一次。另外一个是doFilter()方法，里面有个过滤器链参数来调用下一个过滤器。</p>
+<p>拦截器是通过实现HandlerInterceptor接口，里面也有三个方法，一个是preHandler()，在请求处理之前调用，一个是postHandler()，在Controller中的方法调用之后，DisPatcherServlet返回渲染视图之前调用。一个是afterCompletion()，在整个请求结束之后调用。</p>
+<p>区别：</p>
+<ul>
+<li>实现原理不同：过滤器是通过函数回调实现。拦截器是通过java的反射机制实现的</li>
+<li>使用范围不同：过滤器接口在Servlet规范中定义，所以适用于web程序中。拦截器是Spring的一个组件，所以适用范围更广</li>
+<li>触发时机不同：过滤器在请求进入Servlet之前触发。拦截器在请求进入Servlet后，进入Controller之前触发</li>
+<li>拦截请求的范围不同：过滤器对所有进入容器的请求进行处理。拦截器针对Controller中的请求起作用</li>
+</ul>
 <h2 id="Spring-的不同事务传播行为有哪些"><a href="#Spring-的不同事务传播行为有哪些" class="headerlink" title="Spring 的不同事务传播行为有哪些"></a>Spring 的不同事务传播行为有哪些</h2>
         </div>
 

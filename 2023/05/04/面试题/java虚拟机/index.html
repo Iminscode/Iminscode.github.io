@@ -133,6 +133,68 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
@@ -162,7 +224,330 @@
         </header>
 
         <div class="post-content">
-            
+            <p>面试题：<a target="_blank" rel="noopener" href="https://github.com/JavaInterviewHub/JavaInterview/blob/main/Java%E8%99%9A%E6%8B%9F%E6%9C%BA.md">github.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/426365980">关于jvm部分视频讲解</a></p>
+<h2 id="一文搞懂JVM内存结构"><a href="#一文搞懂JVM内存结构" class="headerlink" title="一文搞懂JVM内存结构"></a>一文搞懂JVM内存结构</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/rongtaoup/article/details/89142396">https://blog.csdn.net/rongtaoup/article/details/89142396</a></p>
+<h2 id="栈内存溢出时机、堆溢出时机、如何排错"><a href="#栈内存溢出时机、堆溢出时机、如何排错" class="headerlink" title="栈内存溢出时机、堆溢出时机、如何排错"></a>栈内存溢出时机、堆溢出时机、如何排错</h2><p>栈内存溢出：</p>
+<ul>
+<li><font color='orange'>时机原因</font>：栈是线程私有的，每个方法在执行时都会创建一个栈帧，用来存储局部变量表、操作数栈、动态链接、方法出口等信息。所以当创建的栈帧超过了栈的深度，比如方法不断地递归调用，就可能造成栈内存溢出。</li>
+<li><font color='orange'>解决方法</font>：使用参数<code>-Xss</code>去调整jvm栈的大小</li>
+<li><font color='orange'>排错</font>：检查递归调用是否有递归出口正确终止了；减少函数地调用层级；减小局部变量的内存消耗</li>
+</ul>
+<p>堆内存溢出：</p>
+<ul>
+<li><font color='orange'>时机原因</font>：堆是主要存储对象的，所以当不断地new对象，就会导致堆中空间溢出。动态申请空间使用后没有被及时释放掉，堆内存满了。通常由于编译错误引起，如：未初始化的指针、数组访问越界等</li>
+<li><font color='orange'>解决方法</font>：使用参数<code>-Xmx4096M</code>调整堆地总大小</li>
+<li>排错：先分析是内存泄漏还是内存溢出。如果是内存泄漏的话，找到那些没有被释放的内存；如果是内存溢出的话，可以适当修改堆的大小。</li>
+</ul>
+<h2 id="JVM判断对象是否是可回收对象的方法"><a href="#JVM判断对象是否是可回收对象的方法" class="headerlink" title="JVM判断对象是否是可回收对象的方法"></a>JVM判断对象是否是可回收对象的方法</h2><p><font color='orange'>引用计数算法</font>：</p>
+<ul>
+<li>每当有一个地方引用这个对象，计数器加一，引用失效后，计数器减一，计数器为0表示该对象不可能再被使用。</li>
+<li>缺点：很难解决对象之间循环引用的问题。相互引用使得计数器不为零，GC无法回收</li>
+</ul>
+<p><font color='orange'>可达性分析算法</font>：</p>
+<ul>
+<li>通过对象的引用链，从<code>GC roots</code>出发遍历，判断对象是否能从这个<code>GC roots</code>访问到。如果不可达，就被认为是可回收的对象</li>
+</ul>
+<h2 id="垃圾回收算法原理"><a href="#垃圾回收算法原理" class="headerlink" title="垃圾回收算法原理"></a>垃圾回收算法原理</h2><p><font color='orange'>标记-清除</font>：</p>
+<ul>
+<li>当堆内存耗尽时，先从引用根节点开始遍历，判定对象是否是垃圾，是的话，打上标记，再对标记的进行回收。</li>
+<li>缺点：回收时需要暂停整个程序(Stop the World)；容易导致内存碎片</li>
+</ul>
+<p><font color='orange'>复制算法</font>：</p>
+<ul>
+<li>将内存一分为二，每次只用其中一块，在垃圾回收的时候，将正在使用的内存中的存活对象复制到未被使用的内存块中，之后清除正在使用的内存块，交换两个内存角色</li>
+<li>缺点：如果大部分是垃圾，复制时间长；需要两倍的空间</li>
+<li>优点：解决了内存碎片化问题</li>
+</ul>
+<p><font color='orange'>标记-整理</font>：</p>
+<ul>
+<li>先标记，把存活的对象移动内存一端，然后清理另一端</li>
+<li>缺点：移动代价大</li>
+<li>优点：解决内存碎片问题</li>
+</ul>
+<p><font color='orange'>分代回收算法</font>：</p>
+<ul>
+<li>将内存划分为年轻代和老年代，其中<font color='orange'>年轻代</font>主要存放新创建的对象，大部分对象是比较小的，而且容易消亡的，用一个小范围的高频的MinorGC去处理朝生夕灭的对象。<font color='orange'>老年代</font>主要存放大对象等生命周期较长的对象，用一个大范围的低频的MajorGC去处理这些对象</li>
+</ul>
+<h2 id="JVM的内存结构，新生代与老年代的比例，Eden和Survivor比例"><a href="#JVM的内存结构，新生代与老年代的比例，Eden和Survivor比例" class="headerlink" title="JVM的内存结构，新生代与老年代的比例，Eden和Survivor比例"></a>JVM的内存结构，新生代与老年代的比例，Eden和Survivor比例</h2><p>内存结构：</p>
+<ul>
+<li>主要有三大块：堆、栈、方法区</li>
+<li>堆内存中由老年代和新生代组成，新生代又被分为：伊甸园区、存活区1、存活区2</li>
+</ul>
+<p>比例：</p>
+<ul>
+<li>新生代占1/3的堆空间，其中伊甸园区、存活区1、存活区2比例为8:1:1，老年代占2/3的堆空间</li>
+<li>垃圾回收：面向新生代的Minor GC，面向老年代的Major GC。两者一起称为full GC</li>
+</ul>
+<p><img src="/images/java虚拟机/image-20230601195410471.png" alt="image-20230601195410471" style="zoom:67%;" /></p>
+<h2 id="为什么分老年代和新生代"><a href="#为什么分老年代和新生代" class="headerlink" title="为什么分老年代和新生代"></a>为什么分老年代和新生代</h2><p>基于分代假说，它是指：</p>
+<ul>
+<li>绝大多数的对象都是朝生夕灭的</li>
+<li>熬过越多次的垃圾收集过程的对象是更加难以消亡的</li>
+</ul>
+<p>新生代：主要存放新创建的对象，大部分对象是比较小的，而且容易消亡的，用一个小范围的高频的MinorGC去处理朝生夕灭的对象</p>
+<p>老年代：主要存放大对象等生命周期较长的对象，用一个大范围的低频的MajorGC去处理这些对象</p>
+<h2 id="对象什么时候会进入老年代"><a href="#对象什么时候会进入老年代" class="headerlink" title="对象什么时候会进入老年代"></a>对象什么时候会进入老年代</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45673033/article/details/126330523?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168568936616800188579792%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168568936616800188579792&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-126330523-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=%E5%AF%B9%E8%B1%A1%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E8%BF%9B%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3&amp;spm=1018.2226.3001.4187">JVM中对象进入老年代的3中情况</a></p>
+<ol>
+<li>对象年龄达到阈值后进入老年代。默认是15次Minor GC</li>
+<li>大对象直接进入老年代。大对象复制开销大，不适合放在新生代</li>
+<li>动态年龄判断。</li>
+</ol>
+<blockquote>
+<p>如果在幸存区中相同年龄对象大小总和大于幸存区空间一半，年龄大于或等于该年龄对象就可以直接进入老年代</p>
+</blockquote>
+<h2 id="为什么要分为Eden和Survivor"><a href="#为什么要分为Eden和Survivor" class="headerlink" title="为什么要分为Eden和Survivor?"></a>为什么要分为Eden和Survivor?</h2><ul>
+<li><p>如果没有幸存区，伊甸园区每进行一次Minor GC，存活的对象就会送到老年代，会导致老年代很快被填满，使得触发Major GC，进行一次Full GC消耗时间成本大。减少Full GC的发生</p>
+</li>
+<li><p>幸存区的预筛选保证只有经历15次Minor GC之后，才能被送到老年代</p>
+</li>
+</ul>
+<h2 id="为什么要设置两个Survivor区？"><a href="#为什么要设置两个Survivor区？" class="headerlink" title="为什么要设置两个Survivor区？"></a>为什么要设置两个Survivor区？</h2><ul>
+<li>有效解决内存碎片化问题</li>
+<li>在触发Minor GC时，第一块幸存区和伊甸园区会将存活的对象复制到第二块幸存区，等到下一次触发Minor GC时，第二块幸存区和伊甸园区将存活的对象复制到第一块幸存区。两个幸存区相互交替，避免了碎片化的发生</li>
+</ul>
+<h2 id="你知道哪几种垃圾收集器，优缺点"><a href="#你知道哪几种垃圾收集器，优缺点" class="headerlink" title="你知道哪几种垃圾收集器，优缺点"></a>你知道哪几种垃圾收集器，优缺点</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/h2604396739/article/details/87709160?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168562197516800185894301%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168562197516800185894301&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-87709160-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=%E4%BD%A0%E7%9F%A5%E9%81%93%E5%93%AA%E5%87%A0%E7%A7%8D%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%EF%BC%8C%E5%90%84%E8%87%AA%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%8C%E9%87%8D%E7%82%B9%E8%AE%B2%E4%B8%8Bcms%E5%92%8CG1%EF%BC%8C%E5%8C%85%E6%8B%AC%E5%8E%9F%E7%90%86%EF%BC%8C%E6%B5%81%E7%A8%8B%EF%BC%8C%E4%BC%98%E7%BC%BA%E7%82%B9&amp;spm=1018.2226.3001.4187">jvm各种回收器，各自优缺点，重点CMS、G1</a></p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/248709769">JVM基础（五）垃圾收集器</a></p>
+<p><font color='orange'>Serial</font>：</p>
+<ul>
+<li>单线程回收器，适合小内存应用，使用复制算法</li>
+<li>进行垃圾回收的时候，开启一个线程进行垃圾收集，必须暂停其他所有工作线程(Stop the Word)，直到垃圾收集完毕。</li>
+<li>优点：占用资源少</li>
+<li>缺点：需要停顿用户线程，多核CPU下无法有效利用资源</li>
+</ul>
+<p><font color='orange'>Parallel</font>：</p>
+<ul>
+<li>多线程回收器，适合大内存应用</li>
+<li>会开启多个线程一起收集，整个过程都会暂停用户线程，直到整个垃圾收集过程结束</li>
+<li>优点：多线程收集，效率比Serial高</li>
+<li>缺点：整个过程需要停顿用户线程</li>
+</ul>
+<p><font color='orange'>CMS</font>：</p>
+<ul>
+<li>并发垃圾收集器</li>
+<li><p>使垃圾回收过程中的某些阶段用户线程和垃圾回收线程可以一起工作，以获取最短回收停顿时间为目标的收集器</p>
+</li>
+<li><p>使用标记-清除算法，分为初始标记、并发标记、重新标记、并发清除四个阶段</p>
+<ul>
+<li>初始标记：先把所有的GC Root直接引用的对象进行标记，为了避免标记的过程中继续产生新的对象，此时需要暂停用户线程</li>
+<li>并发标记：把阶段一标记好的GC Root对象进行深度遍历，找到所有与GC Root关联的对象并进行标记，这个过程是多线程的，不停止用户线程</li>
+<li>重新标记：由于阶段二没有停止用户线程，所以会产生新的垃圾，需要对阶段二用户线程运行遗留的垃圾进行标记，需要停止用户线程</li>
+<li>并发清理：清理那些被标记的可回收的对象，使用标记-清除法</li>
+</ul>
+</li>
+<li>优点：多线程收集，收集过程不停止用户线程</li>
+<li>缺点：可能产生浮动垃圾；空间碎片整理造成卡顿</li>
+</ul>
+<p><font color='orange'>G1</font>：</p>
+<ul>
+<li>智能并发垃圾收集器</li>
+<li>内存越来越大，所以每个区扫描的时间也越来越长，于是G1放弃了原来的物理分区，而是把整个内存分为若干Region区域(1M-32M)，然后由不同的Region在逻辑上组合成个各代，以Region作为单位进行更细粒度的回收。</li>
+<li>G1里面会维护一个Collect Set集合，这个集合记录了要回收的Region块信息、空间大小等。有了这个集合，就可以根据用户设定的可接受的停顿时间来进行分析，以达到性价比最高的回收。</li>
+<li><p>它的执行流程基本和CMS一致，同样包括：初始标记、并发标记、重新标记、筛选清除。区别在于筛选清除阶段不会直接清除，而是根据用户设定的停顿时间进行智能筛选和局部回收</p>
+</li>
+<li><p>对于局部来说：采用的标记复制算法，对于整体来说：使用标记-整理算法</p>
+</li>
+<li>优点：停顿时间可控的</li>
+<li>劣势：维护的信息比较多，适合内存空间大的场景</li>
+</ul>
+<h2 id="类加载器，如何打破双亲委派"><a href="#类加载器，如何打破双亲委派" class="headerlink" title="类加载器，如何打破双亲委派"></a>类加载器，如何打破双亲委派</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_36586120/article/details/117457014?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168566766916800215056669%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168566766916800215056669&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-5-117457014-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=%E7%AE%80%E5%8D%95%E8%AF%B4%E8%AF%B4%E4%BD%A0%E4%BA%86%E8%A7%A3%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%89%93%E7%A0%B4%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E4%B9%88%EF%BC%8C%E6%80%8E%E4%B9%88%E6%89%93%E7%A0%B4&amp;spm=1018.2226.3001.4187">Java双亲委派模型：为什么要双亲委派？如何打破它？破在哪里？</a></p>
+<p>类加载器：</p>
+<ul>
+<li>定义：把Java字节码加载成<code>java.lang.Class</code>实例的工具。这个过程包括了：读取字节数组、验证、解析、初始化等等，也可以加载资源，如：图像文件、配置文件</li>
+<li>特点：<ol>
+<li>动态按需加载。</li>
+<li>全盘负责。当一个类加载器加载一个类时，这个类所依赖的、引用的其他所有类都由这个类加载器加载</li>
+</ol>
+</li>
+<li>分类：<ul>
+<li><font color='orange'>启动类加载器</font>：主要负责加载<code>JAVA_HOME\lib</code>目录中的类库到虚拟机内存中，顶级父类<code>Object</code>只能由其加载</li>
+<li><font color='orange'>扩展类加载器</font>：复杂加载<code>JAVA_HOME\lib\ext</code>目录中的所有类库</li>
+<li><font color='orange'>应用程序类加载器</font>：负责加载用户类路径<code>ClassPath</code>上指定的类库</li>
+</ul>
+</li>
+</ul>
+<p>双亲委派</p>
+<ul>
+<li>定义：除了启动类加载器外，其他类加载器都继承了一个抽象类<code>ClassLoader</code>，其中一个<code>loadClass</code>方法，它会先检查这个类如果已经加载过，直接返回，否则委派给父加载器，递归调用，一层一层往上委派，直到启动类加载器。如果启动类加载器无法加载时，再一层一层向下委派给它的子类加载器加载。</li>
+<li>为什么要双亲委派：保证自下而上的委派，又自上而下的加载，保证了每个类在各个类加载器中都是同一个类。</li>
+<li>缺点：<ul>
+<li>父类级别加载器不能加载到只有子类加载器才能加载的class</li>
+<li>同一个类加载器都只能加载一个全类名相同的class</li>
+</ul>
+</li>
+<li>如何打破双亲委派<ol>
+<li>直接自定义类加载器加载，重写<code>findClass</code>和<code>loadClass</code>方法</li>
+<li>跳过应用程序类加载器和拓展类加载器，将自定义的类加载器中父类加载器设置为启动类加载器。不需要重写<code>loadClass</code>方法</li>
+<li><font color='orange'>Tomcat</font>自定义了类加载器<code>WebappClassLoader</code>，继承自<code>URLClassLoader</code>,重写了<code>findClass</code>和<code>loadClass</code>，并且把<code>WebappClassLoader</code>的父类加载器设置为<code>AppClassLoader</code></li>
+</ol>
+</li>
+</ul>
+<h2 id="JVM-频繁fullGC，如何排查"><a href="#JVM-频繁fullGC，如何排查" class="headerlink" title="JVM 频繁fullGC，如何排查"></a>JVM 频繁fullGC，如何排查</h2><p>原因：</p>
+<ol>
+<li>显示调用了System.gc()</li>
+<li>新生代对象晋级老年代、大对象分配空间（大对象来源：数据库结果集太大；第三方接口传输大对象；消息队列的消息太大）</li>
+<li>内存泄漏（代码有问题，没有及时释放对象引用，导致对象不能及时回收）</li>
+</ol>
+<p>排查：</p>
+<ol>
+<li>检查代码是否调用了System.gc()</li>
+<li>动态开启GC日志打印，分析日志</li>
+<li>查看JVM内存分配是否合理</li>
+</ol>
+<h2 id="主要的JVM参数"><a href="#主要的JVM参数" class="headerlink" title="主要的JVM参数"></a>主要的JVM参数</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/127352212">轻松永远记住经典jvm参数</a></p>
+<ul>
+<li><code>-Xms</code>：初始堆大小</li>
+<li><code>-Xmx</code>：最大堆大小</li>
+<li><code>-Xmn</code>：新生代大小</li>
+<li><code>-Xss</code>：每个线程的栈大小</li>
+<li><code>-XX:NewRatio</code>：新生代与老年代的比例</li>
+<li><code>-XX:SurvivorRatio</code>：Eden区与Survivor区的比例</li>
+<li><code>-XX:+UseSerialGC</code>：串行垃圾回收器</li>
+<li><code>-XX:+UseParallelGC</code>：并行垃圾回收器</li>
+<li><code>-XX:+UseConcMarkSweepGC</code>：CMS垃圾回收器</li>
+<li><code>-XX:+UseG1GC</code>：G1垃圾回收器</li>
+</ul>
+<h2 id="指令重排序-内存屏障-happen-before"><a href="#指令重排序-内存屏障-happen-before" class="headerlink" title="指令重排序 内存屏障 happen-before"></a>指令重排序 内存屏障 happen-before</h2><p>参考文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/hanchao5272/article/details/79575491?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168567465916800197075324%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=168567465916800197075324&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-5-79575491-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%BA%86%E8%A7%A3%E5%A4%9A%E5%B0%91%EF%BC%8C%E6%AF%94%E5%A6%82%E9%87%8D%E6%8E%92%E5%BA%8F%EF%BC%8C%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C%EF%BC%8Chappen-before%EF%BC%8C%E4%B8%BB%E5%86%85%E5%AD%98%EF%BC%8C%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AD%98%E7%AD%89&amp;spm=1018.2226.3001.4187">Java内存模型、指令重排、内存屏障、happens-before原则</a></p>
+<p>指令重排序：程序运行时，编译器为了优化性能，会对指令序列进行重新排序，但是不管怎么排序，单线程执行的结果不变</p>
+<p>内存屏障：阻止一段没有数据依赖性的代码进行指令重排序，保证有序性。在java中，volatile关键字可以保证内存可见性。当一个变量被volatile修饰时，编译时有一个lock指令，会被立即刷入主内存，并且每次取该变量时都会从主内存中读取最新的值。</p>
+<p>happens-before（先行发生原则）: 如果一个动作发生在另一个动作之前，那么第一个动作对第二个动作是可见的，并且第二个动作之前是有序的</p>
+<ul>
+<li>线程内部规则：在同一个线程内，前面操作执行结果，后面可见</li>
+<li>传递规则：操作x执行结果对操作y可见，操作y执行结果对操作z可见，那么操作x执行结果对操作z可见</li>
+<li>volatile变量规则：如果线程1写入变量v，接着线程2读取v，那么前面写的结果对后面可见</li>
+</ul>
+<h2 id="Java对象的创建过程"><a href="#Java对象的创建过程" class="headerlink" title="Java对象的创建过程"></a>Java对象的创建过程</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/a745233700/article/details/90232862?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168568831516800222886519%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=168568831516800222886519&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-25-90232862-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=%E8%AF%B4%E4%B8%80%E4%B8%8BJava%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B&amp;spm=1018.2226.3001.4187">Java虚拟机：对象创建过程与类加载机制、双亲委派模型</a></p>
+<ol>
+<li>检查new指令的参数能否在常量池中定位到一个类的符号引用</li>
+<li>如果没有，说明这个类还没有被加载，必须先加载、验证、准备、解析、初始化</li>
+<li>如果有，JVM在堆中分配内存</li>
+<li>将分配的内存初始化为0值，保证不赋值也能直接使用</li>
+<li>对对象进行必要设置，如：是哪个对象类型的实例，对象哈希码，GC分代年龄等</li>
+<li>执行<code>init</code>方法，初始化</li>
+</ol>
+<h2 id="类加载的执行过程"><a href="#类加载的执行过程" class="headerlink" title="类加载的执行过程"></a>类加载的执行过程</h2><p>就是JVM把类的数据从class文件加载到内存，并对数据进行校验，转换解析和初始化，最终形成被虚拟机直接使用的java类型过程。</p>
+<p>类加载的过程包括：加载、验证、准备、解析、初始化</p>
+<ul>
+<li>加载：根据类的全限定名读取类的二进制字节流到JVM中，然后生成对应的Class对象实例</li>
+<li>验证：验证信息是否符合当前虚拟机的要求，保证自身安全</li>
+<li>准备：为类变量分配内存空间，设置数据类型零值</li>
+<li>解析：将常量池的符号引用替换为直接引用过程</li>
+<li>初始化：执行类中定义的java代码</li>
+</ul>
+<h2 id="Stop-The-World（STW）"><a href="#Stop-The-World（STW）" class="headerlink" title="Stop The World（STW）"></a>Stop The World（STW）</h2><p>即在执行垃圾收集算法时,Java应用程序的其他所有除了垃圾收集收集器线程之外的线程都被挂起。此时，系统只能允许GC线程进行运行，其他线程则会全部暂停，等待GC线程执行完毕后才能再次运行。</p>
+<h2 id="如何避免OOM-Out-Of-Memory"><a href="#如何避免OOM-Out-Of-Memory" class="headerlink" title="如何避免OOM (Out Of Memory)"></a>如何避免OOM (Out Of Memory)</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/wts563540/article/details/124949829?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-124949829-blog-87919741.235^v36^pc_relevant_default_base3&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=3">OOM 原因及解决方案</a></p>
+<p>定义：是指需要的内存空间大于系统分配的内存空间</p>
+<p>原因：</p>
+<ul>
+<li>虚拟机本身可使用的内存太少</li>
+<li>应用使用太多，用完没有及时释放掉</li>
+</ul>
+<p>解决方案：</p>
+<ol>
+<li>调整JVM堆内存空间参数</li>
+<li>限制一些大对象。比如查询的结果集太大，对其结果数限制</li>
+<li>如果是内存泄漏，找到持有对象，修改代码设计，比如及时关闭链接，释放资源</li>
+</ol>
+<h2 id="JVM调优思路"><a href="#JVM调优思路" class="headerlink" title="JVM调优思路"></a>JVM调优思路</h2><p>参考文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/woaini886353/article/details/124381940?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168569061116800215040350%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=168569061116800215040350&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-10-124381940-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=%E4%BA%86%E8%A7%A3%E8%BF%87JVM%E8%B0%83%E4%BC%98%E6%B2%A1%EF%BC%8C%E5%9F%BA%E6%9C%AC%E6%80%9D%E8%B7%AF%E6%98%AF%E4%BB%80%E4%B9%88%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E5%AE%83%E4%BB%AC%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%91%A2&amp;spm=1018.2226.3001.4187">JVM介绍及调优</a></p>
+<ol>
+<li>通过java自带的分析工具如visualvm获取JVM运行数据,可以分析内存快照、线程快照</li>
+<li>减少使用全局变量和大对象，调整新生代和老年代的大小到合适，选择合适的GC收集器</li>
+<li>对于垃圾回收，每次Minor GC要尽可能地多收集垃圾对象，减少Full GC的频率</li>
+</ol>
+<h2 id="java中垃圾回收的时机"><a href="#java中垃圾回收的时机" class="headerlink" title="java中垃圾回收的时机"></a>java中垃圾回收的时机</h2><ol>
+<li>当对象失去引用后，系统会在合适的时间回收所占内存</li>
+<li>在新生代的伊甸园区满了会触发Minor GC，当老年代满了会触发Major GC</li>
+<li>当程序调用System.gc()时，会触发Full GC操作</li>
+</ol>
+<h2 id="主内存与工作内存"><a href="#主内存与工作内存" class="headerlink" title="主内存与工作内存"></a>主内存与工作内存</h2><p>所有变量存放主内存中。主内存主要包括本地方法区和堆，对所有线程都是共享的</p>
+<p>每条线程都有自己的工作内存，里面存放所使用变量的副本，线程操作只操作这些副本，不能直接读写主内存中的变量。工作内存主要包括两个部分：1)属于该线程私有的栈，2)对主内存部分变量拷贝的寄存器</p>
+<p>线程之间无法直接访问对方的工作内存中的变量，线程间变量的传递只能通过主内存来完成</p>
+<h2 id="内存间交互操作"><a href="#内存间交互操作" class="headerlink" title="内存间交互操作"></a>内存间交互操作</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42163058/article/details/118760986?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168571217916800180636521%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168571217916800180636521&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-118760986-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=%E5%86%85%E5%AD%98%E9%97%B4%E4%BA%A4%E4%BA%92%E6%93%8D%E4%BD%9C&amp;spm=1018.2226.3001.4187">JVM1.8（三）：内存之间的交互操作</a></p>
+<h2 id="内存模型三大特性"><a href="#内存模型三大特性" class="headerlink" title="内存模型三大特性"></a>内存模型三大特性</h2><p>原子性：</p>
+<ul>
+<li>一个操作或者多个操作 要么全部执行并且执行的过程不会被任何因素打断，要么就都不执行</li>
+</ul>
+<p>可见性：</p>
+<ul>
+<li>当多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值。</li>
+</ul>
+<p>有序性：</p>
+<ul>
+<li>单线程下，为了优化性能，指令的执行顺序可以和代码顺序不一样。但是，在多线程下，需要考虑指令之间的排序问题，保证一段指令是有序的。</li>
+</ul>
+<h2 id="什么是堆中的永久代-Perm-Gen-space"><a href="#什么是堆中的永久代-Perm-Gen-space" class="headerlink" title="什么是堆中的永久代(Perm Gen space)"></a>什么是堆中的永久代(Perm Gen space)</h2><p>永久代主要存放类定义、字节码、常量等很少会变更的信息。并且不会发生垃圾回收，但如果永久代满了或者超过临界值，会触发Full GC</p>
+<p>在java8中，移除了永久代，新加了一个元空间。类似于永久代，但它们最大的区别是：</p>
+<ul>
+<li>元空间不在虚拟机中，而是在本地内存，因此它受本地内存限制。类的元数据放在这里</li>
+<li>字符串池和类的静态变量放在java堆中</li>
+</ul>
+<p>为什么要替换成元空间：</p>
+<ol>
+<li>为了解决永久代的OOM问题，因为元数据和class对象存放在永久代中，容易发生内存溢出</li>
+<li>类和方法的信息比较难确定大小，对于永久代大小的划分比较困难</li>
+<li>永久代会为GC带来不必要的复杂度</li>
+</ol>
+<h2 id="栈帧里面包含哪些东西"><a href="#栈帧里面包含哪些东西" class="headerlink" title="栈帧里面包含哪些东西"></a>栈帧里面包含哪些东西</h2><p>局部变量表</p>
+<ul>
+<li>存储基本数据类型的局部变量、对象的引用</li>
+<li>局部变量表的容量以变量槽为最小单位，每个槽最大存储32位，对于64位的数据类型，会分配两个连续的槽来存储</li>
+<li>非静态方法在第0个槽位存储所属对象实例引用(reference this)；静态方法直接存储参数变量</li>
+<li>当方法运行时，如果已经<u>超出了某个变量的作用域</u>，即变量失效了，那这个变量对应的 Slot 就可以交给其他变量使用，也就是所谓的<font color='orange'>Slot 复用</font>。超出作用域之后，如果被其他变量复用了，就能够被垃圾回收，如果没有被复用，就回收不掉这部分内存。</li>
+</ul>
+<p>操作数栈</p>
+<ul>
+<li>栈帧中用于计算的临时数据存储区，保存计算过程中的中间结果</li>
+</ul>
+<p>动态链接</p>
+<ul>
+<li>java源文件被编译成字节码时，所有变量和方法的引用都作为符号引用，保存在class文件的常量池中</li>
+<li>字节码中的方法调用指令就以常量池中指向方法的符号引用作为参数</li>
+<li>动态链接作用，就是把符号引用转为调用方法的直接引用的过程</li>
+</ul>
+<p>返回地址</p>
+<ul>
+<li>存储的就是调用该方法的指令的下一条指令地址，也就是下一个方法或者栈帧。</li>
+<li>这样返回给调用者的PC寄存器，就知道下一条该执行那个指令了</li>
+</ul>
+<h2 id="程序计数器有什么作用，为什么是私有的"><a href="#程序计数器有什么作用，为什么是私有的" class="headerlink" title="程序计数器有什么作用，为什么是私有的"></a>程序计数器有什么作用，为什么是私有的</h2><p>程序计数器是一块较小的内存空间，线程独享，</p>
+<p>它的作用可以看作是当前线程所执行的字节码的行号指示器。存放当前线程执行的进度。通过程序计数器，将一个个指令，可以连接成一个完整的动作，从而完成整个程序的执行。</p>
+<p>为什么是私有的：</p>
+<ul>
+<li>保证每个线程在唤醒时，能够正确恢复到它执行的位置，继续执行未完成的动作。就需要有一个独立的空间来存放各自的执行指令控制，保证多线程之间互不影响。</li>
+</ul>
+<h2 id="字符串常量存放在哪个区域"><a href="#字符串常量存放在哪个区域" class="headerlink" title="字符串常量存放在哪个区域"></a>字符串常量存放在哪个区域</h2><h2 id="Java里有哪些引用类型"><a href="#Java里有哪些引用类型" class="headerlink" title="Java里有哪些引用类型"></a>Java里有哪些引用类型</h2><p>强引用：</p>
+<ul>
+<li>只有在和GC Roots断开后，才会被消除</li>
+</ul>
+<p>软引用：</p>
+<ul>
+<li>在内存足够的时候，软引用对象不会被回收，只有在内存不足的时候，系统会回收软引用对象。还不足就会抛出内存溢出</li>
+</ul>
+<p>弱引用：</p>
+<ul>
+<li>当进行垃圾回收的时候，都会回收被弱引用关联的对象</li>
+</ul>
+<p>虚引用：</p>
+<ul>
+<li>在任何时候都可能被垃圾回收，形同虚设</li>
+</ul>
+<h2 id="Java对象的布局"><a href="#Java对象的布局" class="headerlink" title="Java对象的布局"></a>Java对象的布局</h2><h2 id="堆和栈的区别"><a href="#堆和栈的区别" class="headerlink" title="堆和栈的区别"></a>堆和栈的区别</h2><p>物理地址：</p>
+<ul>
+<li>堆在分配时是不连续的；栈式连续的</li>
+</ul>
+<p>内存：</p>
+<ul>
+<li>堆因为不连续，所以在运行期间确认，大小不固定；栈是连续的，在编译期确认，大小固定</li>
+</ul>
+<p>存放内容：</p>
+<ul>
+<li>堆存放对象实例和数组，侧重数据的存储；栈存放局部变量、操作数栈、返回结果等，侧重程序方法的执行</li>
+</ul>
+<p>可见度：</p>
+<ul>
+<li>堆是共享可见的；栈式线程私有的</li>
+</ul>
+<h2 id="如何判断一个常量是废弃常量"><a href="#如何判断一个常量是废弃常量" class="headerlink" title="如何判断一个常量是废弃常量"></a>如何判断一个常量是废弃常量</h2>
         </div>
 
         

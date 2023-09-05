@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>JMeter测试工具 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">JMeter测试工具</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 4, 2023&nbsp;&nbsp;16:50:34</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Tests/">Tests</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>c</p>
+<p>参考博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_49639325/article/details/121414408?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168895783116800222821839%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=168895783116800222821839&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-121414408-null-null.142^v88^insert_down28v1,239^v2^insert_chatgpt&amp;utm_term=jmeter%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E6%AD%A5%E9%AA%A4&amp;spm=1018.2226.3001.4187">Jmeter软件测试，这一篇就够了</a></p>
+<p>参考文档：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ty4y1q72g/?spm_id_from=333.337.search-card.all.click">Jmeter自动化测试工具从入门到进阶</a></p>
+<h2 id="——JMeter-工具入门篇"><a href="#——JMeter-工具入门篇" class="headerlink" title="——JMeter-工具入门篇"></a>——JMeter-工具入门篇</h2><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>使用 Java 开发的一款测试工具。</p>
+<ul>
+<li>可以用于对服务器、网络或对象模拟巨大的负载</li>
+<li>通过创建带有断言的脚本来验证程序是否能返回期望的结果</li>
+</ul>
+<p>好处：</p>
+<ul>
+<li>开源免费、跨平台、支持多协议</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不支持IP欺骗；使用JMeter无法验证JS程序，也无法验证页面UI，所以要和Selenium配 合来完成Web2.0应用的测试</li>
+</ul>
+<h2 id="JMeter安装"><a href="#JMeter安装" class="headerlink" title="JMeter安装"></a>JMeter安装</h2><ol>
+<li>JMeter 是使用 Java 编写的，必须安装 Java 环境</li>
+<li>下载并安装 <a target="_blank" rel="noopener" href="https://jmeter.apache.org/download_jmeter.cgi">JMeter</a> 直接解压即可</li>
+<li>中文乱码问题，先修改编码集</li>
+<li>双击ApacheJMeter.jar启动图形化</li>
+</ol>
+<p><strong>项目简介</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">请求方式</th>
+<th>定位资源</th>
+<th>提交数据</th>
+<th>响应数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">查</td>
+<td>URL + GET</td>
+<td>键值对</td>
+<td>状态码200；响应体：单条或多条</td>
+</tr>
+<tr>
+<td style="text-align:center">增</td>
+<td>URL + POST</td>
+<td>键值对 \</td>
+<td>JSON</td>
+<td>状态码201；响应体：新增后数据</td>
+</tr>
+<tr>
+<td style="text-align:center">改</td>
+<td>URL + PUT</td>
+<td>键值对 \</td>
+<td>JSON</td>
+<td>状态码201；响应体：修改后数据</td>
+</tr>
+<tr>
+<td style="text-align:center">删</td>
+<td>URL + DELETE</td>
+<td>键值对</td>
+<td>状态码204；响应体：无</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="JMeter基本使用"><a href="#JMeter基本使用" class="headerlink" title="JMeter基本使用"></a>JMeter基本使用</h2><p>设置接口三要素查询所有学院信息</p>
+<ol>
+<li>测试计划—右键—线程—添加线程组</li>
+<li>线程组—右键—<font color='orange'>取样器</font>—http请求</li>
+<li>测试计划—右键—添加<font color='orange'>监听器</font>—查看<font color='orange'>结果树</font></li>
+<li>点击运行，查看结果</li>
+</ol>
+<h2 id="线程组"><a href="#线程组" class="headerlink" title="线程组"></a>线程组</h2><p>点击测试计划，勾选<font color='orange'>独立运行每个线程组</font>。勾选之后，线程组将由<font color='orange'>并发</font>变为<font color='orange'>顺序</font>执行</p>
+<p>常见属性</p>
+<ul>
+<li>组内线程个数</li>
+<li>时间间隔。每个线程的启动时间间隔</li>
+<li>每个线程循环执行取样器的个数</li>
+<li>调度器配置：点击启动按钮后，延迟多少时间，才执行取样器，并执行多长时间</li>
+</ul>
+<p>两个特殊的线程组</p>
+<ul>
+<li>setUp线程组：最优先执行的线程组(比如：登陆时要先拿到验证码)</li>
+<li>tearDown线程组：最后执行的线程组</li>
+</ul>
+<p>http请求默认值：被复用的内容的封装，类似于模板，把url中重复的进行设置</p>
+<p>信息头管理器：</p>
+<ul>
+<li>新增修改实现时提交的数据是 JSON 格式的，需声明提交的数据的内容类型，步骤如下：</li>
+<li>右键测试计划—添加—配置元件—http信息头管理器</li>
+<li>在名称那添加<code>Content-Type</code>，值添加<code>application/json;charset=utf-8</code></li>
+</ul>
+<h2 id="参数化"><a href="#参数化" class="headerlink" title="参数化"></a>参数化</h2><p>动态的获取、设置或生成数据，是一种由程序驱动代替人工驱动的数据设计方案，提高脚本的编写 效率以及编写质量</p>
+<p>以下四种方式实现参数化： 1、用户定义的变量 2、CSV 数据文件设置 3、用户参数 4、函数</p>
+<p><strong>用户定义变量</strong>—&gt;调用格式：<code>$&#123;变量名&#125;</code></p>
+<ul>
+<li>右键测试计划—添加—配置元件—用户定义变量</li>
+<li>名称：变量命名。值：被复用的数据</li>
+</ul>
+<p><strong>csv数据文件设置</strong></p>
+<ul>
+<li>使用csv文件存储测试数据；编写被复用的脚本模板(编码集使用 UTF-8 无 BOM 格式)；关联脚本与数据(将文件数据导入脚本)</li>
+<li>右键取样器—添加—配置元件—csv数据文件设置</li>
+<li>注意勾选循环次数、修改遇到文结束符停止循环False、修改遇到文件结束符停止线程True</li>
+</ul>
+<p><strong>用户参数</strong></p>
+<ul>
+<li>1、编写被复用的学院新增脚本模板 2、使用用户参数存储测试数据 3、将数据导入脚本模板 4、设置执行次数</li>
+<li>数据设计原则：第一列声明每条数据的字段名称，第二列及以后，每列对应一条数据</li>
+<li>以变量名的方式将数据导入模板</li>
+</ul>
+<p><strong>函数</strong></p>
+<ul>
+<li>_counter 计数器函数 TRUE(每个用户都有自己的计数器) FALSE(所有用户共用一个计数器) </li>
+<li>_Random 随机数函数 参数1：取值范围最小值(包含) 参数2：取值范围最大值(包含) </li>
+<li>_time 获取当前时间的函数 无参: 获取的是距离 1970/01/01 00:00:00 的毫秒值 参数1: yyyyMM_dd HH:mm:ss 格式化成 年\月_日 时:分:秒 格式</li>
+</ul>
+<h2 id="直连数据库"><a href="#直连数据库" class="headerlink" title="直连数据库"></a>直连数据库</h2><ul>
+<li>测试计划—浏览添加第三方jar包（sqlite-jdbc-3.21.0.jar)</li>
+</ul>
+<p>测试计划—添加—配置元件—JDBC Connection Configuration</p>
+<ul>
+<li>为连接池命名，后续步骤需根据名称调用连接信息</li>
+<li>数据库连接池配置，可以提高数据库连接效率</li>
+<li>具体的连接信息：数据库URL、第三方启动入口、账号、密码</li>
+</ul>
+<p>线程组—添加—取样器—JDBC Request</p>
+<ul>
+<li>根据练级吃变量名调用连接</li>
+<li>SQL类型，被执行的sql语句</li>
+</ul>
+<p>线程组—添加—取样器—Debug Sampler</p>
+<ul>
+<li>数据接收规则：<code>变量名_N = 第N个结果</code>  <code>变量名_#=结果总数</code></li>
+</ul>
+<h2 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h2><p>让程序代替人工判断响应结果是否符合预期</p>
+<ul>
+<li>响应断言 = 断言状态码和响应体 </li>
+<li>大小断言 = 判断响应内容的字节长度 </li>
+<li>断言持续时间 = 判断响应时间</li>
+</ul>
+<font color='orange'>响应断言</font>步骤： 
+
+1. 按照之前的实现编写测试脚本 
+2. 为被判断的取样器添加断言组件（取样器--添加--断言--响应断言）
+3. 直接运行查看结果断言通过: 无提示 断言失败: 给出错误
+
+响应体；响应代码；模式匹配规则(相等，包括)
+
+
+
+
+
+## ----JMeter-工具进阶篇
+
+## 逻辑控制器
+
+通过参数化可以实现单个接口的功能测试，而接口测试过程中，除了单个接口的功能测试之外，还会测试接口业务实现，所谓业务，就是一套完整的业务逻辑或流程，这就必须要使用到逻辑控制和关联。
+
+需求1:测试计划中定义一个 http 请求访问传智播客官网，但是该请求不是无条件执行的，声明一个用户定义的变量，如果变量是 itcast 才执行，否则就不执行
+
+- 搭框架，测试计划，线程组，结果树，<font color='orange'>声明一个用户定义的变量</font>
+- 核心:<font color='orange'>添加 if 控制器</font>，子级添加取样器 (和之前实现不同，控制器和取样器存在父子级关系)
+- 取消勾选Interpret Condition as Variable Expression
+- 添加条件表达式：`"${var}"=="itcast"`
+
+需求2:有一组关键字 [hello,python,测试] (使用用户定义的变量存储)要依次取出，并在百度搜索
+
+- 搭框架，测试计划，线程组，结果树，声明一个用户定义的变量,存储一组数据
+- <font color='orange'>添加 forEach 控制器</font>，子级添加取样器 (和之前实现不同，控制器和取样器存在父子级关系)
+- 设置开始循环字段，结束循环字段。（开始索引，结束索引]
+
+需求3:循环访问学生管理系统10次
+
+- 搭框架，测试计划，线程组，结果树
+- 添加<font color='orange'>循环控制器</font>，子级添加取样器 (和之前实现不同，控制器和取样器存在父子级关系)
+
+## 关联
+
+**xpath提取器**
+
+上一个请求的响应结果和下一个请求的数据有关系
+
+需求:两个http请求，请求A访问传智播客官网，请求B访问百度 ，请求A将传智播客官网源码中的 title 标 签的值取出，传递给请求B，在请求B中作为关键字搜索这个 title 值
+
+提取器--添加--后置处理器--XPath提取器
+
+- 搭框架,编写两个请求，传智播客 + 百度搜索 
+- 核心: 取出传智播客页面源码的 title 值 
+- 传递给百度：${变量名} 的方式传值
+
+**正则表达式提取器**
+
+需求:两个请求,请时求A查询所有学院信息，请求B访问百度，从请求A中提取出第一个学院的学院名称， 把名称放在百度上搜索
+
+- 搭框架,编写两个请求，查询所有学院信息 + 百度搜索 
+- 核心:从学院查询中提取学院名称
+- 传递给百度，调用格式: ${变量名}
+
+## 跨线程组传值
+
+变量作用域局限于当前线程组，其他线程组不可以直接调用。可以将请求A中提取的结果导出到公共空间 (可以被不同线程组共享),请求B再从公开空间调用该变量，相当于全局变量 
+
+- 将请求A的数据导出到公共空间( __setProperty)
+- 把代码放在beanshell取样器中
+- 请求B从公共空间调用数据 (__property)
+
+
+
+## 性能测试
+
+模拟各种正常的、峰值的测试环境，检测程序的各项性能指标是否能够达标
+
+**高并发**
+
+需求1:同一时刻 100 个同学去访问学生管理系统的查询所有学院信息功能,统计高并发情况下平均响应时 间以及错误率(高并发)
+
+取样器--添加--定时器--同步定时器
+
+- 搭框架,测试计划，线程组，取样器，结果树(局限性),指定线程组的<font color='orange'>线程数</font>属性值为 100 
+- 添加定时器 synchronizing timer(集合点组件) 
+- 运行并查看结果查看：聚合报告组件,可以对结果汇总分析。测试计划--添加--监听器--聚合报告
+
+**高频率**
+
+需求2:一个用户以 20QPS ( == 20 次/s) 的频率访问学生管理系统服务器，持续15秒，统计服务器的平均 响应时间
+
+<font color='orange'>QPS</font>: Query per Seconds 每秒查询数(查询率),每秒访问多少次服务器
+
+取样器--添加--定时器--常量吞吐量定时器
+
+- 搭框架，测试计划，线程组，取样器，聚合报告,根据题干计算数据: `循环次数 = 访问频率 * 持续时间` 
+- 添加QPS访问频率控制的相关组件： `每分钟访问次数 = 访问频率 * 60`
+
+**分布式**
+
+以集群的方式完成测试任务，可以提高测试效率
+
+控制机负责任务分配；执行机负责任务实现
+
+工作流程：控制及需要指定测试任务，并下发到执行机；执行机执行任务并将结果返回给控制机，控制机左结果汇总
+
+环境搭建：
+
+- 不同的测试机上安装 Jmeter
+- 配置基础环境(统一操作系统、JDK、Jmeter .... )
+- 核心: 控制机如何与执行机通信? 关键点：端口号
+- 控制机中设置执行机的 IP
+- `%JMETER_HOME%/bin/jmeter.properties` --> <font color='orange'>remote_hosts=执行机A的IP:端口号, 执行机B的IP:端口号</font>
+
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Tests/"># Tests</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/06/27/Test/APItest/">APItest</a>
+            
+            
+            <a class="next" rel="next" href="/2023/06/03/%E9%9D%A2%E8%AF%95%E9%A2%98/%E6%B5%8B%E8%AF%95%E9%9D%A2%E8%AF%95/">测试面试</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
