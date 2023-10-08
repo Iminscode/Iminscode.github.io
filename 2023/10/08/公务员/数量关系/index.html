@@ -43,6 +43,45 @@
     
     
         
+            <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+        
     
 
 
@@ -50,7 +89,119 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body>
     <script>
@@ -232,7 +383,7 @@
 <li><p>当正面不好解题的时候，从特殊入手，或者从反面入手。当出现<code>至少</code>或者<code>不能</code>的时候，考虑反面。比如至少2个，就是≥2个，反面讲就是＜2个，所以可能是0个或者1个的情况。</p>
 </li>
 </ul>
-<h4 id="1-2-概率题-一般"><a href="#1-2-概率题-一般" class="headerlink" title="1.2 概率题(一般)"></a>1.2 概率题(一般)</h4><p><img src="/images/数量关系/image-20230214150645586.png" alt="image-20230214150645586" style="zoom:80%;" /></p>
+<h4 id="1-2-概率题-一般"><a href="#1-2-概率题-一般" class="headerlink" title="1.2 概率题(一般)"></a>1.2 概率题(一般)</h4><p><img src="/images/数量关系/image-20230214150645586.png" alt="image-20230214150645586" style="zoom:80%;"></p>
 <ul>
 <li>一般考察的题型主要是把满足的要求的情况比上总的可能情况。    </li>
 <li>几何概型，独立重复实验等等考的不多</li>
@@ -332,11 +483,11 @@
 <p><img src="/images/数量关系/image-20230215125142988.png" alt="image-20230215125142988"></p>
 </li>
 <li><p>常见的体积公式</p>
-<p><img src="/images/数量关系/image-20230215125304574.png" alt="image-20230215125304574" style="zoom: 80%;" /></p>
+<p><img src="/images/数量关系/image-20230215125304574.png" alt="image-20230215125304574" style="zoom: 80%;"></p>
 </li>
 <li><p>几何等比例放缩性质</p>
 <p>若边长（半径）为<script type="math/tex">n</script>倍，则周长也为<script type="math/tex">n</script>倍，面积为<script type="math/tex">n^2</script>倍，体积为<script type="math/tex">n^3</script>倍</p>
-<p><img src="/images/数量关系/image-20230215133228532.png" alt="image-20230215133228532" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230215133228532.png" alt="image-20230215133228532" style="zoom:80%;"></p>
 </li>
 <li><p>常考的知识点</p>
 <p>1、正六边形（可以分割成6个小的正三边形）、</p>
@@ -346,7 +497,7 @@
 <p>5、30°60°直角三角形（角度对应的三边之比为<script type="math/tex">1:\sqrt{3}:2</script>）、</p>
 <p>6、等腰直角三角形（三边之比为<script type="math/tex">1:1:\sqrt{2}</script>）</p>
 <p>7、<script type="math/tex">\sqrt{2}=1.414,  \sqrt{3}=1.732,  \sqrt{5}=2.236</script></p>
-<p><img src="/images/数量关系/image-20230215132646927.png" alt="image-20230215132646927" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230215132646927.png" alt="image-20230215132646927" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="2-2-几何最值问题"><a href="#2-2-几何最值问题" class="headerlink" title="2.2 几何最值问题"></a>2.2 几何最值问题</h4><ul>
@@ -356,13 +507,13 @@
 </li>
 <li><p>长方体切割最值性质</p>
 <p>从长方体最长边开始，沿着侧面对角线切割，形成的切面周长，面积均最大</p>
-<p><img src="/images/数量关系/image-20230215133301856.png" alt="image-20230215133301856" style="zoom: 80%;" /></p>
+<p><img src="/images/数量关系/image-20230215133301856.png" alt="image-20230215133301856" style="zoom: 80%;"></p>
 </li>
 </ul>
 <h4 id="2-3-最短距离"><a href="#2-3-最短距离" class="headerlink" title="2.3 最短距离"></a>2.3 最短距离</h4><ul>
 <li><p>立方体表面，蚂蚁爬行获取食物</p>
 <p>先把短的两个边加上，对和求平方；再和最大的边求平方和；然后开根号。就是蚂蚁爬行的最短距离</p>
-<p><img src="/images/数量关系/image-20230215133341264.png" alt="image-20230215133341264" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230215133341264.png" alt="image-20230215133341264" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="2-4-最短遍历路径"><a href="#2-4-最短遍历路径" class="headerlink" title="2.4 最短遍历路径"></a>2.4 最短遍历路径</h4><ul>
@@ -372,7 +523,7 @@
 <p>若图形奇点数超过2个，需要先消去奇点间距离最近的奇点对</p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230215133411293.png" alt="image-20230215133411293" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230215133411293.png" alt="image-20230215133411293" style="zoom:80%;"></p>
 <h4 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h4><h3 id="三、行程问题"><a href="#三、行程问题" class="headerlink" title="三、行程问题"></a>三、行程问题</h3><h4 id="3-1-一般行程问题"><a href="#3-1-一般行程问题" class="headerlink" title="3.1 一般行程问题"></a>3.1 一般行程问题</h4><ul>
 <li>基本公式：路程=速度×时间   <script type="math/tex">s=v*t</script></li>
 <li>比例关系：路程一定，速度和时间成反比；速度（时间）一定，路程和时间（路程和速度）成正比</li>
@@ -384,7 +535,7 @@
 <li><p>常用公式： 相遇距离、相遇路程=(<script type="math/tex">v_1+v_2</script>)×时间      相遇距离是指相遇过程中，两人所走的路程之和</p>
 </li>
 <li><p>解题方法：先找相遇点，相遇时，两者路程之比=速度之比。着重注意比例关系，比例之差等于多少份，一份对应多少数值</p>
-<p><img src="/images/数量关系/image-20230215151644341.png" alt="image-20230215151644341" style="zoom:67%;" /></p>
+<p><img src="/images/数量关系/image-20230215151644341.png" alt="image-20230215151644341" style="zoom:67%;"></p>
 </li>
 </ul>
 <h4 id="3-3-多次相遇问题"><a href="#3-3-多次相遇问题" class="headerlink" title="3.3 多次相遇问题"></a>3.3 多次相遇问题</h4><ul>
@@ -393,12 +544,12 @@
 <li><p>公式：</p>
 <p>从两端出发的第N次相遇，可以走<code>2N-1</code>个全程。路程之和=<script type="math/tex">(2N-1) \times</script>单程=(<script type="math/tex">v_1+v_2</script>)×时间 </p>
 <p>从同一端出发的第N次相遇，可以走<code>2N</code>个全程。路程之和=<script type="math/tex">2N\times</script>单程=(<script type="math/tex">v_1+v_2</script>)×时间 </p>
-<p><img src="/images/数量关系/image-20230215151821894.png" alt="image-20230215151821894" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230215151821894.png" alt="image-20230215151821894" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="3-4-环形相遇问题"><a href="#3-4-环形相遇问题" class="headerlink" title="3.4 环形相遇问题"></a>3.4 环形相遇问题</h4><ul>
 <li><p>同一起点，背向出发，相遇一次为一圈，相遇N次为N圈，路程之和=N圈=(<script type="math/tex">v_1+v_2</script>)×时间 </p>
-<p><img src="/images/数量关系/image-20230215151729175.png" alt="image-20230215151729175" style="zoom:67%;" /></p>
+<p><img src="/images/数量关系/image-20230215151729175.png" alt="image-20230215151729175" style="zoom:67%;"></p>
 </li>
 </ul>
 <h4 id="3-5-追及问题"><a href="#3-5-追及问题" class="headerlink" title="3.5 追及问题"></a>3.5 追及问题</h4><ul>
@@ -413,7 +564,7 @@
 </ul>
 <h4 id="3-7-流水问题"><a href="#3-7-流水问题" class="headerlink" title="3.7 流水问题"></a>3.7 流水问题</h4><ul>
 <li><p>常用公式：<script type="math/tex">V_{\text顺}=V_{\text船}+V_{\text水}</script>，<script type="math/tex">V_{\text逆}=V_{\text船}-V_{\text水}</script>，<script type="math/tex">V_{\text船}=\frac{V_{\text顺}+V_{\text逆}}{2}</script>，<script type="math/tex">V_{\text水}=\frac{V_{\text顺}-V_{\text逆}}{2}</script></p>
-<p><img src="/images/数量关系/image-20230215151551518.png" alt="image-20230215151551518" style="zoom:67%;" /></p>
+<p><img src="/images/数量关系/image-20230215151551518.png" alt="image-20230215151551518" style="zoom:67%;"></p>
 </li>
 </ul>
 <h4 id="3-8-平均速度问题"><a href="#3-8-平均速度问题" class="headerlink" title="3.8 平均速度问题"></a>3.8 平均速度问题</h4><ul>
@@ -422,8 +573,8 @@
 <li><p>拓展：</p>
 <p>A=B×C，若A相等，B或C的平均值也可以运用此公式</p>
 <p>例如，总售价=单价×数量，若两件商品的总售价相等，则单价也为调和平均数</p>
-<p><img src="/images/数量关系/image-20230215151423001.png" alt="image-20230215151423001" style="zoom: 67%;" /></p>
-<p><img src="/images/数量关系/image-20230215151114019.png" alt="image-20230215151114019" style="zoom: 67%;" /></p>
+<p><img src="/images/数量关系/image-20230215151423001.png" alt="image-20230215151423001" style="zoom: 67%;"></p>
+<p><img src="/images/数量关系/image-20230215151114019.png" alt="image-20230215151114019" style="zoom: 67%;"></p>
 </li>
 </ul>
 <h4 id="3-9-间隔发车"><a href="#3-9-间隔发车" class="headerlink" title="3.9 间隔发车"></a>3.9 间隔发车</h4><ul>
@@ -440,16 +591,16 @@
 <p>② 若各部分可能相等，问第一名最少，可以根据平均值求解</p>
 </li>
 <li><p>求解时：若结果不为整数，反向取整，最大为 7.2，向下取整取 7；最小为 7.2，向上取整取 8</p>
-<p><img src="/images/数量关系/image-20230215163400811.png" alt="image-20230215163400811" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230215163400811.png" alt="image-20230215163400811" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="4-2-函数最值问题"><a href="#4-2-函数最值问题" class="headerlink" title="4.2 函数最值问题"></a>4.2 函数最值问题</h4><ul>
 <li><p>对于<script type="math/tex">y=ax^2+bx+c</script>，当<script type="math/tex">x=-\frac{b}{2a}</script>时，<script type="math/tex">y</script>取最值</p>
 </li>
-<li><p>若<script type="math/tex">y=(x+a)\times(b-x)</script>，无论$x$取值多少，<script type="math/tex">(x+a)\times(b-x)</script>之和为一个定值，因此当<script type="math/tex">(x+a)=(b-x)</script>时，y取最大值</p>
+<li><p>若<script type="math/tex">y=(x+a)\times(b-x)</script>，无论<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.294ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 572 453"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g></g></g></svg></mjx-container>取值多少，<script type="math/tex">(x+a)\times(b-x)</script>之和为一个定值，因此当<script type="math/tex">(x+a)=(b-x)</script>时，y取最大值</p>
 </li>
 <li><p>对于<script type="math/tex">y=(x+a)(b-x)</script>，可以分别让括号里面等于0，求出两个根，在对根求平均，结果再代入方程求得最值，注意二次方前面系数时正还是负。</p>
-<p><img src="/images/数量关系/image-20230215163426426.png" alt="image-20230215163426426" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230215163426426.png" alt="image-20230215163426426" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="4-3-最不利问题"><a href="#4-3-最不利问题" class="headerlink" title="4.3 最不利问题"></a>4.3 最不利问题</h4><ul>
@@ -458,7 +609,7 @@
 <li><p>公式：保证数=最不利数+1</p>
 <p>构造最不利数：：对于那些够的数，少给一个；对于不够的数，都拿到；把这些数加起来</p>
 <p>如果有不符合情况的，应该先去掉，不能加进来</p>
-<p><img src="/images/数量关系/image-20230215163455438.png" alt="image-20230215163455438" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230215163455438.png" alt="image-20230215163455438" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="4-4-多集合反向构造问题"><a href="#4-4-多集合反向构造问题" class="headerlink" title="4.4 多集合反向构造问题"></a>4.4 多集合反向构造问题</h4><ul>
@@ -481,7 +632,7 @@
 <p>① 赋总量：赋值完工时间的最小公倍数为工作总量</p>
 <p>② 求效率：利用公式求得效率  效率=总量/时间   时间=总量/效率之和</p>
 <p>③ 按照题目要求答题</p>
-<p><img src="/images/数量关系/image-20230215191512969.png" alt="image-20230215191512969" style="zoom:67%;" /></p>
+<p><img src="/images/数量关系/image-20230215191512969.png" alt="image-20230215191512969" style="zoom:67%;"></p>
 </li>
 </ul>
 <h4 id="5-3-效率比例型"><a href="#5-3-效率比例型" class="headerlink" title="5.3 效率比例型"></a>5.3 效率比例型</h4><ul>
@@ -500,12 +651,12 @@
 <p>③ 按照题目要求答题</p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230215190907202.png" alt="image-20230215190907202" style="zoom: 50%;" /></p>
+<p><img src="/images/数量关系/image-20230215190907202.png" alt="image-20230215190907202" style="zoom: 50%;"></p>
 <h4 id="5-4-不同的工作情况"><a href="#5-4-不同的工作情况" class="headerlink" title="5.4 不同的工作情况"></a>5.4 不同的工作情况</h4><ul>
 <li>题型判别：已知条件为不同的工作情况，没有明显给出工作时间，和效率比例，但是给出其中与工作量的关系</li>
 <li>方法：根据工作量相同，列方程，求解</li>
 </ul>
-<p><img src="/images/数量关系/image-20230215192823778.png" alt="image-20230215192823778" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230215192823778.png" alt="image-20230215192823778" style="zoom:80%;"></p>
 <h4 id="5-5-多人合作完工问题"><a href="#5-5-多人合作完工问题" class="headerlink" title="5.5 多人合作完工问题"></a>5.5 多人合作完工问题</h4><ul>
 <li><p>题型判别：给出工作总量，不同工作效率的人，合力完成需要多少时间。给出时间，不同工作效率的人，合理完成了多少工作量</p>
 </li>
@@ -516,7 +667,7 @@
 <p>题中给出的是某一人休息的时间，但一人休息意味着另一人工作，先算出一人单独工作量，剩余工作即两人合作</p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230215193541051.png" alt="image-20230215193541051" style="zoom: 80%;" /></p>
+<p><img src="/images/数量关系/image-20230215193541051.png" alt="image-20230215193541051" style="zoom: 80%;"></p>
 <h4 id="5-6-周期结合工程问题"><a href="#5-6-周期结合工程问题" class="headerlink" title="5.6 周期结合工程问题"></a>5.6 周期结合工程问题</h4><ul>
 <li><p>题型判别：如果按照第一天A…，第二天B…，以此轮替，如何如何；如果按照第一天B…，第二天A…，以此轮替，如何如何</p>
 </li>
@@ -524,7 +675,7 @@
 <p>① 第一种轮替情况，一定是一个奇数项，若干个周期后，最后一个一定是A</p>
 <p>② 第二种轮替情况，若干个周期之后，倒数第二个是B，倒数第一个是题目的条件</p>
 <p>③ 把第一种轮替情况的最后一项等于第二种轮替情况的倒数两项，求解方程</p>
-<p><img src="/images/数量关系/image-20230215194446067.png" alt="image-20230215194446067" style="zoom: 50%;" /></p>
+<p><img src="/images/数量关系/image-20230215194446067.png" alt="image-20230215194446067" style="zoom: 50%;"></p>
 </li>
 </ul>
 <h4 id="-4"><a href="#-4" class="headerlink" title=" "></a> </h4><h3 id="六、经济利润问题"><a href="#六、经济利润问题" class="headerlink" title="六、经济利润问题"></a>六、经济利润问题</h3><h4 id="6-1-可套用增长率的利润问题"><a href="#6-1-可套用增长率的利润问题" class="headerlink" title="6.1 可套用增长率的利润问题"></a>6.1 可套用增长率的利润问题</h4><ul>
@@ -534,10 +685,10 @@
 <p>套用资料分析中的平均增长率公式和混合增长率公式，需要注意是求基期还是现期；另外的方法可以赋值</p>
 </li>
 <li><p>当问题的已知条件可以表达出<script type="math/tex">C_基=A*B</script> 的形式，如收入=人均花费×人数，且<script type="math/tex">A</script>和<script type="math/tex">B</script>的形式是以增长率的形式出现，则可以考虑乘积增长率的公式：<script type="math/tex">R_c=R_a+R_b+R_a*R_b</script>求得出基期时<script type="math/tex">C_基</script>的数据，如果要计算现期数据，要注意公式为<script type="math/tex">C_现=C_基(1+R_c)</script></p>
-<p><img src="/images/数量关系/image-20230217103228308.png" alt="image-20230217103228308" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217103228308.png" alt="image-20230217103228308" style="zoom:80%;"></p>
 </li>
 <li><p>当问题的已知条件可以表达出<script type="math/tex">C=\frac{A}{B}</script>形式时，例如：单价=销售额÷销量，可以考虑平均数增长率的形式<script type="math/tex">R_c=\frac{R_a-R_b}{1+R_b}</script>求得<script type="math/tex">C</script>的平均增长率，同样需要考虑问题求得是基期的数据还是现期的数据。（除法公式也可以转换成乘法公式）</p>
-<p><img src="/images/数量关系/image-20230217104513710.png" alt="image-20230217104513710" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217104513710.png" alt="image-20230217104513710" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="6-2-基础利润问题"><a href="#6-2-基础利润问题" class="headerlink" title="6.2 基础利润问题"></a>6.2 基础利润问题</h4><ul>
@@ -552,7 +703,7 @@
 <li><p>解题方法：</p>
 <p><strong>方程法</strong>：给出具体售价成本利润，求具体价格等。设未知数列方程找等量关系（利润=售价-成本）</p>
 <p><strong>赋值法</strong>：如果所有条件和问题以比例形式（谁比谁多百分之多少）出现，没有给出具体值，可以直接把成本或售价假设成容易计算的值。</p>
-<p><img src="/images/数量关系/image-20230217135804523.png" alt="image-20230217135804523" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217135804523.png" alt="image-20230217135804523" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="6-3-分批销售利润问题"><a href="#6-3-分批销售利润问题" class="headerlink" title="6.3 分批销售利润问题"></a>6.3 分批销售利润问题</h4><ul>
@@ -562,14 +713,14 @@
 <p>无论售价折扣如何变化，都最终形成一个总的销售收入。利用收入列方程（问什么设什么）：第一批收入+第二批收入+…+第n批收入=总的销售收入   （每一部分的收入=每一部分的数量×每一部分的利润=成本+利润(获利)=成本×（1+利润））</p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230217140119234.png" alt="image-20230217140119234" style="zoom:80%;" /></p>
-<p><img src="/images/数量关系/image-20230217140526437.png" alt="image-20230217140526437" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217140119234.png" alt="image-20230217140119234" style="zoom:80%;"></p>
+<p><img src="/images/数量关系/image-20230217140526437.png" alt="image-20230217140526437" style="zoom:80%;"></p>
 <h4 id="6-4-分段计费问题"><a href="#6-4-分段计费问题" class="headerlink" title="6.4 分段计费问题"></a>6.4 分段计费问题</h4><ul>
 <li><p>题型识别：生活中水电费、出租车计费、不同的收费标准、给出总量求总花费</p>
 </li>
 <li><p>方法：</p>
 <p>找分段点；按照标准分开计算；最后家和汇总（可以画一根数轴）</p>
-<p><img src="/images/数量关系/image-20230217141451309.png" alt="image-20230217141451309" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217141451309.png" alt="image-20230217141451309" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="-5"><a href="#-5" class="headerlink" title=" "></a> </h4><h3 id="七、统筹规划问题（了解）"><a href="#七、统筹规划问题（了解）" class="headerlink" title="七、统筹规划问题（了解）"></a>七、统筹规划问题（了解）</h3><h4 id="7-1-最优方案"><a href="#7-1-最优方案" class="headerlink" title="7.1 最优方案"></a>7.1 最优方案</h4><ul>
@@ -601,20 +752,20 @@
 <li><p>双集合问题的计算公式：</p>
 <p>总数=A+B-A∩B+都不                 </p>
 <p>全部人数=人次之和-重复部分+圈外人数</p>
-<p><img src="/images/数量关系/image-20230217144339292.png" alt="image-20230217144339292" style="zoom:50%;" /></p>
+<p><img src="/images/数量关系/image-20230217144339292.png" alt="image-20230217144339292" style="zoom:50%;"></p>
 </li>
 <li><p>三集合问题的计算公式：</p>
 <p>标准型：总数=A+B+C-A∩B-A∩C-B∩C+A∩B∩C+都不</p>
 <p>非标：总数=A+B+C-满足两项-2*满足三项+都不</p>
 <p>圈内总人数=只参加一种的人数+只参加两种的人数+…+所有都参加的人数</p>
-<p><img src="/images/数量关系/image-20230217144613509.png" alt="image-20230217144613509" style="zoom:50%;" /></p>
+<p><img src="/images/数量关系/image-20230217144613509.png" alt="image-20230217144613509" style="zoom:50%;"></p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230217145012406.png" alt="image-20230217145012406" style="zoom:80%;" /></p>
-<p><img src="/images/数量关系/image-20230217145201901.png" alt="image-20230217145201901" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217145012406.png" alt="image-20230217145012406" style="zoom:80%;"></p>
+<p><img src="/images/数量关系/image-20230217145201901.png" alt="image-20230217145201901" style="zoom:80%;"></p>
 <h4 id="8-2-容斥最值问题"><a href="#8-2-容斥最值问题" class="headerlink" title="8.2 容斥最值问题"></a>8.2 容斥最值问题</h4><ul>
 <li><p>反向构造，要想相交的部分尽量小，则反向应该尽量相斥（区别于最值问题里的多集合反向构造）</p>
-<p><img src="/images/数量关系/image-20230217150057100.png" alt="image-20230217150057100" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217150057100.png" alt="image-20230217150057100" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="-7"><a href="#-7" class="headerlink" title=" "></a> </h4><h3 id="九、浓度问题"><a href="#九、浓度问题" class="headerlink" title="九、浓度问题"></a>九、浓度问题</h3><h4 id="9-1-纯浓度问题"><a href="#9-1-纯浓度问题" class="headerlink" title="9.1 纯浓度问题"></a>9.1 纯浓度问题</h4><ul>
@@ -624,19 +775,19 @@
 <p>浓度=溶质/溶液， 溶液=溶质+溶剂</p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230217151709370.png" alt="image-20230217151709370" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217151709370.png" alt="image-20230217151709370" style="zoom:80%;"></p>
 <h4 id="9-2-十字相乘法"><a href="#9-2-十字相乘法" class="headerlink" title="9.2 十字相乘法"></a>9.2 十字相乘法</h4><ul>
 <li><p>题型识别：</p>
 <p>凡是能表示成<script type="math/tex">A=\frac{B}{C}</script>形式的比例关系，均可以堪称<strong>类浓度问题</strong>，A为浓度，B为溶质，C为溶液，利用十字相乘法解题。</p>
 <p>利用这种方法求出的比例关系一定是C之比（分母之比）</p>
 </li>
 <li><p>计算公式：</p>
-<p><img src="/images/数量关系/image-20230217152255348.png" alt="image-20230217152255348" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217152255348.png" alt="image-20230217152255348" style="zoom:80%;"></p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230217153348055.png" alt="image-20230217153348055" style="zoom:80%;" /></p>
-<p><img src="/images/数量关系/image-20230217153829299.png" alt="image-20230217153829299" style="zoom:80%;" /></p>
-<p><img src="/images/数量关系/image-20230217154700029.png" alt="image-20230217154700029" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217153348055.png" alt="image-20230217153348055" style="zoom:80%;"></p>
+<p><img src="/images/数量关系/image-20230217153829299.png" alt="image-20230217153829299" style="zoom:80%;"></p>
+<p><img src="/images/数量关系/image-20230217154700029.png" alt="image-20230217154700029" style="zoom:80%;"></p>
 <h4 id="-8"><a href="#-8" class="headerlink" title=" "></a> </h4><h3 id="十、小学奥数问题"><a href="#十、小学奥数问题" class="headerlink" title="十、小学奥数问题"></a>十、小学奥数问题</h3><h4 id="10-1-周期循环问题"><a href="#10-1-周期循环问题" class="headerlink" title="10.1 周期循环问题"></a>10.1 周期循环问题</h4><ul>
 <li><p>解题思路：去掉周期循环，数余数</p>
 <p>例如：第18填，18÷7余4，即第18填星期数和第4填星期数一样</p>
@@ -646,7 +797,7 @@
 <li><p>两个循环数的周期为两者的<strong>最小公倍数</strong></p>
 <p>例如：甲4天值日一次和乙6天值日一次，则两人每12天共同值日一次。</p>
 <p><strong>注意看清题干“每隔x天”还是“每x天”进行循环</strong></p>
-<p><img src="/images/数量关系/image-20230217161609400.png" alt="image-20230217161609400" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217161609400.png" alt="image-20230217161609400" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="10-2-日期星期问题"><a href="#10-2-日期星期问题" class="headerlink" title="10.2 日期星期问题"></a>10.2 日期星期问题</h4><ul>
@@ -654,13 +805,13 @@
 <p>先按照每个月30天估算；再进行修正（二月减去2天，1、3、5、7、8、10、腊12加上1天）；最后加上日期差。</p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230217161640467.png" alt="image-20230217161640467" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217161640467.png" alt="image-20230217161640467" style="zoom:80%;"></p>
 <h4 id="10-3-年龄问题"><a href="#10-3-年龄问题" class="headerlink" title="10.3 年龄问题"></a>10.3 年龄问题</h4><ul>
 <li>无论时间如何改变，年龄差不变</li>
 <li>时间改变，对应的年龄增量相同</li>
 <li>同属相年龄差多为24岁</li>
 </ul>
-<p><img src="/images/数量关系/image-20230217162604069.png" alt="image-20230217162604069" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217162604069.png" alt="image-20230217162604069" style="zoom:80%;"></p>
 <h4 id="10-4-鸡兔同笼问题"><a href="#10-4-鸡兔同笼问题" class="headerlink" title="10.4 鸡兔同笼问题"></a>10.4 鸡兔同笼问题</h4><ul>
 <li><p>题型判别：已知条件中包括“单只腿数”和”总腿数“</p>
 </li>
@@ -669,7 +820,7 @@
 <p>（公式解析：假设都是理想情况【兔数乘以4只脚，利用该公式解题，得到的最不好的情况的数【兔的数量】，单个差值【就是指兔与鸡脚的差值2】）</p>
 </li>
 <li><p>常见考法：工资报酬、对题错题得分、元素分配等</p>
-<p><img src="/images/数量关系/image-20230217164014220.png" alt="image-20230217164014220" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217164014220.png" alt="image-20230217164014220" style="zoom:80%;"></p>
 </li>
 </ul>
 <h4 id="10-5-盈亏问题"><a href="#10-5-盈亏问题" class="headerlink" title="10.5 盈亏问题"></a>10.5 盈亏问题</h4><ul>
@@ -681,7 +832,7 @@
 <li><p>常见考法：人分配坐车、住宿，物资等</p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230217164817534.png" alt="image-20230217164817534" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217164817534.png" alt="image-20230217164817534" style="zoom:80%;"></p>
 <h4 id="10-6-牛吃草问题"><a href="#10-6-牛吃草问题" class="headerlink" title="10.6 牛吃草问题"></a>10.6 牛吃草问题</h4><ul>
 <li><p>题型识别：题干中出现“如果若怎么怎么样需要多少时间；如果若怎么怎么样需要多少时间”的排比句式</p>
 </li>
@@ -689,21 +840,21 @@
 <p><img src="/images/数量关系/image-20230217165631856.png" alt="image-20230217165631856"></p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230218094107214.png" alt="image-20230218094107214" style="zoom:80%;" /></p>
-<p><img src="/images/数量关系/image-20230218094747721.png" alt="image-20230218094747721" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230218094107214.png" alt="image-20230218094107214" style="zoom:80%;"></p>
+<p><img src="/images/数量关系/image-20230218094747721.png" alt="image-20230218094747721" style="zoom:80%;"></p>
 <h4 id="10-7-比赛轮次轮空问题"><a href="#10-7-比赛轮次轮空问题" class="headerlink" title="10.7 比赛轮次轮空问题"></a>10.7 比赛轮次轮空问题</h4><ul>
 <li><p>场次、轮次、轮空问题</p>
 <p>①  循环赛场次问题：单循环赛，<script type="math/tex">n</script>个队伍共有<script type="math/tex">C^2_n</script>场比赛；双循环赛，场次是单循环比赛数量的<script type="math/tex">2</script>倍</p>
 <p>②  淘汰赛场次问题：<script type="math/tex">2n</script>个队伍当轮有<script type="math/tex">n</script>场比赛，若队伍数为奇数，则有一队轮空；决出冠军一共要举行<script type="math/tex">2n-1</script>场比赛，每场比赛会淘汰一队，最后只剩冠军一队</p>
-<p><img src="/images/数量关系/image-20230218100805369.png" alt="image-20230218100805369" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230218100805369.png" alt="image-20230218100805369" style="zoom:80%;"></p>
 <p>③  淘汰赛轮次问题：若队伍数接近<script type="math/tex">2^n</script>，则一共有<script type="math/tex">n</script>轮；将队伍数除<script type="math/tex">2</script>，有<script type="math/tex">n</script>轮剩余队伍为奇数，即有n轮存在轮空，也意味着某队最多轮空<script type="math/tex">n</script>次</p>
-<p><img src="/images/数量关系/image-20230218100455845.png" alt="image-20230218100455845" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230218100455845.png" alt="image-20230218100455845" style="zoom:80%;"></p>
 </li>
 <li><p>已赛与未赛问题</p>
 <p>可以采用连线法解决，画图，已经参加过比赛的两个队伍就用线段将其连接起来。一个队伍完成的比赛次数，就表示这个队伍发出的射线数目</p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230218100421216.png" alt="image-20230218100421216" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230218100421216.png" alt="image-20230218100421216" style="zoom:80%;"></p>
 <h4 id="10-8-植树问题"><a href="#10-8-植树问题" class="headerlink" title="10.8 植树问题"></a>10.8 植树问题</h4><ul>
 <li><p>一般植树问题（注意问题道路两侧植树时要乘2）</p>
 <p>两端植树：植树数量=总长/间隔+1</p>
@@ -719,8 +870,8 @@
 <h4 id="10-9-钟表问题"><a href="#10-9-钟表问题" class="headerlink" title="10.9 钟表问题"></a>10.9 钟表问题</h4><ul>
 <li>题型识别：手表指针比实际时间快/慢</li>
 </ul>
-<p><img src="/images/数量关系/image-20230218102357462.png" alt="image-20230218102357462" style="zoom:80%;" /></p>
-<p><img src="/images/数量关系/image-20230218102640790.png" alt="image-20230218102640790" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230218102357462.png" alt="image-20230218102357462" style="zoom:80%;"></p>
+<p><img src="/images/数量关系/image-20230218102640790.png" alt="image-20230218102640790" style="zoom:80%;"></p>
 <h4 id="10-10-方阵问题"><a href="#10-10-方阵问题" class="headerlink" title="10.10 方阵问题"></a>10.10 方阵问题</h4><ul>
 <li><p>计算公式：</p>
 <p>方阵总人数=最外层边长的平方</p>
@@ -729,7 +880,7 @@
 <p>内层比外层少8个元素，边长少2</p>
 </li>
 </ul>
-<p><img src="/images/数量关系/image-20230218103155209.png" alt="image-20230218103155209" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230218103155209.png" alt="image-20230218103155209" style="zoom:80%;"></p>
 <h4 id="-9"><a href="#-9" class="headerlink" title=" "></a> </h4><h3 id="十一、不定方程问题"><a href="#十一、不定方程问题" class="headerlink" title="十一、不定方程问题"></a>十一、不定方程问题</h3><h4 id="11-1-尾数特性"><a href="#11-1-尾数特性" class="headerlink" title="11.1 尾数特性"></a>11.1 尾数特性</h4><ul>
 <li><p>识别：<script type="math/tex">ax+by=M</script>，当<script type="math/tex">a</script>或<script type="math/tex">b</script>尾数是 <script type="math/tex">0</script>或<script type="math/tex">5</script> 时，考虑尾数。如果是<script type="math/tex">5</script>，可以考虑乘以<script type="math/tex">2</script>将尾数变为<script type="math/tex">0</script></p>
 </li>
@@ -769,8 +920,8 @@
 <li>若一个数能被 2 或 5、4 或 25、8或 125 整除，则该数的末位、末二位、末三位也能被 2 或 5、4 或 25、8或 125 整除。</li>
 <li>对于<script type="math/tex">y=\frac{a}{b}x</script>（<script type="math/tex">x, y</script>均为整数），我们可得出整除关系：x是 b 的倍数，y 是 a 的倍数。</li>
 </ul>
-<h4 id="11-6-余数问题"><a href="#11-6-余数问题" class="headerlink" title="11.6 余数问题"></a>11.6 余数问题</h4><p><img src="/images/数量关系/image-20230218135926989.png" alt="image-20230218135926989" style="zoom:80%;" /></p>
-<p><img src="/images/数量关系/image-20230218140050949.png" alt="image-20230218140050949" style="zoom:80%;" /></p>
+<h4 id="11-6-余数问题"><a href="#11-6-余数问题" class="headerlink" title="11.6 余数问题"></a>11.6 余数问题</h4><p><img src="/images/数量关系/image-20230218135926989.png" alt="image-20230218135926989" style="zoom:80%;"></p>
+<p><img src="/images/数量关系/image-20230218140050949.png" alt="image-20230218140050949" style="zoom:80%;"></p>
 <h4 id="11-7-数列问题"><a href="#11-7-数列问题" class="headerlink" title="11.7 数列问题"></a>11.7 数列问题</h4><ul>
 <li><p>等差数列常用公式</p>
 <p>通项公式：<script type="math/tex">a_n = a_1 + (n-1)d,</script>            <script type="math/tex">a_m = a_n + (m-n)d</script></p>
