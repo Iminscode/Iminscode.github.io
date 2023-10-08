@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>数量关系 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">数量关系</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 8, 2023&nbsp;&nbsp;19:55:43</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Office/">Office</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="一、排列组合与概率问题"><a href="#一、排列组合与概率问题" class="headerlink" title="一、排列组合与概率问题"></a>一、排列组合与概率问题</h3><h4 id="1-1-排列组合题-一般"><a href="#1-1-排列组合题-一般" class="headerlink" title="1.1 排列组合题(一般)"></a>1.1 排列组合题(一般)</h4><ul>
+<li><p>有序的是排列，用的是<code>A</code>；无序的是组合，用的是<code>C</code></p>
+</li>
+<li><p>分类用加法原则；分步骤考虑要用乘法原则</p>
+</li>
+<li><p>当正面不好解题的时候，从特殊入手，或者从反面入手。当出现<code>至少</code>或者<code>不能</code>的时候，考虑反面。比如至少2个，就是≥2个，反面讲就是＜2个，所以可能是0个或者1个的情况。</p>
+</li>
+</ul>
+<h4 id="1-2-概率题-一般"><a href="#1-2-概率题-一般" class="headerlink" title="1.2 概率题(一般)"></a>1.2 概率题(一般)</h4><p><img src="/images/数量关系/image-20230214150645586.png" alt="image-20230214150645586" style="zoom:80%;" /></p>
+<ul>
+<li>一般考察的题型主要是把满足的要求的情况比上总的可能情况。    </li>
+<li>几何概型，独立重复实验等等考的不多</li>
+</ul>
+<h4 id="1-3-相邻问题"><a href="#1-3-相邻问题" class="headerlink" title="1.3 相邻问题"></a>1.3 相邻问题</h4><ul>
+<li><p>题型判别：题目中出现哪些元素必须相邻，挨着的等一类问题</p>
+</li>
+<li><p>方法：<strong>捆绑法</strong></p>
+<p>​    将相邻的元素合并为一个元素，再与其他元素（合并元素后，总的元素数量改变了）进行排列，注意合并元素内部也必须排列</p>
+<p><img src="/images/数量关系/image-20230214164351900.png" alt="image-20230214164351900"></p>
+</li>
+</ul>
+<h4 id="1-4-不相邻问题"><a href="#1-4-不相邻问题" class="headerlink" title="1.4 不相邻问题"></a>1.4 不相邻问题</h4><ul>
+<li><p>题型判别：题目中出现哪些元素不能挨在一起，必须隔开，不能相邻等字眼</p>
+</li>
+<li><p>方法： <strong>插空法</strong></p>
+<p>先将没有位置要求的元素排列好，再将指定的不相邻的元素插入已排好元素的间隙或两端位置。注意，有些问题要求不能在两端插入，所以注意一下插入点的个数问题</p>
+<p><img src="/images/数量关系/image-20230214164852070.png" alt="image-20230214164852070"></p>
+</li>
+</ul>
+<h4 id="1-5-定序问题"><a href="#1-5-定序问题" class="headerlink" title="1.5 定序问题"></a>1.5 定序问题</h4><ul>
+<li><p>题型判别： 题目中出现有些元素是有顺序的，或者对于多个同一类事物而言，其内部可以看作是有序的</p>
+</li>
+<li><p>方法：<strong>先对所有元素进行全排列，再除以定序元素的全排列</strong></p>
+<p>这几个元素的顺序确定了的，全排列时这些元素的排列就不需要了；或者这几个元素一样，无序排列</p>
+<p><img src="/images/数量关系/image-20230214165537033.png" alt="image-20230214165537033"></p>
+</li>
+</ul>
+<h4 id="1-6-相同元素分配问题"><a href="#1-6-相同元素分配问题" class="headerlink" title="1.6 相同元素分配问题"></a>1.6 相同元素分配问题</h4><ul>
+<li><p>题型判别： 题目出现相同元素分配，分给多少人，不同的人要至少多少个元素</p>
+</li>
+<li><p>方法：<strong>插板法</strong></p>
+<p>首先要构造插板法使用的基本条件（分配元素相同、满足”每人至少一个“要求），不满足要求时，先变形构造。然后分配的方式为<script type="math/tex">C_{构造之后元素总数-1}^{分给多少人-1}</script></p>
+<p>例如：10个元素分给3个人，甲至少3个，乙至少4个，丙至少0个，问多少种方法？</p>
+<ol>
+<li><p>构造至少一个的元素总数：10-2-3+1=6  (至少超过1个的要减去，至少不足1个的要加上，最终构造至少1个)</p>
+</li>
+<li><p>分配方式为<script type="math/tex">C_{6-1}^{3-1} =C_{5}^{2}= 10</script></p>
+<p><img src="/images/数量关系/image-20230214165455916.png" alt="image-20230214165455916"></p>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="1-7-平均分堆问题"><a href="#1-7-平均分堆问题" class="headerlink" title="1.7 平均分堆问题"></a>1.7 平均分堆问题</h4><ul>
+<li><p>题型判别： 出现平均分配的字眼，例如，元素平均分配给多少人，或者平均分配多少组等</p>
+</li>
+<li><p>方法：</p>
+<p>如果平均分组后，<strong>没有顺序</strong>要求，单纯的分堆，那么就是需要把人为产生的顺序除掉，有<code>n</code>堆数量相等，就除去<script type="math/tex">A_{n}^{n}</script>。   </p>
+<p>如果平均分组后，<strong>有顺序</strong>要求，则需要将已经平均分堆好的，再按照堆数进行排列，也就是，再乘以<script type="math/tex">A_{n}^{n}</script> </p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230214175930739.png" alt="image-20230214175930739"></p>
+<h4 id="1-8-错位排序问题"><a href="#1-8-错位排序问题" class="headerlink" title="1.8 错位排序问题"></a>1.8 错位排序问题</h4><ul>
+<li><p>题型判别： n个位置的元素，打乱后，都不能回到原来位置的情况</p>
+</li>
+<li><p>方法：</p>
+<p>只需要记住：1，2，3，4，5，6个元素的错位排序分别对应0，1，2，9，44，265种排法就行</p>
+<p><img src="/images/数量关系/image-20230214180012850.png" alt="image-20230214180012850"></p>
+</li>
+</ul>
+<h4 id="1-9-环形排列问题"><a href="#1-9-环形排列问题" class="headerlink" title="1.9 环形排列问题"></a>1.9 环形排列问题</h4><ul>
+<li><p>题型判别： 题目中出现圆桌，围坐着的字眼，比如<code>n</code>个人围坐在桌子吃饭，有多少种坐法</p>
+</li>
+<li><p>方法：</p>
+<p><code>n</code>个不同元素做环形排列，共有 <code>(n-1)!</code> 种排法 <script type="math/tex">A_{n-1}^{n-1}</script></p>
+<p><img src="/images/数量关系/image-20230214180032751.png" alt="image-20230214180032751"></p>
+</li>
+</ul>
+<h4 id="1-10-重复排列问题"><a href="#1-10-重复排列问题" class="headerlink" title="1.10 重复排列问题"></a>1.10 重复排列问题</h4><ul>
+<li><p>题型识别：各元素之间互不干扰，元素与元素之间的选择方式是一样的，独立的</p>
+</li>
+<li><p>方法：</p>
+<p><code>n</code>个不同元素，可重复的取<code>m</code>次，共有<script type="math/tex">n^{m}</script>种情况。 注意谁是<code>n</code>，谁是<code>m</code></p>
+<p><img src="/images/数量关系/image-20230214180101589.png" alt="image-20230214180101589"></p>
+</li>
+</ul>
+<h4 id="1-11-两人同组的概率"><a href="#1-11-两人同组的概率" class="headerlink" title="1.11 两人同组的概率"></a>1.11 两人同组的概率</h4><ul>
+<li><p>题型识别：问到两个元素分到一组的概率</p>
+</li>
+<li><p>方法：<strong>跟屁虫原理</strong></p>
+<p>两元素同组概率问题，无需关注第一个元素，第一元素无论在哪，只需第二元素与第一元素在一组即可，第二个人去找第一个人的概率。所以，先随便确定好第一个元素，这时第一个元素是不需要求概率的；再考虑另一个元素与其同组的概率即可。</p>
+<p><img src="/images/数量关系/image-20230214180148950.png" alt="image-20230214180148950"></p>
+</li>
+</ul>
+<h4 id="1-12-抽奖概率"><a href="#1-12-抽奖概率" class="headerlink" title="1.12 抽奖概率"></a>1.12 抽奖概率</h4><ul>
+<li>先抽奖，后抽奖的概率都是一样的</li>
+</ul>
+<h4 id="1-13-比赛类概率"><a href="#1-13-比赛类概率" class="headerlink" title="1.13 比赛类概率"></a>1.13 比赛类概率</h4><ul>
+<li>无论是3局2胜、5局3胜、还是7局4胜，比赛类概率问题都需要注意负场的位置</li>
+</ul>
+<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><h3 id="二、几何问题"><a href="#二、几何问题" class="headerlink" title="二、几何问题"></a>二、几何问题</h3><h4 id="2-1-基础知识"><a href="#2-1-基础知识" class="headerlink" title="2.1 基础知识"></a>2.1 基础知识</h4><ul>
+<li>常见的长度公式</li>
+</ul>
+<p><img src="/images/数量关系/image-20230215125115953.png" alt="image-20230215125115953"></p>
+<ul>
+<li><p>常见的面积公式</p>
+<p><img src="/images/数量关系/image-20230215125142988.png" alt="image-20230215125142988"></p>
+</li>
+<li><p>常见的体积公式</p>
+<p><img src="/images/数量关系/image-20230215125304574.png" alt="image-20230215125304574" style="zoom: 80%;" /></p>
+</li>
+<li><p>几何等比例放缩性质</p>
+<p>若边长（半径）为<script type="math/tex">n</script>倍，则周长也为<script type="math/tex">n</script>倍，面积为<script type="math/tex">n^2</script>倍，体积为<script type="math/tex">n^3</script>倍</p>
+<p><img src="/images/数量关系/image-20230215133228532.png" alt="image-20230215133228532" style="zoom:80%;" /></p>
+</li>
+<li><p>常考的知识点</p>
+<p>1、正六边形（可以分割成6个小的正三边形）、</p>
+<p>2、正三角形（可以分割成两个30°60°直角三角形，面积公式=<script type="math/tex">\frac{\sqrt{3} }{4} a^2</script>，高=<script type="math/tex">\frac{\sqrt{3} }{2} a</script>）、</p>
+<p>3、圆（直径两边端点与圆上任意一点的连线为直角三角形）、</p>
+<p>4、矩形（正方形为特殊的矩形，周长一定的矩形种正方形面积最大）、</p>
+<p>5、30°60°直角三角形（角度对应的三边之比为<script type="math/tex">1:\sqrt{3}:2</script>）、</p>
+<p>6、等腰直角三角形（三边之比为<script type="math/tex">1:1:\sqrt{2}</script>）</p>
+<p>7、<script type="math/tex">\sqrt{2}=1.414,  \sqrt{3}=1.732,  \sqrt{5}=2.236</script></p>
+<p><img src="/images/数量关系/image-20230215132646927.png" alt="image-20230215132646927" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="2-2-几何最值问题"><a href="#2-2-几何最值问题" class="headerlink" title="2.2 几何最值问题"></a>2.2 几何最值问题</h4><ul>
+<li><p>几何最值性质</p>
+<p>1、周长一定，约接近圆，面积越大；；反之，面积一定，越接近圆，周长越小</p>
+<p>2、表面积一定，越接近球，体积越大；；反之，体积一定，越接近球，表面积越小</p>
+</li>
+<li><p>长方体切割最值性质</p>
+<p>从长方体最长边开始，沿着侧面对角线切割，形成的切面周长，面积均最大</p>
+<p><img src="/images/数量关系/image-20230215133301856.png" alt="image-20230215133301856" style="zoom: 80%;" /></p>
+</li>
+</ul>
+<h4 id="2-3-最短距离"><a href="#2-3-最短距离" class="headerlink" title="2.3 最短距离"></a>2.3 最短距离</h4><ul>
+<li><p>立方体表面，蚂蚁爬行获取食物</p>
+<p>先把短的两个边加上，对和求平方；再和最大的边求平方和；然后开根号。就是蚂蚁爬行的最短距离</p>
+<p><img src="/images/数量关系/image-20230215133341264.png" alt="image-20230215133341264" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="2-4-最短遍历路径"><a href="#2-4-最短遍历路径" class="headerlink" title="2.4 最短遍历路径"></a>2.4 最短遍历路径</h4><ul>
+<li><p>一笔画（考察图形利用一笔画将图形画完）</p>
+<p>若图形有0个奇点，可以从任意点开始画起，并在起点结束；（从非奇点出发，整个图形不能有奇点，如果有，必须消去奇点）</p>
+<p>若图形有2个奇点，必须从一个奇点开始到另一个奇点结束；</p>
+<p>若图形奇点数超过2个，需要先消去奇点间距离最近的奇点对</p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230215133411293.png" alt="image-20230215133411293" style="zoom:80%;" /></p>
+<h4 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h4><h3 id="三、行程问题"><a href="#三、行程问题" class="headerlink" title="三、行程问题"></a>三、行程问题</h3><h4 id="3-1-一般行程问题"><a href="#3-1-一般行程问题" class="headerlink" title="3.1 一般行程问题"></a>3.1 一般行程问题</h4><ul>
+<li>基本公式：路程=速度×时间   <script type="math/tex">s=v*t</script></li>
+<li>比例关系：路程一定，速度和时间成反比；速度（时间）一定，路程和时间（路程和速度）成正比</li>
+<li>常用的解题方法：比例法（通过速度比找到时间比，与时间实际量建立对应关系；通过速度比找到路程比，与路程实际量建立对应关系等等）、方程法</li>
+<li>单位换算： <script type="math/tex">m/s \rightarrow km/h</script>，小单位到大单位乘以3.6；  <script type="math/tex">km/h \rightarrow m/s</script>，大单位到小单位除以3.6</li>
+<li>匀变速运动的速度公式：<script type="math/tex">V=V_0+at,   a=\frac{V_2-V_1}{t}</script>， 其中<script type="math/tex">V_0</script> 为初始速度，<script type="math/tex">a</script>为加速度</li>
+</ul>
+<h4 id="3-2-相遇问题"><a href="#3-2-相遇问题" class="headerlink" title="3.2 相遇问题"></a>3.2 相遇问题</h4><ul>
+<li><p>常用公式： 相遇距离、相遇路程=(<script type="math/tex">v_1+v_2</script>)×时间      相遇距离是指相遇过程中，两人所走的路程之和</p>
+</li>
+<li><p>解题方法：先找相遇点，相遇时，两者路程之比=速度之比。着重注意比例关系，比例之差等于多少份，一份对应多少数值</p>
+<p><img src="/images/数量关系/image-20230215151644341.png" alt="image-20230215151644341" style="zoom:67%;" /></p>
+</li>
+</ul>
+<h4 id="3-3-多次相遇问题"><a href="#3-3-多次相遇问题" class="headerlink" title="3.3 多次相遇问题"></a>3.3 多次相遇问题</h4><ul>
+<li><p>相遇的次数与走了n个全程之间的关系，常常根据相遇次数确定走过的路程和，或者根据路程和确定相遇次数</p>
+</li>
+<li><p>公式：</p>
+<p>从两端出发的第N次相遇，可以走<code>2N-1</code>个全程。路程之和=<script type="math/tex">(2N-1) \times</script>单程=(<script type="math/tex">v_1+v_2</script>)×时间 </p>
+<p>从同一端出发的第N次相遇，可以走<code>2N</code>个全程。路程之和=<script type="math/tex">2N\times</script>单程=(<script type="math/tex">v_1+v_2</script>)×时间 </p>
+<p><img src="/images/数量关系/image-20230215151821894.png" alt="image-20230215151821894" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="3-4-环形相遇问题"><a href="#3-4-环形相遇问题" class="headerlink" title="3.4 环形相遇问题"></a>3.4 环形相遇问题</h4><ul>
+<li><p>同一起点，背向出发，相遇一次为一圈，相遇N次为N圈，路程之和=N圈=(<script type="math/tex">v_1+v_2</script>)×时间 </p>
+<p><img src="/images/数量关系/image-20230215151729175.png" alt="image-20230215151729175" style="zoom:67%;" /></p>
+</li>
+</ul>
+<h4 id="3-5-追及问题"><a href="#3-5-追及问题" class="headerlink" title="3.5 追及问题"></a>3.5 追及问题</h4><ul>
+<li>常用公式：追及距离、追及路程=(<script type="math/tex">v_1-v_2</script>)×时间    追及距离是指两者初始相距的距离，追及的本质是为了追上而多跑的路程</li>
+<li>解题方法：先找到距离差，此时开始追直到追上，路程之比=速度之比。着重注意比例关系，比例之差等于多少份，一份对应多少数值</li>
+</ul>
+<h4 id="3-6-环形追及问题"><a href="#3-6-环形追及问题" class="headerlink" title="3.6 环形追及问题"></a>3.6 环形追及问题</h4><ul>
+<li><p>两者再环形跑道上，同时出发，同向而行。从二面追上一次相当于多跑一圈，多跑的距离就是追及路程。</p>
+</li>
+<li><p>公式：追及距离=(<script type="math/tex">v_1+v_2</script>)×时间=N圈</p>
+</li>
+</ul>
+<h4 id="3-7-流水问题"><a href="#3-7-流水问题" class="headerlink" title="3.7 流水问题"></a>3.7 流水问题</h4><ul>
+<li><p>常用公式：<script type="math/tex">V_{\text顺}=V_{\text船}+V_{\text水}</script>，<script type="math/tex">V_{\text逆}=V_{\text船}-V_{\text水}</script>，<script type="math/tex">V_{\text船}=\frac{V_{\text顺}+V_{\text逆}}{2}</script>，<script type="math/tex">V_{\text水}=\frac{V_{\text顺}-V_{\text逆}}{2}</script></p>
+<p><img src="/images/数量关系/image-20230215151551518.png" alt="image-20230215151551518" style="zoom:67%;" /></p>
+</li>
+</ul>
+<h4 id="3-8-平均速度问题"><a href="#3-8-平均速度问题" class="headerlink" title="3.8 平均速度问题"></a>3.8 平均速度问题</h4><ul>
+<li><p>等距离平均速度公式：平均速度=<script type="math/tex">\frac{2V_1 V_2}{V_1+V_2}</script></p>
+</li>
+<li><p>拓展：</p>
+<p>A=B×C，若A相等，B或C的平均值也可以运用此公式</p>
+<p>例如，总售价=单价×数量，若两件商品的总售价相等，则单价也为调和平均数</p>
+<p><img src="/images/数量关系/image-20230215151423001.png" alt="image-20230215151423001" style="zoom: 67%;" /></p>
+<p><img src="/images/数量关系/image-20230215151114019.png" alt="image-20230215151114019" style="zoom: 67%;" /></p>
+</li>
+</ul>
+<h4 id="3-9-间隔发车"><a href="#3-9-间隔发车" class="headerlink" title="3.9 间隔发车"></a>3.9 间隔发车</h4><ul>
+<li><p>常用公式：</p>
+<p><img src="/images/数量关系/image-20230215151048627.png" alt="image-20230215151048627"></p>
+</li>
+</ul>
+<h4 id="-2"><a href="#-2" class="headerlink" title=" "></a> </h4><h3 id="四、最值问题"><a href="#四、最值问题" class="headerlink" title="四、最值问题"></a>四、最值问题</h3><h4 id="4-1-和定最值问题"><a href="#4-1-和定最值问题" class="headerlink" title="4.1 和定最值问题"></a>4.1 和定最值问题</h4><ul>
+<li><p>题型判别： 总数之和是一定的，各部分在什么情况下，某一部分分的最多或者最少</p>
+</li>
+<li><p>解题思路：</p>
+<p><strong>注意看题干是否允许元素相同</strong></p>
+<p>① 若各部分不能相等，问某部分最多，则其他部分尽量少，从最少的开始构造；问某部分最少，其他各部分尽量多，从最大的开始构造。（注意多少符合排名要求） 问什么设什么，总量列方程；</p>
+<p>② 若各部分可能相等，问第一名最少，可以根据平均值求解</p>
+</li>
+<li><p>求解时：若结果不为整数，反向取整，最大为 7.2，向下取整取 7；最小为 7.2，向上取整取 8</p>
+<p><img src="/images/数量关系/image-20230215163400811.png" alt="image-20230215163400811" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="4-2-函数最值问题"><a href="#4-2-函数最值问题" class="headerlink" title="4.2 函数最值问题"></a>4.2 函数最值问题</h4><ul>
+<li><p>对于<script type="math/tex">y=ax^2+bx+c</script>，当<script type="math/tex">x=-\frac{b}{2a}</script>时，<script type="math/tex">y</script>取最值</p>
+</li>
+<li><p>若<script type="math/tex">y=(x+a)\times(b-x)</script>，无论$x$取值多少，<script type="math/tex">(x+a)\times(b-x)</script>之和为一个定值，因此当<script type="math/tex">(x+a)=(b-x)</script>时，y取最大值</p>
+</li>
+<li><p>对于<script type="math/tex">y=(x+a)(b-x)</script>，可以分别让括号里面等于0，求出两个根，在对根求平均，结果再代入方程求得最值，注意二次方前面系数时正还是负。</p>
+<p><img src="/images/数量关系/image-20230215163426426.png" alt="image-20230215163426426" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="4-3-最不利问题"><a href="#4-3-最不利问题" class="headerlink" title="4.3 最不利问题"></a>4.3 最不利问题</h4><ul>
+<li><p>题型识别：至少有多少个<code>xxx</code>才能保证<code>xxx</code></p>
+</li>
+<li><p>公式：保证数=最不利数+1</p>
+<p>构造最不利数：：对于那些够的数，少给一个；对于不够的数，都拿到；把这些数加起来</p>
+<p>如果有不符合情况的，应该先去掉，不能加进来</p>
+<p><img src="/images/数量关系/image-20230215163455438.png" alt="image-20230215163455438" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="4-4-多集合反向构造问题"><a href="#4-4-多集合反向构造问题" class="headerlink" title="4.4 多集合反向构造问题"></a>4.4 多集合反向构造问题</h4><ul>
+<li><p>题型识别：总数n中，有多少都（同时、共同）<code>xxx</code>，至少<code>xxx</code>；；；出现至少…都…的情况下</p>
+</li>
+<li><p>方法：采用逆向思考，反向、求和、做差</p>
+<p>首先考虑问题的反面，再对于所有的反面情况求和，最后拿总数减去求和的值</p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230215163216910.png" alt="image-20230215163216910"></p>
+<h4 id="-3"><a href="#-3" class="headerlink" title=" "></a> </h4><h3 id="五、工程问题"><a href="#五、工程问题" class="headerlink" title="五、工程问题"></a>五、工程问题</h3><h4 id="5-1-基础知识"><a href="#5-1-基础知识" class="headerlink" title="5.1 基础知识"></a>5.1 基础知识</h4><ul>
+<li>公式：工作总量=效率×时间</li>
+<li>比例关系：工作总量一定，效率和时间成反比；效率（时间）一定，工作总量和时间（工作总量和效率）成正比</li>
+<li>常用解题方法：赋值法，比例法，方程法</li>
+</ul>
+<h4 id="5-2-完工时间型"><a href="#5-2-完工时间型" class="headerlink" title="5.2 完工时间型"></a>5.2 完工时间型</h4><ul>
+<li><p>题型识别：只给出工作时间，总量和效率都不知道</p>
+</li>
+<li><p>方法：</p>
+<p>① 赋总量：赋值完工时间的最小公倍数为工作总量</p>
+<p>② 求效率：利用公式求得效率  效率=总量/时间   时间=总量/效率之和</p>
+<p>③ 按照题目要求答题</p>
+<p><img src="/images/数量关系/image-20230215191512969.png" alt="image-20230215191512969" style="zoom:67%;" /></p>
+</li>
+</ul>
+<h4 id="5-3-效率比例型"><a href="#5-3-效率比例型" class="headerlink" title="5.3 效率比例型"></a>5.3 效率比例型</h4><ul>
+<li><p>题型识别：给出了效率比例，比如效率之比是多少，甲效率比乙效率高百分之多少</p>
+</li>
+<li><p>给效率比例的不同形式</p>
+<p>① 直接型：</p>
+<p>​        甲：乙=3：2→赋值甲的效率为 3，乙的效率为 2。</p>
+<p>​        甲的效率比乙高 3/5→甲/乙=8/5，（分母不动；高的话：分子=原分子加上分母；低的话：分子=原分子减去分母），赋值甲的效率为 8，乙的效率为 5。</p>
+<p>② 间接型：一项工程，甲干 3 天，乙干 7 天可以完成；甲干 2 天，乙干 9 天也可以完成→工程总量=3 甲+7 乙=2 甲+9 乙→甲=2 乙→甲/乙=2/1</p>
+<p>③ 特殊型：给工作人数、机器数等数量（单位效率相同），如有 30个工人参加修路，假设每人的效率为 1</p>
+</li>
+<li><p>方法：</p>
+<p>① 赋值对应的效率，赋值为比例数</p>
+<p>② 求总量：总量=总效率×时间   （时间是全部一起完成总的工作量所需要的时间，比如合力完成需要的天数）</p>
+<p>③ 按照题目要求答题</p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230215190907202.png" alt="image-20230215190907202" style="zoom: 50%;" /></p>
+<h4 id="5-4-不同的工作情况"><a href="#5-4-不同的工作情况" class="headerlink" title="5.4 不同的工作情况"></a>5.4 不同的工作情况</h4><ul>
+<li>题型判别：已知条件为不同的工作情况，没有明显给出工作时间，和效率比例，但是给出其中与工作量的关系</li>
+<li>方法：根据工作量相同，列方程，求解</li>
+</ul>
+<p><img src="/images/数量关系/image-20230215192823778.png" alt="image-20230215192823778" style="zoom:80%;" /></p>
+<h4 id="5-5-多人合作完工问题"><a href="#5-5-多人合作完工问题" class="headerlink" title="5.5 多人合作完工问题"></a>5.5 多人合作完工问题</h4><ul>
+<li><p>题型判别：给出工作总量，不同工作效率的人，合力完成需要多少时间。给出时间，不同工作效率的人，合理完成了多少工作量</p>
+</li>
+<li><p>方法：</p>
+<p>无论如何分配工作，效率之和不变，根据工作总量可以求得工作时间，或者根据工作时间求得工作总量</p>
+</li>
+<li><p>常考的休息时间</p>
+<p>题中给出的是某一人休息的时间，但一人休息意味着另一人工作，先算出一人单独工作量，剩余工作即两人合作</p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230215193541051.png" alt="image-20230215193541051" style="zoom: 80%;" /></p>
+<h4 id="5-6-周期结合工程问题"><a href="#5-6-周期结合工程问题" class="headerlink" title="5.6 周期结合工程问题"></a>5.6 周期结合工程问题</h4><ul>
+<li><p>题型判别：如果按照第一天A…，第二天B…，以此轮替，如何如何；如果按照第一天B…，第二天A…，以此轮替，如何如何</p>
+</li>
+<li><p>方法：</p>
+<p>① 第一种轮替情况，一定是一个奇数项，若干个周期后，最后一个一定是A</p>
+<p>② 第二种轮替情况，若干个周期之后，倒数第二个是B，倒数第一个是题目的条件</p>
+<p>③ 把第一种轮替情况的最后一项等于第二种轮替情况的倒数两项，求解方程</p>
+<p><img src="/images/数量关系/image-20230215194446067.png" alt="image-20230215194446067" style="zoom: 50%;" /></p>
+</li>
+</ul>
+<h4 id="-4"><a href="#-4" class="headerlink" title=" "></a> </h4><h3 id="六、经济利润问题"><a href="#六、经济利润问题" class="headerlink" title="六、经济利润问题"></a>六、经济利润问题</h3><h4 id="6-1-可套用增长率的利润问题"><a href="#6-1-可套用增长率的利润问题" class="headerlink" title="6.1 可套用增长率的利润问题"></a>6.1 可套用增长率的利润问题</h4><ul>
+<li><p>题型识别：当题干中出现增长率相关的数据时，比如增加了百分之多少，亏损了百分之多少，下降了百分之多少等等，并且已知条件能够写成乘法表达式或者乘法表达式</p>
+</li>
+<li><p>解题方法：</p>
+<p>套用资料分析中的平均增长率公式和混合增长率公式，需要注意是求基期还是现期；另外的方法可以赋值</p>
+</li>
+<li><p>当问题的已知条件可以表达出<script type="math/tex">C_基=A*B</script> 的形式，如收入=人均花费×人数，且<script type="math/tex">A</script>和<script type="math/tex">B</script>的形式是以增长率的形式出现，则可以考虑乘积增长率的公式：<script type="math/tex">R_c=R_a+R_b+R_a*R_b</script>求得出基期时<script type="math/tex">C_基</script>的数据，如果要计算现期数据，要注意公式为<script type="math/tex">C_现=C_基(1+R_c)</script></p>
+<p><img src="/images/数量关系/image-20230217103228308.png" alt="image-20230217103228308" style="zoom:80%;" /></p>
+</li>
+<li><p>当问题的已知条件可以表达出<script type="math/tex">C=\frac{A}{B}</script>形式时，例如：单价=销售额÷销量，可以考虑平均数增长率的形式<script type="math/tex">R_c=\frac{R_a-R_b}{1+R_b}</script>求得<script type="math/tex">C</script>的平均增长率，同样需要考虑问题求得是基期的数据还是现期的数据。（除法公式也可以转换成乘法公式）</p>
+<p><img src="/images/数量关系/image-20230217104513710.png" alt="image-20230217104513710" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="6-2-基础利润问题"><a href="#6-2-基础利润问题" class="headerlink" title="6.2 基础利润问题"></a>6.2 基础利润问题</h4><ul>
+<li><p>核心公式：</p>
+<p>售价(收入) = 成本(进价、获利) + 利润     </p>
+<p>利润=收入-支出  </p>
+<p>成本×利润率=利润</p>
+<p>成本×(1+利润率)=售价</p>
+<p>定价×折扣=实际售价</p>
+<p>总成本、总利润、总销售金额=单个成本、单个利润、单个售价 * 数量</p>
+</li>
+<li><p>解题方法：</p>
+<p><strong>方程法</strong>：给出具体售价成本利润，求具体价格等。设未知数列方程找等量关系（利润=售价-成本）</p>
+<p><strong>赋值法</strong>：如果所有条件和问题以比例形式（谁比谁多百分之多少）出现，没有给出具体值，可以直接把成本或售价假设成容易计算的值。</p>
+<p><img src="/images/数量关系/image-20230217135804523.png" alt="image-20230217135804523" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="6-3-分批销售利润问题"><a href="#6-3-分批销售利润问题" class="headerlink" title="6.3 分批销售利润问题"></a>6.3 分批销售利润问题</h4><ul>
+<li><p>题型识别：每次销售的售价折扣不同，分批次销售</p>
+</li>
+<li><p>解题方法：</p>
+<p>无论售价折扣如何变化，都最终形成一个总的销售收入。利用收入列方程（问什么设什么）：第一批收入+第二批收入+…+第n批收入=总的销售收入   （每一部分的收入=每一部分的数量×每一部分的利润=成本+利润(获利)=成本×（1+利润））</p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230217140119234.png" alt="image-20230217140119234" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217140526437.png" alt="image-20230217140526437" style="zoom:80%;" /></p>
+<h4 id="6-4-分段计费问题"><a href="#6-4-分段计费问题" class="headerlink" title="6.4 分段计费问题"></a>6.4 分段计费问题</h4><ul>
+<li><p>题型识别：生活中水电费、出租车计费、不同的收费标准、给出总量求总花费</p>
+</li>
+<li><p>方法：</p>
+<p>找分段点；按照标准分开计算；最后家和汇总（可以画一根数轴）</p>
+<p><img src="/images/数量关系/image-20230217141451309.png" alt="image-20230217141451309" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="-5"><a href="#-5" class="headerlink" title=" "></a> </h4><h3 id="七、统筹规划问题（了解）"><a href="#七、统筹规划问题（了解）" class="headerlink" title="七、统筹规划问题（了解）"></a>七、统筹规划问题（了解）</h3><h4 id="7-1-最优方案"><a href="#7-1-最优方案" class="headerlink" title="7.1 最优方案"></a>7.1 最优方案</h4><ul>
+<li>工程统筹：比较各部分的效率，找到各部分擅长的工作，先分工再合作；</li>
+<li>运输统筹：比较各种运输方式的耗能，优先选取低耗能且尽量不空载，最后一部分货物需要多方式比较；</li>
+<li>经济统筹：比较各种方案的单价，优先选取低单价且尽量不浪费，最后一部分需要多方式比较。</li>
+</ul>
+<h4 id="7-2-时间统筹"><a href="#7-2-时间统筹" class="headerlink" title="7.2 时间统筹"></a>7.2 时间统筹</h4><ul>
+<li>若所有时间（包括大家等待时间）最少，无论顺序如何，大家做完所有事情的总时间不变，可改变的只有等待时间，时间短的优先，此时等待时间最短；</li>
+<li>若是煎饼类问题，注意时间可共用，需统筹好最后几张饼的制作时间，例如，用2张饼铛煎3张饼，可以正正、正反、反反。</li>
+</ul>
+<h4 id="7-3-货物集中"><a href="#7-3-货物集中" class="headerlink" title="7.3 货物集中"></a>7.3 货物集中</h4><ul>
+<li>一是不看距离，只看重量；而是谁重谁不懂</li>
+<li>将公路看作天平，依次假设支点，左右两侧比大小，轻的向重的移动</li>
+</ul>
+<h4 id="7-4-比赛策略"><a href="#7-4-比赛策略" class="headerlink" title="7.4 比赛策略"></a>7.4 比赛策略</h4><ul>
+<li>利用周期循环的思想，保证每次两人拿掉数量之和为一个周期，根据题目确定剩余部分归属</li>
+</ul>
+<h4 id="7-5-装卸工问题"><a href="#7-5-装卸工问题" class="headerlink" title="7.5 装卸工问题"></a>7.5 装卸工问题</h4><ul>
+<li>装卸工最少数量=需要装卸工最多的N家单位需要装卸工人数之和（N为车辆数量或者轮船数量等）</li>
+</ul>
+<h4 id="7-6-天平称重"><a href="#7-6-天平称重" class="headerlink" title="7.6 天平称重"></a>7.6 天平称重</h4><ul>
+<li>若球数最接近<script type="math/tex">3^n</script>，则需要<script type="math/tex">n</script>次称重才能找到重球</li>
+</ul>
+<h4 id="7-7-空瓶换酒"><a href="#7-7-空瓶换酒" class="headerlink" title="7.7 空瓶换酒"></a>7.7 空瓶换酒</h4><ul>
+<li><script type="math/tex">n</script>瓶换1瓶酒，转化为<script type="math/tex">n-1</script>个空瓶换1瓶无瓶酒，<script type="math/tex">m</script>个空瓶能喝到<script type="math/tex">m÷(n-1)</script>瓶酒</li>
+</ul>
+<h4 id="-6"><a href="#-6" class="headerlink" title=" "></a> </h4><h3 id="八、容斥问题"><a href="#八、容斥问题" class="headerlink" title="八、容斥问题"></a>八、容斥问题</h3><h4 id="8-1-一般容斥问题"><a href="#8-1-一般容斥问题" class="headerlink" title="8.1 一般容斥问题"></a>8.1 一般容斥问题</h4><ul>
+<li><p>双集合问题的计算公式：</p>
+<p>总数=A+B-A∩B+都不                 </p>
+<p>全部人数=人次之和-重复部分+圈外人数</p>
+<p><img src="/images/数量关系/image-20230217144339292.png" alt="image-20230217144339292" style="zoom:50%;" /></p>
+</li>
+<li><p>三集合问题的计算公式：</p>
+<p>标准型：总数=A+B+C-A∩B-A∩C-B∩C+A∩B∩C+都不</p>
+<p>非标：总数=A+B+C-满足两项-2*满足三项+都不</p>
+<p>圈内总人数=只参加一种的人数+只参加两种的人数+…+所有都参加的人数</p>
+<p><img src="/images/数量关系/image-20230217144613509.png" alt="image-20230217144613509" style="zoom:50%;" /></p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230217145012406.png" alt="image-20230217145012406" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217145201901.png" alt="image-20230217145201901" style="zoom:80%;" /></p>
+<h4 id="8-2-容斥最值问题"><a href="#8-2-容斥最值问题" class="headerlink" title="8.2 容斥最值问题"></a>8.2 容斥最值问题</h4><ul>
+<li><p>反向构造，要想相交的部分尽量小，则反向应该尽量相斥（区别于最值问题里的多集合反向构造）</p>
+<p><img src="/images/数量关系/image-20230217150057100.png" alt="image-20230217150057100" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="-7"><a href="#-7" class="headerlink" title=" "></a> </h4><h3 id="九、浓度问题"><a href="#九、浓度问题" class="headerlink" title="九、浓度问题"></a>九、浓度问题</h3><h4 id="9-1-纯浓度问题"><a href="#9-1-纯浓度问题" class="headerlink" title="9.1 纯浓度问题"></a>9.1 纯浓度问题</h4><ul>
+<li><p>抓住溶质不变，溶质常常可以设置为一个特殊的值。各部分溶质之和=混合溶液溶质</p>
+</li>
+<li><p>公式：</p>
+<p>浓度=溶质/溶液， 溶液=溶质+溶剂</p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230217151709370.png" alt="image-20230217151709370" style="zoom:80%;" /></p>
+<h4 id="9-2-十字相乘法"><a href="#9-2-十字相乘法" class="headerlink" title="9.2 十字相乘法"></a>9.2 十字相乘法</h4><ul>
+<li><p>题型识别：</p>
+<p>凡是能表示成<script type="math/tex">A=\frac{B}{C}</script>形式的比例关系，均可以堪称<strong>类浓度问题</strong>，A为浓度，B为溶质，C为溶液，利用十字相乘法解题。</p>
+<p>利用这种方法求出的比例关系一定是C之比（分母之比）</p>
+</li>
+<li><p>计算公式：</p>
+<p><img src="/images/数量关系/image-20230217152255348.png" alt="image-20230217152255348" style="zoom:80%;" /></p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230217153348055.png" alt="image-20230217153348055" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217153829299.png" alt="image-20230217153829299" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230217154700029.png" alt="image-20230217154700029" style="zoom:80%;" /></p>
+<h4 id="-8"><a href="#-8" class="headerlink" title=" "></a> </h4><h3 id="十、小学奥数问题"><a href="#十、小学奥数问题" class="headerlink" title="十、小学奥数问题"></a>十、小学奥数问题</h3><h4 id="10-1-周期循环问题"><a href="#10-1-周期循环问题" class="headerlink" title="10.1 周期循环问题"></a>10.1 周期循环问题</h4><ul>
+<li><p>解题思路：去掉周期循环，数余数</p>
+<p>例如：第18填，18÷7余4，即第18填星期数和第4填星期数一样</p>
+</li>
+<li><p>平年与闰年：平年365天，闰年366天（二月多一天29天）能被4整除不能被400整除的称为闰年</p>
+</li>
+<li><p>两个循环数的周期为两者的<strong>最小公倍数</strong></p>
+<p>例如：甲4天值日一次和乙6天值日一次，则两人每12天共同值日一次。</p>
+<p><strong>注意看清题干“每隔x天”还是“每x天”进行循环</strong></p>
+<p><img src="/images/数量关系/image-20230217161609400.png" alt="image-20230217161609400" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="10-2-日期星期问题"><a href="#10-2-日期星期问题" class="headerlink" title="10.2 日期星期问题"></a>10.2 日期星期问题</h4><ul>
+<li><p>天数计算常用方法</p>
+<p>先按照每个月30天估算；再进行修正（二月减去2天，1、3、5、7、8、10、腊12加上1天）；最后加上日期差。</p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230217161640467.png" alt="image-20230217161640467" style="zoom:80%;" /></p>
+<h4 id="10-3-年龄问题"><a href="#10-3-年龄问题" class="headerlink" title="10.3 年龄问题"></a>10.3 年龄问题</h4><ul>
+<li>无论时间如何改变，年龄差不变</li>
+<li>时间改变，对应的年龄增量相同</li>
+<li>同属相年龄差多为24岁</li>
+</ul>
+<p><img src="/images/数量关系/image-20230217162604069.png" alt="image-20230217162604069" style="zoom:80%;" /></p>
+<h4 id="10-4-鸡兔同笼问题"><a href="#10-4-鸡兔同笼问题" class="headerlink" title="10.4 鸡兔同笼问题"></a>10.4 鸡兔同笼问题</h4><ul>
+<li><p>题型判别：已知条件中包括“单只腿数”和”总腿数“</p>
+</li>
+<li><p>方法：</p>
+<p>小数=（理论理想最大数值-实际数值）/ 单个差值</p>
+<p>（公式解析：假设都是理想情况【兔数乘以4只脚，利用该公式解题，得到的最不好的情况的数【兔的数量】，单个差值【就是指兔与鸡脚的差值2】）</p>
+</li>
+<li><p>常见考法：工资报酬、对题错题得分、元素分配等</p>
+<p><img src="/images/数量关系/image-20230217164014220.png" alt="image-20230217164014220" style="zoom:80%;" /></p>
+</li>
+</ul>
+<h4 id="10-5-盈亏问题"><a href="#10-5-盈亏问题" class="headerlink" title="10.5 盈亏问题"></a>10.5 盈亏问题</h4><ul>
+<li><p>题型识别：如果一种方式分配，分完多多少；如果按另外一种方式分配，则少多少</p>
+</li>
+<li><p>方法：</p>
+<p>对象数=盈余数和亏损数的和（不带符号）÷  两个分配差值（取绝对值）</p>
+</li>
+<li><p>常见考法：人分配坐车、住宿，物资等</p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230217164817534.png" alt="image-20230217164817534" style="zoom:80%;" /></p>
+<h4 id="10-6-牛吃草问题"><a href="#10-6-牛吃草问题" class="headerlink" title="10.6 牛吃草问题"></a>10.6 牛吃草问题</h4><ul>
+<li><p>题型识别：题干中出现“如果若怎么怎么样需要多少时间；如果若怎么怎么样需要多少时间”的排比句式</p>
+</li>
+<li><p>方法：</p>
+<p><img src="/images/数量关系/image-20230217165631856.png" alt="image-20230217165631856"></p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230218094107214.png" alt="image-20230218094107214" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230218094747721.png" alt="image-20230218094747721" style="zoom:80%;" /></p>
+<h4 id="10-7-比赛轮次轮空问题"><a href="#10-7-比赛轮次轮空问题" class="headerlink" title="10.7 比赛轮次轮空问题"></a>10.7 比赛轮次轮空问题</h4><ul>
+<li><p>场次、轮次、轮空问题</p>
+<p>①  循环赛场次问题：单循环赛，<script type="math/tex">n</script>个队伍共有<script type="math/tex">C^2_n</script>场比赛；双循环赛，场次是单循环比赛数量的<script type="math/tex">2</script>倍</p>
+<p>②  淘汰赛场次问题：<script type="math/tex">2n</script>个队伍当轮有<script type="math/tex">n</script>场比赛，若队伍数为奇数，则有一队轮空；决出冠军一共要举行<script type="math/tex">2n-1</script>场比赛，每场比赛会淘汰一队，最后只剩冠军一队</p>
+<p><img src="/images/数量关系/image-20230218100805369.png" alt="image-20230218100805369" style="zoom:80%;" /></p>
+<p>③  淘汰赛轮次问题：若队伍数接近<script type="math/tex">2^n</script>，则一共有<script type="math/tex">n</script>轮；将队伍数除<script type="math/tex">2</script>，有<script type="math/tex">n</script>轮剩余队伍为奇数，即有n轮存在轮空，也意味着某队最多轮空<script type="math/tex">n</script>次</p>
+<p><img src="/images/数量关系/image-20230218100455845.png" alt="image-20230218100455845" style="zoom:80%;" /></p>
+</li>
+<li><p>已赛与未赛问题</p>
+<p>可以采用连线法解决，画图，已经参加过比赛的两个队伍就用线段将其连接起来。一个队伍完成的比赛次数，就表示这个队伍发出的射线数目</p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230218100421216.png" alt="image-20230218100421216" style="zoom:80%;" /></p>
+<h4 id="10-8-植树问题"><a href="#10-8-植树问题" class="headerlink" title="10.8 植树问题"></a>10.8 植树问题</h4><ul>
+<li><p>一般植树问题（注意问题道路两侧植树时要乘2）</p>
+<p>两端植树：植树数量=总长/间隔+1</p>
+<p>一端植树：植树数量=总长/间隔</p>
+<p>两端不植树：植树数量=总长/间隔-1</p>
+</li>
+<li><p>两次植树重合棵树问题</p>
+<p>求出两次植树的间隔数；</p>
+<p>求得两次间隔数的最大公约数</p>
+<p>考虑两端植树情况，无须移动的树木数量=最大公约数-1+两端情况</p>
+</li>
+</ul>
+<h4 id="10-9-钟表问题"><a href="#10-9-钟表问题" class="headerlink" title="10.9 钟表问题"></a>10.9 钟表问题</h4><ul>
+<li>题型识别：手表指针比实际时间快/慢</li>
+</ul>
+<p><img src="/images/数量关系/image-20230218102357462.png" alt="image-20230218102357462" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230218102640790.png" alt="image-20230218102640790" style="zoom:80%;" /></p>
+<h4 id="10-10-方阵问题"><a href="#10-10-方阵问题" class="headerlink" title="10.10 方阵问题"></a>10.10 方阵问题</h4><ul>
+<li><p>计算公式：</p>
+<p>方阵总人数=最外层边长的平方</p>
+<p>层数= 最外层边长÷2</p>
+<p>每层人数=该层每边数*4-4</p>
+<p>内层比外层少8个元素，边长少2</p>
+</li>
+</ul>
+<p><img src="/images/数量关系/image-20230218103155209.png" alt="image-20230218103155209" style="zoom:80%;" /></p>
+<h4 id="-9"><a href="#-9" class="headerlink" title=" "></a> </h4><h3 id="十一、不定方程问题"><a href="#十一、不定方程问题" class="headerlink" title="十一、不定方程问题"></a>十一、不定方程问题</h3><h4 id="11-1-尾数特性"><a href="#11-1-尾数特性" class="headerlink" title="11.1 尾数特性"></a>11.1 尾数特性</h4><ul>
+<li><p>识别：<script type="math/tex">ax+by=M</script>，当<script type="math/tex">a</script>或<script type="math/tex">b</script>尾数是 <script type="math/tex">0</script>或<script type="math/tex">5</script> 时，考虑尾数。如果是<script type="math/tex">5</script>，可以考虑乘以<script type="math/tex">2</script>将尾数变为<script type="math/tex">0</script></p>
+</li>
+<li><p>例：<script type="math/tex">37x+20y=271，x=</script>？（<script type="math/tex">x、y</script> 均为正整数）</p>
+<p>考虑到y的系数尾数是<script type="math/tex">0</script>，所以整项的结果尾数是<script type="math/tex">0</script>，但是最后的结果<script type="math/tex">271</script>的尾数是<script type="math/tex">1</script>，所以这个结果只能从<script type="math/tex">37x</script>这一项得到，所以要考虑哪个数与系数的尾数7相乘会得到一个尾数为<script type="math/tex">1</script>的结果。</p>
+</li>
+</ul>
+<h4 id="11-2-奇偶性质"><a href="#11-2-奇偶性质" class="headerlink" title="11.2 奇偶性质"></a>11.2 奇偶性质</h4><ul>
+<li><p>识别：<script type="math/tex">ax+by=M</script>，当 <script type="math/tex">a</script>、<script type="math/tex">b</script> 恰好一奇一偶时，考虑奇偶特性（从偶系数入手）</p>
+</li>
+<li><p>例：<script type="math/tex">3x+4y=25，x=</script>？（<script type="math/tex">x、y</script>均为正整数）</p>
+<p>优先从偶数系数入手，<script type="math/tex">4y</script>的结果是偶数，而最后的结果是一个奇数，所以只能是<script type="math/tex">3x</script>的结果是一个奇数，因此排除一部分选项，尝试代入剩下选项。</p>
+</li>
+<li><p>如果两个数相乘为奇数，那么这两个数必须是ji’shu</p>
+</li>
+</ul>
+<h4 id="11-3-倍数特性"><a href="#11-3-倍数特性" class="headerlink" title="11.3 倍数特性"></a>11.3 倍数特性</h4><ul>
+<li><p><script type="math/tex">A+B=C</script>，如果其中两个数都有 <script type="math/tex">N</script> 因子，则另外一个一定有 <script type="math/tex">N</script> 因子</p>
+</li>
+<li><p>识别：<script type="math/tex">ax+by=M</script>，当 <script type="math/tex">a</script> 或 <script type="math/tex">b</script> 与 M 有公因子时，考虑倍数特性。</p>
+</li>
+<li><p>例：<script type="math/tex">7x+3y=60，y</script> 最大为多少？（<script type="math/tex">x、y</script>均为正整数）</p>
+<p><script type="math/tex">3y</script>和<script type="math/tex">60</script>都有<script type="math/tex">3</script>的因子，则<script type="math/tex">7x</script>有<script type="math/tex">3</script>的因子，由于<script type="math/tex">7</script>是没有<script type="math/tex">3</script>的因子的，所以这个因子只能从<script type="math/tex">x</script>中出现，也就说明<script type="math/tex">x</script>是<script type="math/tex">3</script>的倍数</p>
+</li>
+<li><p>例：<script type="math/tex">29x+24y=900</script></p>
+<p>看<script type="math/tex">24</script>和<script type="math/tex">900</script>的公约数，越大越好，当发现它俩都可以被<script type="math/tex">12</script>整除，那么<script type="math/tex">29x</script>也应该被<script type="math/tex">12</script>整除，但是<script type="math/tex">29</script>不能被<script type="math/tex">12</script>整除，那么只能是<script type="math/tex">x</script>被<script type="math/tex">12</script>整除，也就说明<script type="math/tex">x</script>是<script type="math/tex">12</script>的倍数</p>
+</li>
+</ul>
+<h4 id="11-4-代入法"><a href="#11-4-代入法" class="headerlink" title="11.4 代入法"></a>11.4 代入法</h4><ul>
+<li><p>不定方程组：根据未知数确定类型。比如 <script type="math/tex">3x+4y+5z=a、5x+3y+7z=b</script> </p>
+<p>如果必须为整数，则利用消元法、倍数特性求解；如果不必为整数，则可以赋值其中一个未知数为0，计算出其他未知数。</p>
+</li>
+</ul>
+<h4 id="11-5-整除性质"><a href="#11-5-整除性质" class="headerlink" title="11.5 整除性质"></a>11.5 整除性质</h4><ul>
+<li>如果a、b能被c整除，则a+b、a-b也能被c整除</li>
+<li>若一个数能被3、9整除，则该数的各位数字之和也能被3、9整除</li>
+<li>若一个数能被 2 或 5、4 或 25、8或 125 整除，则该数的末位、末二位、末三位也能被 2 或 5、4 或 25、8或 125 整除。</li>
+<li>对于<script type="math/tex">y=\frac{a}{b}x</script>（<script type="math/tex">x, y</script>均为整数），我们可得出整除关系：x是 b 的倍数，y 是 a 的倍数。</li>
+</ul>
+<h4 id="11-6-余数问题"><a href="#11-6-余数问题" class="headerlink" title="11.6 余数问题"></a>11.6 余数问题</h4><p><img src="/images/数量关系/image-20230218135926989.png" alt="image-20230218135926989" style="zoom:80%;" /></p>
+<p><img src="/images/数量关系/image-20230218140050949.png" alt="image-20230218140050949" style="zoom:80%;" /></p>
+<h4 id="11-7-数列问题"><a href="#11-7-数列问题" class="headerlink" title="11.7 数列问题"></a>11.7 数列问题</h4><ul>
+<li><p>等差数列常用公式</p>
+<p>通项公式：<script type="math/tex">a_n = a_1 + (n-1)d,</script>            <script type="math/tex">a_m = a_n + (m-n)d</script></p>
+<p>求和公式：<script type="math/tex">S_n = n(a_1+a_n)/2</script>,        项数×中位数=项数×平均数</p>
+</li>
+<li><p>等比数列常用公式</p>
+<p>通项公式：<script type="math/tex">a_n = a_1*q^{n-1}</script></p>
+<p>求和公式：<script type="math/tex">S_n = a_1\frac{1-q^n}{1-q}</script></p>
+</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Office/"># Office</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/09/05/%E5%85%AC%E5%8A%A1%E5%91%98/%E6%88%90%E8%AF%AD%E7%AC%94%E8%AE%B0/">成语笔记</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
