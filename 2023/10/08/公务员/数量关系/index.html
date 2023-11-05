@@ -13,7 +13,7 @@
 
 
 
-<title>数量关系 | (●&#39;◡&#39;●)Iminslife</title>
+<title>(●&#39;◡&#39;●)Iminslife</title>
 
 
 
@@ -350,7 +350,7 @@ mjx-container[display="true"] + br {
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">数量关系</h1>
+            <h1 class="post-title"></h1>
             
                 <div class="post-meta">
                     
@@ -388,19 +388,21 @@ mjx-container[display="true"] + br {
 <li>一般考察的题型主要是把满足的要求的情况比上总的可能情况。    </li>
 <li>几何概型，独立重复实验等等考的不多</li>
 </ul>
-<h4 id="1-3-相邻问题"><a href="#1-3-相邻问题" class="headerlink" title="1.3 相邻问题"></a>1.3 相邻问题</h4><ul>
+<h4 id="1-3-相邻问题-捆绑"><a href="#1-3-相邻问题-捆绑" class="headerlink" title="1.3 相邻问题(捆绑)"></a>1.3 相邻问题(捆绑)</h4><ul>
 <li><p>题型判别：题目中出现哪些元素必须相邻，挨着的等一类问题</p>
 </li>
 <li><p>方法：<strong>捆绑法</strong></p>
 <p>​    将相邻的元素合并为一个元素，再与其他元素（合并元素后，总的元素数量改变了）进行排列，注意合并元素内部也必须排列</p>
+<p>​    先内部排序，内部排好之后，再作为整体，进行排序</p>
 <p><img src="/images/数量关系/image-20230214164351900.png" alt="image-20230214164351900"></p>
 </li>
 </ul>
-<h4 id="1-4-不相邻问题"><a href="#1-4-不相邻问题" class="headerlink" title="1.4 不相邻问题"></a>1.4 不相邻问题</h4><ul>
+<h4 id="1-4-不相邻问题-插空"><a href="#1-4-不相邻问题-插空" class="headerlink" title="1.4 不相邻问题(插空)"></a>1.4 不相邻问题(插空)</h4><ul>
 <li><p>题型判别：题目中出现哪些元素不能挨在一起，必须隔开，不能相邻等字眼</p>
 </li>
 <li><p>方法： <strong>插空法</strong></p>
 <p>先将没有位置要求的元素排列好，再将指定的不相邻的元素插入已排好元素的间隙或两端位置。注意，有些问题要求不能在两端插入，所以注意一下插入点的个数问题</p>
+<p>先安排多的，再安排少的</p>
 <p><img src="/images/数量关系/image-20230214164852070.png" alt="image-20230214164852070"></p>
 </li>
 </ul>
@@ -412,7 +414,7 @@ mjx-container[display="true"] + br {
 <p><img src="/images/数量关系/image-20230214165537033.png" alt="image-20230214165537033"></p>
 </li>
 </ul>
-<h4 id="1-6-相同元素分配问题"><a href="#1-6-相同元素分配问题" class="headerlink" title="1.6 相同元素分配问题"></a>1.6 相同元素分配问题</h4><ul>
+<h4 id="1-6-相同元素分配问题-插板"><a href="#1-6-相同元素分配问题-插板" class="headerlink" title="1.6 相同元素分配问题(插板)"></a>1.6 相同元素分配问题(插板)</h4><ul>
 <li><p>题型判别： 题目出现相同元素分配，分给多少人，不同的人要至少多少个元素</p>
 </li>
 <li><p>方法：<strong>插板法</strong></p>
@@ -427,6 +429,11 @@ mjx-container[display="true"] + br {
 </ol>
 </li>
 </ul>
+<ul>
+<li>考点二： N个人分配到N-1个地方，每个地方至少一个人，多少种分配方法</li>
+<li>方法： <script type="math/tex">C_N^{N-1-1}A_{N-1}^{N-1}</script></li>
+</ul>
+<p><img src="/images/数量关系/image-20231011220552959.png" alt="image-20231011220552959"></p>
 <h4 id="1-7-平均分堆问题"><a href="#1-7-平均分堆问题" class="headerlink" title="1.7 平均分堆问题"></a>1.7 平均分堆问题</h4><ul>
 <li><p>题型判别： 出现平均分配的字眼，例如，元素平均分配给多少人，或者平均分配多少组等</p>
 </li>
@@ -436,7 +443,7 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <p><img src="/images/数量关系/image-20230214175930739.png" alt="image-20230214175930739"></p>
-<h4 id="1-8-错位排序问题"><a href="#1-8-错位排序问题" class="headerlink" title="1.8 错位排序问题"></a>1.8 错位排序问题</h4><ul>
+<h4 id="1-8-错位排序问题-Dn"><a href="#1-8-错位排序问题-Dn" class="headerlink" title="1.8 错位排序问题(Dn)"></a>1.8 错位排序问题(Dn)</h4><ul>
 <li><p>题型判别： n个位置的元素，打乱后，都不能回到原来位置的情况</p>
 </li>
 <li><p>方法：</p>
@@ -444,7 +451,8 @@ mjx-container[display="true"] + br {
 <p><img src="/images/数量关系/image-20230214180012850.png" alt="image-20230214180012850"></p>
 </li>
 </ul>
-<h4 id="1-9-环形排列问题"><a href="#1-9-环形排列问题" class="headerlink" title="1.9 环形排列问题"></a>1.9 环形排列问题</h4><ul>
+<h4 id="1-9-环形排列问题"><a href="#1-9-环形排列问题" class="headerlink" title="1.9 环形排列问题"></a>1.9 环形排列问题</h4><p>如果不是环形的，线性的排列就是<script type="math/tex">A_{n}^{n}</script></p>
+<ul>
 <li><p>题型判别： 题目中出现圆桌，围坐着的字眼，比如<code>n</code>个人围坐在桌子吃饭，有多少种坐法</p>
 </li>
 <li><p>方法：</p>
@@ -457,24 +465,46 @@ mjx-container[display="true"] + br {
 </li>
 <li><p>方法：</p>
 <p><code>n</code>个不同元素，可重复的取<code>m</code>次，共有<script type="math/tex">n^{m}</script>种情况。 注意谁是<code>n</code>，谁是<code>m</code></p>
+<p>不同元素就是不同情况，每一次有n种情况，那么m次，就有m个n种情况</p>
 <p><img src="/images/数量关系/image-20230214180101589.png" alt="image-20230214180101589"></p>
 </li>
 </ul>
-<h4 id="1-11-两人同组的概率"><a href="#1-11-两人同组的概率" class="headerlink" title="1.11 两人同组的概率"></a>1.11 两人同组的概率</h4><ul>
+<h4 id="1-11-两人同组的概率-跟屁虫"><a href="#1-11-两人同组的概率-跟屁虫" class="headerlink" title="1.11 两人同组的概率(跟屁虫)"></a>1.11 两人同组的概率(跟屁虫)</h4><ul>
 <li><p>题型识别：问到两个元素分到一组的概率</p>
 </li>
 <li><p>方法：<strong>跟屁虫原理</strong></p>
 <p>两元素同组概率问题，无需关注第一个元素，第一元素无论在哪，只需第二元素与第一元素在一组即可，第二个人去找第一个人的概率。所以，先随便确定好第一个元素，这时第一个元素是不需要求概率的；再考虑另一个元素与其同组的概率即可。</p>
 <p><img src="/images/数量关系/image-20230214180148950.png" alt="image-20230214180148950"></p>
+<p><img src="/images/数量关系/image-20231011211549631.png" alt="image-20231011211549631" style="zoom:50%;"></p>
+</li>
+<li><p>此时要注意环形排列的情况下，同组问题，也就是第二个从剩下的位置里存在两个选择可选</p>
 </li>
 </ul>
-<h4 id="1-12-抽奖概率"><a href="#1-12-抽奖概率" class="headerlink" title="1.12 抽奖概率"></a>1.12 抽奖概率</h4><ul>
-<li>先抽奖，后抽奖的概率都是一样的</li>
+<p><img src="/images/数量关系/image-20231011211909003.png" alt="image-20231011211909003" style="zoom:50%;"></p>
+<h4 id="1-12-给情况求概率"><a href="#1-12-给情况求概率" class="headerlink" title="1.12 给情况求概率"></a>1.12 给情况求概率</h4><ul>
+<li>把所有的情况列出来做分母，符合条件的作为分子</li>
+<li>按照情况进行分类相加，还是分步相乘</li>
 </ul>
-<h4 id="1-13-比赛类概率"><a href="#1-13-比赛类概率" class="headerlink" title="1.13 比赛类概率"></a>1.13 比赛类概率</h4><ul>
+<p><img src="/images/数量关系/image-20231011210316398.png" alt="image-20231011210316398" style="zoom: 50%;"></p>
+<h4 id="1-13-给概率求概率"><a href="#1-13-给概率求概率" class="headerlink" title="1.13 给概率求概率"></a>1.13 给概率求概率</h4><p><img src="/images/数量关系/image-20231011210826530.png" alt="image-20231011210826530" style="zoom: 50%;"></p>
+<h4 id="1-14-比赛类概率"><a href="#1-14-比赛类概率" class="headerlink" title="1.14 比赛类概率"></a>1.14 比赛类概率</h4><ul>
 <li>无论是3局2胜、5局3胜、还是7局4胜，比赛类概率问题都需要注意负场的位置</li>
 </ul>
-<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><h3 id="二、几何问题"><a href="#二、几何问题" class="headerlink" title="二、几何问题"></a>二、几何问题</h3><h4 id="2-1-基础知识"><a href="#2-1-基础知识" class="headerlink" title="2.1 基础知识"></a>2.1 基础知识</h4><ul>
+<p><img src="/images/数量关系/image-20231011212643716.png" alt="image-20231011212643716" style="zoom:50%;"></p>
+<p>本题可以直接从反面考虑，乙获胜的，必须满足最后三局全胜，也就是：<script type="math/tex">0.4*0.4*0.4=0.064</script>，1减去就得到甲获胜的概率</p>
+<h4 id="1-15-多次独立重复实验概率"><a href="#1-15-多次独立重复实验概率" class="headerlink" title="1.15 多次独立重复实验概率"></a>1.15 多次独立重复实验概率</h4><p>问：一件事完成的概率是p，在n次实验中，恰好有k次完成的概率是多少？</p>
+<script type="math/tex; mode=display">P(A)=C_{n}^{k}p^k(1-p)^{n-k}</script><p> 其中n为总的次数，k为符合条件的次数，p为符合条件的概率</p>
+<h4 id="1-16-抓阄密码求概率-机会数"><a href="#1-16-抓阄密码求概率-机会数" class="headerlink" title="1.16 抓阄密码求概率(机会数)"></a>1.16 抓阄密码求概率(机会数)</h4><ul>
+<li>原理：<script type="math/tex">P(A)=\frac{机会数}{所有可能数}</script></li>
+</ul>
+<p><img src="/images/数量关系/image-20231011213725894.png" alt="image-20231011213725894" style="zoom:50%;"></p>
+<p><img src="/images/数量关系/image-20231011214453064.png" alt="image-20231011214453064" style="zoom:50%;"></p>
+<h4 id="1-17-策略类"><a href="#1-17-策略类" class="headerlink" title="1.17 策略类"></a>1.17 策略类</h4><ul>
+<li><p>连蒙带猜</p>
+<p><img src="/images/数量关系/image-20231011214730844.png" alt="image-20231011214730844" style="zoom:50%;"></p>
+</li>
+</ul>
+<h3 id="二、几何问题"><a href="#二、几何问题" class="headerlink" title="二、几何问题"></a>二、几何问题</h3><h4 id="2-1-基础知识"><a href="#2-1-基础知识" class="headerlink" title="2.1 基础知识"></a>2.1 基础知识</h4><ul>
 <li>常见的长度公式</li>
 </ul>
 <p><img src="/images/数量关系/image-20230215125115953.png" alt="image-20230215125115953"></p>
@@ -524,7 +554,7 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <p><img src="/images/数量关系/image-20230215133411293.png" alt="image-20230215133411293" style="zoom:80%;"></p>
-<h4 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h4><h3 id="三、行程问题"><a href="#三、行程问题" class="headerlink" title="三、行程问题"></a>三、行程问题</h3><h4 id="3-1-一般行程问题"><a href="#3-1-一般行程问题" class="headerlink" title="3.1 一般行程问题"></a>3.1 一般行程问题</h4><ul>
+<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><h3 id="三、行程问题"><a href="#三、行程问题" class="headerlink" title="三、行程问题"></a>三、行程问题</h3><h4 id="3-1-一般行程问题"><a href="#3-1-一般行程问题" class="headerlink" title="3.1 一般行程问题"></a>3.1 一般行程问题</h4><ul>
 <li>基本公式：路程=速度×时间   <script type="math/tex">s=v*t</script></li>
 <li>比例关系：路程一定，速度和时间成反比；速度（时间）一定，路程和时间（路程和速度）成正比</li>
 <li>常用的解题方法：比例法（通过速度比找到时间比，与时间实际量建立对应关系；通过速度比找到路程比，与路程实际量建立对应关系等等）、方程法</li>
@@ -582,7 +612,7 @@ mjx-container[display="true"] + br {
 <p><img src="/images/数量关系/image-20230215151048627.png" alt="image-20230215151048627"></p>
 </li>
 </ul>
-<h4 id="-2"><a href="#-2" class="headerlink" title=" "></a> </h4><h3 id="四、最值问题"><a href="#四、最值问题" class="headerlink" title="四、最值问题"></a>四、最值问题</h3><h4 id="4-1-和定最值问题"><a href="#4-1-和定最值问题" class="headerlink" title="4.1 和定最值问题"></a>4.1 和定最值问题</h4><ul>
+<h4 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h4><h3 id="四、最值问题"><a href="#四、最值问题" class="headerlink" title="四、最值问题"></a>四、最值问题</h3><h4 id="4-1-和定最值问题"><a href="#4-1-和定最值问题" class="headerlink" title="4.1 和定最值问题"></a>4.1 和定最值问题</h4><ul>
 <li><p>题型判别： 总数之和是一定的，各部分在什么情况下，某一部分分的最多或者最少</p>
 </li>
 <li><p>解题思路：</p>
@@ -620,7 +650,7 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <p><img src="/images/数量关系/image-20230215163216910.png" alt="image-20230215163216910"></p>
-<h4 id="-3"><a href="#-3" class="headerlink" title=" "></a> </h4><h3 id="五、工程问题"><a href="#五、工程问题" class="headerlink" title="五、工程问题"></a>五、工程问题</h3><h4 id="5-1-基础知识"><a href="#5-1-基础知识" class="headerlink" title="5.1 基础知识"></a>5.1 基础知识</h4><ul>
+<h4 id="-2"><a href="#-2" class="headerlink" title=" "></a> </h4><h3 id="五、工程问题"><a href="#五、工程问题" class="headerlink" title="五、工程问题"></a>五、工程问题</h3><h4 id="5-1-基础知识"><a href="#5-1-基础知识" class="headerlink" title="5.1 基础知识"></a>5.1 基础知识</h4><ul>
 <li>公式：工作总量=效率×时间</li>
 <li>比例关系：工作总量一定，效率和时间成反比；效率（时间）一定，工作总量和时间（工作总量和效率）成正比</li>
 <li>常用解题方法：赋值法，比例法，方程法</li>
@@ -678,7 +708,7 @@ mjx-container[display="true"] + br {
 <p><img src="/images/数量关系/image-20230215194446067.png" alt="image-20230215194446067" style="zoom: 50%;"></p>
 </li>
 </ul>
-<h4 id="-4"><a href="#-4" class="headerlink" title=" "></a> </h4><h3 id="六、经济利润问题"><a href="#六、经济利润问题" class="headerlink" title="六、经济利润问题"></a>六、经济利润问题</h3><h4 id="6-1-可套用增长率的利润问题"><a href="#6-1-可套用增长率的利润问题" class="headerlink" title="6.1 可套用增长率的利润问题"></a>6.1 可套用增长率的利润问题</h4><ul>
+<h4 id="-3"><a href="#-3" class="headerlink" title=" "></a> </h4><h3 id="六、经济利润问题"><a href="#六、经济利润问题" class="headerlink" title="六、经济利润问题"></a>六、经济利润问题</h3><h4 id="6-1-可套用增长率的利润问题"><a href="#6-1-可套用增长率的利润问题" class="headerlink" title="6.1 可套用增长率的利润问题"></a>6.1 可套用增长率的利润问题</h4><ul>
 <li><p>题型识别：当题干中出现增长率相关的数据时，比如增加了百分之多少，亏损了百分之多少，下降了百分之多少等等，并且已知条件能够写成乘法表达式或者乘法表达式</p>
 </li>
 <li><p>解题方法：</p>
@@ -723,7 +753,7 @@ mjx-container[display="true"] + br {
 <p><img src="/images/数量关系/image-20230217141451309.png" alt="image-20230217141451309" style="zoom:80%;"></p>
 </li>
 </ul>
-<h4 id="-5"><a href="#-5" class="headerlink" title=" "></a> </h4><h3 id="七、统筹规划问题（了解）"><a href="#七、统筹规划问题（了解）" class="headerlink" title="七、统筹规划问题（了解）"></a>七、统筹规划问题（了解）</h3><h4 id="7-1-最优方案"><a href="#7-1-最优方案" class="headerlink" title="7.1 最优方案"></a>7.1 最优方案</h4><ul>
+<h4 id="-4"><a href="#-4" class="headerlink" title=" "></a> </h4><h3 id="七、统筹规划问题（了解）"><a href="#七、统筹规划问题（了解）" class="headerlink" title="七、统筹规划问题（了解）"></a>七、统筹规划问题（了解）</h3><h4 id="7-1-最优方案"><a href="#7-1-最优方案" class="headerlink" title="7.1 最优方案"></a>7.1 最优方案</h4><ul>
 <li>工程统筹：比较各部分的效率，找到各部分擅长的工作，先分工再合作；</li>
 <li>运输统筹：比较各种运输方式的耗能，优先选取低耗能且尽量不空载，最后一部分货物需要多方式比较；</li>
 <li>经济统筹：比较各种方案的单价，优先选取低单价且尽量不浪费，最后一部分需要多方式比较。</li>
@@ -748,7 +778,7 @@ mjx-container[display="true"] + br {
 <h4 id="7-7-空瓶换酒"><a href="#7-7-空瓶换酒" class="headerlink" title="7.7 空瓶换酒"></a>7.7 空瓶换酒</h4><ul>
 <li><script type="math/tex">n</script>瓶换1瓶酒，转化为<script type="math/tex">n-1</script>个空瓶换1瓶无瓶酒，<script type="math/tex">m</script>个空瓶能喝到<script type="math/tex">m÷(n-1)</script>瓶酒</li>
 </ul>
-<h4 id="-6"><a href="#-6" class="headerlink" title=" "></a> </h4><h3 id="八、容斥问题"><a href="#八、容斥问题" class="headerlink" title="八、容斥问题"></a>八、容斥问题</h3><h4 id="8-1-一般容斥问题"><a href="#8-1-一般容斥问题" class="headerlink" title="8.1 一般容斥问题"></a>8.1 一般容斥问题</h4><ul>
+<h4 id="-5"><a href="#-5" class="headerlink" title=" "></a> </h4><h3 id="八、容斥问题"><a href="#八、容斥问题" class="headerlink" title="八、容斥问题"></a>八、容斥问题</h3><h4 id="8-1-一般容斥问题"><a href="#8-1-一般容斥问题" class="headerlink" title="8.1 一般容斥问题"></a>8.1 一般容斥问题</h4><ul>
 <li><p>双集合问题的计算公式：</p>
 <p>总数=A+B-A∩B+都不                 </p>
 <p>全部人数=人次之和-重复部分+圈外人数</p>
@@ -768,7 +798,7 @@ mjx-container[display="true"] + br {
 <p><img src="/images/数量关系/image-20230217150057100.png" alt="image-20230217150057100" style="zoom:80%;"></p>
 </li>
 </ul>
-<h4 id="-7"><a href="#-7" class="headerlink" title=" "></a> </h4><h3 id="九、浓度问题"><a href="#九、浓度问题" class="headerlink" title="九、浓度问题"></a>九、浓度问题</h3><h4 id="9-1-纯浓度问题"><a href="#9-1-纯浓度问题" class="headerlink" title="9.1 纯浓度问题"></a>9.1 纯浓度问题</h4><ul>
+<h4 id="-6"><a href="#-6" class="headerlink" title=" "></a> </h4><h3 id="九、浓度问题"><a href="#九、浓度问题" class="headerlink" title="九、浓度问题"></a>九、浓度问题</h3><h4 id="9-1-纯浓度问题"><a href="#9-1-纯浓度问题" class="headerlink" title="9.1 纯浓度问题"></a>9.1 纯浓度问题</h4><ul>
 <li><p>抓住溶质不变，溶质常常可以设置为一个特殊的值。各部分溶质之和=混合溶液溶质</p>
 </li>
 <li><p>公式：</p>
@@ -788,7 +818,7 @@ mjx-container[display="true"] + br {
 <p><img src="/images/数量关系/image-20230217153348055.png" alt="image-20230217153348055" style="zoom:80%;"></p>
 <p><img src="/images/数量关系/image-20230217153829299.png" alt="image-20230217153829299" style="zoom:80%;"></p>
 <p><img src="/images/数量关系/image-20230217154700029.png" alt="image-20230217154700029" style="zoom:80%;"></p>
-<h4 id="-8"><a href="#-8" class="headerlink" title=" "></a> </h4><h3 id="十、小学奥数问题"><a href="#十、小学奥数问题" class="headerlink" title="十、小学奥数问题"></a>十、小学奥数问题</h3><h4 id="10-1-周期循环问题"><a href="#10-1-周期循环问题" class="headerlink" title="10.1 周期循环问题"></a>10.1 周期循环问题</h4><ul>
+<h4 id="-7"><a href="#-7" class="headerlink" title=" "></a> </h4><h3 id="十、小学奥数问题"><a href="#十、小学奥数问题" class="headerlink" title="十、小学奥数问题"></a>十、小学奥数问题</h3><h4 id="10-1-周期循环问题"><a href="#10-1-周期循环问题" class="headerlink" title="10.1 周期循环问题"></a>10.1 周期循环问题</h4><ul>
 <li><p>解题思路：去掉周期循环，数余数</p>
 <p>例如：第18填，18÷7余4，即第18填星期数和第4填星期数一样</p>
 </li>
@@ -881,7 +911,7 @@ mjx-container[display="true"] + br {
 </li>
 </ul>
 <p><img src="/images/数量关系/image-20230218103155209.png" alt="image-20230218103155209" style="zoom:80%;"></p>
-<h4 id="-9"><a href="#-9" class="headerlink" title=" "></a> </h4><h3 id="十一、不定方程问题"><a href="#十一、不定方程问题" class="headerlink" title="十一、不定方程问题"></a>十一、不定方程问题</h3><h4 id="11-1-尾数特性"><a href="#11-1-尾数特性" class="headerlink" title="11.1 尾数特性"></a>11.1 尾数特性</h4><ul>
+<h4 id="-8"><a href="#-8" class="headerlink" title=" "></a> </h4><h3 id="十一、不定方程问题"><a href="#十一、不定方程问题" class="headerlink" title="十一、不定方程问题"></a>十一、不定方程问题</h3><h4 id="11-1-尾数特性"><a href="#11-1-尾数特性" class="headerlink" title="11.1 尾数特性"></a>11.1 尾数特性</h4><ul>
 <li><p>识别：<script type="math/tex">ax+by=M</script>，当<script type="math/tex">a</script>或<script type="math/tex">b</script>尾数是 <script type="math/tex">0</script>或<script type="math/tex">5</script> 时，考虑尾数。如果是<script type="math/tex">5</script>，可以考虑乘以<script type="math/tex">2</script>将尾数变为<script type="math/tex">0</script></p>
 </li>
 <li><p>例：<script type="math/tex">37x+20y=271，x=</script>？（<script type="math/tex">x、y</script> 均为正整数）</p>
@@ -972,6 +1002,8 @@ mjx-container[display="true"] + br {
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/11/05/%E5%85%AC%E5%8A%A1%E5%91%98/%E7%94%B3%E8%AE%BA%E4%B9%A0%E9%A2%98/">申论习题</a>
             
             
             <a class="next" rel="next" href="/2023/09/05/%E5%85%AC%E5%8A%A1%E5%91%98/%E6%88%90%E8%AF%AD%E7%AC%94%E8%AE%B0/">成语笔记</a>
