@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>公考零碎笔记 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">公考零碎笔记</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">November 18, 2023&nbsp;&nbsp;18:45:58</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Office/">Office</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="常识"><a href="#常识" class="headerlink" title="常识"></a>常识</h2><h3 id="做题逻辑"><a href="#做题逻辑" class="headerlink" title="做题逻辑"></a>做题逻辑</h3><ol>
+<li>出现数量用词要注意，大概率是错误表述，因为会设置错误的数字，一般情况不是表述的对应的数字</li>
+<li>当出现数量词时，如果市首次要注意是否体现民族自豪感，比如“首次是我们自己的”，则可以看出其中满满的自豪感，则一般是正确的表述</li>
+<li>出现党、马、列、毛、习之类的重要主体，一定是正确的表述。</li>
+<li>选项出现因果关系，该选项一般是错误的表述，因为常设置为强加因果的错误逻辑</li>
+<li>对于问在哪个时间不会出现哪个事件之类的题目，一般最早的时间选项表述是错误的概率大，时间越早错误的概率越大</li>
+<li>对于法律类的问题，选项表述看是否代表人民立场，如果表述符合人民利益，满足人民需求，则表述正确，如果不符合，则一定错误</li>
+<li>对于选有多少项是正确表述的题，一般来说选择bc选项，因为出题人一般会挖坑，我们遵循中庸之道，体现中间一定会有错误选项，但是又不是错的很多，也不是很少，所以选择中间的，</li>
+<li>一些绝对化的表述的选项一般也是错误的，可以理解为它不符合中庸之道，因为太过绝对，常常是错的</li>
+</ol>
+<h2 id="作文"><a href="#作文" class="headerlink" title="作文"></a>作文</h2><h3 id="法律类"><a href="#法律类" class="headerlink" title="法律类"></a>法律类</h3><h4 id="名言"><a href="#名言" class="headerlink" title="名言"></a>名言</h4><ol>
+<li><strong>徒法不足以自行</strong>： 只有法律是不能够使它自己发生效力的，需要人的推动。强调执法的必要性</li>
+<li><strong>其身正，不令而行；其身不正，随令不从</strong>： 自身端正，不用命令就会遵行；自身不端正，即时发命令也没有人听从。强调要人要品行端正，自律正直。适用于加强执法队伍素质建设。</li>
+<li><strong>法者，治之端也</strong>： 法律是治理国家的开始。强调法律的重要性，适用于结尾段，用作升华。</li>
+<li><strong>治国凭圭臬，安邦靠准绳</strong>： 治理国家要以正确的准则为依据，以正确的标准为准绳。也是强调法律对国家治理的重要性，适用于作文的开头第一句。<u>只有法治信仰根植于人民心中，形成全名手法的氛围，才能共建法治国家。</u></li>
+<li><strong>法立，有犯而必施；令出，唯行而不返</strong>： 法律一经制定确立，凡有违反者必将实施惩治；条令一经发出，只有坚决执行绝不能违反。强调必须严格执法，使用严格执法的必要性</li>
+<li><strong>一切法律中的法律，既不是刻在大理石上，也不是刻在铜表上，而是铭刻在公民的心里。</strong>： 强调法治要起作用，必须要让公民切实认识到法制的作用，自觉树立法治观念，维护法律权威，做到依法守法护法。法律的权威源自人民的内心拥护和真诚信仰。</li>
+<li><strong>（习）领导干部尊法学法守法用法，老百姓就会去尊法学法守法用法</strong>： 执法者以身作则，率先垂范，不断提升行政执法水平，维护政府公信力，才能带动好引领好人民群众，共同营造更加公开透明、规范有序、公平高效的法治环境。</li>
+<li><strong>执政兴国，离不开法治支撑；社会发展，离不开法治护航；百姓福祉，离不开法治保障</strong>： 强调<font color='cornflowerblue'>法治</font>的重要性</li>
+<li><strong>法治是指引中国改革这艘航船风雨中不变航向的灯塔，是阻拦奔腾的市场经济之川不溢出河道的堤坝，是守护四十多年改革成果不被蚕食的卫士。</strong></li>
+<li><strong>天下大事，不难与立法，而难于法之必行</strong>： 强调法律要执行，法治执行执法。增强法治观念、树立法治思维、掌握法制方式，才能为法治中国树立坚强的柱石，为法治强国夯实最深厚的根基。</li>
+</ol>
+<h4 id="首段例子1"><a href="#首段例子1" class="headerlink" title="首段例子1"></a>首段例子1</h4><p>【法治很重要】</p>
+<p>​    ”治国凭圭臬，安邦靠准绳。“<font color='red'>（名言引出第一句）</font>治理国家要以正确的准则为依据、以正确的标准为准绳。（<font color='red'>解释一下第一句名言）</font>当前，我国进入了全面建设社会主义现代化法治国家，向第二个百年奋斗目标进军的新征程，一个更高水平的法治社会正焕发出崭新的风貌。这对我们的执法工作提出了更高的要求<font color='red'>（向中心论点进行过渡）</font>，因此，只有+<strong>中心论点</strong>，才能+目的<font color='red'>（提出中心论点）</font>。</p>
+<h4 id="首段例子2"><a href="#首段例子2" class="headerlink" title="首段例子2"></a>首段例子2</h4><p>【加强刑侦执法队伍建设】</p>
+<p>​    “其身正，不令而行；其身不正，随令不从。”<font color='red'>（名言引出第一句）</font> 自身端正，不用命令就会遵行；自身不端正，即时发命令也没有人听从（<font color='red'>解释一下第一句名言）</font>。习近平总书记强调：领导干部尊法学法守法用法，老百姓就会去尊法学法守法用法。法治的关键在于不断提高治理主体法制化水平，这就要求我们要努力建设一直信念坚定、执法为民、敢于担当、清正廉洁的执法队伍</p>
+<h4 id="范文"><a href="#范文" class="headerlink" title="范文"></a>范文</h4><blockquote>
+<p>【2022江苏B】<strong>请结合你对“给定材料 7”中“‘徒法不足以自行’，高素养的行政执法队伍是从‘有法可依’走向‘良法善治’的可靠保障”这句话的理解，联系实际，写一篇文章</strong></p>
+</blockquote>
+<p> “法者，国之准绳也”<font color='red'>（名言引出第一句）</font>，党的十八大以来，全面依法治国方略不断发展，法律体系日趋完善，法治理念深入身心，有法可依的法治格局逐步形成<font color='red'>（法治建设成就）</font>。但目前，法治社会建设中仍有一些盲点堵点让人揪心，城管店主间的游击战拷问执法智慧，市民修剪绿植的天价罚款触及执法良心……<font color='red'>（总结归纳一下材料中的反面例子）</font>执法主体的执法理念、执法能力、执法方式直接关系群众对党和政府的信任。<font color='red'>（强调执法方式的重要性）</font>“徒法不足以自行”，法的生命力在于执行，良法还需善治来彰显价值<font color='red'>（开始过渡到中心论点）</font>。要全面推进严格规范文明公正执法，对执法队伍建设提出更高要求。<strong>打造一支有信念、精业务、善服务的高素质执法队伍，关系着法治社会建设成效</strong>。</p>
+<p>   <strong>坚守价值追求，彰显执法硬度</strong>。毛主席说：“人是需要一点精神的”，对于执法者来说更是如此。只有坚守法治信仰，才能在问题困难面前始终如一伸张公平正义、保护人民权益。执法者要心怀敬畏之心，带头尊法守法用法普法，为人民群众树立榜样，提升执法队伍威信。要手握正义天平，敢于坚持原则、勇于担当作为，实事求是、公正无私处理每一个执法事件，真正做到法律面前人人平等。要身无浮尘一片，时时自重、自省、自警、自励，以身作则，保持清正廉洁本色，营造风清气正执法环境。用纯粹的信仰、过硬的作风来维护法律威严。</p>
+<p>   <strong>锤炼过硬本领，提升执法力度</strong>。过硬的业务本领是执法成效的保障。当前，法治中国建设深入实施，执法工作涉及到社会生活的方方面面，从安全隐患排查到违法建筑拆除，从维护市容环境到打击网络诈骗，涉及的受众广、专业精、情况杂，执法队伍要规范有效执法，就必须锤炼现代化、专业化能力。在新型案例、复杂情况中，科学研判、准确合理使用法律依据；在社会热点、群众焦点问题中，准确把握执法尺度回应社会关切，在应急突发事件中，灵活执法、果敢决断；在现代化社会治理中，与时俱进掌握科技手段……执法队伍只有对自身本领有更高更新更专的要求，才能在时代浪潮中成为社会发展的稳定器、人们行为的纠正器。</p>
+<p>   <strong>厚植为民情怀，体现执法温度</strong>。全面依法治国最广泛、最深厚的基础是人民，必须坚持为了人民、依靠人民。“顶配”城管小陶的团队面对被执行店主的为难情绪，化干戈为玉帛，行法治于无形；H市公安局面对疫情中民众的种种忧虑，提供贴心服务、有序疏通道路，让我们看到执法的温度暖人心、聚民心、强信心。执法队伍直接服务于人民群众，要时刻站稳人民立场，以同理之心化解矛盾，多使用劝导示范、说服教育、行政指导、激励引导等非强制性的“人性化执法”，以敬畏之心、进取之心，努力解决好群众的“急难愁盼”，让公平正义以人民群众看得见、可预期、可信赖的方式实现。</p>
+<p>   人法兼资，而天下之治成。新时代的执法者应当<strong>坚守法治信仰、锤炼过硬本领、站稳人民立场</strong>，努力锻造高素质的执法队伍，推动“有法可依”走向“良法善治”，以法治政府成效护航法治社会、建设法治国家。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Office/"># Office</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/11/05/%E5%85%AC%E5%8A%A1%E5%91%98/%E7%94%B3%E8%AE%BA%E4%B9%A0%E9%A2%98/">申论习题</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
