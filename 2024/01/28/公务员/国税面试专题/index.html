@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>国税面试专题 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">国税面试专题</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 28, 2024&nbsp;&nbsp;14:29:04</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Office/">Office</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="组织计划题"><a href="#组织计划题" class="headerlink" title="组织计划题"></a>组织计划题</h2><h3 id="1-1-活动策划类"><a href="#1-1-活动策划类" class="headerlink" title="1.1 活动策划类"></a>1.1 活动策划类</h3><blockquote>
+<p>【001】单位开展民法典下乡活动，请问你如何组织此次活动</p>
+<p>【003】躺平是2021年十大流行语之一。为了纠正躺平的思想，激发青年干部工作活力，你们单位团委准备开展两项活动，团委把这项工作交给你，请你说出两个活动的形式，并选择一个谈谈如何开展。【2022国税】</p>
+</blockquote>
+<p><img src="/images/国税面试专题/image-20240202101944856.png" alt="image-20240202101944856"></p>
+<p>开展此项活动，目的是为了纠正躺平思想，进而激发青年干部的活力，更好的为我们纳税工作做好服务。如果领导讲这个工作交于我，我会以两个活动形式将其展开。第一个活动形式为：<strong>以青春之名之我的奋斗之路目标墙征集活动</strong>，第二个活动形式为：<strong>向奋斗致敬最美税务人观影学习活动</strong>。接下来，我就第二个活动具体展开，如何更好推进这个活动，我认为要把握四个一：</p>
+<ul>
+<li>第一个一：主备一定要充分。我们团委将本次活动方案的流程、时间地点等相关细节，仔细研讨，报备领导，并且同时将观影视频拷贝好，同时由团委下文，号召广大的青年干部集体参与本次的观影交流学习当中来。</li>
+<li>第二个一：学习内容一定要丰富。学习活动主要分为三个环节：第一个环节为：青年代表的宣誓发言环节，由我们单位内部优秀的青年代表发出号召，号召向奋斗者学习、向最美税务人学习。第二个环节：最美税务人观影活动统一观看。第三个环节：由在场领导总结发言，并号召发起最美税务人观后感征集活动。</li>
+<li>第三个一：形式一定要多样。除了观影征文，还可以采用线上的方式，将本次最美税务人视频拷贝到单位的群里，并且将学习过程中的领导发言和青年代表发言，以及精彩瞬间在单位群进行交流和分享，进一步深化线上学习。</li>
+<li>第四个一：效果一定要深化。将本次活动过程中的一些精彩瞬间，在我们单位的公众号和学习号进行发布，同时将征文优秀作品在公告栏和学习群进行再次分享，深化本次学习效果。</li>
+</ul>
+<p>通过四个一，将本次学习深化开展，进而拒绝躺平，争当有为青年，这就是我对这次活动的主要设想。</p>
+<h3 id="1-2-税务宣讲类"><a href="#1-2-税务宣讲类" class="headerlink" title="1.2 税务宣讲类"></a>1.2 税务宣讲类</h3><p>明要素，串流程</p>
+<blockquote>
+<p>【002】为助力小微企业排忧纾困，推动减税降费红利直达市场主体。税务局准备面向小微企业开展“送政策、解难题、优服务”为主题的活动，假如由你负责，请你策划两个工作方案，并选一个具体展开。【2022国税】</p>
+</blockquote>
+<p><img src="/images/国税面试专题/image-20240131165936392.png" alt="image-20240131165936392"></p>
+<p>本次活动意义非常明确，减税降费助力企业发展，助力经济复苏，意义非凡。如果说我负责这次的活动，那么我策划的两个工作方案是：<strong>减税降费送红利政策宣讲活动</strong>、<strong>银税互动减税助贷活动与银行携手活动</strong>。我将就第一个活动具体展开，为了做好本次活动，我认为要把握“五个要”，</p>
+<ul>
+<li>第一个要：我们准备要充分。首先来说，我们会在单位内部成立宣讲团，宣讲团将本次的方案流程进行仔细研讨，报送领导，并对宣讲团进行培训，对于相关的减税降费政策进行进一步的了解，以提升宣讲团的专业性。</li>
+<li>第二个要：我们要找到针对性的企业。通过企业税收大数据明确重点企业，并进行提前的电话摸底，保证本次的宣传对象具有针对性。另一方面，我们在宣传内容上具有针对性，针对我市地区企业开展针对性宣讲，确保企业退真费、真退费。</li>
+<li>第三个要：我们开展宣讲活动要具有多样性。活动主要分为两个环节：一个是线上演播室宣讲环节。由我们组队的成员对于减税降费的政策进行详细的宣讲；第二个环节是对重点企业一对一送政策环节。宣讲团会分成小组入驻企业，讲解减税降费的相关流程、申报原则和注意事项，针对重点企业进行手把手退费，并在整个环节中做好企业诉求的收集，及时优化我们解忧抒难送红利的宣传活动。</li>
+<li>第四个要：成绩要可视化。宣讲团将本次的活动数据，比如说我们企业的回访数、企业的参与率、退费申报次数等数据，制作成图表格式，并在组内定期公布。</li>
+<li>第五个要：效果要扩大化。将本次活动的线上宣讲视频，线下宣讲的精彩瞬间在三微一端进行公示，以提升宣讲团参与的积极性和参与热情。</li>
+</ul>
+<p>我相信，通过五个要，一定能将送红利活动办好、办实，助力企业发展，助力经济复苏。</p>
+<p><img src="/images/国税面试专题/image-20240131170650996.png" alt="image-20240131170650996"></p>
+<h3 id="1-3-组织培训类"><a href="#1-3-组织培训类" class="headerlink" title="1.3 组织培训类"></a>1.3 组织培训类</h3><blockquote>
+<p>【004】近来国家税务总局紧紧围绕税收现代化目标，对高质量推进新时代税务人才队伍建设提出了新的要求。倡导各地在人才培养方面要从知识型向应用型转变。为贯彻落实总局要求，你们领导让你对新进单位公务员进行培训，对于培训课程你如何设置？【2022国税】</p>
+</blockquote>
+<p><img src="/images/国税面试专题/image-20240202143051539.png" alt="image-20240202143051539"></p>
+<hr>
+<p>==以下内容感觉有些偏题==</p>
+<p>对于新进公务员的业务培训，提升他们的业务素养，让他们早日进入我们岗位当中来，具有重要意义，所以本次活动，我设置主题为：<strong>兴税有我的新录用公务员培训活动</strong>。那么如何推进这个活动，我认为要重点把握五个要：</p>
+<ul>
+<li>第一个要：动员要到位。整个培训前期，我们要开动员会，由青年代表集体带领宣誓，由主要领导介绍本次培训的意义重要性，同时介绍奖惩情况和培训纪律，充分动员大家，让大家在培训过程中更有积极性。</li>
+<li>第二个要：导师要专业。在整个导师选聘过程中，我们可以在一线选聘业务标兵骨干，不仅业务能力要强，同时政治站位要高，表达能力要强，提升整个培训效果。</li>
+<li>第三个要：内容要实际。一方面，对一线的工作要进行细致的梳理，明确本次培训的重点。同时，要听取一线业务人的意见，了解各业务员的短板，击破难点，比如说：金税三期的使用，自助办税机等，让培训内容更加实际。</li>
+<li>第四个要：形式要接地气。主要分为以下几个环节：第一环节：工作操作规范讲解要有，第二个环节：导师的讲演，第三个环节，岗位学员的实操。通过实际的内容和形式，让培训更接地气。设置导师培训制，进行导师一对一帮扶、指导，让培训效果更加深化。</li>
+<li>第五个要：培训要有考核。考核机制要完善，我们考核分为课中考核和结业考核。课中考核主要包括学员日常表现、发言次数、配合度、学业完成度。结业考核涉及到大比武、从服务的质量效率态度等多方面考核。考核结束之后，进行表彰，对于表现好的学员、导师、讲师进行表彰，全方面的进行鼓励。</li>
+</ul>
+<p>我相信，通过五个要的设置，将本次活动全方面的推进，一定能对于新进公务员的进行业务提升，促进他们向应用型的转变。</p>
+<p><img src="/images/国税面试专题/image-20240202143033493.png" alt="image-20240202143033493"></p>
+<hr>
+<p>针对单位新进公务员进行培训，我们可以设置一套具有针对性、实用性强的课程，以满足总局的从知识型向业务型转变的要求。我认为，培训课程可以包括以下几个方面进行。</p>
+<ul>
+<li>第一个方面：<strong>进行税收法律法规的培训</strong>。我们可以邀请一些讲师，深入的解读税收法律法规，同时强调实际操作过程的一些法规应用。比如说我们可以通过案例分析的方式来促进新进人员更好的去理解和掌握。</li>
+<li>第二个方面：<strong>进行税收政策的解读。</strong>对最新的一些税收政策进行详细的解读，比如说减税降费政策、支持创新创业的税收优惠等等，帮助培训人员更好的去指导纳税人合规的经营。</li>
+<li>第三个方面：<strong>进行征管流程的培训</strong>。介绍一些比如：纳税申报、税款征收、税后检查等环节，培养他们在实际工作中熟练掌握税收征管系统的使用。同时，建立导师一对一传帮带制度，安排实操环节，通过学员亲身对系统的实操学习，提高学员的实际操作水平，让培训效果更加深化。</li>
+<li>第四个方面：<strong>进行纳税服务和沟通技能的培训</strong>。在本次的培训过程中，要强调服务意识，要培养团队协作的精神，同时要对新进人员进行沟通表达能力的培训，使他们能够更好地和纳税人进行沟通，解答他们的疑问，推动我们税务机关与社会进行一个良好的互动。</li>
+</ul>
+<p>我相信，通过以上几个方面的课程重点设置，一定能够对新进的公务员进行业务能力方面的提升，促使他们从知识型向业务型的转变。</p>
+<h3 id="1-4-评选活动类"><a href="#1-4-评选活动类" class="headerlink" title="1.4 评选活动类"></a>1.4 评选活动类</h3><h3 id="1-5-调研类"><a href="#1-5-调研类" class="headerlink" title="1.5 调研类"></a>1.5 调研类</h3><blockquote>
+<p><strong>【005】为切实解决农村高龄、空巢老人用餐难、无人陪等问题，各乡镇都建有“幸福食堂”方便留守老人用餐。某村建的食堂运行半年之后，到食堂吃饭的老人越来越少，乡镇领导安排你去了解情况，你会怎么进行？</strong></p>
+</blockquote>
+<p><img src="/images/国税面试专题/image-20240202162711260.png" alt="image-20240202162711260"></p>
+<p>各位考官，这次调查主要是为了了解一下，幸福食堂现在使用率越来越低的一个现状，方便后续能够提出针对性有效性的措施，来去提高食堂的使用率。为了完成这次调研，我会从以下三个方面去着手。</p>
+<p><strong>第一，</strong>是要了解一下食堂使用的现状，运行半年以来，他的就餐人数的变化是什么样子的。而这部分内容，我会直接找到市场的负责人，让他把之前统计的每个月每周甚至每天的食堂用餐人数，进行汇总上报。</p>
+<p><strong>第二，</strong>是要去重点了解一下这个食堂使用率越来越低的原因，到底是因为咱们的饭菜不卫生，饭在口味不符合老人的需求，饭菜种类太单一，它的价格不合适，还是由于我们的环境卫生不达标，服务不太好等原因导致的。那么这对原因的调查，我有三个方面的做法，<strong>一方面</strong>是去村实地和这些老年人进行深入的交流和交谈，问问他们的想法。<strong>另一方面</strong>是会去找到食堂的负责人和工作人员，一起来召开研讨会，听听他们的一些想法和意见。<strong>同时，</strong>为了保证调查的真实有效，我会到那个食堂去吃一顿饭，感受一下它的饭菜、环境、服务等等。</p>
+<p><strong>第三，</strong>觉得需要去对我们提高食堂的使用的措施，进行全方位的研究和研讨。<strong>一方面</strong>，我会去周边做得比较好的一些乡镇去实地考察一下，他们在食堂使用方面做了哪些工作，有哪些方法我们可以借鉴。<strong>另一方面，</strong>我会召集我们的食堂负责人、乡镇干部以及村民代表等，坐下来研究研究基于我们食堂现在的一个情况，以后可以采取什么措施去提高它的使用率。</p>
+<p><strong>最后，</strong>在完成以上调研内容之后，我会把所有的信息来进行汇总整理分析，把他的就餐人数变化已成一个趋势图，分析出主要原因，并在当中提出一可行性的整改意见，把以上内容形成调研报告上交给领导。</p>
+<p><img src="/images/国税面试专题/image-20240202162725145.png" alt="image-20240202162725145"></p>
+<blockquote>
+<p><strong>【006】政府为了保护非物质文化遗产，要对本地非物质文化遗产进行一个调查，你认为该怎样进行？</strong></p>
+</blockquote>
+<p><img src="/images/国税面试专题/image-20240202174041386.png" alt="image-20240202174041386"></p>
+<h2 id="态度观点题"><a href="#态度观点题" class="headerlink" title="态度观点题"></a>态度观点题</h2><blockquote>
+<p>中组部政策法规局副局长徐文秀在《年轻干部“八争八不争”》中对年轻干部提出了“八争八不争” 。 “八争八不争”是指“争贡献，不争回报；争先进，不争荣誉；争作为，不争地位；争气，不争斗；争得人心，不争得票数；争本领高强，不好胜争强；争里子，不争面子；争平时，不争‘评时’” 。请你结合实际谈谈对“八争八不争”的理解。</p>
+</blockquote>
+<p>黄局长所提出的八争八不争的理念，为我们年轻干部的工作指明了方向。</p>
+<p>首先，八争不是争先恐后，而是一种奋勇向上的精神。作为年轻干部是国家发展的新鲜血液，也是强劲的后备力量。所以只有坚持奋勇向上的精神品质，才能在实践中得到磨砺，在是实干中得到成长。无论是在脱贫攻坚中摸爬滚打，还是在抢险救灾中冲锋陷阵，广大青年干部都敢于挺身而出，不怕苦，不怕难，在各种挑战中积累经验，赢得群众信任和支持。</p>
+<p>其次，八不争并非是碌碌无为，而是坚守初心的精神品质。年轻干部由于社会阅历较浅，因此很容易收到各种诱惑和干扰。所以只有守住自己的为民服务的初心，才能拥有良好的工作作风和政治本色。然而，在实际的工作中，存在极个别的年轻干部只想争面子荣誉，忘记了自己的初心，从而掉入违法的深渊。</p>
+<p>因此，在以后的工作中，一方面，我会保持实干精神。通过学习领导人讲话，上级传达个政策文件，以及各种岗位练兵的方式，提高自己的实际工作能力，为群众提供专业的服务。另外一方面，我会保持为民服务的初心，牢记使命，用最佳的态度做好各项为民服务，同时在工作中遵守各项规定，守住底线，做到清正廉洁。</p>
+<h2 id="应急应变题"><a href="#应急应变题" class="headerlink" title="应急应变题"></a>应急应变题</h2><blockquote>
+<p>你们单位在某景点的广场开展作风宣传讲会，大屏幕里出现公车，群众议论纷纷，你怎么办？</p>
+</blockquote>
+<p>开展作风宣讲会，直接关系到作风建设的宣传效果，关系着干群关系的和谐。对于出现题目中这种情况，我将会从以下几个方面处理此事：</p>
+<ul>
+<li>首先，我会迅速上台，告知大家马上开展调查，希望大家继续参加我们本次的作风宣讲会。同时，作出承诺，保证彻查此事。如果在宣讲会结束之前调查清楚，我将会在宣讲会结束之前将结果告知大家。如果在宣讲会结束之前仍然没有调查清楚，我会在事后把最终的调查结果公布在政府网站上，还原大家监督。</li>
+<li>然后，在宣讲会开展过程中，我们根据屏幕中的公车信息找到该车，与司机取得联系，沟通此次公车使用情况，并与该公车所属单位取得联系，核实用车情况的真实性，并申请使用该车的使用登记记录和行车记录。</li>
+<li>如果该车是因公到达景区，我会做好相应的记录，并收集相关的证据材料，回到会场向群众说明该公车属于正常的公务用车，并将车辆使用记录和单位车辆管理条例向大家展示。</li>
+<li>如果该车是公车私用，那我们也绝不姑息，将在会上予以曝光，请群众见证我们反腐倡廉的决心。同时，在官网上及时公布调查结果，以起到警示教育作用。</li>
+<li>最后，我也会利用此次突发事件，更好的宣传作风建设，让群众看到我们大力整治作风的决心；同时，公布作风建设的监督举报电话，拓宽百姓监督渠道，接受群众的监督，从而更好的落实机关作风建设。</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Office/"># Office</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/01/16/%E5%85%AC%E5%8A%A1%E5%91%98/%E5%9B%BD%E8%80%83%E7%A8%8E%E5%8A%A1%E9%9D%A2%E8%AF%95/">国考税务面试</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

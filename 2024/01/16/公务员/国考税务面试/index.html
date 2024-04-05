@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Aiming">
+
+
+
+
+
+<title>国考税务面试 | (●&#39;◡&#39;●)Iminslife</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+    <script src="/null"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Iminslife</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Iminslife</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">国考税务面试</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Aiming</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 16, 2024&nbsp;&nbsp;9:48:58</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Office/">Office</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h2 id="社会现象类"><a href="#社会现象类" class="headerlink" title="社会现象类"></a>社会现象类</h2><h2 id="角色篇"><a href="#角色篇" class="headerlink" title="角色篇"></a>角色篇</h2><p>税务机关需要什么样的干部</p>
+<ul>
+<li>基本要求</li>
+</ul>
+<p>中国税务精神三个方面的要求</p>
+<ol>
+<li>忠诚担当，以税务铁军的精神用户改革</li>
+<li>崇法守纪，以清廉的作风展现税务风貌</li>
+<li>兴税强国，聚焦税收主业，永葆税务精神</li>
+</ol>
+<p>做到八个方面</p>
+<ol>
+<li>政治坚定——鲜明特征</li>
+<li>服务大局——突出职能</li>
+<li>业务精湛——基本要求</li>
+<li>团结协作——普遍表现</li>
+<li>勤政廉政——起码素养</li>
+<li>好学上进——主流现象</li>
+<li>谦逊低调——有效成长</li>
+<li>实事求是——工作作风</li>
+</ol>
+<p>怎样称为税务机关干部</p>
+<ol>
+<li>自觉强化学习</li>
+<li>用于接受实践锻炼</li>
+<li>自律内省</li>
+</ol>
+<p>真题讲解</p>
+<p><img src="/images/国考税务面试/image-20240116102517737.png" alt="image-20240116102517737"></p>
+<p>第一个就要弄清楚，这道题是要干什么是什么，有15分钟读题时间。本题是会议的工作重点。考察政治敏感性，逻辑分析，辩证思维能力。</p>
+<ol>
+<li>确定会议主题，要明确目标和任务是什么，要取得什么样的效果，这一点是重要的</li>
+<li>策划会议方案，开好这个会要采取的具体措施</li>
+<li>会议信息化公式，就是发信息，发通知的工作</li>
+<li>发布会议通知，是一个具体的工作</li>
+<li>确定参加人员</li>
+</ol>
+<p>选择【1，2，5】，有主题，就有明确的目标和方向；制定具体方案，为了完成任务，开好这个会议，达到会议的效果提供了方式方法措施，奠定了基本的条件；有了以上两项，能把参加人员确定下来，那么就是这个会议的主角确定下来。</p>
+<p><strong>再看第三第四点：</strong>第三点也很重要，要发布信息，让社会、企业和相关部门了解这个会议的动态信息也很重要，但是它和会议的主题、方案比较起来，就显得比较次要。第四点是一个很具体的工作，这项工作可以概括在第二点的方案中。</p>
+<p><strong>对某一条展开说明（比如第一点会议主题）</strong>将主题由静态变为动态——以高质量税务服务促进高质量经济发展。并阐述其中包含的两个主要方面</p>
+<ol>
+<li>高质量经济发展：必须完整准确全面贯彻新发展理念；必须统筹质的有效提升和量的合理增长；必须坚定不移深化改革开放，深入转变发展方式；必须以满足人民群众日益增长的美好生活需要为出发点和落脚点。</li>
+<li>高质量税务服务：民之所盼，政之所为。税务部门要提高执法服务的质量，要搞好高质量服务。服务要准，认真积极主动地落实税收法律法规以及当下地一些政策；服务要及时，政策一旦下达，就要及时落实；服务要好，帮助解决困难；服务要主动，有服务大局地意识。</li>
+</ol>
+<p>面试地形式与创新（主要采取<strong>结构化小组面试</strong>）</p>
+<p><img src="/images/国考税务面试/image-20240116105229380.png" alt="image-20240116105229380" style="zoom:80%;" /></p>
+<p><strong>抽签</strong>定组，思考在思考室完成，下发题本，有15分钟<strong>思考</strong>时间，一共三道题，将三道题的想法写到答题纸上。引导员引导到考试房间<strong>就位就坐</strong>。主考官示意后，开始<strong>答题</strong>。每人每次的答题时间控制在两分钟。点评是一分钟时间，<strong>回应</strong>的时间是一分钟</p>
+<p>考察的能力</p>
+<ol>
+<li>逻辑思维能力——谋篇布局，层次分明，主题鲜明，逻辑清晰</li>
+<li>辩证思维能力——哲学观点处理问题，事物具有两面性</li>
+<li>法治思维能力——法制层面解决社会弊端，保障社会，经济健康平稳发展</li>
+<li>文字综合能力</li>
+<li>行政能力</li>
+</ol>
+<p><img src="/images/国考税务面试/image-20240116132740761.png" alt="image-20240116132740761"></p>
+<p>解题思路</p>
+<ul>
+<li><p>【观点】不短学习加强钻研，提高自己的专业水平，是税务部门干部良好的传统和作风，对于这种现象我们应该给与大力的支持和帮助。</p>
+</li>
+<li><p>【详细分析题干中的细节】</p>
+<ul>
+<li>省外：说明路途遥远，距离较远</li>
+<li>高级研修班：说明研究的业务层次水平较高，或者是当前比较热门的业务</li>
+<li>为期一个月：说明时间比较长</li>
+<li>专家进行培训：说明机会难得</li>
+<li>单位员工积极报名：说明想参加的人员很多</li>
+<li>大家都想参加：说明参加的意愿很强烈</li>
+</ul>
+</li>
+<li>分析每位想要参加人员的详细情况</li>
+<li>根据情况了解每隔想要参加人员的实际情况，工作情况等情况吗，为你向领导提供参加培训人选，提供更加全面的信息。</li>
+</ul>
+<p>老张：业务骨干，有重要工作要参加，第一个报名（主观上积极性很高，客观上有重要工作要处理）</p>
+<p>刘科长：有业务培训的需求，需要管理科室工作的需求，在管理上有要求</p>
+<p>小李：第一又有规定的附加条件</p>
+<p>小丁：兼职培训讲师</p>
+<ul>
+<li><p>综合分析，向主任提供自己的意见</p>
+<p>老张确实是</p>
+</li>
+<li><p>认真听取主任意见，并按照主任的想法去完善落实</p>
+</li>
+<li><p>具体落实方式</p>
+<ul>
+<li>主动征求刘科长的意见，帮助刘科长经济绝培训期间工作中交代的事情，和落实好家里边的一些事情</li>
+<li>跟老张同志沟通好，询问他的重要工作需不需要帮忙</li>
+<li>跟小李沟通好，这次没有机会，以后还有机会</li>
+<li>跟刘科长沟通好，把这次培训有关的资料完整的收集整理带回来</li>
+<li>跟主任汇报，看主任还有什么其他的指示要求，积极主动的落实好</li>
+</ul>
+</li>
+</ul>
+<p>考官视角：考察考生分析、沟通、协调能力，检验作为一种准税务人员，在行政机关中应该具有的大局意识（工作为重）、互助意识（赠人玫瑰手留余香）、效益意识（效益最大化）、补偿意识（让其他没有参加培训的人也有收获、感到平衡）、闭环意识（工作一定有头有尾）</p>
+<p>要素项：三道题，每道题对应一到两个要素（综合分析、组织管理、计划安排、信息获取、人际沟通、应急处理）要素分均等</p>
+<p>考官最重视的是综合分析题， </p>
+<p>首先的着眼点是对社会问题的关注，对国家的相应的方针政策有没有关注，国家发展主流价值观的关注和思考有没有，谈问题的深度深一点，可能得分更高一些，但不能为了深度而深度。不能是表面，套话，必须要有个人的认知，才能达到与考官的交流（答题的观点能不能赢得考官的认可——对题目的认知程度）</p>
+<ul>
+<li>联系社会现象和社会现实的必须和题目相关；最好是熟悉的涉略过的，才能谈的透彻清晰</li>
+<li>说理的广度，思维发散，服务观点就拿来用。不要就是论事，要走出来，站在更高的角度思考问题</li>
+<li>问题的站位要高。要有家国情怀，要有责任担当</li>
+</ul>
+<p>备考技巧</p>
+<ul>
+<li>练习讲话，勤加练习</li>
+<li>个人知识储备，关注经济环境发展、时事政治</li>
+<li>准备面试相关知识；注意谋篇布局，精简语言表达</li>
+</ul>
+<p>现场模拟的核心表现——动之以情、晓之以理</p>
+<ul>
+<li>有感情的共鸣</li>
+<li>展现平息事态、化解矛盾的能力</li>
+<li>语言上：1）第一人称，2）模拟富有感情，充满诚意、善意、也要展现锋芒</li>
+<li>面临其他考生的不当点评：有则改之无则加勉，接受其他考生的点评，单在回应中可以很礼貌、很艺术性的告诉他，自己并不存在这样的问题。避免尖锐党的、容易引发同事之间不友好不团结的局面出现</li>
+</ul>
+<p>判断题目考察考生的什么素质</p>
+<ul>
+<li>是不是能够依据工作目标遇见未来的机会、不利因素、根据前面情况做出相应的计划</li>
+<li>做出来的计划是否可行，可操作性</li>
+<li>执行计划的能力，变通能力是否具有</li>
+<li>考察组织过程实施，是否有组织性、条理性是否分明，清晰</li>
+<li>合理调配，安置人财物资源时，是否能做到人尽其才，物尽其用，达到资源的合理利用</li>
+<li>整个活动结束之后，善于总结提高，把感性认识提升到理性认识，在以后的工作当中开展各种各样的工作</li>
+</ul>
+<blockquote>
+<p>你单位组织欢送离退休老干部的晚会，如果是你组织，你会怎么做？</p>
+</blockquote>
+<p>这个对象确定是离退休老干部，形式是晚会。最关键的关键字是离退休老干部</p>
+<ul>
+<li><p>确定活动的主题，应该是充满回忆和祝福的，确定晚会的基调</p>
+</li>
+<li><p>确定保障措施，安排车辆接送，考虑晚会的时长，备好药品</p>
+</li>
+<li>编排节目的形式，充分询问老干部他们的意见，甄选出一些符合他们喜闻乐见的一些节目：比如唱红歌、诗朗诵等等</li>
+<li>把离退休老干部的工作前的光辉影像资料做成视频短片，展现他们从青春年华到默默奉献，再到现在展现出关心税收事业，弘扬税务事业文化等</li>
+<li>薪火相传，让离退休的老同志代表和年轻同志代表，举行接力棒形式的传递活动，以此激励新时代的税务人要继承弘扬老一辈税务人的为国聚财、为民收税的使命情怀，忠诚担当、崇法守纪、兴税强国的税务精神，让老同志的优秀品质和优良传统能在单位薪火相传、生生不息</li>
+<li>活动结束之后，需要有成果转化，可以收集影响文字资料上传进行二次宣传。以后的工作中进行常态化机制化的工作要干什么，应该建议上级做好新时代老干部的工作，一以贯之一如既往的做好服务，政治上尊重，精神上关怀、生活上体贴，尽心尽力的为老同志办实事，做好事、解难事、添了事，让老同志心情舒畅，生活顺好，不断增强老同志的满意度和幸福感 </li>
+</ul>
+<p><strong>立论</strong></p>
+<p>立论能自洽，没有标准答案，有理即可</p>
+<ul>
+<li><p>建立答题思路框架：有层次、有逻辑</p>
+</li>
+<li><p>明确答题的方法体系：主体分析法、流程分析法、要素分析法</p>
+<ul>
+<li>主体分析法：个人、企业、社会</li>
+<li>要素分析法：常态的要素（教育、宣传、监管、软硬件、资金）</li>
+</ul>
+<blockquote>
+<p>食品安全暴雷的问题（负面的社会现象）</p>
+</blockquote>
+</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Aiming</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Office/"># Office</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2024/01/28/%E5%85%AC%E5%8A%A1%E5%91%98/%E5%9B%BD%E7%A8%8E%E9%9D%A2%E8%AF%95%E4%B8%93%E9%A2%98/">国税面试专题</a>
+            
+            
+            <a class="next" rel="next" href="/2023/12/29/%E5%85%AC%E5%8A%A1%E5%91%98/%E5%85%AC%E4%B8%93%E7%9F%A5%E8%AF%86/">公专知识</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Aiming | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
